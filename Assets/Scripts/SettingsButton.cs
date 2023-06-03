@@ -7,8 +7,10 @@ using UnityEngine.EventSystems;
 public class SettingsButton : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject settingsPanel;
-    public CanvasGroup parentCanvasGroup;
+    [SerializeField]
+    private GameObject settingsPanel;
+    [SerializeField]
+    private CanvasGroup parentCanvasGroup;
     void Start()
     {
     }
