@@ -4,11 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SettingsButton : MonoBehaviour
+public class ToggleUIPanel : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private GameObject settingsPanel;
+    private GameObject UIPanel;
     [SerializeField]
     private CanvasGroup parentCanvasGroup;
     void Start()
@@ -21,16 +21,16 @@ public class SettingsButton : MonoBehaviour
         
     }
 
-    public void openSettingsPanel()
+    public void openUIPanel()
     {      
-            settingsPanel.SetActive(!settingsPanel.activeSelf);
+            UIPanel.SetActive(!UIPanel.activeSelf);
             parentCanvasGroup.interactable = false;
             parentCanvasGroup.alpha = 0.8f;
     }
 
-    public void closeSettingsPanel()
+    public void closeUIPanel()
     {
-        settingsPanel.SetActive(!settingsPanel.activeSelf);
+        UIPanel.SetActive(!UIPanel.activeSelf);
         parentCanvasGroup.interactable = true;
         parentCanvasGroup.alpha = 1f;
     }
