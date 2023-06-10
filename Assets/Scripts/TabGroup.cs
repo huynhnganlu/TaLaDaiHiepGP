@@ -8,6 +8,10 @@ public class TabGroup : MonoBehaviour
     public List<TabItem> tabItems;
     public Sprite tabIdle,tabActive;
     public List<GameObject> swapContent;
+    private TabItem selectedTabItem;
+    private GameObject disableTab;
+    public ScrollRect parentScrollRect;
+    
 
     public void addTabItems(TabItem tabItem)
     {
@@ -19,21 +23,43 @@ public class TabGroup : MonoBehaviour
         tabItems.Add(tabItem);
     }
 
+    void Start()
+    {
+        selectedTabItem = tabItems[0];
+        disableTab = GameObject.Find("SubCollectionsTab");
+    }
+
     public void OnTabSelected(TabItem tabItem)
     {
-        ResetTabs();
-        tabItem.background.sprite = tabActive;
-        int index = tabItem.transform.GetSiblingIndex();
-        for(int i = 0; i < swapContent.Count; i++)
+        if(selectedTabItem != tabItem)
         {
-            if(i == index)
+            if (tabItem.tag.Equals("CollectionsTab"))
             {
-                swapContent[i].SetActive(true);
+                if (tabItem == tabItems[0])
+                {
+                    disableTab.SetActive(true);
+                }
+                else
+                {
+                    disableTab.SetActive(false);
+                }
             }
-            else
+            ResetTabs();
+            tabItem.background.sprite = tabActive;
+            int index = tabItem.transform.GetSiblingIndex();
+            for (int i = 0; i < swapContent.Count; i++)
             {
-                swapContent[i].SetActive(false);
+                if (i == index)
+                {
+                    swapContent[i].SetActive(true);           
+                    parentScrollRect.content = swapContent[i].GetComponent<RectTransform>();
+                }
+                else
+                {
+                    swapContent[i].SetActive(false);
+                }
             }
+            selectedTabItem = tabItem;
         }
     }
 

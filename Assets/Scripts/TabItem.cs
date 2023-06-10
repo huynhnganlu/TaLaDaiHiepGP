@@ -18,7 +18,7 @@ public class TabItem : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        background = GetComponentInChildren<Image>();
+        background = GetComponent<Image>();
         tabGroup.addTabItems(this);
     }
 }
