@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MenuTextTable_vi
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: vi
+  m_SharedData: {fileID: 11400000, guid: 8a71be8fe08703846a270778f7867346, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1598693048320
+    m_Localized: "CA\xD8I \xD1A\xCBT\nHE\xC4 THO\xC1NG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138191554740224
+    m_Localized: "A\xC2m thanh chung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138547495960576
+    m_Localized: "A\xC2m nha\xEFc"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138757999689728
+    m_Localized: "A\xC2m l\xF6\xF4\xEFng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 138990775173120
+    m_Localized: "\xD1o\xE4 pha\xE2n gia\xFBi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 139321458294784
+    m_Localized: "Che\xE1 \xF1o\xE4 ma\xF8n h\xECnh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 140973586251776
+    m_Localized: "Ngo\xE2n ng\xF6\xF5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 168759260610560
+    m_Localized: "Toa\xF8n ma\xF8n h\xECnh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 168783616933888
+    m_Localized: "C\xF6\xFBa so\xE5"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 169515602673664
+    m_Localized: "TH\xD6 VIE\xC4N"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170389108424704
+    m_Localized: "Vo\xF5 \nCo\xE2ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170587004076032
+    m_Localized: "No\xE4i\nCo\xE2ng"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170674207850496
+    m_Localized: "Qua\xF9i\nVa\xE4t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170713189711872
+    m_Localized: "Kie\xE1m pha\xF9p"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170745368412160
+    m_Localized: "\xD1ao pha\xF9p"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170767329787904
+    m_Localized: "Co\xE2n pha\xF9p"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171390964072448
+    m_Localized: "Ho\xE4 thu\xFB"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
