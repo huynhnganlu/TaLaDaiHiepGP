@@ -15,34 +15,6 @@ MonoBehaviour:
   m_TableCollectionName: MenuTextTable
   m_TableCollectionNameGuidString: 8a71be8fe08703846a270778f7867346
   m_Entries:
-  - m_Id: 1598693048320
-    m_Key: SettingsMenu.Title
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138191554740224
-    m_Key: SettingsMenu.MasterVolume
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138547495960576
-    m_Key: SettingsMenu.Music
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138757999689728
-    m_Key: SettingsMenu.Sound
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138990775173120
-    m_Key: SettingsMenu.Resolution
-    m_Metadata:
-      m_Items: []
-  - m_Id: 139321458294784
-    m_Key: SettingsMenu.ScreenMode
-    m_Metadata:
-      m_Items: []
-  - m_Id: 140973586251776
-    m_Key: SettingsMenu.Language
-    m_Metadata:
-      m_Items: []
   - m_Id: 168759260610560
     m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/ScreenSettingsHolder/DropDownHolder/WindowModeDropDown
     m_Metadata:
@@ -89,6 +61,34 @@ MonoBehaviour:
   - m_Id: 171390964072448
     m_Key: MainMenu/Canvas/CollectionsUIHolder/Background/SubBackgroundUIHolder/SubCollectionsTab/FistSkillsTab/Text
       (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516167584710656
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516320454508544
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/VolumnSettingsHolder/TextHolder/MasterSoundSettingsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516347121893376
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/VolumnSettingsHolder/TextHolder/MusicSettingsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516361890037760
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/VolumnSettingsHolder/TextHolder/SoundSettingsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516416432766976
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/ScreenSettingsHolder/TextHolder/ResolutionText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516435311329280
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/ScreenSettingsHolder/TextHolder/ScreenModeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516462289092608
+    m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/ScreenSettingsHolder/TextHolder/LanguageText
     m_Metadata:
       m_Items: []
   m_Metadata:

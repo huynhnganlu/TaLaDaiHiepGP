@@ -18,34 +18,34 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 1598693048320
-    m_Localized: 'SETTINGS
-
-      SYSTEM'
+  - m_Id: 516462289092608
+    m_Localized: Language
     m_Metadata:
       m_Items: []
-  - m_Id: 138191554740224
-    m_Localized: Master volume
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138547495960576
-    m_Localized: Music
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138757999689728
-    m_Localized: Sound
-    m_Metadata:
-      m_Items: []
-  - m_Id: 138990775173120
-    m_Localized: Resolution
-    m_Metadata:
-      m_Items: []
-  - m_Id: 139321458294784
+  - m_Id: 516435311329280
     m_Localized: Screen mode
     m_Metadata:
       m_Items: []
-  - m_Id: 140973586251776
-    m_Localized: Language
+  - m_Id: 516416432766976
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516361890037760
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516347121893376
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516320454508544
+    m_Localized: Master volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 516167584710656
+    m_Localized: 'SETTINGS
+
+      SYSTEM'
     m_Metadata:
       m_Items: []
   - m_Id: 168759260610560
