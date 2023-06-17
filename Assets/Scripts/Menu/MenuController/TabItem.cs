@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,7 @@ using UnityEngine.UI;
 
 public class TabItem : MonoBehaviour, IPointerClickHandler
 {
-
- 
-    public TabGroup tabGroup;
+    public TabGroupAbstract tabGroup;
     public Image background;
 
     public void OnPointerClick(PointerEventData eventData)

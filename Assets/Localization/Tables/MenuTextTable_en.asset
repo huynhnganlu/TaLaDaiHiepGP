@@ -88,6 +88,10 @@ MonoBehaviour:
     m_Localized: Fist
     m_Metadata:
       m_Items: []
+  - m_Id: 1651320663048192
+    m_Localized: Meridians
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

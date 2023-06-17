@@ -3,39 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TabGroup : MonoBehaviour
+public class CollectionsTabGroup : TabGroupAbstract
 {
-    public List<TabItem> tabItems;
-    public Sprite tabIdle,tabActive;
-    public List<GameObject> swapContent;
-    private TabItem selectedTabItem;
     private GameObject disableTab;
     public ScrollRect parentScrollRect;
-    
-
-    public void addTabItems(TabItem tabItem)
-    {
-        if(tabItems == null)
-        {
-            tabItems = new List<TabItem>();
-        }
-
-        tabItems.Add(tabItem);
-    }
+    private TabItem selectedTabItem;
+    public TabItem defaultTabItem;
 
     void Start()
-    {
-        selectedTabItem = tabItems[0];
+    {   
+        if(defaultTabItem != null)
+            selectedTabItem = defaultTabItem;
         disableTab = GameObject.Find("SubCollectionsTab");
     }
 
-    public void OnTabSelected(TabItem tabItem)
+    public override void OnTabSelected(TabItem tabItem)
     {
         if(selectedTabItem != tabItem)
         {
             if (tabItem.tag.Equals("CollectionsTab"))
             {
-                if (tabItem == tabItems[0])
+                if (tabItem == defaultTabItem)
                 {
                     disableTab.SetActive(true);
                 }
@@ -62,14 +50,5 @@ public class TabGroup : MonoBehaviour
             selectedTabItem = tabItem;
         }
     }
-
-    public void ResetTabs()
-    {
-        foreach(TabItem tabItem in tabItems)
-        {
-            tabItem.background.sprite = tabIdle;
-        }
-        
-    }
-    
+  
 }

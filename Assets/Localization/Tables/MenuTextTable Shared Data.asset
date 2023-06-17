@@ -91,6 +91,10 @@ MonoBehaviour:
     m_Key: MainMenu/Canvas/SettingsUIHolder/SettingsPanel/ScreenSettingsHolder/TextHolder/LanguageText
     m_Metadata:
       m_Items: []
+  - m_Id: 1651320663048192
+    m_Key: MainMenu/Canvas/MeridianUIHolder/Header
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
