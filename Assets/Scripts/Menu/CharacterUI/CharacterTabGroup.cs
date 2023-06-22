@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeridianTabGroup : TabGroupAbstract
+public class CharacterTabGroup : TabGroupAbstract
 {
+
     private TabItem selectedTabItem;
     public TabItem defaultTabItem;
-
-    private void Start()
-    {
-        if (defaultTabItem != null)
-            selectedTabItem = defaultTabItem;
-    }
-
     public override void OnTabSelected(TabItem tabItem)
     {
         if (selectedTabItem != tabItem)
@@ -34,4 +28,13 @@ public class MeridianTabGroup : TabGroupAbstract
             selectedTabItem = tabItem;
         }
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //if (defaultTabItem != null)
+            selectedTabItem = defaultTabItem;
+    }
+
+   
 }

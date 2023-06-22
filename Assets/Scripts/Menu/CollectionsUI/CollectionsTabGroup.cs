@@ -12,8 +12,7 @@ public class CollectionsTabGroup : TabGroupAbstract
 
     void Start()
     {   
-        if(defaultTabItem != null)
-            selectedTabItem = defaultTabItem;
+        selectedTabItem = defaultTabItem;
         disableTab = GameObject.Find("SubCollectionsTab");
     }
 
