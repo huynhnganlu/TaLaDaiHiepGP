@@ -16,10 +16,13 @@ public class SkillsController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(20);
             Destroy(gameObject);
         }
     }

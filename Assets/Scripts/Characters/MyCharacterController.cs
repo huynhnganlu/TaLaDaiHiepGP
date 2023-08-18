@@ -66,19 +66,19 @@ public class MyCharacterController : MonoBehaviour
         
     }
 
-    //Set value for health bar
+    //Set gia tri cho mau
     public void SetHealthBar(int health)
     {
         healthBar.value = health;
     }
-
+    //Set gia tri cho khien
     public void SetShieldBar(int shield)
     {
         shiledBar.value = shield;
     }
 
 
-    //Take damage from enemy
+    //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
     {
         if(currentShield > 0)
@@ -93,10 +93,10 @@ public class MyCharacterController : MonoBehaviour
         }
       
     }
-
+    //Instance skill ra
     void CallSkills()
     {
-        GameObject arrow = Instantiate(skill, transform.position, Quaternion.identity);
+        GameObject arrow = Instantiate(skill, transform.position + new Vector3(2f,0f,0f), Quaternion.identity);
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(3.0f,0f);
     }
 }
