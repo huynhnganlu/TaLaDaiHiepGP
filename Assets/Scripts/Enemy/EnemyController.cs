@@ -6,7 +6,6 @@ public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private MyCharacterController player;
     private float enemyMaxHP = 20f;
     private float currentEnemyHP;
     
@@ -14,7 +13,6 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<MyCharacterController>();
         currentEnemyHP = enemyMaxHP;
     }
 
@@ -30,7 +28,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            player.TakeEnemyDamage(20);
+            MyCharacterController.Instance.TakeEnemyDamage(20);
         }
         if(collision.gameObject.tag == "Skill")
         {
@@ -53,6 +51,10 @@ public class EnemyController : MonoBehaviour
         Debug.Log(currentEnemyHP);
         currentEnemyHP -= damage;
         if (currentEnemyHP <= 0)
+        {
+            MyCharacterController.Instance.AddExp(100);
             Destroy(gameObject);
+
+        }
     }
 }

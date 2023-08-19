@@ -5,22 +5,47 @@ using UnityEngine.UI;
 
 public class MyCharacterController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+    //Animation vs Physic variables
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
-
-    public int maxHealth = 100;
-    public int maxShield = 100;
-    private int currentHealth;
-    private int currentShield;
-    public Slider healthBar;
-    public Slider shiledBar;
-
     private float speed = 7.0f;
 
+    //Health vs Shiled variables
+    private int maxHealth = 100;
+    private int maxShield = 100;
+    public int currentHealth;
+    private int currentShield;
+    public Slider healthBar;
+    public Slider shieldBar;
+
+    //Level variables
+    public int currentLevel, maxExp, currentExp;
+    [SerializeField]
+    private Slider expBar;
+  
+    //Singleton variables
+    public static MyCharacterController Instance { get; private set; }
+
+    //Skill variables
     public GameObject skill;
+
+    //Observer handle variables
+    public delegate void ExpHandler(int amount);
+    public event ExpHandler OnExpChange;
+
+    //Singleton
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,9 +54,11 @@ public class MyCharacterController : MonoBehaviour
         currentHealth = maxHealth;
         currentShield = maxShield;
         healthBar.maxValue = maxHealth;
-        shiledBar.maxValue = maxShield;
-        SetHealthBar(maxHealth);
-        SetShieldBar(maxShield);
+        shieldBar.maxValue = maxShield;
+        healthBar.value = maxHealth;
+        shieldBar.value = maxShield;
+
+        expBar.maxValue = maxExp;
 
         InvokeRepeating("CallSkills", 2f, 2f);
     }
@@ -39,11 +66,15 @@ public class MyCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        if(PrizeController.Instance.isFreezing == false)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
+      
     }
 
     private void FixedUpdate()
@@ -51,45 +82,30 @@ public class MyCharacterController : MonoBehaviour
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnEnable()
     {
-       
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        
-    }
-
-    //Set gia tri cho mau
-    public void SetHealthBar(int health)
-    {
-        healthBar.value = health;
-    }
-    //Set gia tri cho khien
-    public void SetShieldBar(int shield)
-    {
-        shiledBar.value = shield;
+        OnExpChange += HandleExpChange;
     }
 
 
+    private void OnDisable()
+    {
+        OnExpChange += HandleExpChange;
+    }
+
+  
     //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
     {
         if(currentShield > 0)
         {
             currentShield -= damage;
-            SetShieldBar(currentShield);
+            shieldBar.value = currentShield;
         }
         else
         {
             currentHealth -= damage;
-            SetHealthBar(currentHealth);
+            healthBar.value = currentHealth;
         }
       
     }
@@ -99,4 +115,43 @@ public class MyCharacterController : MonoBehaviour
         GameObject arrow = Instantiate(skill, transform.position + new Vector3(2f,0f,0f), Quaternion.identity);
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(3.0f,0f);
     }
+    //Them function tiep nhan sw thay doi cho event
+    public void AddExp(int amount)
+    {
+        OnExpChange?.Invoke(amount);
+    }
+    //Them observer cho su thay doi cua exp
+    private void HandleExpChange(int amount)
+    {
+        currentExp += amount;
+        if(currentExp >= maxExp)
+        {
+            LevelUp();
+        }
+        expBar.value = currentExp;
+    }
+    //Function len cap
+    private void LevelUp()
+    {
+        currentExp = 0;
+        currentLevel++;
+        maxExp += 100;
+        expBar.maxValue = maxExp;
+        PrizeController.Instance.togglePrize();
+    }
+    //Trigger save
+    public void SaveData()
+    {
+        SaveSystem.SavePlayerData(this);
+    }
+    //Trigger load
+    //Note: Su dung operator = cho PlayerData no chi reference den file, neu file thay doi trang thai co the viec doc se khong duoc xay ra, do do chung ta can set tung gia tri
+    public void LoadData()
+    {
+        PlayerData dataLoad = SaveSystem.LoadPlayerData();
+        currentLevel = dataLoad.level;
+    }
+
+   
+
 }
