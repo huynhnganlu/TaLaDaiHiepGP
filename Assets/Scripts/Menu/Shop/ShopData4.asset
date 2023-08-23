@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8385126b021ffc24ab90ac56057c5a79, type: 3}
-  m_Name: ShopData1
+  m_Name: ShopData4
   m_EditorClassIdentifier: 
-  itemCost: 200
-  itemImage: {fileID: 21300000, guid: acf7363fedadf4941a1eb15163b95c8d, type: 3}
-  itemDescription: Toa vong cong
+  itemCost: 300
+  itemImage: {fileID: 21300000, guid: 1768144de70f74f478a43fcc194e3bd8, type: 3}
+  itemDescription: Tao hoa cong 4
   isBuying: 1
   isEquip: 0

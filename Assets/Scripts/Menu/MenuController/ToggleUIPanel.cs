@@ -11,6 +11,8 @@ public class ToggleUIPanel : MonoBehaviour
     private GameObject UIPanel;
     [SerializeField]
     private CanvasGroup parentCanvasGroup;
+    [SerializeField]
+    private float alphaValue = 1f;
     void Start()
     {
     }
@@ -25,7 +27,7 @@ public class ToggleUIPanel : MonoBehaviour
     {      
             UIPanel.SetActive(!UIPanel.activeSelf);
             parentCanvasGroup.interactable = false;
-            parentCanvasGroup.alpha = 0.8f;
+            parentCanvasGroup.alpha = alphaValue;
     }
 
     public void closeUIPanel()

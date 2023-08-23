@@ -20,6 +20,7 @@ public class CollectionsTabGroup : TabGroupAbstract
     {
         if(selectedTabItem != tabItem)
         {
+            //Tab dac biet danh cho 4 sub collections tab
             if (tabItem.tag.Equals("CollectionsTab"))
             {
                 if (tabItem == defaultTabItem)

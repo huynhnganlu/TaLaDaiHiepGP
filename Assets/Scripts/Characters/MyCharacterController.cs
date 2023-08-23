@@ -90,7 +90,7 @@ public class MyCharacterController : MonoBehaviour
 
     private void OnDisable()
     {
-        OnExpChange += HandleExpChange;
+        OnExpChange -= HandleExpChange;
     }
 
   

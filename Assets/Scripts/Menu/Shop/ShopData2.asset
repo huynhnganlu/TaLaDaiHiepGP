@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCost: 300
   itemImage: {fileID: 21300000, guid: 1768144de70f74f478a43fcc194e3bd8, type: 3}
-  description: Tao hoa cong
-  isBuying: 0
+  itemDescription: Tao hoa cong 2
+  isBuying: 1
+  isEquip: 0
