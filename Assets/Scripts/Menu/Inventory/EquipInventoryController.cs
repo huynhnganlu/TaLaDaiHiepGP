@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class EquipInventoryController : MonoBehaviour
 {
-    private List<InventoryItems> equipedInventoryItems;
+    private List<InventoryItems> equipedInventoryItemsList;
     [SerializeField]
     private InventoryItemController inventoryItemController;
     [SerializeField]
     private EquipInventoryItemsButton equipInventoryItemsButton;
+    [SerializeField]
+    private EquipInventoryItemsUI equipInventoryItemsUI;
     public void EquipItem(int slot)
     {
-        if (equipedInventoryItems == null)
+        if (equipedInventoryItemsList == null)
         {
-            equipedInventoryItems = new List<InventoryItems>();
-            equipedInventoryItems.Add(null);
-            equipedInventoryItems.Add(null);
-            equipedInventoryItems.Add(null);
+            equipedInventoryItemsList = new List<InventoryItems>();
+            equipedInventoryItemsList.Add(null);
+            equipedInventoryItemsList.Add(null);
+            equipedInventoryItemsList.Add(null);
         }
         InventoryItems equipItem = inventoryItemController.inventoryItemsList[equipInventoryItemsButton.indexItemClicked];
         bool alreadyAttached = false;
         int index = 0;
-        for (int i = 0; i < equipedInventoryItems.Count; i++)
+        for (int i = 0; i < equipedInventoryItemsList.Count; i++)
         {
-            if (equipedInventoryItems[i] != null && equipedInventoryItems[i].Equals(equipItem) && (i != slot))
+            if (equipedInventoryItemsList[i] != null && equipedInventoryItemsList[i].Equals(equipItem) && (i != slot))
             {
                 alreadyAttached = true;
                 index = i;
@@ -31,8 +33,9 @@ public class EquipInventoryController : MonoBehaviour
         }
 
         if (alreadyAttached == true)
-            equipedInventoryItems[index] = null;
-        equipedInventoryItems[slot] = equipItem;
+            equipedInventoryItemsList[index] = null;
+        equipedInventoryItemsList[slot] = equipItem;
+        equipInventoryItemsUI.CreateEquipedInventoryItemsUI(equipedInventoryItemsList);
     }
 
 }
