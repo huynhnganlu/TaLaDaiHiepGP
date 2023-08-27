@@ -66,7 +66,7 @@ public class MyCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PrizeController.Instance.isFreezing == false)
+        if(MapController.Instance.isFreezing == false)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -137,7 +137,7 @@ public class MyCharacterController : MonoBehaviour
         currentLevel++;
         maxExp += 100;
         expBar.maxValue = maxExp;
-        PrizeController.Instance.togglePrize();
+        MapController.Instance.togglePrize(true);
     }
     //Trigger save
     public void SaveData()

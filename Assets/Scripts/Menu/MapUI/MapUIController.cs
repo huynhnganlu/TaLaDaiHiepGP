@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MapController : MonoBehaviour
+public class MapUIController : MonoBehaviour
 {
     public ScrollRect scrollRect;
     private float scrollSpeed = 0.3f;
     public delegate void MapSelectEvent(bool status, string orientation);
     public event MapSelectEvent mapSelect;
-    public static MapController Instance { get; private set; }
+    public static MapUIController Instance { get; private set; }
     public string currentMap = "Map01";
+
+    public Button buttonFight;
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -26,7 +29,10 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        
+        buttonFight.onClick.AddListener(() =>
+        {
+            ButtonStartFight();
+        });
     }
 
     private void OnEnable()
@@ -56,5 +62,10 @@ public class MapController : MonoBehaviour
     public void ScrollButtonClick(bool status,string orientation)
     {
         mapSelect?.Invoke(status, orientation);
+    }
+
+    private void ButtonStartFight()
+    {
+        SceneManager.LoadScene("Map01");
     }
 }

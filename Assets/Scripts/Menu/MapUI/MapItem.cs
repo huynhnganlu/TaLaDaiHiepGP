@@ -12,6 +12,6 @@ public class MapItem : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         textUI.text = mapDescription;
-        MapController.Instance.currentMap = name;
+        MapUIController.Instance.currentMap = name;
     }
 }

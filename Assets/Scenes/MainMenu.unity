@@ -10136,7 +10136,6 @@ GameObject:
   m_Component:
   - component: {fileID: 555519189}
   - component: {fileID: 555519190}
-  - component: {fileID: 555519191}
   m_Layer: 5
   m_Name: MapEvent
   m_TagString: Untagged
@@ -10178,18 +10177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 300056559}
   currentMap: 
---- !u!114 &555519191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555519188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e6eb85d076acf4b98e6a4513f14df1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  buttonFight: {fileID: 1893710611}
 --- !u!224 &581913660 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 11067289064894125, guid: 67091cea0616bf147805be6b3558cf92, type: 3}

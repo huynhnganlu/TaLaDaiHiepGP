@@ -7,6 +7,7 @@ TagManager:
   - CollectionsTab
   - Enemy
   - Skill
+  - Boss
   layers:
   - Default
   - TransparentFX
