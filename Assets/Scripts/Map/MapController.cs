@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +18,11 @@ public class MapController : MonoBehaviour
     public GameObject prizeObject;
     public Button processFinishMapButton;
     public Button[] processPrizeButtons;
+    [SerializeField]
+    private TextMeshProUGUI money, qi;
+    [SerializeField]
+    private CharacterData characterData;
+
 
 
     private void Awake()
@@ -35,6 +41,8 @@ public class MapController : MonoBehaviour
     {
         processFinishMapButton.onClick.AddListener(() =>
         {
+            characterData.money = MyCharacterController.Instance.money;
+            characterData.qi = MyCharacterController.Instance.qi;
             loadSceneMainMenu();
         });
         foreach(Button btn in processPrizeButtons)
@@ -59,6 +67,8 @@ public class MapController : MonoBehaviour
     {
         finishMapUI.SetActive(true);
         setFreezing(true);
+        money.text = MyCharacterController.Instance.money.ToString();
+        qi.text = MyCharacterController.Instance.qi.ToString();
     }
 
     private void loadSceneMainMenu()

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class MeridianTabGroup : TabGroupAbstract
 {
-    private TabItem selectedTabItem;
+    public TabItem selectedTabItem;
     public TabItem defaultTabItem;
 
     private void Start()
@@ -16,21 +17,10 @@ public class MeridianTabGroup : TabGroupAbstract
     {
         if (selectedTabItem != tabItem)
         {
+            selectedTabItem = tabItem;
             ResetTabs();
             tabItem.background.sprite = tabActive;
-            int index = tabItem.transform.GetSiblingIndex();
-            for (int i = 0; i < swapContent.Count; i++)
-            {
-                if (i == index)
-                {
-                    swapContent[i].SetActive(true);
-                }
-                else
-                {
-                    swapContent[i].SetActive(false);
-                }
-            }
-            selectedTabItem = tabItem;
+            MeridianController.Instance.SetMeridianLevel(tabItem.GetComponent<MeridianAbstract>().level);
         }
     }
 }

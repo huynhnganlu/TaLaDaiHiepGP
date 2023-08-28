@@ -5,13 +5,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "ShopData", menuName = "Scriptable Objects/New Shop Item", order = 1)]
+[CreateAssetMenu(fileName = "ShopData", menuName = "Scriptable Objects/New Shop Item", order = 2)]
 public class ShopItemData : ScriptableObject
 { 
      
     public int itemCost;
     public Sprite itemImage;
     public string itemDescription;
-    public bool isBuying = false;
-    public bool isEquip = false;
+    public bool isBuying, isEquip = false;
+    
 }

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BossController : EnemyController
 {
-    public override float enemyMaxHP { get; set; }
-    public override float currentEnemyHP { get; set; }
+    public override int enemyMaxHP { get; set; }
+    public override int currentEnemyHP { get; set; }
+    public override int exp { get; set; }
+    public override int money { get; set; }
+    public override int qi { get; set; }
 
     public static BossController Instance;
 

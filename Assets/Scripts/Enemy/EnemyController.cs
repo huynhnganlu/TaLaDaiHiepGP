@@ -6,10 +6,13 @@ public abstract class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public abstract float enemyMaxHP { get; set; }
-    public abstract float currentEnemyHP { get; set;}
+    public abstract int enemyMaxHP { get; set; }
+    public abstract int currentEnemyHP { get; set;}
+    public abstract int exp { get; set; }
+    public abstract int money { get; set; }
+    public abstract int qi { get; set; }
 
-  
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -33,7 +36,7 @@ public abstract class EnemyController : MonoBehaviour
             }
             else
             {
-                MyCharacterController.Instance.AddExp(100);
+                MyCharacterController.Instance.AddKillEnemyChange(this.exp, this.money, this.qi);
             }
             Destroy(gameObject);
         }

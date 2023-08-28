@@ -23,6 +23,12 @@ public class MyCharacterController : MonoBehaviour
     public int currentLevel, maxExp, currentExp;
     [SerializeField]
     private Slider expBar;
+
+    //Money variables
+    public int money = 0;
+
+    //Meridians value variables
+    public int qi = 0;
   
     //Singleton variables
     public static MyCharacterController Instance { get; private set; }
@@ -31,8 +37,9 @@ public class MyCharacterController : MonoBehaviour
     public GameObject skill;
 
     //Observer handle variables
-    public delegate void ExpHandler(int amount);
-    public event ExpHandler OnExpChange;
+    public delegate void DataKillHandle(int exp, int money, int qi);
+    public event DataKillHandle OnKillEnemy;
+    
 
     //Singleton
     private void Awake()
@@ -84,13 +91,13 @@ public class MyCharacterController : MonoBehaviour
 
     private void OnEnable()
     {
-        OnExpChange += HandleExpChange;
+        OnKillEnemy += HandleKillEnemy;
     }
 
 
     private void OnDisable()
     {
-        OnExpChange -= HandleExpChange;
+        OnKillEnemy -= HandleKillEnemy;
     }
 
   
@@ -115,20 +122,22 @@ public class MyCharacterController : MonoBehaviour
         GameObject arrow = Instantiate(skill, transform.position + new Vector3(2f,0f,0f), Quaternion.identity);
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(3.0f,0f);
     }
-    //Them function tiep nhan sw thay doi cho event
-    public void AddExp(int amount)
+    //Them function tiep nhan su thay doi cho event
+    public void AddKillEnemyChange(int exp, int money, int qi)
     {
-        OnExpChange?.Invoke(amount);
+        OnKillEnemy?.Invoke(exp, money, qi);
     }
-    //Them observer cho su thay doi cua exp
-    private void HandleExpChange(int amount)
+    //Them observer cho su thay doi cua cac gia tri khi giet duoc quai vat
+    private void HandleKillEnemy(int exp, int _money, int _qi)
     {
-        currentExp += amount;
-        if(currentExp >= maxExp)
+        currentExp += exp;
+        if (currentExp >= maxExp)
         {
             LevelUp();
         }
         expBar.value = currentExp;
+        money += _money;
+        qi += _qi;
     }
     //Function len cap
     private void LevelUp()
