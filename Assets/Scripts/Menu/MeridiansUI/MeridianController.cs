@@ -15,6 +15,10 @@ public class MeridianController : MonoBehaviour
     [SerializeField]
     private GameObject meridianInfoDataHolder;
 
+    public TextMeshProUGUI qiHolder;
+    [SerializeField]
+    private CharacterData characterData;
+
     public static MeridianController Instance;
 
     private void Awake()
@@ -32,6 +36,7 @@ public class MeridianController : MonoBehaviour
 
     private void Start()
     {
+        qiHolder.text = characterData.qi.ToString();
         levelUpMeridianButton.onClick.AddListener(() =>
         {
             meridianTabGroup.selectedTabItem.GetComponent<MeridianAbstract>().levelUpMeridian();

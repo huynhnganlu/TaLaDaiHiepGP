@@ -18,9 +18,11 @@ public class MeridianTabGroup : TabGroupAbstract
         if (selectedTabItem != tabItem)
         {
             selectedTabItem = tabItem;
+            tabItem.GetComponent<MeridianAbstract>().ResetPropertyData();
             ResetTabs();
             tabItem.background.sprite = tabActive;
             MeridianController.Instance.SetMeridianLevel(tabItem.GetComponent<MeridianAbstract>().level);
+            tabItem.GetComponent<MeridianAbstract>().GetPropertyData();
         }
     }
 }

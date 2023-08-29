@@ -5,30 +5,29 @@ using UnityEngine;
 
 public class EmeiMeridian : MeridianAbstract
 {
-    public Dictionary<string, string> propertyData;
     public override int hp { get; set; }
     public override int level { get; set; }
-    public GameObject propertyDataObject;
-    public GameObject dataObjectParent;
-  
+
+    public override void levelUpMeridian()
+    {
+        hp += 10;
+        level++;
+        characterData.hp += hp;
+        characterData.qi -= 10;
+        MeridianController.Instance.qiHolder.text = characterData.qi.ToString();
+        MeridianController.Instance.SetMeridianLevel(level);
+    }
 
     private void Start()
     {
         propertyData = new Dictionary<string, string>();
+        propertyData.Add("Khi huyet", "Emei");
+        propertyData.Add("Mana", "Emei");
         hp = 0;
         level = 0;
-        propertyData.Add("Khi huyet", hp.ToString());
-        getPropertyData();
+        GetPropertyData();
     }
 
-    void getPropertyData()
-    {
-        foreach(KeyValuePair<string, string> kvp in propertyData)
-        {
-            GameObject gameObject = Instantiate(propertyDataObject);
-            gameObject.GetComponent<PropertyDataController>().SetData(kvp.Key, kvp.Value);
-            gameObject.transform.SetParent(dataObjectParent.transform);
-        }
-    }
+   
 
 }

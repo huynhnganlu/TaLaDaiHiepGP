@@ -43,7 +43,7 @@ public class MapController : MonoBehaviour
         {
             characterData.money = MyCharacterController.Instance.money;
             characterData.qi = MyCharacterController.Instance.qi;
-            loadSceneMainMenu();
+            LoadSceneMainMenu();
         });
         foreach(Button btn in processPrizeButtons)
         {
@@ -54,7 +54,7 @@ public class MapController : MonoBehaviour
         }
        
     }
-    public void setFreezing(bool status)
+    public void SetFreezing(bool status)
     {
         isFreezing = status;
         if (isFreezing)
@@ -63,27 +63,27 @@ public class MapController : MonoBehaviour
             Time.timeScale = 1;
     }
 
-    public void processFinishMap()
+    public void ProcessFinishMap()
     {
         finishMapUI.SetActive(true);
-        setFreezing(true);
+        SetFreezing(true);
         money.text = MyCharacterController.Instance.money.ToString();
         qi.text = MyCharacterController.Instance.qi.ToString();
     }
 
-    private void loadSceneMainMenu()
+    private void LoadSceneMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void togglePrize(bool status)
+    public void TogglePrize(bool status)
     {
         prizeObject.SetActive(status);
-        setFreezing(true);
+        SetFreezing(true);
     }
     private void OnPlayerSelectPrize()
     {
-        togglePrize(false);
-        setFreezing(false);
+        TogglePrize(false);
+        SetFreezing(false);
     }
 }

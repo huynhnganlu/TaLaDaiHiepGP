@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,12 +13,11 @@ public class MyCharacterController : MonoBehaviour
     private float speed = 7.0f;
 
     //Health vs Shiled variables
-    private int maxHealth = 100;
-    private int maxShield = 100;
+    private int maxHealth, maxShield = 100;
     public int currentHealth;
     private int currentShield;
-    public Slider healthBar;
-    public Slider shieldBar;
+    public Slider healthBar, shieldBar;
+    public TextMeshProUGUI healthText, shieldText;
 
     //Level variables
     public int currentLevel, maxExp, currentExp;
@@ -64,6 +64,8 @@ public class MyCharacterController : MonoBehaviour
         shieldBar.maxValue = maxShield;
         healthBar.value = maxHealth;
         shieldBar.value = maxShield;
+        healthText.text = currentHealth.ToString();
+        shieldText.text = currentShield.ToString();
 
         expBar.maxValue = maxExp;
 
@@ -108,11 +110,25 @@ public class MyCharacterController : MonoBehaviour
         {
             currentShield -= damage;
             shieldBar.value = currentShield;
+            shieldText.text = currentShield.ToString();
+
         }
         else
         {
-            currentHealth -= damage;
-            healthBar.value = currentHealth;
+            if(currentHealth - damage > 0)
+            {
+                currentHealth -= damage;
+                healthBar.value = currentHealth;
+                healthText.text = currentHealth.ToString();
+            }
+            else
+            {
+                currentHealth -= damage;
+                healthBar.value = currentHealth;
+                healthText.text = "0";
+                MapController.Instance.ProcessFinishMap();
+            }
+           
         }
       
     }
@@ -146,7 +162,7 @@ public class MyCharacterController : MonoBehaviour
         currentLevel++;
         maxExp += 100;
         expBar.maxValue = maxExp;
-        MapController.Instance.togglePrize(true);
+        MapController.Instance.TogglePrize(true);
     }
     //Trigger save
     public void SaveData()

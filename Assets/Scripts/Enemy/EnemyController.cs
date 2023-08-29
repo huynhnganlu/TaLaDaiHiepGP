@@ -32,7 +32,7 @@ public abstract class EnemyController : MonoBehaviour
         {
             if(this.name.Equals("Boss"))
             {
-                MapController.Instance.processFinishMap();
+                MapController.Instance.ProcessFinishMap();
             }
             else
             {
