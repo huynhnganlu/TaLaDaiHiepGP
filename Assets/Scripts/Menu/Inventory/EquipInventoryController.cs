@@ -1,18 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipInventoryController : MonoBehaviour
 {
+    //Danh sach cac item duoc trang bi {Mac dinh se co 3}
     private List<InventoryItems> equipedInventoryItemsList;
-    [SerializeField]
-    private InventoryItemController inventoryItemController;
-    [SerializeField]
-    private EquipInventoryItemsButton equipInventoryItemsButton;
+
+    //Reference den xu ly UI o Character
     [SerializeField]
     private EquipInventoryItemsUI equipInventoryItemsUI;
+
+    [SerializeField]
+    private CharacterData characterData;
+
+    //Singleton
+    public static EquipInventoryController Instance;
+
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+
+
+    //Ham trang bi item
     public void EquipItem(int slot)
     {
+        //Tao danh sach co kich thuoc la 3 de luu tru item
         if (equipedInventoryItemsList == null)
         {
             equipedInventoryItemsList = new List<InventoryItems>();
@@ -20,7 +44,9 @@ public class EquipInventoryController : MonoBehaviour
             equipedInventoryItemsList.Add(null);
             equipedInventoryItemsList.Add(null);
         }
-        InventoryItems equipItem = inventoryItemController.inventoryItemsList[equipInventoryItemsButton.indexItemClicked];
+
+        //Tao item dua tren tab duoc click va xu ly logic sau do tao UI o character
+        InventoryItems equipItem = InventoryController.Instance.inventoryItemsList[InventoryController.Instance.indexItemClicked];
         bool alreadyAttached = false;
         int index = 0;
         for (int i = 0; i < equipedInventoryItemsList.Count; i++)
@@ -36,6 +62,27 @@ public class EquipInventoryController : MonoBehaviour
             equipedInventoryItemsList[index] = null;
         equipedInventoryItemsList[slot] = equipItem;
         equipInventoryItemsUI.CreateEquipedInventoryItemsUI(equipedInventoryItemsList);
+        SaveEquipedData();
+    }
+
+    public List<InventoryItems> GetListEquiped()
+    {
+        return equipedInventoryItemsList;
+    }
+
+    public void SaveEquipedData()
+    {
+        for(int i = 0;i < equipedInventoryItemsList.Count; i++)
+        {
+            if (equipedInventoryItemsList[i] != null)
+            {
+                characterData.innerImage[i] = equipedInventoryItemsList[i].itemImage;
+            }
+            else
+            {
+                characterData.innerImage[i] = null;
+            }
+        }
     }
 
 }

@@ -8,12 +8,12 @@ using UnityEngine.UI;
 
 public class InventoryItems : MonoBehaviour, IPointerClickHandler
 {
-    private InventoryItemController inventoryItemController;
+    private InventoryController inventoryItemController;
     public string itemName, itemDescription;
     public Sprite itemImage; 
     void Start()
     {
-        inventoryItemController = GetComponentInParent<InventoryItemController>();
+        inventoryItemController = GetComponentInParent<InventoryController>();
         inventoryItemController.AddInventoryItems(this);
     }
 

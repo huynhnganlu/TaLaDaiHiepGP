@@ -22,20 +22,24 @@ public class InventoryTabGroupController : TabGroupAbstract
 
     public override void OnTabSelected(TabItem tabItem)
     {
-        ResetTabs();
-        int index = tabItem.transform.GetSiblingIndex();
-        for (int i = 0; i < swapContent.Count; i++)
+        if(tabItem != selectedTabItem)
         {
-            if (i == index)
+            ResetTabs();
+            int index = tabItem.transform.GetSiblingIndex();
+            for (int i = 0; i < swapContent.Count; i++)
             {
-                swapContent[i].SetActive(true);
-                scrollRect.content = swapContent[i].GetComponent<RectTransform>();
+                if (i == index)
+                {
+                    swapContent[i].SetActive(true);
+                    scrollRect.content = swapContent[i].GetComponent<RectTransform>();
+                }
+                else
+                {
+                    swapContent[i].SetActive(false);
+                }
             }
-            else
-            {
-                swapContent[i].SetActive(false);
-            }
+            selectedTabItem = tabItem;
         }
-        selectedTabItem = tabItem;
+       
     }
 }
