@@ -31,10 +31,7 @@ public class EquipInventoryController : MonoBehaviour
         }
     }
 
-
-
-    //Ham trang bi item
-    public void EquipItem(int slot)
+    private void Start()
     {
         //Tao danh sach co kich thuoc la 3 de luu tru item
         if (equipedInventoryItemsList == null)
@@ -44,13 +41,17 @@ public class EquipInventoryController : MonoBehaviour
             equipedInventoryItemsList.Add(null);
             equipedInventoryItemsList.Add(null);
         }
+    }
 
+    //Ham trang bi item
+    public void EquipItem(int slot)
+    {
         //Tao item dua tren tab duoc click va xu ly logic sau do tao UI o character
         InventoryItems equipItem = InventoryController.Instance.inventoryItemsList[InventoryController.Instance.indexItemClicked];
         bool alreadyAttached = false;
         int index = 0;
         for (int i = 0; i < equipedInventoryItemsList.Count; i++)
-        {
+        {         
             if (equipedInventoryItemsList[i] != null && equipedInventoryItemsList[i].Equals(equipItem) && (i != slot))
             {
                 alreadyAttached = true;

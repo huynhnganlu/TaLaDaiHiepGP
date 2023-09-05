@@ -17,3 +17,4 @@ MonoBehaviour:
   itemDescription: Toa vong cong
   isBuying: 1
   isEquip: 0
+  isStoring: 0

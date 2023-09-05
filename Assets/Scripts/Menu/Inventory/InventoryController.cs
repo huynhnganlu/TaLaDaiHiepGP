@@ -48,9 +48,8 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         indexItemClicked = 0;
-        getBoughtInner();
-        currentItem = defaultItem;
-        SetItemValue(defaultItem);
+       /* currentItem = defaultItem;
+        SetItemValue(defaultItem); */
         openInventoryUIButton.onClick.AddListener(() =>
         {
             OpenEquipUI();
@@ -63,13 +62,14 @@ public class InventoryController : MonoBehaviour
     }
 
     //Danh sach cac noi cong da mua & khoi tao UI & truyen du lieu cua cac Inventory Item
-    void getBoughtInner()
+    //Luu y phai set Storing = false tat ca sau khi reset application game
+    public void GetBoughtInner()
     {
-        foreach(ShopItemData data in shopController.shopItemsData)
+        foreach (ShopItemData data in shopController.shopItemsData)
         {
-            if(data.isBuying == true)
+            if(data.isBuying == true && data.isStoring == false)
             {
-                GameObject item = Instantiate(inventoryItem, transform.position, transform.rotation);
+                GameObject item = Instantiate(inventoryItem);
                 item.GetComponentInChildren<TextMeshProUGUI>().text = data.itemDescription;
                 item.transform.SetParent(this.transform, false);
                 InventoryItems itemData = item.GetComponent<InventoryItems>();  
@@ -78,14 +78,14 @@ public class InventoryController : MonoBehaviour
                 itemData.itemImage = data.itemImage;
                 if (defaultItem == null)
                     defaultItem = itemData;
+                data.isStoring = true;
             }
         }
     }
     //Them cac item da khoi tao vao trong list
     public void AddInventoryItems(InventoryItems inventoryItems)
     {
-        if (inventoryItemsList == null)
-            inventoryItemsList = new List<InventoryItems>();
+        inventoryItemsList ??= new List<InventoryItems>();
         inventoryItemsList.Add(inventoryItems);
     }
     //Xu ly khi click vao item
@@ -95,6 +95,7 @@ public class InventoryController : MonoBehaviour
         {
             SetItemValue(inventoryItems);
             currentItem = inventoryItems;
+           
         }
     }
     //Khi item duoc click gan cac gia tri can thiet vao cac UI

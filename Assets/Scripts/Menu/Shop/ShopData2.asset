@@ -17,3 +17,4 @@ MonoBehaviour:
   itemDescription: Tao hoa cong 2
   isBuying: 1
   isEquip: 0
+  isStoring: 0

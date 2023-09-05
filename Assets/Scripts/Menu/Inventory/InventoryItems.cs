@@ -13,8 +13,7 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
     public Sprite itemImage; 
     void Start()
     {
-        inventoryItemController = GetComponentInParent<InventoryController>();
-        inventoryItemController.AddInventoryItems(this);
+        InventoryController.Instance.AddInventoryItems(this);
     }
 
     // Update is called once per frame
@@ -25,6 +24,6 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        inventoryItemController.OnInventoryItemsClick(this);
+        InventoryController.Instance.OnInventoryItemsClick(this);
     }
 }

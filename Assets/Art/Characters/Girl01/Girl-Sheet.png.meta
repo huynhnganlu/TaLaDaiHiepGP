@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,10 +108,10 @@ TextureImporter:
       name: Girl-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfd60520fc9b14641a1d1d9a5d01f7bf
-      internalID: 1838194278
+      spriteID: 813018b9d4fe97b48bf53aea5ae89cee
+      internalID: 8351760
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: Girl-Sheet_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 27
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9d71dcac349ed44cba10d2124838fcb
-      internalID: -144306764
+      spriteID: c6ce9ac07ffae7742ae6ee73f4f1db47
+      internalID: 209330566
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: Girl-Sheet_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 51
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68cf514324cf3614d98584e3e32b0660
-      internalID: -24603085
+      spriteID: b9c83e099ebf3ea40bf916cd28bd970b
+      internalID: 1478071732
       vertices: []
       indices: 
       edges: []
@@ -171,10 +171,10 @@ TextureImporter:
       name: Girl-Sheet_3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 75
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74411a2eb2f28634bac22f4208fd7227
-      internalID: -1760990945
+      spriteID: df46cf186b28c0c419000fd315e8e0df
+      internalID: 270101467
       vertices: []
       indices: 
       edges: []
@@ -192,10 +192,10 @@ TextureImporter:
       name: Girl-Sheet_4
       rect:
         serializedVersion: 2
-        x: 96
+        x: 101
         y: 0
-        width: 24
-        height: 24
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1acf0e4e44b23e429f2d5b9cf7e2fdc
-      internalID: 667420302
+      spriteID: 70aac9f585cd432489d78338b077aa5b
+      internalID: 334299448
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
       name: Girl-Sheet_5
       rect:
         serializedVersion: 2
-        x: 120
+        x: 125
         y: 0
-        width: 24
-        height: 24
+        width: 19
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96264e125fd6e094cb6950bb197e7891
-      internalID: -1386502915
+      spriteID: 66d7bd6bb66113a4580b741e60f7c71d
+      internalID: -1074566222
       vertices: []
       indices: 
       edges: []
@@ -234,10 +234,10 @@ TextureImporter:
       name: Girl-Sheet_6
       rect:
         serializedVersion: 2
-        x: 144
+        x: 148
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f4af4e4d3b8a5442b961904de9f841d
-      internalID: 168867185
+      spriteID: 84dd5341817af8c4cb4667d4a292e4f8
+      internalID: -1303287306
       vertices: []
       indices: 
       edges: []
@@ -255,10 +255,10 @@ TextureImporter:
       name: Girl-Sheet_7
       rect:
         serializedVersion: 2
-        x: 168
+        x: 172
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a80783e8b178a6a4e8beb6d45ae8e4ba
-      internalID: 1097360106
+      spriteID: 060d8a1d05cbce5468233d255bcdbbca
+      internalID: 370390091
       vertices: []
       indices: 
       edges: []
@@ -276,10 +276,10 @@ TextureImporter:
       name: Girl-Sheet_8
       rect:
         serializedVersion: 2
-        x: 192
+        x: 194
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2717b3a3298df88438583f2a97b7693b
-      internalID: -2140345786
+      spriteID: d67c25dfaf40b2d47a098e5ee4324e98
+      internalID: 951752446
       vertices: []
       indices: 
       edges: []
@@ -299,8 +299,8 @@ TextureImporter:
         serializedVersion: 2
         x: 216
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fafbfdd5ebdfdcd4fa539f3c677db568
-      internalID: -324175512
+      spriteID: 0c10aad59c9e93249bb2af91c0ad19aa
+      internalID: -2107433264
       vertices: []
       indices: 
       edges: []
@@ -320,8 +320,8 @@ TextureImporter:
         serializedVersion: 2
         x: 240
         y: 0
-        width: 24
-        height: 24
+        width: 20
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5888c9b78c40254f939d7098aeac57d
-      internalID: -1779700776
+      spriteID: 97fb9508e67ec2d409dd04f8591dceb3
+      internalID: 1833897158
       vertices: []
       indices: 
       edges: []
@@ -339,10 +339,10 @@ TextureImporter:
       name: Girl-Sheet_11
       rect:
         serializedVersion: 2
-        x: 264
+        x: 266
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8e939395ed71764e95fb664bd7fb2a9
-      internalID: 770812267
+      spriteID: 8e1fe2d5d6368f64a95236ed1415c396
+      internalID: 754262270
       vertices: []
       indices: 
       edges: []
@@ -360,10 +360,10 @@ TextureImporter:
       name: Girl-Sheet_12
       rect:
         serializedVersion: 2
-        x: 288
+        x: 291
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,8 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd80efd31dd8f3d41b4009be66f284c9
-      internalID: -426042194
+      spriteID: 4b9f8218c476add46932b3b76bf38599
+      internalID: 1390829808
       vertices: []
       indices: 
       edges: []
@@ -381,10 +381,10 @@ TextureImporter:
       name: Girl-Sheet_13
       rect:
         serializedVersion: 2
-        x: 312
+        x: 315
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,8 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e18fe3a43f23124891dffa2290ac218
-      internalID: -1892187702
+      spriteID: 02faaebb679b57845985e88d4515a74a
+      internalID: -543358693
       vertices: []
       indices: 
       edges: []
@@ -402,10 +402,10 @@ TextureImporter:
       name: Girl-Sheet_14
       rect:
         serializedVersion: 2
-        x: 336
+        x: 339
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,8 +413,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 227620c37c6d62a43ae361bbe69ea103
-      internalID: 1875713116
+      spriteID: c2fc31aa841c4c84990acf49eba3b102
+      internalID: -729230233
       vertices: []
       indices: 
       edges: []
@@ -423,10 +423,10 @@ TextureImporter:
       name: Girl-Sheet_15
       rect:
         serializedVersion: 2
-        x: 360
+        x: 363
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,8 +434,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d85f85d939a36b64795bfa78eea3ddcb
-      internalID: -852666033
+      spriteID: dc6dcb678452b5441b336f087bc43ded
+      internalID: 1102982107
       vertices: []
       indices: 
       edges: []
@@ -444,10 +444,10 @@ TextureImporter:
       name: Girl-Sheet_16
       rect:
         serializedVersion: 2
-        x: 384
+        x: 387
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,8 +455,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d45c5c4f23556e04eba71ae9ae482fe1
-      internalID: -147181241
+      spriteID: 0c66faf2740cf004ca19f536dec7f988
+      internalID: -249957146
       vertices: []
       indices: 
       edges: []
@@ -465,10 +465,10 @@ TextureImporter:
       name: Girl-Sheet_17
       rect:
         serializedVersion: 2
-        x: 408
+        x: 411
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,8 +476,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00d985c63a3a66747a4ec75fbc886b0c
-      internalID: 333315627
+      spriteID: e575187919305d042a7384761b2a3102
+      internalID: -1852258940
       vertices: []
       indices: 
       edges: []
@@ -486,9 +486,9 @@ TextureImporter:
       name: Girl-Sheet_18
       rect:
         serializedVersion: 2
-        x: 432
+        x: 435
         y: 0
-        width: 24
+        width: 18
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -497,8 +497,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67cbde4f15e53aa4d80a9bb1a2134bab
-      internalID: 885006652
+      spriteID: 94626dafd8d05b34c9ecf89e42944ffb
+      internalID: 1083764176
       vertices: []
       indices: 
       edges: []
@@ -507,10 +507,10 @@ TextureImporter:
       name: Girl-Sheet_19
       rect:
         serializedVersion: 2
-        x: 456
+        x: 459
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,8 +518,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c302986bfeb84864599f668cf4e75762
-      internalID: -1150115035
+      spriteID: 9ce2d8ea53198124f81a8d915ff4770e
+      internalID: -862043722
       vertices: []
       indices: 
       edges: []
@@ -528,10 +528,10 @@ TextureImporter:
       name: Girl-Sheet_20
       rect:
         serializedVersion: 2
-        x: 480
+        x: 483
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,8 +539,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47997e2c6eee2e64f879f5c0f8e36161
-      internalID: -2104747106
+      spriteID: 738569d28b1cd744282b6b77d169e67d
+      internalID: -869505076
       vertices: []
       indices: 
       edges: []
@@ -549,9 +549,9 @@ TextureImporter:
       name: Girl-Sheet_21
       rect:
         serializedVersion: 2
-        x: 504
+        x: 507
         y: 0
-        width: 24
+        width: 18
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -560,8 +560,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2769dfd36d57cee46b90da6e80a58c28
-      internalID: -333298918
+      spriteID: 345be4b513e4ef349a3b81e3489de41f
+      internalID: 973525775
       vertices: []
       indices: 
       edges: []
@@ -570,10 +570,10 @@ TextureImporter:
       name: Girl-Sheet_22
       rect:
         serializedVersion: 2
-        x: 528
+        x: 533
         y: 0
-        width: 24
-        height: 24
+        width: 17
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,8 +581,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882cd47d075172a478e445c84bb00b4c
-      internalID: 1336765447
+      spriteID: e089e712292d794409634c9ab856a509
+      internalID: 2099826943
       vertices: []
       indices: 
       edges: []
@@ -591,10 +591,10 @@ TextureImporter:
       name: Girl-Sheet_23
       rect:
         serializedVersion: 2
-        x: 552
+        x: 556
         y: 0
-        width: 24
-        height: 24
+        width: 19
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,8 +602,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd98ef9d53c9f664ba8af81f615f01c3
-      internalID: -1038548777
+      spriteID: d7fedc83ffaaebe4c918988b4d6871ef
+      internalID: -2002048226
       vertices: []
       indices: 
       edges: []
@@ -612,10 +612,10 @@ TextureImporter:
       name: Girl-Sheet_24
       rect:
         serializedVersion: 2
-        x: 576
+        x: 580
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -623,8 +623,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec3cd89b29afb974c9a307812f244fc3
-      internalID: -1765534310
+      spriteID: fb2e971311d74a8469f0f188655f8cad
+      internalID: -1318758038
       vertices: []
       indices: 
       edges: []
@@ -633,10 +633,10 @@ TextureImporter:
       name: Girl-Sheet_25
       rect:
         serializedVersion: 2
-        x: 600
+        x: 605
         y: 0
-        width: 24
-        height: 24
+        width: 17
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,8 +644,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a144237ea6866bc46a0141da7214f95b
-      internalID: 599008321
+      spriteID: 448d32f3c90adc4438c0c6d3ba1aec5a
+      internalID: -413766172
       vertices: []
       indices: 
       edges: []
@@ -654,10 +654,10 @@ TextureImporter:
       name: Girl-Sheet_26
       rect:
         serializedVersion: 2
-        x: 624
+        x: 628
         y: 0
-        width: 24
-        height: 24
+        width: 19
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -665,8 +665,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d7e63d1c5e6fc4498ee260f82cdbe48
-      internalID: -442199972
+      spriteID: f8c4ab7317bf1fe469b01c8c36066edd
+      internalID: 1841361551
       vertices: []
       indices: 
       edges: []
@@ -675,10 +675,10 @@ TextureImporter:
       name: Girl-Sheet_27
       rect:
         serializedVersion: 2
-        x: 648
+        x: 652
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -686,8 +686,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 259798ee05134e64295ee2035fb7f381
-      internalID: 1317625045
+      spriteID: 0fc7949e72f0c48439dc8e7fb0ee75ab
+      internalID: 349973459
       vertices: []
       indices: 
       edges: []
@@ -696,10 +696,10 @@ TextureImporter:
       name: Girl-Sheet_28
       rect:
         serializedVersion: 2
-        x: 672
+        x: 674
         y: 0
-        width: 24
-        height: 24
+        width: 17
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -707,8 +707,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a36be6886f7d01a4dbd68bbc0d38651d
-      internalID: 1217659045
+      spriteID: 22e13d2d8f4dc7149996737f1ee86e86
+      internalID: -2121879162
       vertices: []
       indices: 
       edges: []
@@ -717,10 +717,10 @@ TextureImporter:
       name: Girl-Sheet_29
       rect:
         serializedVersion: 2
-        x: 696
+        x: 697
         y: 0
-        width: 24
-        height: 24
+        width: 19
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -728,8 +728,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e8731941f09a824ab896d97b373ea54
-      internalID: 2058149839
+      spriteID: 78c2dbf3b0587f0428f0187533a9e3e2
+      internalID: -700101799
       vertices: []
       indices: 
       edges: []
@@ -738,10 +738,10 @@ TextureImporter:
       name: Girl-Sheet_30
       rect:
         serializedVersion: 2
-        x: 720
+        x: 722
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -749,8 +749,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b45c63a8254a4cb49923c9dbccfeba45
-      internalID: 1272855596
+      spriteID: 105623958057de44a92050e11b509836
+      internalID: 689821486
       vertices: []
       indices: 
       edges: []
@@ -759,10 +759,10 @@ TextureImporter:
       name: Girl-Sheet_31
       rect:
         serializedVersion: 2
-        x: 744
+        x: 746
         y: 0
-        width: 24
-        height: 24
+        width: 17
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -770,8 +770,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb09d87a1129e14095ed7059d9511b8
-      internalID: -377100439
+      spriteID: ca3d7de30ca8a0e4ca5adf12d1aaf276
+      internalID: 181720957
       vertices: []
       indices: 
       edges: []
@@ -780,10 +780,10 @@ TextureImporter:
       name: Girl-Sheet_32
       rect:
         serializedVersion: 2
-        x: 768
+        x: 769
         y: 0
-        width: 24
-        height: 24
+        width: 19
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,8 +791,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 161591f70a8aec448ac814789564221e
-      internalID: -1600490860
+      spriteID: 318d3e0dd7a93254d935989cf28b0fa9
+      internalID: 915637564
       vertices: []
       indices: 
       edges: []
@@ -801,10 +801,10 @@ TextureImporter:
       name: Girl-Sheet_33
       rect:
         serializedVersion: 2
-        x: 792
+        x: 794
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,8 +812,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a5338d8ef7dab8449e928585f6ad8a7
-      internalID: 960362418
+      spriteID: baae61faebfdc304aac8465ce52adb1d
+      internalID: -913931563
       vertices: []
       indices: 
       edges: []
@@ -822,10 +822,10 @@ TextureImporter:
       name: Girl-Sheet_34
       rect:
         serializedVersion: 2
-        x: 816
+        x: 819
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -833,8 +833,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e69f5fba2f7766499b4f12406a902d3
-      internalID: 1186230483
+      spriteID: 375e7617b6badb44fba7114358b9eb9d
+      internalID: -942226670
       vertices: []
       indices: 
       edges: []
@@ -843,10 +843,10 @@ TextureImporter:
       name: Girl-Sheet_35
       rect:
         serializedVersion: 2
-        x: 840
+        x: 843
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -854,8 +854,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8a0f7da6622063489cea3f1df2cf5e6
-      internalID: 1978531234
+      spriteID: d2d3dfac37f0e4e46b9a3c0dfa7ca8fc
+      internalID: -1905167269
       vertices: []
       indices: 
       edges: []
@@ -864,10 +864,10 @@ TextureImporter:
       name: Girl-Sheet_36
       rect:
         serializedVersion: 2
-        x: 864
+        x: 867
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -875,8 +875,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c9a17108ba4bbc44a5e964a4371fbac
-      internalID: 304031532
+      spriteID: 3592e2e476000e44c90523b346c8b693
+      internalID: 956282360
       vertices: []
       indices: 
       edges: []
@@ -885,10 +885,10 @@ TextureImporter:
       name: Girl-Sheet_37
       rect:
         serializedVersion: 2
-        x: 888
+        x: 891
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -896,8 +896,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6657495a9d1be61448ceadf5eddd1277
-      internalID: -1504227555
+      spriteID: f77f05ca2144b474dbb516abc60da4b4
+      internalID: 34651260
       vertices: []
       indices: 
       edges: []
@@ -906,10 +906,10 @@ TextureImporter:
       name: Girl-Sheet_38
       rect:
         serializedVersion: 2
-        x: 912
+        x: 915
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -917,8 +917,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c83962b8d376d642af56a734d876c71
-      internalID: -232504692
+      spriteID: 5407f3571f0226a458a0b4fda81808a9
+      internalID: 413908027
       vertices: []
       indices: 
       edges: []
@@ -927,10 +927,10 @@ TextureImporter:
       name: Girl-Sheet_39
       rect:
         serializedVersion: 2
-        x: 936
+        x: 939
         y: 0
-        width: 24
-        height: 24
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -938,8 +938,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c390a504e28d1d4187bb4a10a82a032
-      internalID: -471233024
+      spriteID: 316b66230ea654c469587e9889158d2f
+      internalID: 500911745
       vertices: []
       indices: 
       edges: []
@@ -948,10 +948,10 @@ TextureImporter:
       name: Girl-Sheet_40
       rect:
         serializedVersion: 2
-        x: 960
+        x: 962
         y: 0
-        width: 24
-        height: 24
+        width: 17
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -959,8 +959,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e573c951adf772478f7f13bb57b7798
-      internalID: -467015581
+      spriteID: d3208b38629d8e04c93ca9207f261a34
+      internalID: -91009132
       vertices: []
       indices: 
       edges: []
@@ -969,10 +969,10 @@ TextureImporter:
       name: Girl-Sheet_41
       rect:
         serializedVersion: 2
-        x: 984
+        x: 985
         y: 0
-        width: 24
-        height: 24
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -980,8 +980,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fd4b0769f1156e4998e5331b788aa23
-      internalID: 268435487
+      spriteID: e2eb6c5df6f925a46aecf7e8b7c4cc15
+      internalID: -1924962788
       vertices: []
       indices: 
       edges: []
@@ -993,7 +993,7 @@ TextureImporter:
         x: 1008
         y: 0
         width: 24
-        height: 24
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1001,8 +1001,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2216f73f02d7d8742a40a8340ec8b0a9
-      internalID: -1155219632
+      spriteID: 950835258561238449807d529289b88e
+      internalID: 1417734240
       vertices: []
       indices: 
       edges: []
@@ -1014,7 +1014,7 @@ TextureImporter:
         x: 1032
         y: 0
         width: 24
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1022,8 +1022,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0986660c266bfe46bd6bfe46c0288ae
-      internalID: 1016190674
+      spriteID: e63a6c9b0fc03e9468c132a9f0f18319
+      internalID: 293858439
       vertices: []
       indices: 
       edges: []
@@ -1039,50 +1039,50 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Girl-Sheet_0: 1838194278
-      Girl-Sheet_1: -144306764
-      Girl-Sheet_10: -1779700776
-      Girl-Sheet_11: 770812267
-      Girl-Sheet_12: -426042194
-      Girl-Sheet_13: -1892187702
-      Girl-Sheet_14: 1875713116
-      Girl-Sheet_15: -852666033
-      Girl-Sheet_16: -147181241
-      Girl-Sheet_17: 333315627
-      Girl-Sheet_18: 885006652
-      Girl-Sheet_19: -1150115035
-      Girl-Sheet_2: -24603085
-      Girl-Sheet_20: -2104747106
-      Girl-Sheet_21: -333298918
-      Girl-Sheet_22: 1336765447
-      Girl-Sheet_23: -1038548777
-      Girl-Sheet_24: -1765534310
-      Girl-Sheet_25: 599008321
-      Girl-Sheet_26: -442199972
-      Girl-Sheet_27: 1317625045
-      Girl-Sheet_28: 1217659045
-      Girl-Sheet_29: 2058149839
-      Girl-Sheet_3: -1760990945
-      Girl-Sheet_30: 1272855596
-      Girl-Sheet_31: -377100439
-      Girl-Sheet_32: -1600490860
-      Girl-Sheet_33: 960362418
-      Girl-Sheet_34: 1186230483
-      Girl-Sheet_35: 1978531234
-      Girl-Sheet_36: 304031532
-      Girl-Sheet_37: -1504227555
-      Girl-Sheet_38: -232504692
-      Girl-Sheet_39: -471233024
-      Girl-Sheet_4: 667420302
-      Girl-Sheet_40: -467015581
-      Girl-Sheet_41: 268435487
-      Girl-Sheet_42: -1155219632
-      Girl-Sheet_43: 1016190674
-      Girl-Sheet_5: -1386502915
-      Girl-Sheet_6: 168867185
-      Girl-Sheet_7: 1097360106
-      Girl-Sheet_8: -2140345786
-      Girl-Sheet_9: -324175512
+      Girl-Sheet_0: 8351760
+      Girl-Sheet_1: 209330566
+      Girl-Sheet_10: 1833897158
+      Girl-Sheet_11: 754262270
+      Girl-Sheet_12: 1390829808
+      Girl-Sheet_13: -543358693
+      Girl-Sheet_14: -729230233
+      Girl-Sheet_15: 1102982107
+      Girl-Sheet_16: -249957146
+      Girl-Sheet_17: -1852258940
+      Girl-Sheet_18: 1083764176
+      Girl-Sheet_19: -862043722
+      Girl-Sheet_2: 1478071732
+      Girl-Sheet_20: -869505076
+      Girl-Sheet_21: 973525775
+      Girl-Sheet_22: 2099826943
+      Girl-Sheet_23: -2002048226
+      Girl-Sheet_24: -1318758038
+      Girl-Sheet_25: -413766172
+      Girl-Sheet_26: 1841361551
+      Girl-Sheet_27: 349973459
+      Girl-Sheet_28: -2121879162
+      Girl-Sheet_29: -700101799
+      Girl-Sheet_3: 270101467
+      Girl-Sheet_30: 689821486
+      Girl-Sheet_31: 181720957
+      Girl-Sheet_32: 915637564
+      Girl-Sheet_33: -913931563
+      Girl-Sheet_34: -942226670
+      Girl-Sheet_35: -1905167269
+      Girl-Sheet_36: 956282360
+      Girl-Sheet_37: 34651260
+      Girl-Sheet_38: 413908027
+      Girl-Sheet_39: 500911745
+      Girl-Sheet_4: 334299448
+      Girl-Sheet_40: -91009132
+      Girl-Sheet_41: -1924962788
+      Girl-Sheet_42: 1417734240
+      Girl-Sheet_43: 293858439
+      Girl-Sheet_5: -1074566222
+      Girl-Sheet_6: -1303287306
+      Girl-Sheet_7: 370390091
+      Girl-Sheet_8: 951752446
+      Girl-Sheet_9: -2107433264
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

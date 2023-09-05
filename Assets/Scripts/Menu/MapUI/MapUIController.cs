@@ -50,7 +50,7 @@ public class MapUIController : MonoBehaviour
         if (orientation.Equals("left"))
         {
             if(scrollRect.horizontalNormalizedPosition >= 0f)
-                scrollRect.horizontalNormalizedPosition -= scrollSpeed * Time.deltaTime;
+                scrollRect.horizontalNormalizedPosition -= scrollSpeed;
         }else if (orientation.Equals("right"))
         {
             if (scrollRect.horizontalNormalizedPosition <= 1f)

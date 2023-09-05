@@ -13,7 +13,7 @@ public class SlimeController : EnemyController
     public void Start()
     {
         enemyMaxHP = 20;
-        exp = 10;
+        exp = 50;
         money = 10;
         qi = 20;
         currentEnemyHP = enemyMaxHP;

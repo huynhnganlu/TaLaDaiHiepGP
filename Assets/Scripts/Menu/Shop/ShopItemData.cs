@@ -12,6 +12,6 @@ public class ShopItemData : ScriptableObject
     public int itemCost;
     public Sprite itemImage;
     public string itemDescription;
-    public bool isBuying, isEquip = false;
+    public bool isBuying, isEquip, isStoring;
     
 }

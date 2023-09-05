@@ -14,6 +14,7 @@ public class CollectionsTabGroup : TabGroupAbstract
     {   
         selectedTabItem = defaultTabItem;
         disableTab = GameObject.Find("SubCollectionsTab");
+        parentScrollRect.content = swapContent[0].GetComponent<RectTransform>();
     }
 
     public override void OnTabSelected(TabItem tabItem)

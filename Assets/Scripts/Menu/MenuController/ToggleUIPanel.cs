@@ -28,6 +28,8 @@ public class ToggleUIPanel : MonoBehaviour
             UIPanel.SetActive(!UIPanel.activeSelf);
             parentCanvasGroup.interactable = false;
             parentCanvasGroup.alpha = alphaValue;
+            if (name.Equals("InventoryButton"))
+                InventoryController.Instance.GetBoughtInner();
     }
 
     public void closeUIPanel()
