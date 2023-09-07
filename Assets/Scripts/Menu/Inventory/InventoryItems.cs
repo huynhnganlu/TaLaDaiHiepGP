@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class InventoryItems : MonoBehaviour, IPointerClickHandler
 {
-    private InventoryController inventoryItemController;
-    public string itemName, itemDescription;
+    public string itemName, itemOrigin, itemProperty, itemHistory;
+    public int itemLevel;
     public Sprite itemImage; 
     void Start()
     {

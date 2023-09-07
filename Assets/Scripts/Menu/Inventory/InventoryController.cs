@@ -11,11 +11,11 @@ public class InventoryController : MonoBehaviour
     public GameObject inventoryItem;
     public ShopController shopController;
     public List<InventoryItems> inventoryItemsList;
-    private InventoryItems currentItem, defaultItem;
-
+    private InventoryItems currentItem;
+    public ShopItemData defaultItemData;
     //Xu ly du lieu cua item
     [SerializeField]
-    private TextMeshProUGUI nameTextUI, descriptionTextUI;
+    private TextMeshProUGUI nameTextUI, levelTextUI, originTextUI, propertyTextUI, historyTextUI, numberInnerUI;
     [SerializeField]
     private Image imageUI;
 
@@ -48,8 +48,8 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         indexItemClicked = 0;
-       /* currentItem = defaultItem;
-        SetItemValue(defaultItem); */
+        currentItem = transform.GetChild(0).GetComponent<InventoryItems>();
+        SetItemValue(currentItem);
         openInventoryUIButton.onClick.AddListener(() =>
         {
             OpenEquipUI();
@@ -61,6 +61,7 @@ public class InventoryController : MonoBehaviour
         
     }
 
+
     //Danh sach cac noi cong da mua & khoi tao UI & truyen du lieu cua cac Inventory Item
     //Luu y phai set Storing = false tat ca sau khi reset application game
     public void GetBoughtInner()
@@ -70,17 +71,19 @@ public class InventoryController : MonoBehaviour
             if(data.isBuying == true && data.isStoring == false)
             {
                 GameObject item = Instantiate(inventoryItem);
-                item.GetComponentInChildren<TextMeshProUGUI>().text = data.itemDescription;
+                item.GetComponentInChildren<TextMeshProUGUI>().text = data.itemName;
                 item.transform.SetParent(this.transform, false);
                 InventoryItems itemData = item.GetComponent<InventoryItems>();  
-                itemData.itemName = data.name;
-                itemData.itemDescription = data.itemDescription;
+                itemData.itemName = data.itemName;
+                itemData.itemLevel = data.itemLevel;
                 itemData.itemImage = data.itemImage;
-                if (defaultItem == null)
-                    defaultItem = itemData;
+                itemData.itemOrigin = data.itemOrigin;
+                itemData.itemProperty = data.itemProperty;
+                itemData.itemHistory = data.itemHistory;
                 data.isStoring = true;
             }
         }
+        numberInnerUI.text = "Soá löôïng noäi coâng: "+ transform.childCount.ToString();
     }
     //Them cac item da khoi tao vao trong list
     public void AddInventoryItems(InventoryItems inventoryItems)
@@ -102,8 +105,12 @@ public class InventoryController : MonoBehaviour
     public void SetItemValue(InventoryItems inventoryItems)
     {
         nameTextUI.text = inventoryItems.itemName;
-        descriptionTextUI.text = inventoryItems.itemDescription;
+        levelTextUI.text = inventoryItems.itemLevel + "/36";
+        originTextUI.text = inventoryItems.itemOrigin;
+        propertyTextUI.text = inventoryItems.itemProperty;
+        historyTextUI.text = inventoryItems.itemHistory;
         imageUI.sprite = inventoryItems.itemImage;
+
         indexItemClicked = inventoryItems.transform.GetSiblingIndex();
     }
     //Toggle on equip UI

@@ -14,12 +14,6 @@ public class InventoryTabGroupController : TabGroupAbstract
         selectedTabItem = defaultTabItem;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void OnTabSelected(TabItem tabItem)
     {
         if(tabItem != selectedTabItem)

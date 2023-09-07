@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class ShopItemData : ScriptableObject
 { 
      
-    public int itemCost;
+    public int itemCost, itemLevel;
     public Sprite itemImage;
-    public string itemDescription;
+    public string itemName, itemOrigin, itemProperty, itemHistory;
     public bool isBuying, isEquip, isStoring;
     
 }

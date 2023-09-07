@@ -25,7 +25,7 @@ public class InnerData : MonoBehaviour
         {
             if(shopItem.isEquip == true)
             {
-                Debug.Log(shopItem.itemDescription);
+                
             }
         }
     }
