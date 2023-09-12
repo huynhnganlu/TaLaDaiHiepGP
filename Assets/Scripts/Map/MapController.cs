@@ -7,26 +7,43 @@ using UnityEngine.UI;
 
 public class MapController : MonoBehaviour
 {
+    //Freezing map variable
     [HideInInspector]
     public bool isFreezing = false;
 
     //Singleton
     public static MapController Instance { get; private set; }
 
-    public GameObject finishMapUI;
 
+    //Prize variables
     public GameObject prizeObject;
-    public Button processFinishMapButton;
-    public Button[] processPrizeButtons;
 
+    //Finish map variables
+    public GameObject finishMapUI;
+    public Button processFinishMapButton;
+    
+    //Minimap variables
+    public Camera minimapCamera;
+    private GameObject player;
+    public Vector2 minimapMaxPos;
+    public Vector2 minimapMinPos;
+
+    //Character asset variables
     [SerializeField]
     private TextMeshProUGUI money, qi;
     [SerializeField]
     private CharacterData characterData;
 
+    //Inner variables
     [SerializeField]
     private GameObject parentInnerHolder, innerMapItem;
 
+    //Timer variables
+    public Slider timeSlider;
+    private float time = 600f;
+    public TextMeshProUGUI timeText;
+    private float minute = 0f;
+    private float second = 0f;
 
     private void Awake()
     {
@@ -42,6 +59,17 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
+        //Set gia tri mac dinh cho timer
+        if (time > 60f)
+        {
+            minute = time / 60f;
+            second = time % 60f;
+        }
+
+        //Tim gameObject player
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        //Gan event cho finish map button
         processFinishMapButton.onClick.AddListener(() =>
         {
             SetFreezing(false);
@@ -49,13 +77,8 @@ public class MapController : MonoBehaviour
             characterData.qi = MyCharacterController.Instance.qi;
             LoadSceneMainMenu();
         });
-        foreach(Button btn in processPrizeButtons)
-        {
-            btn.onClick.AddListener(() =>
-            {
-                OnPlayerSelectPrize();
-            });
-        }
+
+        //Show cac noi cong da trang bi
         foreach(Sprite sprite in characterData.innerImage)
         {
             if(sprite != null)
@@ -66,6 +89,30 @@ public class MapController : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        //Xu ly gia tri cua timer -1 moi giay va set value cua timer slider
+        if (second <= 0f)
+        {
+            minute -= 1f;
+            second = 59f;
+        }
+        second -= 1 * Time.deltaTime;
+        timeText.text = minute.ToString("0") + ":" + second.ToString("0");
+        time -= 1 * Time.deltaTime;
+        timeSlider.value = time; 
+    }
+
+    //Set transform + boundary cho minimap camera
+    private void LateUpdate()
+    {
+        Vector3 targetPos = new Vector3(player.transform.position.x, player.transform.position.y, minimapCamera.transform.position.z);
+        targetPos.x = Mathf.Clamp(targetPos.x,minimapMinPos.x,minimapMaxPos.x);
+        targetPos.y = Mathf.Clamp(targetPos.y, minimapMinPos.y, minimapMaxPos.y);
+        minimapCamera.transform.position = Vector3.Lerp(minimapCamera.transform.position, targetPos, 0.5f);
+    }
+
     //Freezing gameplay khi toggle UI
     public void SetFreezing(bool status)
     {
@@ -83,7 +130,7 @@ public class MapController : MonoBehaviour
         money.text = MyCharacterController.Instance.money.ToString();
         qi.text = MyCharacterController.Instance.qi.ToString();
     }
-
+    //Load menu chinh
     private void LoadSceneMainMenu()
     {
         SceneManager.LoadScene("MainMenu");

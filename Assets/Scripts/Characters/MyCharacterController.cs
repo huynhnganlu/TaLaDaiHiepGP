@@ -13,7 +13,7 @@ public class MyCharacterController : MonoBehaviour
     private float speed = 7.0f;
 
     //Health vs Shiled variables
-    private int maxHealth, maxShield = 100;
+    private int maxHealth = 100, maxShield = 100;
     public int currentHealth;
     private int currentShield;
     public Slider healthBar, shieldBar;
