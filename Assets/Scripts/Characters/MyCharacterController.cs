@@ -33,13 +33,14 @@ public class MyCharacterController : MonoBehaviour
     //Singleton variables
     public static MyCharacterController Instance { get; private set; }
 
-    //Skill variables
-    public GameObject skill;
-
     //Observer handle variables
     public delegate void DataKillHandle(int exp, int money, int qi);
-    public event DataKillHandle OnKillEnemy;
-    
+    public event DataKillHandle onKillEnemy;
+
+    //Skill variables
+    public List<SkillAbstract> skillList;
+    public delegate void SkillHandle(List<SkillAbstract> skillList);
+    public event SkillHandle skillListChange;
 
     //Singleton
     private void Awake()
@@ -69,9 +70,9 @@ public class MyCharacterController : MonoBehaviour
 
         expBar.maxValue = maxExp;
 
-        InvokeRepeating("CallSkills", 2f, 2f);
     }
 
+  
     // Update is called once per frame
     void Update()
     {
@@ -85,24 +86,23 @@ public class MyCharacterController : MonoBehaviour
         }
       
     }
-
+    //Xu ly di chuyen
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
-
+    //Object enable va active thi them listener
     private void OnEnable()
     {
-        OnKillEnemy += HandleKillEnemy;
+        onKillEnemy += HandleKillEnemy;
+        skillListChange += HandleSkillListChange;
     }
-
-
+    //Object disable va inactive thi xoa listener
     private void OnDisable()
     {
-        OnKillEnemy -= HandleKillEnemy;
+        onKillEnemy -= HandleKillEnemy;
+        skillListChange += HandleSkillListChange;
     }
-
-  
     //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
     {
@@ -132,18 +132,12 @@ public class MyCharacterController : MonoBehaviour
         }
       
     }
-    //Instance skill ra
-    void CallSkills()
-    {
-        GameObject arrow = Instantiate(skill, transform.position + new Vector3(2f,0f,0f), Quaternion.identity);
-        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(3.0f,0f);
-    }
-    //Them function tiep nhan su thay doi cho event
+    //Function tiep nhan su thay doi cho event (Khi giet duoc 1 quai vat bat ky)
     public void AddKillEnemyChange(int exp, int money, int qi)
     {
-        OnKillEnemy?.Invoke(exp, money, qi);
+        onKillEnemy?.Invoke(exp, money, qi);
     }
-    //Them observer cho su thay doi cua cac gia tri khi giet duoc quai vat
+    //Them listener xy ly cac thay doi khi giet duoc quai vat
     private void HandleKillEnemy(int exp, int _money, int _qi)
     {
         currentExp += exp;
@@ -154,6 +148,17 @@ public class MyCharacterController : MonoBehaviour
         expBar.value = currentExp;
         money += _money;
         qi += _qi;
+    }
+    public void SkillListChange(List<SkillAbstract> skillList)
+    {
+        skillListChange?.Invoke(skillList);
+    }
+    public void HandleSkillListChange(List<SkillAbstract> skillList)
+    {
+        foreach (SkillAbstract skill in skillList)
+        {
+            skill.InvokeSkill();
+        }
     }
     //Function len cap
     private void LevelUp()
@@ -170,7 +175,7 @@ public class MyCharacterController : MonoBehaviour
         SaveSystem.SavePlayerData(this);
     }
     //Trigger load
-    //Note: Su dung operator = cho PlayerData no chi reference den file, neu file thay doi trang thai co the viec doc se khong duoc xay ra, do do chung ta can set tung gia tri
+    //Note: Su dung operator = cho PlayerData no chi reference den file, neu file thay doi trang thai co the viec doc se khong duoc xay ra, do do can set tung gia tri
     public void LoadData()
     {
         PlayerData dataLoad = SaveSystem.LoadPlayerData();

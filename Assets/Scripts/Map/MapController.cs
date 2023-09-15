@@ -17,6 +17,7 @@ public class MapController : MonoBehaviour
 
     //Prize variables
     public GameObject prizeObject;
+    public GameObject[] prizeItems;
 
     //Finish map variables
     public GameObject finishMapUI;
@@ -38,13 +39,25 @@ public class MapController : MonoBehaviour
     [SerializeField]
     private GameObject parentInnerHolder, innerMapItem;
 
-    //Timer variables
+    //Time variables
     public Slider timeSlider;
     private float time = 600f;
     public TextMeshProUGUI timeText;
     private float minute = 0f;
     private float second = 0f;
 
+    //Skill variables
+    public List<SkillAbstract> skillList;
+    public SkillAbstract testSkill;
+
+    //Spawn random enemy variables
+    [SerializeField]
+    private LayerMask layerNotSpawn;
+    [SerializeField]
+    private GameObject[] enemies;
+    [SerializeField]
+    private Collider2D colliderSpawnEnemies;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -59,6 +72,11 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
+        //spawn enemy
+        StartCoroutine(SpawnEnemies(colliderSpawnEnemies, enemies));
+        //Khoi tao list skill
+        skillList ??= new List<SkillAbstract>();
+
         //Set gia tri mac dinh cho timer
         if (time > 60f)
         {
@@ -77,6 +95,8 @@ public class MapController : MonoBehaviour
             characterData.qi = MyCharacterController.Instance.qi;
             LoadSceneMainMenu();
         });
+
+       
 
         //Show cac noi cong da trang bi
         foreach(Sprite sprite in characterData.innerImage)
@@ -101,7 +121,8 @@ public class MapController : MonoBehaviour
         second -= 1 * Time.deltaTime;
         timeText.text = minute.ToString("0") + ":" + second.ToString("0");
         time -= 1 * Time.deltaTime;
-        timeSlider.value = time; 
+        timeSlider.value = time;
+
     }
 
     //Set transform + boundary cho minimap camera
@@ -141,10 +162,64 @@ public class MapController : MonoBehaviour
         prizeObject.SetActive(status);
         SetFreezing(true);
     }
-    //Xu ly logic khi nguoi choi chon phan thuong
-    private void OnPlayerSelectPrize()
+    //Xu ly khi skill list thay doi
+    private void OnSkillListChange(SkillAbstract skill)
     {
+        skillList.Add(skill);
+        MyCharacterController.Instance.SkillListChange(skillList);
+    }
+    //Xu ly logic khi nguoi choi chon phan thuong
+    public void OnPrizeItemClick()
+    {
+        OnSkillListChange(testSkill);
         TogglePrize(false);
         SetFreezing(false);
     }
+    //Ham spawn enemy
+    IEnumerator SpawnEnemies(Collider2D collider, GameObject[] enemies)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            foreach (GameObject enemy in enemies)
+            {
+                Instantiate(enemy, GetRandomSpawnPosition(collider), Quaternion.identity);
+            }
+        }
+    }
+    //Ham kiem tra xem vi tri random co phu hop khong
+    private Vector2 GetRandomSpawnPosition(Collider2D collider)
+    {
+        Vector2 randomPos = Vector2.zero;
+        bool isValidPos = false;
+        while(!isValidPos)
+        {
+            randomPos = GetRandomPointInCollider(collider);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPos, 1.5f);
+            bool isInvalidCollision = false;
+
+            foreach (Collider2D _collider in colliders)
+            {
+                if (((1 << _collider.gameObject.layer) & layerNotSpawn) != 0)
+                {
+                    isInvalidCollision = true;
+                    break;
+                }
+            }
+
+            if (!isInvalidCollision && (Vector2.Distance(MyCharacterController.Instance.transform.position, randomPos) > 13f))
+            {
+                isValidPos = true;
+            }
+        }
+        return randomPos;
+
+    }
+    //Ham lay vi tri random trong collider
+    private Vector2 GetRandomPointInCollider(Collider2D collider)
+    {
+        return new Vector2(Random.Range(collider.bounds.min.x, collider.bounds.max.x), Random.Range(collider.bounds.min.y, collider.bounds.max.y));
+    }
+
 }

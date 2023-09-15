@@ -15,13 +15,27 @@ public abstract class EnemyController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
             MyCharacterController.Instance.TakeEnemyDamage(20);
+            this.GetComponent<Animator>().SetBool("isChasing", false);
         }
-        if(collision.gameObject.tag == "Skill")
+        if(collision.gameObject.CompareTag("Skill"))
         {
            
+        }
+    }
+
+  /*  private void OnCollisionStay2D(Collision2D collision)
+    {
+        MyCharacterController.Instance.TakeEnemyDamage(20);
+    }*/
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {     
+            this.GetComponent<Animator>().SetBool("isChasing", true);
         }
     }
 

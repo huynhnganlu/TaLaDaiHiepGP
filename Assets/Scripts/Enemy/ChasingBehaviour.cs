@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class ChasingBehaviour : StateMachineBehaviour
 {
-
-    private Transform playerPos;
-    private float speed = 1f;
+   
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos.position, speed * Time.deltaTime) ;
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, MyCharacterController.Instance.transform.position, 2f * Time.deltaTime) ;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
