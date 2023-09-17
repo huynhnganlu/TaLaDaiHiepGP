@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollectionsTab
-  - Enemy
   - Skill
   - Boss
+  - Enemy
+  - FighterEnemy
   layers:
   - Default
   - TransparentFX

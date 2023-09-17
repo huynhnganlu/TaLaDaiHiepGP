@@ -1549,8 +1549,7 @@ MonoBehaviour:
   layerNotSpawn:
     serializedVersion: 2
     m_Bits: 976
-  enemies:
-  - {fileID: 3407772805204967911, guid: 217fd534384a79b4c9264edfc49bd111, type: 3}
+  enemies: []
   colliderSpawnEnemies: {fileID: 544767253}
 --- !u!4 &382695280
 Transform:

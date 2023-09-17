@@ -6,11 +6,13 @@ public abstract class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public abstract int enemyMaxHP { get; set; }
-    public abstract int currentEnemyHP { get; set;}
-    public abstract int exp { get; set; }
-    public abstract int money { get; set; }
-    public abstract int qi { get; set; }
+    public int enemyMaxHP;
+    public int currentEnemyHP;
+    public int exp;
+    public int money;
+    public int qi;
+    public bool isFlipped = false;
+
 
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -18,12 +20,8 @@ public abstract class EnemyController : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             MyCharacterController.Instance.TakeEnemyDamage(20);
-            this.GetComponent<Animator>().SetBool("isChasing", false);
         }
-        if(collision.gameObject.CompareTag("Skill"))
-        {
-           
-        }
+       
     }
 
   /*  private void OnCollisionStay2D(Collision2D collision)
@@ -33,26 +31,49 @@ public abstract class EnemyController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {     
-            this.GetComponent<Animator>().SetBool("isChasing", true);
-        }
+       
     }
 
     public void TakePlayerDamage(int damage)
     {
         currentEnemyHP -= damage;
+
+        if((currentEnemyHP <= enemyMaxHP / 2) && name.Equals("Boss"))
+        {
+            this.GetComponent<Animator>().SetTrigger("isRaging");
+        }
+
         if (currentEnemyHP <= 0)
         {
-            if(this.name.Equals("Boss"))
+            if(name.Equals("Boss"))
             {
-                MapController.Instance.ProcessFinishMap();
+                //MapController.Instance.ProcessFinishMap();
             }
             else
             {
                 MyCharacterController.Instance.AddKillEnemyChange(this.exp, this.money, this.qi);
             }
-            Destroy(gameObject);
+            this.GetComponent<Animator>().SetTrigger("Death");
+            
+        }
+    }
+
+    public void LookAtPlayer()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        if (transform.position.x > MyCharacterController.Instance.transform.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (transform.position.x < MyCharacterController.Instance.transform.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
         }
     }
 }
