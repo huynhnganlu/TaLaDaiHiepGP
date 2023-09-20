@@ -36,6 +36,7 @@ public abstract class EnemyController : MonoBehaviour
 
     public void TakePlayerDamage(int damage)
     {
+        this.GetComponent<Animator>().Play("Hurt");
         currentEnemyHP -= damage;
 
         if((currentEnemyHP <= enemyMaxHP / 2) && name.Equals("Boss"))

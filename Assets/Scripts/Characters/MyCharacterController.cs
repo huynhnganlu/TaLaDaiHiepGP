@@ -169,18 +169,7 @@ public class MyCharacterController : MonoBehaviour
         expBar.maxValue = maxExp;
         MapController.Instance.TogglePrize(true);
     }
-    //Trigger save
-    public void SaveData()
-    {
-        SaveSystem.SavePlayerData(this);
-    }
-    //Trigger load
-    //Note: Su dung operator = cho PlayerData no chi reference den file, neu file thay doi trang thai co the viec doc se khong duoc xay ra, do do can set tung gia tri
-    public void LoadData()
-    {
-        PlayerData dataLoad = SaveSystem.LoadPlayerData();
-        currentLevel = dataLoad.level;
-    }
+  
     
    
 

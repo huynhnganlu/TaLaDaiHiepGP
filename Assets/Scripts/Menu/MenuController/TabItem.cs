@@ -17,7 +17,11 @@ public class TabItem : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
+        if(GetComponent<MeridianAbstract>() != null)
+        {
+            tabGroup = MeridianController.Instance.meridianTabGroup;
+        }
         background = GetComponent<Image>();
-        tabGroup.addTabItems(this);
+        tabGroup.AddTabItems(this);
     }
 }

@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2671653017261918408
 Transform:
   m_ObjectHideFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2671653017261918410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.183, y: 0.30852908, z: 0.10656635}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -206,7 +206,75 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2671653017261918412}
+    m_ColliderPaths:
+    - - X: 5901855
+        Y: 7538084
+      - X: 4998165
+        Y: 8017582
+      - X: 5625709
+        Y: 9190018
+      - X: 5687588
+        Y: 10485822
+      - X: 4221703
+        Y: 10348036
+      - X: 3902178
+        Y: 9927369
+      - X: 2878621
+        Y: 9259293
+      - X: 1518312
+        Y: 9216458
+      - X: 975428
+        Y: 10324693
+      - X: -909259
+        Y: 10162730
+      - X: -1068419
+        Y: 8257016
+      - X: -1516665
+        Y: 4908103
+      - X: -1172134
+        Y: 3695958
+      - X: -1566399
+        Y: 1684381
+      - X: -2375377
+        Y: 587000
+      - X: -2604054
+        Y: -5059244
+      - X: -3274545
+        Y: -5344399
+      - X: -3268286
+        Y: -8071990
+      - X: 1079896
+        Y: -8095579
+      - X: 909651
+        Y: -7517063
+      - X: 1492544
+        Y: -6788813
+      - X: 3982828
+        Y: -6713806
+      - X: 4238318
+        Y: -7588384
+      - X: 5913199
+        Y: -8522452
+      - X: 9459137
+        Y: -8435301
+      - X: 9879729
+        Y: -5072974
+      - X: 10330204
+        Y: -3742268
+      - X: 11095079
+        Y: -3824186
+      - X: 10906242
+        Y: -2341815
+      - X: 11455410
+        Y: -2308420
+      - X: 11569499
+        Y: 2889986
+      - X: 10515606
+        Y: 4579426
+      - X: 7869364
+        Y: 7051564
   m_CompositePaths:
     m_Paths:
     - - {x: -0.1516657, y: 0.4908154}

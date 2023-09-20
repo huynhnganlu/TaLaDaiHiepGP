@@ -15,13 +15,13 @@ public class MeridianTabGroup : TabGroupAbstract
 
     public override void OnTabSelected(TabItem tabItem)
     {
+        //Xu ly meridian - Reset va get property data - set level
         if (selectedTabItem != tabItem)
         {
             selectedTabItem = tabItem;
-            tabItem.GetComponent<MeridianAbstract>().ResetPropertyData();
             ResetTabs();
             tabItem.background.sprite = tabActive;
-            MeridianController.Instance.SetMeridianLevel(tabItem.GetComponent<MeridianAbstract>().level);
+            MeridianController.Instance.imageHolder.sprite = tabItem.GetComponent<MeridianAbstract>().merdianImage;
             tabItem.GetComponent<MeridianAbstract>().GetPropertyData();
         }
     }

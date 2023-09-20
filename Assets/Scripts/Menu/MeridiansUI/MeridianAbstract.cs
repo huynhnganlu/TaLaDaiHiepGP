@@ -1,36 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class MeridianAbstract : MonoBehaviour
 {
-    public abstract int hp { get; set; }
-    public abstract int level { get ; set; }
+    [HideInInspector]
+    public int hp, hpRegen, mp, mpRegen, level, evade, skipInternalDefense, internalDefense, skipExternalDefense, externalDefense, internalDamage, externalDamage, internalCrit, externalCrit; 
     public Dictionary<string, string> propertyData;
     public GameObject objectPropertyData;
-    public GameObject parentPropertyData;
     public CharacterData characterData;
+    public Sprite merdianImage;
+    public abstract void LevelUpMeridian();
+    public abstract void SaveMeridian();
+    public abstract void LoadMeridian();
+    public abstract void UpdatePropertyData();
 
-    public abstract void levelUpMeridian();
-   
+    //Chay danh sach property va set data
     public void GetPropertyData()
     {
-        foreach(KeyValuePair<string,string> keyValuePair in propertyData)
+        ResetPropertyData();
+        MeridianController.Instance.qiHolder.text = characterData.qi.ToString();
+        MeridianController.Instance.SetMeridianLevel(level);
+        foreach (KeyValuePair<string,string> keyValuePair in propertyData)
         {
             GameObject data = Instantiate(objectPropertyData);
             data.GetComponent<PropertyDataController>().SetData(keyValuePair.Key, keyValuePair.Value);
-            data.transform.SetParent(parentPropertyData.transform);
+            data.transform.SetParent(MeridianController.Instance.parentPropertyData.transform);
         }
     }
-
+    //Reset property data moi lan click vao cac button kinh mach khac nhau
     public void ResetPropertyData()
     {
-        foreach(Transform child in parentPropertyData.transform)
+        foreach(Transform child in MeridianController.Instance.parentPropertyData.transform)
         {
             Destroy(child.gameObject);
         }
     }
-   
-
+    
 }

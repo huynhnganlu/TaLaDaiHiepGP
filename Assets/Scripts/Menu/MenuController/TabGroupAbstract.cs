@@ -8,17 +8,14 @@ public abstract class TabGroupAbstract : MonoBehaviour
     private List<TabItem> tabItems;
     public Sprite tabIdle, tabActive;
     public List<GameObject> swapContent;
-
-    public void addTabItems(TabItem tabItem)
+    //Them cac item cua group de xu ly
+    public void AddTabItems(TabItem tabItem)
     {
-        if (tabItems == null)
-        {
-            tabItems = new List<TabItem>();
-        }
+        tabItems ??= new List<TabItem>();
 
         tabItems.Add(tabItem);
     }
-
+    //Reset sprite cua cac item thanh idle
     public void ResetTabs()
     {
         foreach (TabItem tabItem in tabItems)
@@ -27,6 +24,6 @@ public abstract class TabGroupAbstract : MonoBehaviour
         }
 
     }
-
+    //Click vao item cua group
     public abstract void OnTabSelected(TabItem tabItem); 
 }

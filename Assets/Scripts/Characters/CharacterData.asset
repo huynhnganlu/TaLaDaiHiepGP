@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CharacterData
   m_EditorClassIdentifier: 
   money: 30
-  qi: 20
-  hp: 300
+  qi: -190
+  hp: 0
   shield: 0
   innerImage:
   - {fileID: 0}
