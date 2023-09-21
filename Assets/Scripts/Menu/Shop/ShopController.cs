@@ -10,21 +10,32 @@ public class ShopController : MonoBehaviour
 
     public int money;
     public TextMeshProUGUI moneyText;
-    public ShopItemData[] shopItemsData;
+    [SerializeField]
+    private InnerHolder innerHolder;
     public ShopTemplate[] shopTemplates;
+    private readonly ShopDataAbstract[] itemAddedArray = new ShopDataAbstract[6];
+    public JsonPlayerPrefs shopPrefs;
+    //Singleton variables
+    public static ShopController Instance;
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
 
+        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
+    }
     // Start is called before the first frame update
     void Start()
     {
         moneyText.text = money.ToString();
-        CheckItems();
         LoadShopItemsData();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        CheckItems();
     }
 
     //Them tien
@@ -37,9 +48,9 @@ public class ShopController : MonoBehaviour
     //Kiem tra cac item co the mua
     public void CheckItems()
     {
-        for(int i = 0; i < shopItemsData.Length; i++)
+        for(int i = 0; i < itemAddedArray.Length; i++)
         {
-            if(money >= shopItemsData[i].itemCost && shopItemsData[i].isBuying == false)
+            if(money >= itemAddedArray[i].itemCost && shopPrefs.HasKey(itemAddedArray[i].itemID.ToString()) == false)
             {
                 shopTemplates[i].gameObject.GetComponentInChildren<Button>().interactable = true;
             }
@@ -53,20 +64,23 @@ public class ShopController : MonoBehaviour
     //Mua item
     public void BuyItem(int button)
     {
-        money -= shopItemsData[button].itemCost;
-        shopItemsData[button].isBuying = true;
+        money -= innerHolder.listInner[shopTemplates[button].id].GetComponent<ShopDataAbstract>().itemCost;
         moneyText.text = money.ToString();
-        CheckItems();
+        shopPrefs.SetInt(shopTemplates[button].id.ToString(), 0);
+        shopPrefs.Save();
+        CheckItems(); 
     }
-
+    
     //Load du lieu tu script object
     public void LoadShopItemsData()
     {
-        ShopItemData[] shuffled = shopItemsData.OrderBy(n => Guid.NewGuid()).ToArray();
-        for (int i = 0;i <= 7; i++)
+        GameObject[] shuffled = innerHolder.listInner.OrderBy(n => Guid.NewGuid()).ToArray();
+        for (int i = 0;i <= 5; i++)
         {
-            shopTemplates[i].cost.text = shuffled[i].itemCost.ToString();
-            shopTemplates[i].itemImage.sprite = shuffled[i].itemImage;
+            shopTemplates[i].id = shuffled[i].GetComponent<ShopDataAbstract>().itemID;
+            shopTemplates[i].cost.text = shuffled[i].GetComponent<ShopDataAbstract>().itemCost.ToString();
+            shopTemplates[i].itemImage.sprite = shuffled[i].GetComponent<ShopDataAbstract>().itemImage;
+            itemAddedArray[i] = shuffled[i].GetComponent<ShopDataAbstract>();
         }
     }
 }

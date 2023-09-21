@@ -15,13 +15,6 @@ public class InventoryItems : MonoBehaviour, IPointerClickHandler
     {
         InventoryController.Instance.AddInventoryItems(this);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         InventoryController.Instance.OnInventoryItemsClick(this);

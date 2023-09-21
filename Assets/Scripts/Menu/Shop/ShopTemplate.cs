@@ -6,17 +6,7 @@ using UnityEngine.UI;
 
 public class ShopTemplate : MonoBehaviour
 {
+    public int id;
     public Image itemImage;
     public TextMeshProUGUI cost;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

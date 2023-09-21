@@ -57,6 +57,10 @@ public class MapController : MonoBehaviour
     private GameObject[] enemies;
     [SerializeField]
     private Collider2D colliderSpawnEnemies;
+
+    //Inner variables
+    [SerializeField]
+    private InnerHolder innerHolder;
     
     private void Awake()
     {

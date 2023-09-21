@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class InnerData : MonoBehaviour
 {
-    [SerializeField]
-    private ShopItemData[] shopItemDatas;
      
     // Start is called before the first frame update
     void Start()
     {
-        checkEquipInner();
+        //checkEquipInner();
     }
 
     // Update is called once per frame
@@ -19,7 +17,7 @@ public class InnerData : MonoBehaviour
         
     }
     //Kiem tra cac Inner
-    void checkEquipInner()
+   /* void checkEquipInner()
     {
         foreach(ShopItemData shopItem in shopItemDatas)
         {
@@ -28,5 +26,5 @@ public class InnerData : MonoBehaviour
                 
             }
         }
-    }
+    }*/
 }

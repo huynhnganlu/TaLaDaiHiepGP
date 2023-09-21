@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5696436756367878241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5485338076087354735}
+  - component: {fileID: 5424658933217227175}
+  m_Layer: 0
+  m_Name: ToaVongCong 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5485338076087354735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696436756367878241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5424658933217227175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696436756367878241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3833a0964ff1a74e98087d595380bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCost: 200
+  itemID: 3
+  itemImage: {fileID: 21300000, guid: 46ead064bf04c3b4fb2789aca4d97fbb, type: 3}
+  itemName: "To\xEFa Vong Co\xE2ng"
+  itemOrigin: "Giang ho\xE0"
+  itemProperty: "A\xC2m, nhu"
+  itemHistory: "To\xEFa Vong Thu Ta\xE2m, Chu\xFB T\xF3nh Kh\xF6\xF9 Du\xEFc, T\xF3nh
+    Ta\xE9c Sinh Tue\xE4, \xD1o\xE4ng Ta\xE9c Tha\xF8nh Ho\xE2n, D\xF6\xF5 \xD1a\xEFo
+    Minh Nha\xE1t, Va\xEFn L\xF6\xEF Giai Di, Li H\xECnh Kh\xF6\xF9 Tr\xED, \xD1o\xE0ng
+    Vu \xD1a\xEFi Tho\xE2ng, Th\xF2 V\xF2 To\xEFa Vong."

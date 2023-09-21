@@ -7,22 +7,23 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
-    //Xu ly cac item
+    //process item variable
     public GameObject inventoryItem;
-    public ShopController shopController;
     public List<InventoryItems> inventoryItemsList;
-    private InventoryItems currentItem;
-    public ShopItemData defaultItemData;
-    //Xu ly du lieu cua item
+    private InventoryItems currentItem, defaultItem;
+    [SerializeField]
+    private GameObject innerParent;
+
+    //item data holder variable
     [SerializeField]
     private TextMeshProUGUI nameTextUI, levelTextUI, originTextUI, propertyTextUI, historyTextUI, numberInnerUI;
     [SerializeField]
     private Image imageUI;
 
-    //Bien luu tru danh cho equip item
+    //equip item variable
     public int indexItemClicked;
 
-    //Xu ly toggle equip item
+    //Toggle equip item variables
     [SerializeField]
     private GameObject inventoryEquipmentUI;
     [SerializeField]
@@ -30,6 +31,11 @@ public class InventoryController : MonoBehaviour
 
     //Singleton
     public static InventoryController Instance;
+
+    //Inner holder 
+    [SerializeField]
+    private InnerHolder innerHolder;
+    public JsonPlayerPrefs shopPrefs;
 
     private void Awake()
     {
@@ -41,6 +47,9 @@ public class InventoryController : MonoBehaviour
         {
             Instance = this;
         }
+
+        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
+
     }
 
 
@@ -48,8 +57,8 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         indexItemClicked = 0;
-        currentItem = transform.GetChild(0).GetComponent<InventoryItems>();
-        SetItemValue(currentItem);
+      /*  currentItem = transform.GetChild(0).GetComponent<InventoryItems>();
+        SetItemValue(currentItem);*/
         openInventoryUIButton.onClick.AddListener(() =>
         {
             OpenEquipUI();
@@ -61,29 +70,40 @@ public class InventoryController : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        GetBoughtInner();
+        SetItemValue(defaultItem);
+    }
+
 
     //Danh sach cac noi cong da mua & khoi tao UI & truyen du lieu cua cac Inventory Item
-    //Luu y phai set Storing = false tat ca sau khi reset application game
     public void GetBoughtInner()
     {
-        foreach (ShopItemData data in shopController.shopItemsData)
+        bool firstItem = true;
+        foreach (GameObject data in innerHolder.listInner)
         {
-            if(data.isBuying == true && data.isStoring == false)
+            ShopDataAbstract itemData = data.GetComponent<ShopDataAbstract>();
+            if (shopPrefs.HasKey(itemData.itemID.ToString()) == true)
             {
                 GameObject item = Instantiate(inventoryItem);
-                item.GetComponentInChildren<TextMeshProUGUI>().text = data.itemName;
-                item.transform.SetParent(this.transform, false);
-                InventoryItems itemData = item.GetComponent<InventoryItems>();  
-                itemData.itemName = data.itemName;
-                itemData.itemLevel = data.itemLevel;
-                itemData.itemImage = data.itemImage;
-                itemData.itemOrigin = data.itemOrigin;
-                itemData.itemProperty = data.itemProperty;
-                itemData.itemHistory = data.itemHistory;
-                data.isStoring = true;
+                item.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemName;
+                item.transform.SetParent(innerParent.transform);
+                InventoryItems inventoryItemData = item.GetComponent<InventoryItems>();
+                inventoryItemData.itemName = itemData.itemName;
+                inventoryItemData.itemLevel = shopPrefs.GetInt(itemData.itemID.ToString());
+                inventoryItemData.itemImage = itemData.itemImage;
+                inventoryItemData.itemOrigin = itemData.itemOrigin;
+                inventoryItemData.itemProperty = itemData.itemProperty;
+                inventoryItemData.itemHistory = itemData.itemHistory;
+                if (firstItem)
+                {
+                    defaultItem = inventoryItemData;
+                    firstItem = false;
+                }                   
             }
         }
-        numberInnerUI.text = "Soá löôïng noäi coâng: "+ transform.childCount.ToString();
+        numberInnerUI.text = "Soá löôïng noäi coâng: "+  innerParent.transform.childCount.ToString();
     }
     //Them cac item da khoi tao vao trong list
     public void AddInventoryItems(InventoryItems inventoryItems)
@@ -97,8 +117,7 @@ public class InventoryController : MonoBehaviour
         if(inventoryItems != currentItem)
         {
             SetItemValue(inventoryItems);
-            currentItem = inventoryItems;
-           
+            currentItem = inventoryItems;        
         }
     }
     //Khi item duoc click gan cac gia tri can thiet vao cac UI
