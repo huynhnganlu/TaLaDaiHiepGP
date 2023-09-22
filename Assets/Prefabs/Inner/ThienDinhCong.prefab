@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5485338076087354735}
-  - component: {fileID: 5424658933217227175}
+  - component: {fileID: 3014538296057617628}
   m_Layer: 0
-  m_Name: ToaVongCong 1
+  m_Name: ThienDinhCong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5424658933217227175
+--- !u!114 &3014538296057617628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,16 +41,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5696436756367878241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3833a0964ff1a74e98087d595380bc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 03fa5bddb93b6bf408ff4af5500a1b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemCost: 200
   itemID: 1
-  itemImage: {fileID: 21300000, guid: 46ead064bf04c3b4fb2789aca4d97fbb, type: 3}
-  itemName: "To\xEFa Vong Co\xE2ng"
-  itemOrigin: "Giang ho\xE0"
-  itemProperty: "A\xC2m, nhu"
-  itemHistory: "To\xEFa Vong Thu Ta\xE2m, Chu\xFB T\xF3nh Kh\xF6\xF9 Du\xEFc, T\xF3nh
-    Ta\xE9c Sinh Tue\xE4, \xD1o\xE4ng Ta\xE9c Tha\xF8nh Ho\xE2n, D\xF6\xF5 \xD1a\xEFo
-    Minh Nha\xE1t, Va\xEFn L\xF6\xEF Giai Di, Li H\xECnh Kh\xF6\xF9 Tr\xED, \xD1o\xE0ng
-    Vu \xD1a\xEFi Tho\xE2ng, Th\xF2 V\xF2 To\xEFa Vong."
+  itemImage: {fileID: 21300000, guid: cf34250ad4ac53e4381331462304c0e8, type: 3}
+  itemName: "Thie\xE0n \xD1\xF2nh Co\xE2ng"
+  itemOrigin: "Thie\xE1u La\xE2m"
+  itemProperty: "D\xF6\xF4ng, C\xF6\xF4ng"
+  itemHistory: "Ta\xE2m Pha\xF9p, Thie\xE0n \xD1\xF2nh Die\xE4c Ch\xE6 Quan, Lu\xEFc
+    To\xE5 To\xEFa Thie\xE0n Nhi Ngo\xE4 la\xF8 No\xE4i Co\xE2ng c\xF4 ba\xFBn cu\xFBa
+    Thie\xE1u La\xE2m, \"Thie\xE0n \xD1\xF2nh Gia\xFB, cuo\xE4c so\xE1ng be\xE2n
+    ngoa\xF8i kho\xE2ng n\xF4i \xF4\xFB kho\xE2ng o\xE2 nhie\xE3m la\xF8 Thie\xE0n,
+    trong lo\xF8ng ro\xF5 ra\xF8ng hie\xE5u an c\xF6 la\xF8 \xD1\xF2nh, ca\xF8i go\xEFi
+    la\xF8 Ngoa\xEFi Thie\xE0n No\xE4i \xD1\xF2nh, la\xF8 Thie\xE0n \xD1\xF2nh gio\xE1ng
+    nh\xF6 la\xF8 Da\xF5\", Tu ta\xE4p Gia\xFB sie\xE2u nhie\xE2n nha\xE4p ca\xFBnh,
+    l\xF6u tho\xE2ng huye\xE1t ma\xEFch, di d\xF6\xF4\xF5ng ta\xE2m tha\xE0n, la\xE1y
+    \xF1a\xE2y la\xF8m c\xF4 s\xF4\xFB xa\xE2y d\xF6\xEFng."

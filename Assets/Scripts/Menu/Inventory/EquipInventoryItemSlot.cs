@@ -9,6 +9,6 @@ public class EquipInventoryItemSlot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         InventoryController.Instance.CloseEquipUI();
-        EquipInventoryController.Instance.EquipItem(transform.GetSiblingIndex());
+        InventoryController.Instance.EquipItem(transform.GetSiblingIndex());
     }
 }

@@ -103,7 +103,7 @@ public class MapController : MonoBehaviour
        
 
         //Show cac noi cong da trang bi
-        foreach(Sprite sprite in characterData.innerImage)
+     /*   foreach(Sprite sprite in characterData.innerImage)
         {
             if(sprite != null)
             {
@@ -111,7 +111,7 @@ public class MapController : MonoBehaviour
                 item.GetComponent<Image>().sprite = sprite;
                 item.transform.SetParent(parentInnerHolder.transform);
             }
-        }
+        }*/
     }
 
     private void Update()

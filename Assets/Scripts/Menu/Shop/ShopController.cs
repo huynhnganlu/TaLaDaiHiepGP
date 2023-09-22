@@ -37,7 +37,14 @@ public class ShopController : MonoBehaviour
         LoadShopItemsData();
         CheckItems();
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            shopPrefs.DeleteAll();
+            shopPrefs.Save();
+        }
+    }
     //Them tien
     public void AddMoney()
     {

@@ -7,5 +7,4 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public int money, qi, hp, shield;
-    public List<Sprite> innerImage = new(3);
 }

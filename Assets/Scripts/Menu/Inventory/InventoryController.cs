@@ -36,7 +36,11 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private InnerHolder innerHolder;
     public JsonPlayerPrefs shopPrefs;
+    private int innerCount;
 
+    //Equip items variables
+    private List<int> equipedInventoryItemsList;
+  
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -48,7 +52,6 @@ public class InventoryController : MonoBehaviour
             Instance = this;
         }
 
-        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
 
     }
 
@@ -57,8 +60,6 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         indexItemClicked = 0;
-      /*  currentItem = transform.GetChild(0).GetComponent<InventoryItems>();
-        SetItemValue(currentItem);*/
         openInventoryUIButton.onClick.AddListener(() =>
         {
             OpenEquipUI();
@@ -72,14 +73,20 @@ public class InventoryController : MonoBehaviour
 
     private void OnEnable()
     {
+        GetEquipedList();
+        ResetInventoryItems();
         GetBoughtInner();
-        SetItemValue(defaultItem);
+        if(innerParent.transform.childCount != 0)
+            SetItemValue(defaultItem);
     }
 
 
     //Danh sach cac noi cong da mua & khoi tao UI & truyen du lieu cua cac Inventory Item
     public void GetBoughtInner()
     {
+        inventoryItemsList.Clear();
+        innerCount = 0;
+        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
         bool firstItem = true;
         foreach (GameObject data in innerHolder.listInner)
         {
@@ -90,6 +97,7 @@ public class InventoryController : MonoBehaviour
                 item.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemName;
                 item.transform.SetParent(innerParent.transform);
                 InventoryItems inventoryItemData = item.GetComponent<InventoryItems>();
+                inventoryItemData.itemID = itemData.itemID;
                 inventoryItemData.itemName = itemData.itemName;
                 inventoryItemData.itemLevel = shopPrefs.GetInt(itemData.itemID.ToString());
                 inventoryItemData.itemImage = itemData.itemImage;
@@ -100,10 +108,19 @@ public class InventoryController : MonoBehaviour
                 {
                     defaultItem = inventoryItemData;
                     firstItem = false;
-                }                   
+                }
+                innerCount++;
+                inventoryItemsList.Add(inventoryItemData);
             }
         }
-        numberInnerUI.text = "Soá löôïng noäi coâng: "+  innerParent.transform.childCount.ToString();
+        numberInnerUI.text = "Soá löôïng noäi coâng: " +  innerCount.ToString();
+    }
+    public void ResetInventoryItems()
+    {
+        foreach(Transform child in innerParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
     //Them cac item da khoi tao vao trong list
     public void AddInventoryItems(InventoryItems inventoryItems)
@@ -141,5 +158,67 @@ public class InventoryController : MonoBehaviour
     public void CloseEquipUI()
     {
         inventoryEquipmentUI.SetActive(false);
+    }
+
+    //Ham trang bi item
+    public void EquipItem(int slot)
+    {
+        InventoryItems equipItem = inventoryItemsList[indexItemClicked];
+        bool alreadyAttached = false;
+        int index = 0;
+        for (int i = 0; i < equipedInventoryItemsList.Count; i++)
+        {
+            if (equipedInventoryItemsList[i] != -1 && equipedInventoryItemsList[i] == equipItem.itemID && (i != slot))
+            {
+                alreadyAttached = true;
+                index = i;
+            }
+        }
+
+        if (alreadyAttached == true)
+            equipedInventoryItemsList[index] = -1;
+        equipedInventoryItemsList[slot] = equipItem.itemID;
+        SaveEquipedData();
+        CharacterUIController.Instance.CreateEquipedInventoryItemsUI();
+    }
+
+    public void GetEquipedList()
+    {
+        equipedInventoryItemsList ??= new List<int>
+            {
+                -1,
+                -1,
+                -1
+            };
+
+        if (shopPrefs.HasKey("slot" + 1))
+        {
+            for(int i = 0; i <= 2; i++)
+            {
+                if (shopPrefs.GetInt("slot" + i) == -1)
+                    equipedInventoryItemsList[i] = -1;
+                else
+                {
+                    ShopDataAbstract data = innerHolder.listInner[shopPrefs.GetInt("slot"+i)].GetComponent<ShopDataAbstract>();
+                    equipedInventoryItemsList[i] = data.itemID;
+                }
+            }
+        }
+    }
+
+    public void SaveEquipedData()
+    {
+        for (int i = 0; i < equipedInventoryItemsList.Count; i++)
+        {
+            if (equipedInventoryItemsList[i] != -1)
+            {
+                shopPrefs.SetInt("slot"+i, equipedInventoryItemsList[i]);
+            }
+            else
+            {
+                shopPrefs.SetInt("slot" + i, -1);
+            }
+        }
+        shopPrefs.Save();
     }
 }

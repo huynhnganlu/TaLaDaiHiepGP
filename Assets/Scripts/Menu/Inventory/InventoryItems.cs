@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class InventoryItems : MonoBehaviour, IPointerClickHandler
 {
     public string itemName, itemOrigin, itemProperty, itemHistory;
-    public int itemLevel;
-    public Sprite itemImage; 
+    public int itemLevel, itemID;
+    public Sprite itemImage;
+
     void Start()
     {
         InventoryController.Instance.AddInventoryItems(this);
