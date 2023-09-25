@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CharacterUIController : MonoBehaviour
 {
+    //singleton variable
     public static CharacterUIController Instance;
 
     //inner ui holder variable
@@ -15,6 +16,8 @@ public class CharacterUIController : MonoBehaviour
     private GameObject innerUIHolder;
     [SerializeField]
     private InnerHolder innerHolder;
+
+    //Prefshop variable
     public JsonPlayerPrefs prefsShop;
     private void Awake()
     {

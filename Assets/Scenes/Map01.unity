@@ -296,9 +296,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1515838060}
     m_Modifications:
+    - target: {fileID: 450021604725671938, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd92271669ef864448da409be7bee8fe, type: 3}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382695279}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPrizeItemClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_Name
-      value: PrizeUI (2)
+      value: PrizeUI2
       objectReference: {fileID: 0}
     - target: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_Pivot.x
@@ -392,6 +412,11 @@ PrefabInstance:
 --- !u!224 &15187686 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+  m_PrefabInstance: {fileID: 15187685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &25431000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
   m_PrefabInstance: {fileID: 15187685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &28965315
@@ -847,6 +872,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1515838060}
     m_Modifications:
+    - target: {fileID: 450021604725671938, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19478bdaaaac4334084855b55435ff83, type: 3}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382695279}
     - target: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_Name
       value: PrizeUI
@@ -858,10 +895,6 @@ PrefabInstance:
     - target: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -938,16 +971,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1072447154}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
 --- !u!224 &69171782 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
   m_PrefabInstance: {fileID: 69171781}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &92647870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4007734468333159881, guid: ea716951d42e4b746a57e9a82db7768d, type: 3}
+  m_PrefabInstance: {fileID: 1487697902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104302046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1241,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &192969167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+  m_PrefabInstance: {fileID: 446278060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273885059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1255,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273885060}
-  - component: {fileID: 273885061}
   m_Layer: 5
   m_Name: TimerHolder
   m_TagString: Untagged
@@ -1237,18 +1282,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &273885061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273885059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786ab7690e829574aaaf2bf9bb1bfab3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &297468222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,17 +1605,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFreezing: 0
   prizeObject: {fileID: 1407128147}
-  prizeItems: []
+  prizeItems:
+  - {fileID: 1050977736}
+  - {fileID: 192969167}
+  - {fileID: 25431000}
+  prizeHolder: {fileID: 11400000, guid: 80f319f49d6b2bd49846617111513e40, type: 2}
   finishMapUI: {fileID: 1882942986}
   processFinishMapButton: {fileID: 1276782087}
+  money: {fileID: 2002441052}
+  qi: {fileID: 1555508904}
   minimapCamera: {fileID: 912696903}
   minimapMaxPos: {x: 26.77, y: 17.77}
   minimapMinPos: {x: -24.85, y: -18.56}
-  money: {fileID: 2002441052}
-  qi: {fileID: 1555508904}
-  characterData: {fileID: 11400000, guid: e176904e173431941944dc6c3632d338, type: 2}
-  parentInnerHolder: {fileID: 1454971266}
-  innerMapItem: {fileID: 1587553990659276754, guid: ea716951d42e4b746a57e9a82db7768d, type: 3}
+  innerMapItems:
+  - {fileID: 92647870}
+  - {fileID: 2051166940}
+  - {fileID: 1057818882}
+  innerHolder: {fileID: 11400000, guid: f87162203a4ecdb479f6034b799a3c2c, type: 2}
   timeSlider: {fileID: 1214897}
   timeText: {fileID: 1954582883}
   skillList: []
@@ -1590,9 +1629,9 @@ MonoBehaviour:
   layerNotSpawn:
     serializedVersion: 2
     m_Bits: 976
-  enemies: []
+  enemies:
+  - {fileID: 2671653017261918410, guid: 1ad1939f31313984199a672878e37651, type: 3}
   colliderSpawnEnemies: {fileID: 544767253}
-  innerHolder: {fileID: 11400000, guid: f87162203a4ecdb479f6034b799a3c2c, type: 2}
 --- !u!4 &382695280
 Transform:
   m_ObjectHideFlags: 0
@@ -1750,9 +1789,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1515838060}
     m_Modifications:
+    - target: {fileID: 450021604725671938, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9a5a176795b88842aa009d4af010498, type: 3}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382695279}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPrizeItemClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058418854011682722, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_Name
-      value: PrizeUI (1)
+      value: PrizeUI1
       objectReference: {fileID: 0}
     - target: {fileID: 3308779244095657619, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
       propertyPath: m_Pivot.x
@@ -4522,6 +4581,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7629460837342702783, guid: 8c3a2542be03037479b5a621ab99a7b4, type: 3}
   m_PrefabInstance: {fileID: 1031247389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1050977736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
+  m_PrefabInstance: {fileID: 69171781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056921403
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4622,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 53}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1057818882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4007734468333159881, guid: ea716951d42e4b746a57e9a82db7768d, type: 3}
+  m_PrefabInstance: {fileID: 943135009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1064799570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,40 +4784,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065359467}
   m_CullTransparentMesh: 1
---- !u!1 &1072447153 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3308779244095657612, guid: fd333b47a08784b46bb980307a9335e8, type: 3}
-  m_PrefabInstance: {fileID: 69171781}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1072447154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072447153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 382695279}
-          m_TargetAssemblyTypeName: MapController, Assembly-CSharp
-          m_MethodName: OnPrizeItemClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1080353794
 GameObject:
   m_ObjectHideFlags: 0
@@ -57165,50 +57206,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555508902}
   m_CullTransparentMesh: 1
---- !u!1 &1561169013
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1561169015}
-  - component: {fileID: 1561169014}
-  m_Layer: 0
-  m_Name: TestInner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1561169014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561169013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e66c0f29e759c246914bd94a56b255a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1561169015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561169013}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1051.0425, y: 552.8993, z: -5.706558}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589001047
 GameObject:
   m_ObjectHideFlags: 0
@@ -58032,6 +58029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec582bee9b55d24881d7ac9f6340800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7
+  maxHealth: 100
+  maxShield: 100
   currentHealth: 0
   healthBar: {fileID: 613315785}
   shieldBar: {fileID: 745833608}
@@ -58653,6 +58653,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003780567}
   m_CullTransparentMesh: 1
+--- !u!114 &2051166940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4007734468333159881, guid: ea716951d42e4b746a57e9a82db7768d, type: 3}
+  m_PrefabInstance: {fileID: 1983365569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2102483720
 GameObject:
   m_ObjectHideFlags: 3
@@ -58871,6 +58882,5 @@ SceneRoots:
   - {fileID: 104302048}
   - {fileID: 837938900}
   - {fileID: 759948619}
-  - {fileID: 1561169015}
   - {fileID: 382695280}
   - {fileID: 912696904}

@@ -33,9 +33,8 @@ public class InventoryController : MonoBehaviour
     public static InventoryController Instance;
 
     //Inner holder 
-    [SerializeField]
-    private InnerHolder innerHolder;
-    public JsonPlayerPrefs shopPrefs;
+    public InnerHolder innerHolder;
+    private JsonPlayerPrefs shopPrefs;
     private int innerCount;
 
     //Equip items variables
@@ -73,6 +72,7 @@ public class InventoryController : MonoBehaviour
 
     private void OnEnable()
     {
+        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
         GetEquipedList();
         ResetInventoryItems();
         GetBoughtInner();
@@ -86,7 +86,6 @@ public class InventoryController : MonoBehaviour
     {
         inventoryItemsList.Clear();
         innerCount = 0;
-        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
         bool firstItem = true;
         foreach (GameObject data in innerHolder.listInner)
         {
@@ -115,6 +114,7 @@ public class InventoryController : MonoBehaviour
         }
         numberInnerUI.text = "Soá löôïng noäi coâng: " +  innerCount.ToString();
     }
+    //Xoa nhung inventory items hien co
     public void ResetInventoryItems()
     {
         foreach(Transform child in innerParent.transform)
@@ -181,7 +181,7 @@ public class InventoryController : MonoBehaviour
         SaveEquipedData();
         CharacterUIController.Instance.CreateEquipedInventoryItemsUI();
     }
-
+    //Cap nhat danh sach equiped do moi lan enable no se tro ve mac dinh
     public void GetEquipedList()
     {
         equipedInventoryItemsList ??= new List<int>
@@ -191,7 +191,7 @@ public class InventoryController : MonoBehaviour
                 -1
             };
 
-        if (shopPrefs.HasKey("slot" + 1))
+        if (shopPrefs.HasKey("slot1"))
         {
             for(int i = 0; i <= 2; i++)
             {
@@ -205,7 +205,7 @@ public class InventoryController : MonoBehaviour
             }
         }
     }
-
+    //Luu thong tin trang bi noi cong vao shopPref
     public void SaveEquipedData()
     {
         for (int i = 0; i < equipedInventoryItemsList.Count; i++)

@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: MainMenu/Canvas/MeridianUIHolder/Header
     m_Metadata:
       m_Items: []
+  - m_Id: 37918298637570048
+    m_Key: Map01/TichTaPrize
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

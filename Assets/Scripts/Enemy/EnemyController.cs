@@ -11,29 +11,10 @@ public abstract class EnemyController : MonoBehaviour
     public int exp;
     public int money;
     public int qi;
+    public int damage;
     public bool isFlipped = false;
 
-
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            MyCharacterController.Instance.TakeEnemyDamage(20);
-        }
-       
-    }
-
-  /*  private void OnCollisionStay2D(Collision2D collision)
-    {
-        MyCharacterController.Instance.TakeEnemyDamage(20);
-    }*/
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-       
-    }
-
+  
     public void TakePlayerDamage(int damage)
     {
         this.GetComponent<Animator>().Play("Hurt");
@@ -75,6 +56,17 @@ public abstract class EnemyController : MonoBehaviour
             transform.localScale = flipped;
             transform.Rotate(0f, 180f, 0f);
             isFlipped = true;
+        }
+    }
+
+    public void HitPlayer(float radius,Vector3 hitPos)
+    {
+        foreach(Collider2D collider in Physics2D.OverlapCircleAll(hitPos, radius, LayerMask.GetMask("Player")))
+        {
+            if (collider.CompareTag("Player"))
+            {
+                MyCharacterController.Instance.TakeEnemyDamage(damage);
+            }
         }
     }
 }

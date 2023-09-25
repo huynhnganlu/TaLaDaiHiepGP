@@ -92,6 +92,10 @@ MonoBehaviour:
     m_Localized: Meridians
     m_Metadata:
       m_Items: []
+  - m_Id: 37918298637570048
+    m_Localized: Sword
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

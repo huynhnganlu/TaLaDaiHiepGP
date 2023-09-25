@@ -6,46 +6,46 @@ using UnityEngine.UI;
 
 public class MyCharacterController : MonoBehaviour
 {
-    //Animation vs Physic variables
+    #region Animation vs Physic variables
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
-    private float speed = 7.0f;
-
-    //Health vs Shiled variables
-    private int maxHealth = 100, maxShield = 100;
+    public float speed = 7.0f;
+    #endregion
+    #region Health vs Shiled variables
+    public int maxHealth = 100, maxShield = 100;
     public int currentHealth;
     private int currentShield;
     public Slider healthBar, shieldBar;
     public TextMeshProUGUI healthText, shieldText;
-
-    //Level variables
+    #endregion
+    #region Level variables
     public int currentLevel, maxExp, currentExp;
     [SerializeField]
     private Slider expBar;
-
-    //Money variables
+    #endregion
+    #region Money variables
     public int money = 0;
-
-    //Meridians value variables
+    #endregion
+    #region Meridians value variables
     public int qi = 0;
-  
-    //Singleton variables
+    #endregion
+    #region Singleton variables
     public static MyCharacterController Instance { get; private set; }
-
-    //Observer handle variables
+    #endregion
+    #region Data kill variables
     public delegate void DataKillHandle(int exp, int money, int qi);
     public event DataKillHandle onKillEnemy;
-
-    //Skill variables
+    #endregion
+    #region Skill variables
     public List<SkillAbstract> skillList;
     public delegate void SkillHandle(List<SkillAbstract> skillList);
-    public event SkillHandle skillListChange;
-
-    //Singleton
+    public event SkillHandle SkillListChange;
+    #endregion
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        #region Singleton
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -53,12 +53,16 @@ public class MyCharacterController : MonoBehaviour
         {
             Instance = this;
         }
+        #endregion
     }
     void Start()
     {
+        #region Animation ref
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        #endregion
 
+        #region Character Data ref
         currentHealth = maxHealth;
         currentShield = maxShield;
         healthBar.maxValue = maxHealth;
@@ -69,14 +73,14 @@ public class MyCharacterController : MonoBehaviour
         shieldText.text = currentShield.ToString();
 
         expBar.maxValue = maxExp;
-
+        #endregion
     }
 
-  
-    // Update is called once per frame
+
     void Update()
     {
-        if(MapController.Instance.isFreezing == false)
+        #region Movement Process
+        if (MapController.Instance.isFreezing == false)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -84,7 +88,7 @@ public class MyCharacterController : MonoBehaviour
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
         }
-      
+        #endregion
     }
     //Xu ly di chuyen
     private void FixedUpdate()
@@ -95,14 +99,15 @@ public class MyCharacterController : MonoBehaviour
     private void OnEnable()
     {
         onKillEnemy += HandleKillEnemy;
-        skillListChange += HandleSkillListChange;
+        SkillListChange += HandleSkillListChange;
     }
     //Object disable va inactive thi xoa listener
     private void OnDisable()
     {
         onKillEnemy -= HandleKillEnemy;
-        skillListChange += HandleSkillListChange;
+        SkillListChange += HandleSkillListChange;
     }
+    #region General
     //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
     {
@@ -132,12 +137,23 @@ public class MyCharacterController : MonoBehaviour
         }
       
     }
-    //Function tiep nhan su thay doi cho event (Khi giet duoc 1 quai vat bat ky)
+    //Function len cap
+    private void LevelUp()
+    {
+        currentExp = 0;
+        currentLevel++;
+        maxExp += 100;
+        expBar.maxValue = maxExp;
+        MapController.Instance.TogglePrize(true);
+    }
+    #endregion
+    #region Kill Enemy Observer
+    //Thong bao data khi giet duoc 1 quai vat bat ky
     public void AddKillEnemyChange(int exp, int money, int qi)
     {
         onKillEnemy?.Invoke(exp, money, qi);
     }
-    //Them listener xy ly cac thay doi khi giet duoc quai vat
+    //Them listener xy ly khi giet duoc quai vat
     private void HandleKillEnemy(int exp, int _money, int _qi)
     {
         currentExp += exp;
@@ -149,10 +165,14 @@ public class MyCharacterController : MonoBehaviour
         money += _money;
         qi += _qi;
     }
-    public void SkillListChange(List<SkillAbstract> skillList)
+    #endregion
+    #region Skill Observer
+    //Thong bao data khi thay doi skill
+    public void AddSkillListChange(List<SkillAbstract> skillList)
     {
-        skillListChange?.Invoke(skillList);
+        SkillListChange?.Invoke(skillList);
     }
+    //Them listener xy ly thay doi skill
     public void HandleSkillListChange(List<SkillAbstract> skillList)
     {
         foreach (SkillAbstract skill in skillList)
@@ -160,17 +180,6 @@ public class MyCharacterController : MonoBehaviour
             skill.InvokeSkill();
         }
     }
-    //Function len cap
-    private void LevelUp()
-    {
-        currentExp = 0;
-        currentLevel++;
-        maxExp += 100;
-        expBar.maxValue = maxExp;
-        MapController.Instance.TogglePrize(true);
-    }
-  
-    
+    #endregion
    
-
 }

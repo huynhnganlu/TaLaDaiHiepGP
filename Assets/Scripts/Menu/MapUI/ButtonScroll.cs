@@ -25,7 +25,6 @@ public class ButtonScroll : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         isDown = true;
         MapUIController.Instance.ScrollButtonClick(isDown, orientation);
-        Debug.Log(orientation);
     }
 
     public void OnPointerUp(PointerEventData eventData)
