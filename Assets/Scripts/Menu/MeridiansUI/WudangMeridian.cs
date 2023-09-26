@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WudangMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
-
+   
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -20,7 +20,6 @@ public class WudangMeridian : MeridianAbstract
         };
 
     }
-
     public override void LevelUpMeridian()
     {
         level++;
@@ -33,27 +32,28 @@ public class WudangMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("wudanglevel", level);
-        prefs.SetInt("wudanghp", hp);
-        prefs.SetInt("wudangmp", mp);
-        prefs.SetInt("wudangmpRegen", mpRegen);
-        prefs.SetInt("wudanginternalCrit", internalCrit);
-        prefs.SetInt("wudangexternalCrit", externalCrit);
-        prefs.Save();
+        meridianPrefs.SetInt("wudanglevel", level);
+        meridianPrefs.SetInt("wudanghp", hp);
+        meridianPrefs.SetInt("wudangmp", mp);
+        meridianPrefs.SetInt("wudangmpRegen", mpRegen);
+        meridianPrefs.SetInt("wudanginternalCrit", internalCrit);
+        meridianPrefs.SetInt("wudangexternalCrit", externalCrit);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("wudanglevel");
-        hp = prefs.GetInt("wudanghp");
-        mp = prefs.GetInt("wudangmp");
-        mpRegen = prefs.GetInt("wudangmpRegen");
-        internalCrit = prefs.GetInt("wudanginternalCrit");
-        externalCrit = prefs.GetInt("wudangexternalCrit");
+        level = meridianPrefs.GetInt("wudanglevel");
+        hp = meridianPrefs.GetInt("wudanghp");
+        mp = meridianPrefs.GetInt("wudangmp");
+        mpRegen = meridianPrefs.GetInt("wudangmpRegen");
+        internalCrit = meridianPrefs.GetInt("wudanginternalCrit");
+        externalCrit = meridianPrefs.GetInt("wudangexternalCrit");
     }
 
     public override void UpdatePropertyData()
@@ -63,5 +63,15 @@ public class WudangMeridian : MeridianAbstract
         propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
         propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
         propertyData["Ngoaïi coâng baïo kích:"] = externalCrit.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
+        characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1);
+        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1);
+        characterPrefs.SetInt("externalCrit", characterPrefs.GetInt("externalCrit") + 1);
+        characterPrefs.Save();
     }
 }

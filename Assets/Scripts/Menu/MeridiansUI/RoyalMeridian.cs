@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RoyalMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
+ 
 
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -32,27 +33,28 @@ public class RoyalMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("royallevel", level);
-        prefs.SetInt("royalhp", hp);
-        prefs.SetInt("royalmp", mp);
-        prefs.SetInt("royalexternalDamage", externalDamage);
-        prefs.SetInt("royalskipExternalDefense", skipExternalDefense);
-        prefs.SetInt("royalexternalCrit", externalCrit);
-        prefs.Save();
+        meridianPrefs.SetInt("royallevel", level);
+        meridianPrefs.SetInt("royalhp", hp);
+        meridianPrefs.SetInt("royalmp", mp);
+        meridianPrefs.SetInt("royalexternalDamage", externalDamage);
+        meridianPrefs.SetInt("royalskipExternalDefense", skipExternalDefense);
+        meridianPrefs.SetInt("royalexternalCrit", externalCrit);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("royallevel");
-        hp = prefs.GetInt("royalhp");
-        mp = prefs.GetInt("royalmp");
-        externalDamage = prefs.GetInt("royalexternalDamage");
-        skipExternalDefense = prefs.GetInt("royalskipExternalDefense");
-        externalCrit = prefs.GetInt("royalexternalCrit");
+        level = meridianPrefs.GetInt("royallevel");
+        hp = meridianPrefs.GetInt("royalhp");
+        mp = meridianPrefs.GetInt("royalmp");
+        externalDamage = meridianPrefs.GetInt("royalexternalDamage");
+        skipExternalDefense = meridianPrefs.GetInt("royalskipExternalDefense");
+        externalCrit = meridianPrefs.GetInt("royalexternalCrit");
     }
 
     public override void UpdatePropertyData()
@@ -62,5 +64,15 @@ public class RoyalMeridian : MeridianAbstract
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
         propertyData["Boû qua ngoaïi phoøng:"] = skipExternalDefense.ToString();
         propertyData["Ngoaïi coâng baïo kích:"] = externalCrit.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1 );
+        characterPrefs.SetInt("skipExternalDefense", characterPrefs.GetInt("skipExternalDefense") + 1 );
+        characterPrefs.SetInt("externalCrit", characterPrefs.GetInt("externalCrit") + 1 );
+        characterPrefs.Save();
     }
 }

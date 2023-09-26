@@ -12,6 +12,7 @@ public abstract class SkillAbstract : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(100);
+            MyCharacterController.Instance.HandleInner("Attack");
             Destroy(gameObject);
         }
     }

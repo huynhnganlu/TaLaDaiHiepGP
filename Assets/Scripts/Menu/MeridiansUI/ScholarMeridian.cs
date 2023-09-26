@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ScholarMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
+   
 
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -32,27 +33,28 @@ public class ScholarMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("scholarlevel", level);
-        prefs.SetInt("scholarhp", hp);
-        prefs.SetInt("scholarmp", mp);
-        prefs.SetInt("scholarinternalDamage", internalDamage);
-        prefs.SetInt("scholarskipInternalDefense", skipInternalDefense);
-        prefs.SetInt("scholarinternalCrit", internalCrit);
-        prefs.Save();
+        meridianPrefs.SetInt("scholarlevel", level);
+        meridianPrefs.SetInt("scholarhp", hp);
+        meridianPrefs.SetInt("scholarmp", mp);
+        meridianPrefs.SetInt("scholarinternalDamage", internalDamage);
+        meridianPrefs.SetInt("scholarskipInternalDefense", skipInternalDefense);
+        meridianPrefs.SetInt("scholarinternalCrit", internalCrit);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("scholarlevel");
-        hp = prefs.GetInt("scholarhp");
-        mp = prefs.GetInt("scholarmp");
-        internalDamage = prefs.GetInt("scholarinternalDamage");
-        skipInternalDefense = prefs.GetInt("scholarskipInternalDefense");
-        internalCrit = prefs.GetInt("scholarinternalCrit");
+        level = meridianPrefs.GetInt("scholarlevel");
+        hp = meridianPrefs.GetInt("scholarhp");
+        mp = meridianPrefs.GetInt("scholarmp");
+        internalDamage = meridianPrefs.GetInt("scholarinternalDamage");
+        skipInternalDefense = meridianPrefs.GetInt("scholarskipInternalDefense");
+        internalCrit = meridianPrefs.GetInt("scholarinternalCrit");
     }
 
     public override void UpdatePropertyData()
@@ -62,5 +64,15 @@ public class ScholarMeridian : MeridianAbstract
         propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
         propertyData["Boû qua noäi phoøng:"] = skipInternalDefense.ToString();
         propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
+        characterPrefs.SetInt("skipInternalDefense", characterPrefs.GetInt("skipInternalDefense") + 1 );
+        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1 );
+        characterPrefs.Save();
     }
 }

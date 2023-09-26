@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1772501378182257759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5984088465715234297}
+  - component: {fileID: 8553686282296436151}
+  m_Layer: 0
+  m_Name: MinhNgocCong
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5984088465715234297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772501378182257759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8553686282296436151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772501378182257759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1926ee3c7d7c3774bbdd68062167c059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCost: 500
+  itemID: 6
+  itemImage: {fileID: 21300000, guid: b7451e9aa04e6ad41ba62e0482bfadf8, type: 3}
+  itemName: "Minh Ngo\xEFc Co\xE2ng"
+  itemOrigin: "Qua\xE2n T\xF6\xFB \xD1\xF6\xF4\xF8ng"
+  itemProperty: "A\xC2m, Nhu"
+  itemHistory: "Qua\xE2n T\xF6\xFB \xD1\xF6\xF4\xF8ng quan tro\xEFng No\xE4i Co\xE2ng
+    Ta\xE2m Pha\xF9p. La\xE1y Kh\xED cu\xFBa A\xC2m Nhu thu va\xF8o Nha\xE2n The\xE5
+    Ba\xF9ch Ha\xF8i, lu\xF9c va\xE4n co\xE2ng tuy kho\xE2ng the\xE5 hie\xE4n ra
+    ngoa\xF8i, nh\xF6ng L\xF6\xEFc cu\xFBa Nhie\xE3m Ngoa\xEFi Gi\xF4\xF9i, t\xEDch
+    \xF1e\xE1n \xD1ie\xE2n Phong \xF1\xF2ch thu\xFB thie\xE4t ha\xEFi. Nghe truye\xE0n
+    luye\xE4n co\xE2ng na\xF8y \xF1e\xE1n C\xF6\xFBu Tru\xF8ng Thie\xE2n Tu\xF9c
+    co\xF9 the\xE5 bie\xE1n gia\xF8 tha\xF8nh tre\xFB, dung nhan \xF1\xF6\xF4\xEFc
+    gi\xF6\xF5 ma\xF5i ma\xF5i."
+  itemType: Attack

@@ -13,10 +13,13 @@ public abstract class MeridianAbstract : MonoBehaviour
     public GameObject objectPropertyData;
     public CharacterData characterData;
     public Sprite merdianImage;
+    public JsonPlayerPrefs meridianPrefs;
+    public JsonPlayerPrefs characterPrefs;
     public abstract void LevelUpMeridian();
     public abstract void SaveMeridian();
     public abstract void LoadMeridian();
     public abstract void UpdatePropertyData();
+    public abstract void SaveCharacterData();
 
     //Chay danh sach property va set data
     public void GetPropertyData()

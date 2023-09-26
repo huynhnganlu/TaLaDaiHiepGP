@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ShaolinMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
+   
 
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -32,27 +33,28 @@ public class ShaolinMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("shaolinlevel", level);
-        prefs.SetInt("shaolinhp", hp);
-        prefs.SetInt("shaolinmp", mp);
-        prefs.SetInt("shaolinexternalDefense", externalDefense);
-        prefs.SetInt("shaolinhpRegen", hpRegen);
-        prefs.SetInt("shaolinskipExternalDefense", skipExternalDefense);
-        prefs.Save();
+        meridianPrefs.SetInt("shaolinlevel", level);
+        meridianPrefs.SetInt("shaolinhp", hp);
+        meridianPrefs.SetInt("shaolinmp", mp);
+        meridianPrefs.SetInt("shaolinexternalDefense", externalDefense);
+        meridianPrefs.SetInt("shaolinhpRegen", hpRegen);
+        meridianPrefs.SetInt("shaolinskipExternalDefense", skipExternalDefense);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("shaolinlevel");
-        hp = prefs.GetInt("shaolinhp");
-        mp = prefs.GetInt("shaolinmp");
-        externalDefense = prefs.GetInt("shaolinexternalDefense");
-        hpRegen = prefs.GetInt("shaolinhpRegen");
-        skipExternalDefense = prefs.GetInt("shaolinskipExternalDefense");
+        level = meridianPrefs.GetInt("shaolinlevel");
+        hp = meridianPrefs.GetInt("shaolinhp");
+        mp = meridianPrefs.GetInt("shaolinmp");
+        externalDefense = meridianPrefs.GetInt("shaolinexternalDefense");
+        hpRegen = meridianPrefs.GetInt("shaolinhpRegen");
+        skipExternalDefense = meridianPrefs.GetInt("shaolinskipExternalDefense");
     }
 
     public override void UpdatePropertyData()
@@ -62,5 +64,15 @@ public class ShaolinMeridian : MeridianAbstract
         propertyData["Ngoaïi phoøng:"] = externalDefense.ToString();
         propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
         propertyData["Boû qua ngoaïi phoøng:"] = skipExternalDefense.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
+        characterPrefs.SetInt("externalDefense", characterPrefs.GetInt("externalDefense") + 1 );
+        characterPrefs.SetInt("hpRegen", characterPrefs.GetInt("hpRegen") + 1 );
+        characterPrefs.SetInt("skipExternalDefense", characterPrefs.GetInt("skipExternalDefense") + 1 );
+        characterPrefs.Save();
     }
 }

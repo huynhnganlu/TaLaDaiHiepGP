@@ -39,8 +39,8 @@ public class MapController : MonoBehaviour
     #region Inner var
     [SerializeField]
     private Image[] innerMapItems;
-    [SerializeField]
-    private InnerHolder innerHolder;
+    public InnerHolder innerHolder;
+    public List<ShopDataAbstract> equipedList;
     #endregion
     #region Time var
     public Slider timeSlider;
@@ -61,8 +61,9 @@ public class MapController : MonoBehaviour
     [SerializeField]
     private Collider2D colliderSpawnEnemies;
     #endregion
-    #region ShopPlayerPref var
-    private JsonPlayerPrefs shopPrefs;
+    #region Pref var
+    public JsonPlayerPrefs shopPrefs;
+    public JsonPlayerPrefs characterPrefs;
     #endregion
     private void Awake()
     {
@@ -75,6 +76,11 @@ public class MapController : MonoBehaviour
         {
             Instance = this;
         }
+        #endregion
+
+        #region Pref ref
+        characterPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/CharacterData.json");
+        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
         #endregion
     }
 
@@ -108,9 +114,7 @@ public class MapController : MonoBehaviour
         });
 
         //Hien thi cac noi cong da trang bi
-        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
         GetEquipedInner(shopPrefs);
-
         //Lay total rate cua cac prize
         totalRate = GetTotalRate();
     }
@@ -170,13 +174,17 @@ public class MapController : MonoBehaviour
     {
         prizeObject.SetActive(status);
         SetFreezing(true);
-        for(int i = 0;i <= 2; i++)
+        GetPrize();
+    }
+    public void GetPrize()
+    {
+        for (int i = 0; i <= 2; i++)
         {
-            SetPrize(RandomPrize(), i);
+            SetPrizeData(RandomPrize(), i);
         }
     }
     //Set gia tri cua prize vao prizeUI
-    private void SetPrize(PrizeAbstract prize, int slot)
+    private void SetPrizeData(PrizeAbstract prize, int slot)
     {
         PrizeUI prizeItem = prizeItems[slot].GetComponent<PrizeUI>();
         prizeItem.id = prize.id;
@@ -223,7 +231,7 @@ public class MapController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             foreach (GameObject enemy in enemies)
             {
@@ -270,6 +278,8 @@ public class MapController : MonoBehaviour
     {
         if (prefs.HasKey("slot1"))
         {
+            equipedList ??= new List<ShopDataAbstract>();
+            equipedList.Clear();
             for(int i = 0;i <= 2; i++)
             {
                 if(prefs.GetInt("slot"+i) == -1)
@@ -279,10 +289,14 @@ public class MapController : MonoBehaviour
                 }
                 else
                 {
-                    innerMapItems[i].sprite = innerHolder.listInner[prefs.GetInt("slot" + i)].GetComponent<ShopDataAbstract>().itemImage;
+                    ShopDataAbstract data = innerHolder.listInner[prefs.GetInt("slot" + i)].GetComponent<ShopDataAbstract>();
+                    GameObject clonePrefab = Instantiate(data.gameObject);
+                    equipedList.Add(clonePrefab.GetComponent<ShopDataAbstract>());
+                    innerMapItems[i].sprite = data.itemImage;
                     innerMapItems[i].color = new Color(1f, 1f, 1f, 1f);
                 }
             }
+            MyCharacterController.Instance.HandleInner("Buff");
         }
     }
     #endregion

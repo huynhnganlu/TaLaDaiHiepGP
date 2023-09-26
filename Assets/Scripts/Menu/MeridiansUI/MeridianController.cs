@@ -22,8 +22,8 @@ public class MeridianController : MonoBehaviour
     //Singleton variable
     public static MeridianController Instance;
     //PlayerPref variable
-    public JsonPlayerPrefs prefs;
-
+    public JsonPlayerPrefs meridianPrefs;
+    public JsonPlayerPrefs characterPrefs;
 
     private void Awake()
     {
@@ -36,12 +36,14 @@ public class MeridianController : MonoBehaviour
             Instance = this;
         }
 
+        meridianPrefs = MenuController.Instance.meridianPrefs;
+        characterPrefs = MenuController.Instance.characterPrefs;
     }
 
 
     private void Start()
     {
-        prefs = new JsonPlayerPrefs(Application.persistentDataPath + "/meridians.json");
+              
         //Set value of Qi
         qiHolder.text = characterData.qi.ToString();
         //Assign ham level up vao level up button
@@ -51,20 +53,11 @@ public class MeridianController : MonoBehaviour
         });
        
     }
-   /* private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            prefs.DeleteAll();
-            prefs.Save();
-        }
-    }*/
+
     //Set UI level
     public void SetMeridianLevel(int level)
     {
         levelMeridianUI.text = level + "/180";
     }
-
-  
-    
+   
 }

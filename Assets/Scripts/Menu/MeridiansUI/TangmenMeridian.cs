@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TangmenMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
-
+   
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -32,27 +32,28 @@ public class TangmenMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("tangmenlevel", level);
-        prefs.SetInt("tangmenhp", hp);
-        prefs.SetInt("tangmenmp", mp);
-        prefs.SetInt("tangmenevade", evade);
-        prefs.SetInt("tangmenexternalDamage", externalDamage);
-        prefs.SetInt("tangmenexternalCrit", externalCrit);
-        prefs.Save();
+        meridianPrefs.SetInt("tangmenlevel", level);
+        meridianPrefs.SetInt("tangmenhp", hp);
+        meridianPrefs.SetInt("tangmenmp", mp);
+        meridianPrefs.SetInt("tangmenevade", evade);
+        meridianPrefs.SetInt("tangmenexternalDamage", externalDamage);
+        meridianPrefs.SetInt("tangmenexternalCrit", externalCrit);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("tangmenlevel");
-        hp = prefs.GetInt("tangmenhp");
-        mp = prefs.GetInt("tangmenmp");
-        evade = prefs.GetInt("tangmenevade");
-        externalDamage = prefs.GetInt("tangmenexternalDamage");
-        externalCrit = prefs.GetInt("tangmenexternalCrit");
+        level = meridianPrefs.GetInt("tangmenlevel");
+        hp = meridianPrefs.GetInt("tangmenhp");
+        mp = meridianPrefs.GetInt("tangmenmp");
+        evade = meridianPrefs.GetInt("tangmenevade");
+        externalDamage = meridianPrefs.GetInt("tangmenexternalDamage");
+        externalCrit = meridianPrefs.GetInt("tangmenexternalCrit");
     }
 
     public override void UpdatePropertyData()
@@ -62,5 +63,15 @@ public class TangmenMeridian : MeridianAbstract
         propertyData["Neù traùnh:"] = evade.ToString();
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
         propertyData["Ngoaïi coâng baïo kích:"] = externalCrit.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
+        characterPrefs.SetInt("evade", characterPrefs.GetInt("evade") + 1);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
+        characterPrefs.SetInt("externalCrit", characterPrefs.GetInt("externalCrit") + 1);
+        characterPrefs.Save();
     }
 }

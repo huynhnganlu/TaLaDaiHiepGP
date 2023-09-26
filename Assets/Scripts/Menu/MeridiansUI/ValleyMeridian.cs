@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ValleyMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
+  
 
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -34,27 +35,28 @@ public class ValleyMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("valleylevel", level);
-        prefs.SetInt("valleyhp", hp);
-        prefs.SetInt("valleymp", mp);
-        prefs.SetInt("valleympRegen", mpRegen);
-        prefs.SetInt("valleyskipInternalDefense", skipInternalDefense);
-        prefs.SetInt("valleyinternalCrit", internalCrit);
-        prefs.Save();
+        meridianPrefs.SetInt("valleylevel", level);
+        meridianPrefs.SetInt("valleyhp", hp);
+        meridianPrefs.SetInt("valleymp", mp);
+        meridianPrefs.SetInt("valleympRegen", mpRegen);
+        meridianPrefs.SetInt("valleyskipInternalDefense", skipInternalDefense);
+        meridianPrefs.SetInt("valleyinternalCrit", internalCrit);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("valleylevel");
-        hp = prefs.GetInt("valleyhp");
-        mp = prefs.GetInt("valleymp");
-        mpRegen = prefs.GetInt("valleympRegen");
-        skipInternalDefense = prefs.GetInt("valleyskipInternalDefense");
-        internalCrit = prefs.GetInt("valleyinternalCrit");
+        level = meridianPrefs.GetInt("valleylevel");
+        hp = meridianPrefs.GetInt("valleyhp");
+        mp = meridianPrefs.GetInt("valleymp");
+        mpRegen = meridianPrefs.GetInt("valleympRegen");
+        skipInternalDefense = meridianPrefs.GetInt("valleyskipInternalDefense");
+        internalCrit = meridianPrefs.GetInt("valleyinternalCrit");
     }
 
     public override void UpdatePropertyData()
@@ -64,5 +66,15 @@ public class ValleyMeridian : MeridianAbstract
         propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
         propertyData["Boû qua noäi phoøng:"] = skipInternalDefense.ToString();
         propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
+        characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1 );
+        characterPrefs.SetInt("skipInternalDefense", characterPrefs.GetInt("skipInternalDefense") + 1 );
+        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1 );
+        characterPrefs.Save();
     }
 }

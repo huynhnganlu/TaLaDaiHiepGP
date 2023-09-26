@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BeggarMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
+  
 
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -33,27 +34,28 @@ public class BeggarMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("beggarlevel", level);
-        prefs.SetInt("beggarhp", hp);
-        prefs.SetInt("beggarmp", mp);
-        prefs.SetInt("beggarinternalDamage", internalDamage);
-        prefs.SetInt("beggarinternalDefense", internalDefense);
-        prefs.SetInt("beggarinternalCrit", internalCrit);
-        prefs.Save();
+        meridianPrefs.SetInt("beggarlevel", level);
+        meridianPrefs.SetInt("beggarhp", hp);
+        meridianPrefs.SetInt("beggarmp", mp);
+        meridianPrefs.SetInt("beggarinternalDamage", internalDamage);
+        meridianPrefs.SetInt("beggarinternalDefense", internalDefense);
+        meridianPrefs.SetInt("beggarinternalCrit", internalCrit);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("beggarlevel");
-        hp = prefs.GetInt("beggarhp");
-        mp = prefs.GetInt("beggarmp");
-        internalDamage = prefs.GetInt("beggarinternalDamage");
-        internalDefense = prefs.GetInt("beggarinternalDefense");
-        internalCrit = prefs.GetInt("beggarinternalCrit");
+        level = meridianPrefs.GetInt("beggarlevel");
+        hp = meridianPrefs.GetInt("beggarhp");
+        mp = meridianPrefs.GetInt("beggarmp");
+        internalDamage = meridianPrefs.GetInt("beggarinternalDamage");
+        internalDefense = meridianPrefs.GetInt("beggarinternalDefense");
+        internalCrit = meridianPrefs.GetInt("beggarinternalCrit");
     }
 
     public override void UpdatePropertyData()
@@ -63,5 +65,15 @@ public class BeggarMeridian : MeridianAbstract
         propertyData["Noäi phoøng:"] = internalDefense.ToString();
         propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
         propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
+        characterPrefs.SetInt("internalDefense", characterPrefs.GetInt("internalDefense") + 1);
+        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1);
+        characterPrefs.Save();
     }
 }

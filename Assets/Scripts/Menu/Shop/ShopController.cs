@@ -28,11 +28,12 @@ public class ShopController : MonoBehaviour
             Instance = this;
         }
 
-        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
+        
     }
     // Start is called before the first frame update
     void Start()
     {
+        shopPrefs = MenuController.Instance.shopPrefs;
         moneyText.text = money.ToString();
         LoadShopItemsData();
         CheckItems();

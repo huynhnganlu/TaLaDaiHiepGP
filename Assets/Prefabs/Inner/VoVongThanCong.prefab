@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5485338076087354735}
-  - component: {fileID: 5424658933217227175}
+  - component: {fileID: 8553748643890247745}
   m_Layer: 0
-  m_Name: ToaVongCong
+  m_Name: VoVongThanCong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5424658933217227175
+--- !u!114 &8553748643890247745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,17 +41,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5696436756367878241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3833a0964ff1a74e98087d595380bc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fea28d23b33e6940b6e83726b2d6c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 200
-  itemID: 0
-  itemImage: {fileID: 21300000, guid: 46ead064bf04c3b4fb2789aca4d97fbb, type: 3}
-  itemName: "To\xEFa Vong Co\xE2ng"
-  itemOrigin: "Giang ho\xE0"
-  itemProperty: "A\xC2m, Nhu"
-  itemHistory: "To\xEFa Vong Thu Ta\xE2m, Chu\xFB T\xF3nh Kh\xF6\xF9 Du\xEFc, T\xF3nh
-    Ta\xE9c Sinh Tue\xE4, \xD1o\xE4ng Ta\xE9c Tha\xF8nh Ho\xE2n, D\xF6\xF5 \xD1a\xEFo
-    Minh Nha\xE1t, Va\xEFn L\xF6\xEF Giai Di, Li H\xECnh Kh\xF6\xF9 Tr\xED, \xD1o\xE0ng
-    Vu \xD1a\xEFi Tho\xE2ng, Th\xF2 V\xF2 To\xEFa Vong."
+  itemCost: 3000
+  itemID: 4
+  itemImage: {fileID: 21300000, guid: 25c86679ffe70ea45a925e1617e4b67e, type: 3}
+  itemName: "Vo\xE2 Vo\xEFng Tha\xE0n Co\xE2ng"
+  itemOrigin: "Giang Ho\xE0"
+  itemProperty: "D\xF6\xF4ng, C\xF6\xF4ng"
+  itemHistory: "T\xF6\xF4ng truye\xE0n Ch\xF6\xF4\u0309ng mo\xE2n pha\u0301i Tuye\xE2\u0301t
+    S\xF4n Ba\u0323ch T\xF6\u0323 Ta\u0323i, sa\u0301ng ta\u0323o no\xE2\u0323i co\xE2ng
+    d\xF6\u0323a tre\xE2n que\u0309 \"Vo\xE2 Vo\u0323ng\", chu\u0301 tro\u0323ng
+    \u201Cthie\xE2n lo\xE2i vo\xE2 vo\u0323ng, vo\xE2 vo\u0323ng nhi \xF1a\xEA\u0301c,
+    ta\xE2\u0301t h\xF6\u0303u s\xF4\u0309 tha\xE2\u0301t, ta\xE2\u0301t h\xF6\u0303u
+    s\xF4\u0309 \xF1a\xEA\u0301c\". Luye\xE2\u0323n xong co\u0301 the\xE2\u0309 chuye\xE2\u0309n
+    hoa\u0323 tha\u0300nh phu\u0301c, ba\u0309o ve\xE2\u0323 tha\xE2n the\xE2\u0309,
+    cu\u0303ng co\u0301 the\xE2\u0309 chuye\xE2\u0309n phu\u0301c tha\u0300nh hoa\u0323,
+    co\u0301 the\xE2m \xF1i\u0323ch thu\xFB. "
   itemType: Buff

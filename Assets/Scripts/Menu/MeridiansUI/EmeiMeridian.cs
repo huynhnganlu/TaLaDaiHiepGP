@@ -8,10 +8,12 @@ using UnityEngine.UI;
 
 public class EmeiMeridian : MeridianAbstract
 {
-    private JsonPlayerPrefs prefs;
+
+
     private void Start()
     {
-        prefs = MeridianController.Instance.prefs;
+        meridianPrefs = MeridianController.Instance.meridianPrefs;
+        characterPrefs = MeridianController.Instance.characterPrefs;
         LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
@@ -37,27 +39,28 @@ public class EmeiMeridian : MeridianAbstract
         UpdatePropertyData();
         GetPropertyData();
         SaveMeridian();
+        SaveCharacterData();
     }
 
     public override void SaveMeridian()
     {
-        prefs.SetInt("emeilevel", level);
-        prefs.SetInt("emeihp", hp);
-        prefs.SetInt("emeimp", mp);
-        prefs.SetInt("emeievade", evade);
-        prefs.SetInt("emeiinternalDefense", internalDefense);
-        prefs.SetInt("emeiskipInternalDefense", skipInternalDefense);
-        prefs.Save();
+        meridianPrefs.SetInt("emeilevel", level);
+        meridianPrefs.SetInt("emeihp", hp);
+        meridianPrefs.SetInt("emeimp", mp);
+        meridianPrefs.SetInt("emeievade", evade);
+        meridianPrefs.SetInt("emeiinternalDefense", internalDefense);
+        meridianPrefs.SetInt("emeiskipInternalDefense", skipInternalDefense);
+        meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = prefs.GetInt("emeilevel");
-        hp = prefs.GetInt("emeihp");
-        mp = prefs.GetInt("emeimp");
-        evade = prefs.GetInt("emeievade");
-        internalDefense = prefs.GetInt("emeiinternalDefense");
-        skipInternalDefense = prefs.GetInt("emeiskipInternalDefense");
+        level = meridianPrefs.GetInt("emeilevel");
+        hp = meridianPrefs.GetInt("emeihp");
+        mp = meridianPrefs.GetInt("emeimp");
+        evade = meridianPrefs.GetInt("emeievade");
+        internalDefense = meridianPrefs.GetInt("emeiinternalDefense");
+        skipInternalDefense = meridianPrefs.GetInt("emeiskipInternalDefense");
     }
 
     public override void UpdatePropertyData()
@@ -67,5 +70,15 @@ public class EmeiMeridian : MeridianAbstract
         propertyData["Neù traùnh:"] = evade.ToString();
         propertyData["Noäi phoøng:"] = internalDefense.ToString();
         propertyData["Boû qua noäi phoøng:"] = skipInternalDefense.ToString();
+    }
+
+    public override void SaveCharacterData()
+    {
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
+        characterPrefs.SetInt("evade", characterPrefs.GetInt("evade") + 1);
+        characterPrefs.SetInt("internalDefense", characterPrefs.GetInt("internalDefense") + 1);
+        characterPrefs.SetInt("skipInternalDefense", characterPrefs.GetInt("skipInternalDefense") + 1);
+        characterPrefs.Save();
     }
 }

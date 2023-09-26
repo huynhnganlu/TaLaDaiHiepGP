@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5485338076087354735}
-  - component: {fileID: 5424658933217227175}
+  - component: {fileID: -465378677755211878}
   m_Layer: 0
-  m_Name: ToaVongCong 5
+  m_Name: ThuongThanhVoCucCong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5424658933217227175
+--- !u!114 &-465378677755211878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,16 +41,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5696436756367878241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3833a0964ff1a74e98087d595380bc1, type: 3}
+  m_Script: {fileID: 11500000, guid: d792a3d1f9eee7b4e9170820e66925ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 200
+  itemCost: 1
   itemID: 5
-  itemImage: {fileID: 21300000, guid: 46ead064bf04c3b4fb2789aca4d97fbb, type: 3}
-  itemName: "To\xEFa Vong Co\xE2ng"
-  itemOrigin: "Giang ho\xE0"
-  itemProperty: "A\xC2m, nhu"
-  itemHistory: "To\xEFa Vong Thu Ta\xE2m, Chu\xFB T\xF3nh Kh\xF6\xF9 Du\xEFc, T\xF3nh
-    Ta\xE9c Sinh Tue\xE4, \xD1o\xE4ng Ta\xE9c Tha\xF8nh Ho\xE2n, D\xF6\xF5 \xD1a\xEFo
-    Minh Nha\xE1t, Va\xEFn L\xF6\xEF Giai Di, Li H\xECnh Kh\xF6\xF9 Tr\xED, \xD1o\xE0ng
-    Vu \xD1a\xEFi Tho\xE2ng, Th\xF2 V\xF2 To\xEFa Vong."
+  itemImage: {fileID: 21300000, guid: fef0f98c8c0ac0e4a9780695fce41105, type: 3}
+  itemName: "Th\xF6\xF4\xEFng Thanh Vo\xE2 C\xF6\xEFc Co\xE2ng"
+  itemOrigin: "Vo\xF5 \xD1ang"
+  itemProperty: "Tha\xF9i C\xF6\xEFc"
+  itemHistory: "Vo\xF5 \xD1ang no\xE4i co\xE2ng tuye\xE4t ho\xEFc, no\xE4i co\xE2ng
+    ta\xE2m pha\xF9p thu la\xEFi, b\xED quye\xE1t co\xF9 ch\xEDn chuye\xE5n, nha\xE1t
+    chuye\xE5n ha\xF8ng \xF1an, nh\xF2 chuye\xE5n giao ca\xE1u, tam chuye\xE5n d\xF6\xF4\xF5ng
+    d\xF6\xF4ng, t\xF6\xF9 chuye\xE5n d\xF6\xF4\xF5ng a\xE2m, ngu\xF5 chuye\xE5n
+    hoa\xF9n co\xE1t, lu\xEFc chuye\xE5n hoa\xF9n nhu\xEFc, tha\xE1t chuye\xE5n hoa\xF9n
+    ngu\xF5 ta\xEFng lu\xEFc phu\xFB, ba\xF9t chuye\xE5n du\xEFc ho\xFBa, c\xF6\xFBu
+    chuye\xE5n phi tha\xEAng. "
+  itemType: Health

@@ -66,13 +66,12 @@ public class InventoryController : MonoBehaviour
         closeInventoryUIButton.onClick.AddListener(() =>
         {
             CloseEquipUI();
-        });
-        
+        });  
     }
 
     private void OnEnable()
     {
-        shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
+        shopPrefs = MenuController.Instance.shopPrefs;
         GetEquipedList();
         ResetInventoryItems();
         GetBoughtInner();
