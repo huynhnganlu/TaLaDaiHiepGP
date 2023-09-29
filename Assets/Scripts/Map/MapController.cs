@@ -86,8 +86,6 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        OnSkillListChange(testSkill);
-
         //spawn enemy
         StartCoroutine(SpawnEnemies(colliderSpawnEnemies, enemies));
 
@@ -235,12 +233,12 @@ public class MapController : MonoBehaviour
 
             foreach (GameObject enemy in enemies)
             {
-                Instantiate(enemy, GetRandomSpawnPosition(collider), Quaternion.identity);
+                Instantiate(enemy, GetRandomSpawnPosition(collider, 13f, 25f), Quaternion.identity);
             }
         }
     }
     //Ham kiem tra xem vi tri random co phu hop khong
-    private Vector2 GetRandomSpawnPosition(Collider2D collider)
+    public Vector2 GetRandomSpawnPosition(Collider2D collider, float distanceMin, float distanceMax)
     {
         Vector2 randomPos = Vector2.zero;
         bool isValidPos = false;
@@ -251,7 +249,7 @@ public class MapController : MonoBehaviour
             bool isInvalidCollision = false;
 
             foreach (Collider2D _collider in colliders)
-            {
+            {              
                 if (((1 << _collider.gameObject.layer) & layerNotSpawn) != 0)
                 {
                     isInvalidCollision = true;
@@ -259,7 +257,8 @@ public class MapController : MonoBehaviour
                 }
             }
 
-            if (!isInvalidCollision && (Vector2.Distance(MyCharacterController.Instance.transform.position, randomPos) > 13f))
+            if (!isInvalidCollision && (Vector2.Distance(MyCharacterController.Instance.transform.position, randomPos) > distanceMin)
+                && (Vector2.Distance(MyCharacterController.Instance.transform.position, randomPos) < distanceMax))
             {
                 isValidPos = true;
             }
@@ -300,12 +299,5 @@ public class MapController : MonoBehaviour
         }
     }
     #endregion
-    #region Skill
-    //Xu ly khi skill list thay doi
-    public void OnSkillListChange(SkillAbstract skill)
-    {
-        skillList.Add(skill);
-        MyCharacterController.Instance.AddSkillListChange(skillList);
-    }
-    #endregion
+  
 }

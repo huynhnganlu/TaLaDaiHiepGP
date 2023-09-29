@@ -14,29 +14,32 @@ public abstract class EnemyController : MonoBehaviour
     public int damage;
     public bool isFlipped = false;
 
-  
     public void TakePlayerDamage(int damage)
     {
-        this.GetComponent<Animator>().Play("Hurt");
-        currentEnemyHP -= damage;
-
-        if((currentEnemyHP <= enemyMaxHP / 2) && name.Equals("Boss"))
+        if (GetComponent<Animator>().GetBool("Death") == false)
         {
-            this.GetComponent<Animator>().SetTrigger("isRaging");
-        }
+            GetComponent<Animator>().Play("Hurt");
+            currentEnemyHP -= damage;
 
-        if (currentEnemyHP <= 0)
-        {
-            if(name.Equals("Boss"))
+            if ((currentEnemyHP <= enemyMaxHP / 2) && name.Equals("Boss"))
             {
-                //MapController.Instance.ProcessFinishMap();
+                GetComponent<Animator>().SetTrigger("isRaging");
             }
-            else
+
+            if (currentEnemyHP <= 0)
             {
-                MyCharacterController.Instance.AddKillEnemyChange(this.exp, this.money, this.qi);
+                GetComponent<PolygonCollider2D>().isTrigger = true;
+                if (name.Equals("Boss"))
+                {
+                    //MapController.Instance.ProcessFinishMap();
+                }
+                else
+                {
+                    MyCharacterController.Instance.AddKillEnemyChange(this.exp, this.money, this.qi);
+                }
+                GetComponent<Animator>().SetBool("Death", true);
+
             }
-            this.GetComponent<Animator>().SetTrigger("Death");
-            
         }
     }
 

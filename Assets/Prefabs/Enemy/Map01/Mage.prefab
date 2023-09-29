@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 4133835896180732214}
   - component: {fileID: 4133835896180732209}
   - component: {fileID: 4133835896180732202}
-  - component: {fileID: 4133835896180732213}
   - component: {fileID: 4133835896180732203}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mage
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1403893419, guid: eea99d27492fb10428518f7e64e3d3a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -168,7 +167,7 @@ PolygonCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,99 +197,6 @@ PolygonCollider2D:
       - {x: 0.11591144, y: 0.03431043}
       - {x: 0.08859597, y: 0.114113405}
   m_UseDelaunayMesh: 0
---- !u!66 &4133835896180732213
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4133835896180732208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 4133835896180732202}
-    m_ColliderPaths:
-    - - X: 1318319
-        Y: 9872007
-      - X: 47091
-        Y: 9636558
-      - X: 281389
-        Y: 7928501
-      - X: -3014704
-        Y: 7502682
-      - X: -3119088
-        Y: 9655854
-      - X: -4962563
-        Y: 9701970
-      - X: -6366505
-        Y: 5231523
-      - X: -6508060
-        Y: 968925
-      - X: -6802984
-        Y: -2357286
-      - X: -5807110
-        Y: -3347706
-      - X: -5550741
-        Y: -7329312
-      - X: 7821430
-        Y: -7380298
-      - X: 7626010
-        Y: -4322945
-      - X: 7668956
-        Y: 461626
-      - X: 6954686
-        Y: 2058625
-      - X: 5315758
-        Y: 6846804
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 0.7821112, y: -0.7380297}
-      - {x: 0.762601, y: -0.4322926}
-      - {x: 0.7668933, y: 0.0461677}
-      - {x: 0.6954679, y: 0.2058643}
-      - {x: 0.5315695, y: 0.68468523}
-      - {x: 0.1318206, y: 0.9871987}
-      - {x: 0.0047128, y: 0.9636283}
-      - {x: 0.0281096, y: 0.7928463}
-      - {x: -0.3014721, y: 0.7503005}
-      - {x: -0.3119356, y: 0.9655861}
-      - {x: -0.4962626, y: 0.97017694}
-      - {x: -0.6366508, y: 0.5231485}
-      - {x: -0.6508062, y: 0.0968903}
-      - {x: -0.6802898, y: -0.23573731}
-      - {x: -0.5807104, y: -0.3347803}
-      - {x: -0.5550471, y: -0.7329313}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 4133835896180732208}
 --- !u!114 &4133835896180732203
 MonoBehaviour:
   m_ObjectHideFlags: 0

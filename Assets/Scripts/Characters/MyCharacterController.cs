@@ -38,8 +38,6 @@ public class MyCharacterController : MonoBehaviour
     #endregion
     #region Skill variables
     public List<SkillAbstract> skillList;
-    public delegate void SkillHandle(List<SkillAbstract> skillList);
-    public event SkillHandle OnSkillListChange;
     #endregion
     #region Pref variables
     private JsonPlayerPrefs characterPrefs, shopPrefs;
@@ -75,7 +73,7 @@ public class MyCharacterController : MonoBehaviour
         GetProperty();
         SetProperty();
         #endregion
-
+        HandleSkill(skillList);
     }
 
 
@@ -101,13 +99,11 @@ public class MyCharacterController : MonoBehaviour
     private void OnEnable()
     {
         OnKillEnemy += HandleKillEnemy;
-        OnSkillListChange += HandleSkillListChange;
     }
     //Object disable va inactive thi xoa listener
     private void OnDisable()
     {
         OnKillEnemy -= HandleKillEnemy;
-        OnSkillListChange -= HandleSkillListChange;
     }
     #region Character
     //Nhan damage tu quai vat
@@ -216,14 +212,8 @@ public class MyCharacterController : MonoBehaviour
         qi += _qi;
     }
     #endregion
-    #region Skill Observer
-    //Thong bao data khi thay doi skill
-    public void AddSkillListChange(List<SkillAbstract> skillList)
-    {
-        OnSkillListChange?.Invoke(skillList);
-    }
-    //Them listener xy ly thay doi skill
-    public void HandleSkillListChange(List<SkillAbstract> skillList)
+    #region Skill Handle
+    public void HandleSkill(List<SkillAbstract> skillList)
     {
         foreach (SkillAbstract skill in skillList)
         {
@@ -232,7 +222,7 @@ public class MyCharacterController : MonoBehaviour
     }
     #endregion
     #region Damage Handle
- 
+
     public void HandleInner(string type)
     {
         List<ShopDataAbstract> list = MapController.Instance.equipedList;
