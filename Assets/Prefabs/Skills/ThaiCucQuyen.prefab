@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2753161028791602050}
   - component: {fileID: 628886591818251192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 9154314976058687322}
   - component: {fileID: -2271736555908128458}
   - component: {fileID: -3378800260004613325}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThaiCucQuyen
   m_TagString: Skill
   m_Icon: {fileID: 0}

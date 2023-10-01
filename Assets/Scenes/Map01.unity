@@ -1500,7 +1500,6 @@ MonoBehaviour:
   timeSlider: {fileID: 1214897}
   timeText: {fileID: 1954582883}
   skillList: []
-  testSkill: {fileID: 6913438916030369823, guid: c5f72596f62df5a44afaba5566aaedf4, type: 3}
   layerNotSpawn:
     serializedVersion: 2
     m_Bits: 976
@@ -1513,6 +1512,7 @@ MonoBehaviour:
     playerPrefs: []
   characterPrefs:
     playerPrefs: []
+  damageText: {fileID: 5281871098129134046, guid: b3eb007f3774bc042acb4ea38beb2f35, type: 3}
 --- !u!4 &382695280
 Transform:
   m_ObjectHideFlags: 0
@@ -2613,7 +2613,7 @@ Transform:
   m_GameObject: {fileID: 817011158}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.211, y: 0.132, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48824,7 +48824,7 @@ Transform:
   m_GameObject: {fileID: 1491552870}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.006, y: 0.047, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64587,7 +64587,7 @@ PrefabInstance:
     - target: {fileID: 3757086230182726481, guid: 1b4dadf7f83430a4f84bd68a6c731437, type: 3}
       propertyPath: skillList.Array.data[0]
       value: 
-      objectReference: {fileID: 6231021673915126914, guid: ef92cac029299d94ab3faca46a4c218a, type: 3}
+      objectReference: {fileID: 4493359318749836913, guid: c891a567794b6084181344d9fc3f6caf, type: 3}
     - target: {fileID: 3757086230182726481, guid: 1b4dadf7f83430a4f84bd68a6c731437, type: 3}
       propertyPath: skillList.Array.data[1]
       value: 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2913102547066742134}
   - component: {fileID: 8182807332783653387}
   - component: {fileID: 8321790768387896016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThaiCucKiem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

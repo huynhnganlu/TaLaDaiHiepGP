@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1634053288226838574}
   - component: {fileID: 927367850938951619}
   - component: {fileID: 7235166409654195375}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CuongPhongDao
   m_TagString: Untagged
   m_Icon: {fileID: 0}

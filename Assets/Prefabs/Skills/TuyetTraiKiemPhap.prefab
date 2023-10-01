@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4027710490096686983}
   - component: {fileID: 1610924707980608955}
   - component: {fileID: 4469711603057204397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TuyetTraiKiemPhap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,14 +17,7 @@ public abstract class SkillAbstract : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            if (gameObject.GetComponent<TuyetTraiSkill>())
-            {
-                gameObject.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
-            }
             collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage);
-            MyCharacterController.Instance.HandleInner("Attack");
-        }
+            MyCharacterController.Instance.HandleInner("Attack");     
     }
 }

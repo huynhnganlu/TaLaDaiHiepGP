@@ -51,7 +51,6 @@ public class MapController : MonoBehaviour
     #endregion
     #region Skill var
     public List<SkillAbstract> skillList;
-    public SkillAbstract testSkill;
     #endregion
     #region SpawnEnemy var
     [SerializeField]
@@ -65,6 +64,7 @@ public class MapController : MonoBehaviour
     public JsonPlayerPrefs shopPrefs;
     public JsonPlayerPrefs characterPrefs;
     #endregion
+    public GameObject damageText;
     private void Awake()
     {
         #region Singleton
@@ -87,7 +87,7 @@ public class MapController : MonoBehaviour
     private void Start()
     {
         //spawn enemy
-        StartCoroutine(SpawnEnemies(colliderSpawnEnemies, enemies));
+        StartCoroutine(SpawnEnemies(enemies));
 
         //Khoi tao list skill
         skillList ??= new List<SkillAbstract>();
@@ -225,7 +225,7 @@ public class MapController : MonoBehaviour
     #endregion
     #region SpawnEnemy
     //Ham spawn enemy
-    IEnumerator SpawnEnemies(Collider2D collider, GameObject[] enemies)
+    IEnumerator SpawnEnemies(GameObject[] enemies)
     {
         while (true)
         {
@@ -233,18 +233,18 @@ public class MapController : MonoBehaviour
 
             foreach (GameObject enemy in enemies)
             {
-                Instantiate(enemy, GetRandomSpawnPosition(collider, 13f, 25f), Quaternion.identity);
+                Instantiate(enemy, GetRandomSpawnPosition(13f, 25f), Quaternion.identity);
             }
         }
     }
     //Ham kiem tra xem vi tri random co phu hop khong
-    public Vector2 GetRandomSpawnPosition(Collider2D collider, float distanceMin, float distanceMax)
+    public Vector2 GetRandomSpawnPosition(float distanceMin, float distanceMax)
     {
         Vector2 randomPos = Vector2.zero;
         bool isValidPos = false;
         while(!isValidPos)
         {
-            randomPos = GetRandomPointInCollider(collider);
+            randomPos = GetRandomPointInCollider(colliderSpawnEnemies);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPos, 1.5f);
             bool isInvalidCollision = false;
 

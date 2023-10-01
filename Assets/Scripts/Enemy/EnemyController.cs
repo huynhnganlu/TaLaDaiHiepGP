@@ -19,6 +19,9 @@ public abstract class EnemyController : MonoBehaviour
         if (GetComponent<Animator>().GetBool("Death") == false)
         {
             GetComponent<Animator>().Play("Hurt");
+            GameObject dmgText = Instantiate(MapController.Instance.damageText, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
+            dmgText.GetComponent<DameTextController>().SetDamage(damage);
+            Destroy(dmgText, 1);
             currentEnemyHP -= damage;
 
             if ((currentEnemyHP <= enemyMaxHP / 2) && name.Equals("Boss"))
