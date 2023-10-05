@@ -13,11 +13,16 @@ public abstract class SkillAbstract : MonoBehaviour
         if (MyCharacterController.Instance != null)
             InvokeRepeating(nameof(ProcessSkill), 0f, skillAppearTime);
         else
-            CancelInvoke(nameof(ProcessSkill));
+            CancelSkill();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
             collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage);
             MyCharacterController.Instance.HandleInner("Attack");     
+    }
+
+    public void CancelSkill()
+    {
+        CancelInvoke(nameof(ProcessSkill));
     }
 }

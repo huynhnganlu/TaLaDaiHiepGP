@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PrizeHolder", menuName = "Scriptable Objects/Prize Holder", order = 3)]
 public class PrizeHolder : ScriptableObject
 {
-    public List<PrizeAbstract> prizeList;
+    public List<PrizeAbstract> prizeBuffList;
+    public List<PrizeAbstract> prizeSkillList;
 }

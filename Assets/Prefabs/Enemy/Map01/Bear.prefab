@@ -261,9 +261,9 @@ MonoBehaviour:
   enemyMaxHP: 100
   currentEnemyHP: 0
   exp: 50
-  money: 0
+  money: 10
   qi: 0
-  damage: 0
+  damage: 20
   isFlipped: 0
   radius: 3
   hitRaycast: {fileID: 1541541805051083664}

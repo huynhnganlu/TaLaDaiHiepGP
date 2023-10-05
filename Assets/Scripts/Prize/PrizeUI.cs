@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class PrizeUI : MonoBehaviour
 {
-    public int id;
-    public TextMeshProUGUI header, description;
+    public int id, cost;
+    public TextMeshProUGUI header, description, costText;
     public Image icon;
+    public GameObject costObject;
 }

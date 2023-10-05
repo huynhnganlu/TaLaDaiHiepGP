@@ -11,6 +11,8 @@ public class MyCharacterController : MonoBehaviour
     private Vector2 movement;
     private Animator animator;
     public float speed = 7.0f;
+    private bool isFliped = false;
+    private SpriteRenderer spriteRenderer;
     #endregion
     #region Health vs Shiled variables
     [HideInInspector]
@@ -24,7 +26,8 @@ public class MyCharacterController : MonoBehaviour
     private Slider expBar;
     #endregion
     #region Money variables
-    public int money = 0;
+    public int money;
+    public TextMeshProUGUI moneyText;
     #endregion
     #region Meridians value variables
     public int qi = 0;
@@ -32,12 +35,13 @@ public class MyCharacterController : MonoBehaviour
     #region Singleton variables
     public static MyCharacterController Instance { get; private set; }
     #endregion
-    #region Data kill variables
-    public delegate void DataKillHandle(int exp, int money, int qi);
-    public event DataKillHandle OnKillEnemy;
-    #endregion
+
     #region Skill variables
-    public List<SkillAbstract> skillList;
+    public List<PrizeAbstract> skillList;
+    [SerializeField]
+    private PrizeAbstract defaultSkill;
+    [SerializeField]
+    private Image[] skillMapItems;
     #endregion
     #region Pref variables
     private JsonPlayerPrefs characterPrefs, shopPrefs;
@@ -66,14 +70,29 @@ public class MyCharacterController : MonoBehaviour
         shopPrefs = MapController.Instance.shopPrefs;
         #endregion
         #region Animation ref
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        rb = GetComponentInChildren<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         #endregion
         #region Character
-        GetProperty();
-        SetProperty();
+        healthBar = GameObject.Find("Canvas/HPBar").GetComponent<Slider>();
+        shieldBar = GameObject.Find("Canvas/ShieldBar").GetComponent<Slider>();
+        healthText = GameObject.Find("Canvas/HPBar/Image/HPText").GetComponent<TextMeshProUGUI>();
+        shieldText = GameObject.Find("Canvas/ShieldBar/Image/ShieldText").GetComponent<TextMeshProUGUI>();
+        expBar = GameObject.Find("Canvas/ExpBarSlider").GetComponent<Slider>();
+        /*  GetProperty();
+          SetProperty(); */
         #endregion
+        skillList = new List<PrizeAbstract>(4)
+        {
+            defaultSkill,
+            null,
+            null,
+            null,
+        };
         HandleSkill(skillList);
+        money = 0;
+        moneyText.text = money.ToString();
     }
 
 
@@ -84,27 +103,39 @@ public class MyCharacterController : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-            animator.SetFloat("Speed", movement.sqrMagnitude);
+            if(movement.x == 1)
+            {
+                if (isFliped == true)
+                {
+                    spriteRenderer.transform.localScale = new Vector3(-spriteRenderer.transform.localScale.x, spriteRenderer.transform.localScale.y, spriteRenderer.transform.localScale.z);
+                }
+                animator.SetBool("Moving", true);
+                isFliped = false;
+            }else if(movement.x == -1)
+            {
+                if (isFliped == false)
+                {
+                    spriteRenderer.transform.localScale = new Vector3(-spriteRenderer.transform.localScale.x, spriteRenderer.transform.localScale.y, spriteRenderer.transform.localScale.z);
+                }
+                animator.SetBool("Moving", true);
+                isFliped = true;
+            }else if(movement.y == 1 || movement.y == -1)
+            {
+                animator.SetBool("Moving", true);
+            }
+            else if(movement.x == 0 && movement.y == 0)
+            {
+                animator.SetBool("Moving", false);
+            }
         }
         #endregion
     }
     //Xu ly di chuyen
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * movement);
     }
-    //Object enable va active thi them listener
-    private void OnEnable()
-    {
-        OnKillEnemy += HandleKillEnemy;
-    }
-    //Object disable va inactive thi xoa listener
-    private void OnDisable()
-    {
-        OnKillEnemy -= HandleKillEnemy;
-    }
+ 
     #region Character
     //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
@@ -155,7 +186,7 @@ public class MyCharacterController : MonoBehaviour
         currentLevel++;
         maxExp += 100;
         expBar.maxValue = maxExp;
-        MapController.Instance.TogglePrize(true);
+        MapController.Instance.TogglePrize("buff");
     }
     private void GetProperty()
     {
@@ -193,14 +224,9 @@ public class MyCharacterController : MonoBehaviour
         healthText.text = hp.ToString();
     }
     #endregion
-    #region Kill Enemy Observer
-    //Thong bao data khi giet duoc 1 quai vat bat ky
-    public void AddKillEnemyChange(int exp, int money, int qi)
-    {
-        OnKillEnemy?.Invoke(exp, money, qi);
-    }
+    #region Kill Enemy    
     //Them listener xy ly khi giet duoc quai vat
-    private void HandleKillEnemy(int exp, int _money, int _qi)
+    public void HandleKillEnemy(int exp, int _money, int _qi)
     {
         currentExp += exp;
         if (currentExp >= maxExp)
@@ -209,15 +235,30 @@ public class MyCharacterController : MonoBehaviour
         }
         expBar.value = currentExp;
         money += _money;
+        moneyText.text = money.ToString();
         qi += _qi;
     }
     #endregion
     #region Skill Handle
-    public void HandleSkill(List<SkillAbstract> skillList)
+    public void HandleSkill(List<PrizeAbstract> skillList)
     {
-        foreach (SkillAbstract skill in skillList)
+        for (int i = 0;i < skillList.Count;i++)
         {
-            skill.InvokeSkill();
+            if(skillList[i] != null)
+            {
+                skillMapItems[i].sprite = skillList[i].icon;
+                skillList[i].skillRef.InvokeSkill();
+            }
+        }
+    }
+    public void ResetSkill()
+    {
+        for (int i = 0; i < skillList.Count; i++)
+        {
+            if (skillList[i] != null)
+            {
+                skillList[i].skillRef.CancelSkill();
+            }
         }
     }
     #endregion
@@ -238,9 +279,10 @@ public class MyCharacterController : MonoBehaviour
         }
     }
     #endregion
-  
+
     #region Inner
 
     #endregion
 
+ 
 }

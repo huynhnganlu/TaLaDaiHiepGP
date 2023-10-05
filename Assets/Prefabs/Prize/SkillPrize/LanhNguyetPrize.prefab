@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2333356551057520723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6677850385268956797}
+  - component: {fileID: -6699178595594126750}
+  m_Layer: 0
+  m_Name: LanhNguyetPrize
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6677850385268956797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333356551057520723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6699178595594126750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333356551057520723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa893fa8493b5b4683c943ee74721f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
+  cost: 1
+  header: "La\xF5nh Nguye\xE4t \xD1ao"
+  description: "Ne\xF9m ra \xF1ao k\xECnh\nThuo\xE4c t\xEDnh <color=grey>Tha\xF9i
+    C\xF6\xEFc</color>\nSa\xF9t th\xF6\xF4ng ngoa\xEFi co\xE2ng +50"
+  icon: {fileID: 21300000, guid: d072cb10d66e9b246be2f469022915e6, type: 3}
+  rate: 10
+  skillRef: {fileID: 8069088207302130295, guid: 4a07da6e4904da74faafbf5c41f573e5, type: 3}

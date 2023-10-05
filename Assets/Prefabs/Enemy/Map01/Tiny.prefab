@@ -207,10 +207,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHP: 50
   currentEnemyHP: 0
-  exp: 0
-  money: 0
+  exp: 20
+  money: 10
   qi: 0
-  damage: 0
+  damage: 20
   isFlipped: 0
   radius: 0
   hitRaycast: {fileID: 0}

@@ -38,7 +38,7 @@ public abstract class EnemyController : MonoBehaviour
                 }
                 else
                 {
-                    MyCharacterController.Instance.AddKillEnemyChange(this.exp, this.money, this.qi);
+                    MyCharacterController.Instance.HandleKillEnemy(exp, money, qi);
                 }
                 GetComponent<Animator>().SetBool("Death", true);
 
@@ -71,6 +71,7 @@ public abstract class EnemyController : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
+                Debug.Log("hit");
                 MyCharacterController.Instance.TakeEnemyDamage(damage);
             }
         }

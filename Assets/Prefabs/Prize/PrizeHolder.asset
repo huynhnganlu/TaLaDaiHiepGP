@@ -12,8 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a79a197af1b2b746947f4fe5c0a60b5, type: 3}
   m_Name: PrizeHolder
   m_EditorClassIdentifier: 
-  prizeList:
+  prizeBuffList:
+  - {fileID: -8549097654397032724, guid: d6a6ea218b8d0b4498367100a8c84ce2, type: 3}
+  - {fileID: -9109259770215009162, guid: 6b83cbd803e95b347a822d2546b5ff82, type: 3}
   - {fileID: 4580762071632452339, guid: 9d0851f1d7a08fc4c86a77c031dc1e21, type: 3}
   - {fileID: 99402021410668909, guid: 18f6da8a0a48b4a47840be49c0de9135, type: 3}
+  - {fileID: 6658375195583367558, guid: 4595446512ebaa1469ed5ce21f7086b5, type: 3}
+  - {fileID: 917807195664582179, guid: c6c7fb0b87cfad145842bd46bf459a20, type: 3}
+  - {fileID: -851345967383981189, guid: 18feaf14502281f41a43deb99486847d, type: 3}
+  - {fileID: 3617739551921658131, guid: 39f7347492349a943a435f22ec29dab4, type: 3}
+  - {fileID: 1741538031903545182, guid: 0ce7b748e5a98a64b814bf53bddc8327, type: 3}
   - {fileID: 6506035187813898345, guid: 2a86803dc6e040346a31d3ddd19b2748, type: 3}
+  prizeSkillList:
+  - {fileID: 7993327525468549828, guid: 257f9d41465ce934ebf951cb1c595c11, type: 3}
+  - {fileID: 1150956075308475013, guid: dff0bd2f1e021ca4d8a2cdf551fcdfc0, type: 3}
+  - {fileID: -5062031166049396078, guid: 52c64df4c8109cf46b433b348884d407, type: 3}
+  - {fileID: 8372074490625674314, guid: 92519738475dd3e40862adb4ba666554, type: 3}
+  - {fileID: -6699178595594126750, guid: 9eb68012ec552dc418580923df34f314, type: 3}
+  - {fileID: -7419235596751569801, guid: 48aa045f454896a4ea7643a1bc180287, type: 3}
+  - {fileID: -229771048306615692, guid: 1c80e9f292fb855479548dfbb0ca9a67, type: 3}
+  - {fileID: 5406454519712783849, guid: 1a5052ffde21d4746ac5b8cb58693add, type: 3}
+  - {fileID: 2669020357120069315, guid: aad033acbb99eb94eb414a0d038e8709, type: 3}
+  - {fileID: 3004963188372670119, guid: 66494d5b1a58d544fad18db3de9f577a, type: 3}
   - {fileID: 8053234306935389358, guid: 33df286ab71d6e8429ff4ac7d78dffce, type: 3}
+  - {fileID: -8201550356896447108, guid: 4cf6c0e4a6ef393479ec996bd1371e23, type: 3}

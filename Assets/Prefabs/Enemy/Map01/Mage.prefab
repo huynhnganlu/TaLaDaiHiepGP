@@ -211,8 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHP: 200
   currentEnemyHP: 0
-  exp: 0
-  money: 0
+  exp: 20
+  money: 10
   qi: 0
   damage: 50
   isFlipped: 0

@@ -1,8 +1,8 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,7 +10,6 @@ public class MapController : MonoBehaviour
 {
     #region FreezingMap var
     //Freezing map variable
-    [HideInInspector]
     public bool isFreezing = false;
     #endregion
     #region Singleton var
@@ -21,7 +20,7 @@ public class MapController : MonoBehaviour
     public GameObject prizeObject;
     public GameObject[] prizeItems;
     public PrizeHolder prizeHolder;
-    private float totalRate;
+    private string prizeType;
     #endregion
     #region FinishMap var
     //Finish map variables
@@ -65,6 +64,8 @@ public class MapController : MonoBehaviour
     public JsonPlayerPrefs characterPrefs;
     #endregion
     public GameObject damageText;
+    public GameObject vcamera;
+    private int keySkill = -1;
     private void Awake()
     {
         #region Singleton
@@ -113,8 +114,8 @@ public class MapController : MonoBehaviour
 
         //Hien thi cac noi cong da trang bi
         GetEquipedInner(shopPrefs);
-        //Lay total rate cua cac prize
-        totalRate = GetTotalRate();
+
+        vcamera.GetComponent<ICinemachineCamera>().Follow = MyCharacterController.Instance.transform;
     }
 
     private void Update()
@@ -129,6 +130,32 @@ public class MapController : MonoBehaviour
         timeText.text = minute.ToString("0") + ":" + second.ToString("0");
         time -= 1 * Time.deltaTime;
         timeSlider.value = time;
+        #endregion
+        #region skill prize
+        if(isFreezing == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    keySkill = 1;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    keySkill = 2;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    keySkill = 3;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    keySkill = 4;
+                }
+                TogglePrize("skill");
+            }
+        }
+      
         #endregion
     }
 
@@ -168,17 +195,18 @@ public class MapController : MonoBehaviour
     #endregion
     #region Prize
     //Xu ly logic khi nguoi choi len level
-    public void TogglePrize(bool status)
+    public void TogglePrize(string type)
     {
-        prizeObject.SetActive(status);
+        prizeObject.SetActive(true);
         SetFreezing(true);
+        prizeType = type;
         GetPrize();
     }
     public void GetPrize()
     {
         for (int i = 0; i <= 2; i++)
         {
-            SetPrizeData(RandomPrize(), i);
+            SetPrizeData(RandomPrize(prizeType), i);
         }
     }
     //Set gia tri cua prize vao prizeUI
@@ -189,38 +217,89 @@ public class MapController : MonoBehaviour
         prizeItem.header.text = prize.header;
         prizeItem.icon.sprite = prize.icon;
         prizeItem.description.text = prize.description;
-
+        if(prize.cost != 0)
+        {
+            prizeItem.costObject.SetActive(true);
+            prizeItem.costText.text = prize.cost.ToString();
+            prizeItem.cost = prize.cost;
+        }
+        else
+        {
+            prizeItem.costObject.SetActive(false);
+        }
     }
     //Lay random prize
-    private PrizeAbstract RandomPrize()
+    private PrizeAbstract RandomPrize(string type)
     {
-        float value = Random.value * totalRate;
+        float value = Random.value * GetTotalRate(type);
         float sumRate = 0;
-        foreach (PrizeAbstract prize in prizeHolder.prizeList)
+        if (type.Equals("buff"))
         {
-            sumRate += prize.rate;
-            if (sumRate >= value)
-                return prize;
+            foreach (PrizeAbstract prize in prizeHolder.prizeBuffList)
+            {
+                sumRate += prize.rate;
+                if (sumRate >= value)
+                    return prize;
+            }
+        }else if (type.Equals("skill"))
+        {
+            foreach (PrizeAbstract prize in prizeHolder.prizeSkillList)
+            {
+                sumRate += prize.rate;
+                if (sumRate >= value)
+                    return prize;
+            }
         }
         return default;
     }
     //Lay total rate tu prizeList
-    private float GetTotalRate()
+    private float GetTotalRate(string type)
     {
         float totalRate = 0f;
-        foreach (PrizeAbstract prize in prizeHolder.prizeList)
+        if (type.Equals("buff"))
         {
-            totalRate += prize.rate;
+            foreach (PrizeAbstract prize in prizeHolder.prizeBuffList)
+            {
+                totalRate += prize.rate;
+            }
+        }else if (type.Equals("skill"))
+        {
+            foreach (PrizeAbstract prize in prizeHolder.prizeSkillList)
+            {
+                totalRate += prize.rate;
+            }
         }
         return totalRate;
     }
     //Xu ly logic khi nguoi choi chon phan thuong
     public void OnPrizeItemClick(int slot)
     {
-        prizeHolder.prizeList[prizeItems[slot].GetComponent<PrizeUI>().id].GetComponent<PrizeAbstract>().ProcessPrize();
-        TogglePrize(false);
-        SetFreezing(false);
 
+        if (prizeType.Equals("buff"))
+        {
+            prizeHolder.prizeBuffList[prizeItems[slot].GetComponent<PrizeUI>().id].GetComponent<PrizeAbstract>().ProcessPrize();
+            ClosePrize();
+
+        }
+        else if (prizeType.Equals("skill"))
+        {
+            PrizeUI prizeClicked = prizeItems[slot].GetComponent<PrizeUI>();
+            if (MyCharacterController.Instance.money - prizeClicked.cost >= 0)
+            {
+                MyCharacterController.Instance.money -= prizeClicked.cost;
+                MyCharacterController.Instance.moneyText.text = MyCharacterController.Instance.money.ToString();
+                MyCharacterController.Instance.ResetSkill();
+                MyCharacterController.Instance.skillList[keySkill - 1] = prizeHolder.prizeSkillList[prizeClicked.id].GetComponent<PrizeAbstract>();
+                MyCharacterController.Instance.HandleSkill(MyCharacterController.Instance.skillList);
+                ClosePrize();
+
+            }
+        }
+    }
+    public void ClosePrize()
+    {
+        prizeObject.SetActive(false);
+        SetFreezing(false);
     }
     #endregion
     #region SpawnEnemy
