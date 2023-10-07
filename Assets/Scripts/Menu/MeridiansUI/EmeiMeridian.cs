@@ -20,8 +20,8 @@ public class EmeiMeridian : MeridianAbstract
             { "Khí huyeát:", hp.ToString()},
             { "Noäi löïc:", mp.ToString()},
             { "Neù traùnh:", evade.ToString()},
-            { "Noäi phoøng:", internalDefense.ToString()},
-            { "Boû qua noäi phoøng:", skipInternalDefense.ToString()}
+            { "Phoøng ngöï:", defense.ToString()},
+            { "Saùt thöông baïo kích:", critDamage.ToString()}
 
         };
         GetPropertyData();
@@ -33,8 +33,8 @@ public class EmeiMeridian : MeridianAbstract
         hp += 1;
         mp += 1;
         evade += 1;
-        internalDefense += 1;
-        skipInternalDefense += 1;
+        defense += 1;
+        critDamage += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -48,8 +48,8 @@ public class EmeiMeridian : MeridianAbstract
         meridianPrefs.SetInt("emeihp", hp);
         meridianPrefs.SetInt("emeimp", mp);
         meridianPrefs.SetInt("emeievade", evade);
-        meridianPrefs.SetInt("emeiinternalDefense", internalDefense);
-        meridianPrefs.SetInt("emeiskipInternalDefense", skipInternalDefense);
+        meridianPrefs.SetInt("emeidefense", defense);
+        meridianPrefs.SetInt("emeicritDamage", critDamage);
         meridianPrefs.Save();
     }
 
@@ -59,8 +59,8 @@ public class EmeiMeridian : MeridianAbstract
         hp = meridianPrefs.GetInt("emeihp");
         mp = meridianPrefs.GetInt("emeimp");
         evade = meridianPrefs.GetInt("emeievade");
-        internalDefense = meridianPrefs.GetInt("emeiinternalDefense");
-        skipInternalDefense = meridianPrefs.GetInt("emeiskipInternalDefense");
+        defense = meridianPrefs.GetInt("emeidefense");
+        critDamage = meridianPrefs.GetInt("emeicritDamage");
     }
 
     public override void UpdatePropertyData()
@@ -68,8 +68,8 @@ public class EmeiMeridian : MeridianAbstract
         propertyData["Khí huyeát:"] = hp.ToString();
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Neù traùnh:"] = evade.ToString();
-        propertyData["Noäi phoøng:"] = internalDefense.ToString();
-        propertyData["Boû qua noäi phoøng:"] = skipInternalDefense.ToString();
+        propertyData["Phoøng ngöï:"] = defense.ToString();
+        propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
     }
 
     public override void SaveCharacterData()
@@ -77,8 +77,8 @@ public class EmeiMeridian : MeridianAbstract
         characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
         characterPrefs.SetInt("evade", characterPrefs.GetInt("evade") + 1);
-        characterPrefs.SetInt("internalDefense", characterPrefs.GetInt("internalDefense") + 1);
-        characterPrefs.SetInt("skipInternalDefense", characterPrefs.GetInt("skipInternalDefense") + 1);
+        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1);
         characterPrefs.Save();
     }
 }

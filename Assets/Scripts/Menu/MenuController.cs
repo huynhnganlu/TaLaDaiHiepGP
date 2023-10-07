@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
     public JsonPlayerPrefs shopPrefs;
     public JsonPlayerPrefs meridianPrefs;
     public JsonPlayerPrefs characterPrefs;
+    public Dictionary<string, string> listCharacterProperty;
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -29,17 +30,32 @@ public class MenuController : MonoBehaviour
         if (!characterPrefs.HasKey("hp"))
         {
             characterPrefs.SetInt("hp", 0);
+            characterPrefs.SetInt("hpRegen", 0);
             characterPrefs.SetInt("mp", 0);
+            characterPrefs.SetInt("mpRegen", 0);
             characterPrefs.SetInt("evade", 0);
             characterPrefs.SetInt("externalDamage", 0);
-            characterPrefs.SetInt("externalCrit", 0);
-            characterPrefs.SetInt("mpRegen", 0);
-            characterPrefs.SetInt("internalCrit", 0);
             characterPrefs.SetInt("internalDamage", 0);
-            characterPrefs.SetInt("skipInternalDefense", 0);
-            characterPrefs.SetInt("skipExternalDefense", 0);
-            characterPrefs.SetInt("internalDefense", 0);
-            characterPrefs.SetInt("externalDefense", 0);
+            characterPrefs.SetInt("critDamage", 0);
+            characterPrefs.SetInt("critRate", 0);
+            characterPrefs.SetInt("defense", 0);
+            characterPrefs.SetInt("movementSpeed", 0);
+            characterPrefs.Save();
         }
+        
+        listCharacterProperty ??= new Dictionary<string, string>()
+            {
+                { "hp","Khí huyeát"},
+                { "hpRegen", "Hoài khí huyeát" },
+                { "mp", "Noäi löïc" },
+                { "mpRegen", "Hoài noäi löïc" },
+                { "evade", "Neù traùnh" }, 
+                { "externalDamage", "Uy löïc ngoaïi coâng" },
+                { "internalDamage", "Uy löïc noäi coâng" },
+                { "critDamage", "Saùt thöông chí maïng" },
+                { "critRate", "Tæ leä chí maïng" },
+                { "defense", "Phoøng thuû" },
+                { "movementSpeed", "Toác ñoä di chuyeån" }
+            };
     }
 }

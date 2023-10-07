@@ -15,8 +15,8 @@ public class WudangMeridian : MeridianAbstract
             { "Khí huyeát:", hp.ToString()},
             { "Noäi löïc:", mp.ToString()},
             { "Hoài noäi löïc:", mpRegen.ToString()},
-            { "Noäi coâng baïo kích:", internalCrit.ToString()},
-            { "Ngoaïi coâng baïo kích:", externalCrit.ToString()},
+            { "Hoài khí huyeát:", hpRegen.ToString()},
+            { "Uy löïc noäi coâng:", internalDamage.ToString()},
         };
 
     }
@@ -26,8 +26,8 @@ public class WudangMeridian : MeridianAbstract
         hp += 1;
         mp += 1;
         mpRegen += 1;
-        internalCrit += 1;
-        externalCrit += 1;
+        hpRegen += 1;
+        internalDamage += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -41,8 +41,8 @@ public class WudangMeridian : MeridianAbstract
         meridianPrefs.SetInt("wudanghp", hp);
         meridianPrefs.SetInt("wudangmp", mp);
         meridianPrefs.SetInt("wudangmpRegen", mpRegen);
-        meridianPrefs.SetInt("wudanginternalCrit", internalCrit);
-        meridianPrefs.SetInt("wudangexternalCrit", externalCrit);
+        meridianPrefs.SetInt("wudanghpRegen", hpRegen);
+        meridianPrefs.SetInt("wudanginternalDamage", internalDamage);
         meridianPrefs.Save();
     }
 
@@ -52,8 +52,8 @@ public class WudangMeridian : MeridianAbstract
         hp = meridianPrefs.GetInt("wudanghp");
         mp = meridianPrefs.GetInt("wudangmp");
         mpRegen = meridianPrefs.GetInt("wudangmpRegen");
-        internalCrit = meridianPrefs.GetInt("wudanginternalCrit");
-        externalCrit = meridianPrefs.GetInt("wudangexternalCrit");
+        hpRegen = meridianPrefs.GetInt("wudanghpRegen");
+        internalDamage = meridianPrefs.GetInt("wudanginternalDamage");
     }
 
     public override void UpdatePropertyData()
@@ -61,8 +61,8 @@ public class WudangMeridian : MeridianAbstract
         propertyData["Khí huyeát:"] = hp.ToString();
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
-        propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
-        propertyData["Ngoaïi coâng baïo kích:"] = externalCrit.ToString();
+        propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
+        propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
     }
 
     public override void SaveCharacterData()
@@ -70,8 +70,8 @@ public class WudangMeridian : MeridianAbstract
         characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
         characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1);
-        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1);
-        characterPrefs.SetInt("externalCrit", characterPrefs.GetInt("externalCrit") + 1);
+        characterPrefs.SetInt("hpRegen", characterPrefs.GetInt("hpRegen") + 1);
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
         characterPrefs.Save();
     }
 }

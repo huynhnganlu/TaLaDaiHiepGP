@@ -15,9 +15,9 @@ public class BeggarMeridian : MeridianAbstract
         {
             { "Khí huyeát:", hp.ToString()},
             { "Noäi löïc:", mp.ToString()},
-            { "Noäi phoøng:", internalDefense.ToString()},
+            { "Phoøng ngöï:", defense.ToString()},
             { "Uy löïc noäi coâng:", internalDamage.ToString()},
-            { "Noäi coâng baïo kích:", internalCrit.ToString()},
+            { "Uy löïc ngoaïi coâng:", externalDamage.ToString()},
 
         };
     }
@@ -28,8 +28,8 @@ public class BeggarMeridian : MeridianAbstract
         hp += 1;
         mp += 1;
         internalDamage += 1;
-        internalDefense += 1;
-        internalCrit += 1;
+        defense += 1;
+        externalDamage += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -43,8 +43,8 @@ public class BeggarMeridian : MeridianAbstract
         meridianPrefs.SetInt("beggarhp", hp);
         meridianPrefs.SetInt("beggarmp", mp);
         meridianPrefs.SetInt("beggarinternalDamage", internalDamage);
-        meridianPrefs.SetInt("beggarinternalDefense", internalDefense);
-        meridianPrefs.SetInt("beggarinternalCrit", internalCrit);
+        meridianPrefs.SetInt("beggardefense", defense);
+        meridianPrefs.SetInt("beggarexternalDamage", externalDamage);
         meridianPrefs.Save();
     }
 
@@ -54,17 +54,17 @@ public class BeggarMeridian : MeridianAbstract
         hp = meridianPrefs.GetInt("beggarhp");
         mp = meridianPrefs.GetInt("beggarmp");
         internalDamage = meridianPrefs.GetInt("beggarinternalDamage");
-        internalDefense = meridianPrefs.GetInt("beggarinternalDefense");
-        internalCrit = meridianPrefs.GetInt("beggarinternalCrit");
+        defense = meridianPrefs.GetInt("beggardefense");
+        externalDamage = meridianPrefs.GetInt("beggarexternalDamage");
     }
 
     public override void UpdatePropertyData()
     {
         propertyData["Khí huyeát:"] = hp.ToString();
         propertyData["Noäi löïc:"] = mp.ToString();
-        propertyData["Noäi phoøng:"] = internalDefense.ToString();
+        propertyData["Phoøng ngöï:"] = defense.ToString();
         propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
-        propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
+        propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
     }
 
     public override void SaveCharacterData()
@@ -72,8 +72,8 @@ public class BeggarMeridian : MeridianAbstract
         characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
         characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
-        characterPrefs.SetInt("internalDefense", characterPrefs.GetInt("internalDefense") + 1);
-        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1);
+        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
         characterPrefs.Save();
     }
 }

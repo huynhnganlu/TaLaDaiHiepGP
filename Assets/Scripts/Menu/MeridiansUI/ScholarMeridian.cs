@@ -16,8 +16,8 @@ public class ScholarMeridian : MeridianAbstract
             { "Khí huyeát:", hp.ToString()},
             { "Noäi löïc:", mp.ToString()},
             { "Uy löïc noäi coâng:", internalDamage.ToString()},
-            { "Boû qua noäi phoøng:", skipInternalDefense.ToString()},
-            { "Noäi coâng baïo kích:", internalCrit.ToString()},
+            { "Toác ñoä di chuyeån:", movementSpeed.ToString()},
+            { "Tæ leä baïo kích:", critRate.ToString()},
         };   
     }
 
@@ -27,8 +27,8 @@ public class ScholarMeridian : MeridianAbstract
         hp += 1;
         mp += 1;
         internalDamage += 1;
-        skipInternalDefense += 1;
-        internalCrit += 1;
+        movementSpeed += 1;
+        critRate += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -36,14 +36,14 @@ public class ScholarMeridian : MeridianAbstract
         SaveCharacterData();
     }
 
-    public override void SaveMeridian()
+    public override void SaveMeridian() 
     {
         meridianPrefs.SetInt("scholarlevel", level);
         meridianPrefs.SetInt("scholarhp", hp);
         meridianPrefs.SetInt("scholarmp", mp);
         meridianPrefs.SetInt("scholarinternalDamage", internalDamage);
-        meridianPrefs.SetInt("scholarskipInternalDefense", skipInternalDefense);
-        meridianPrefs.SetInt("scholarinternalCrit", internalCrit);
+        meridianPrefs.SetInt("scholarmovementSpeed", movementSpeed);
+        meridianPrefs.SetInt("scholarcritRate", critRate);
         meridianPrefs.Save();
     }
 
@@ -53,8 +53,8 @@ public class ScholarMeridian : MeridianAbstract
         hp = meridianPrefs.GetInt("scholarhp");
         mp = meridianPrefs.GetInt("scholarmp");
         internalDamage = meridianPrefs.GetInt("scholarinternalDamage");
-        skipInternalDefense = meridianPrefs.GetInt("scholarskipInternalDefense");
-        internalCrit = meridianPrefs.GetInt("scholarinternalCrit");
+        movementSpeed = meridianPrefs.GetInt("scholarmovementSpeed");
+        critRate = meridianPrefs.GetInt("scholarcritRate");
     }
 
     public override void UpdatePropertyData()
@@ -62,8 +62,8 @@ public class ScholarMeridian : MeridianAbstract
         propertyData["Khí huyeát:"] = hp.ToString();
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
-        propertyData["Boû qua noäi phoøng:"] = skipInternalDefense.ToString();
-        propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
+        propertyData["Toác ñoä di chuyeån:"] = movementSpeed.ToString();
+        propertyData["Tæ leä baïo kích:"] = critRate.ToString();
     }
 
     public override void SaveCharacterData()
@@ -71,8 +71,8 @@ public class ScholarMeridian : MeridianAbstract
         characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
         characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
-        characterPrefs.SetInt("skipInternalDefense", characterPrefs.GetInt("skipInternalDefense") + 1 );
-        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1 );
+        characterPrefs.SetInt("movementSpeed", characterPrefs.GetInt("movementSpeed") + 1 );
+        characterPrefs.SetInt("critRate", characterPrefs.GetInt("critRate") + 1 );
         characterPrefs.Save();
     }
 }

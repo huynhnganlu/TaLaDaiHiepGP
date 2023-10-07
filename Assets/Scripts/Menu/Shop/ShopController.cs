@@ -14,7 +14,7 @@ public class ShopController : MonoBehaviour
     private InnerHolder innerHolder;
     public ShopTemplate[] shopTemplates;
     private readonly ShopDataAbstract[] itemAddedArray = new ShopDataAbstract[6];
-    public JsonPlayerPrefs shopPrefs;
+    private JsonPlayerPrefs shopPrefs;
     //Singleton variables
     public static ShopController Instance;
     private void Awake()
@@ -28,12 +28,12 @@ public class ShopController : MonoBehaviour
             Instance = this;
         }
 
-        
+        shopPrefs = MenuController.Instance.shopPrefs;
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        shopPrefs = MenuController.Instance.shopPrefs;
         moneyText.text = money.ToString();
         LoadShopItemsData();
         CheckItems();
@@ -85,10 +85,13 @@ public class ShopController : MonoBehaviour
         GameObject[] shuffled = innerHolder.listInner.OrderBy(n => Guid.NewGuid()).ToArray();
         for (int i = 0;i <= 5; i++)
         {
-            shopTemplates[i].id = shuffled[i].GetComponent<ShopDataAbstract>().itemID;
-            shopTemplates[i].cost.text = shuffled[i].GetComponent<ShopDataAbstract>().itemCost.ToString();
-            shopTemplates[i].itemImage.sprite = shuffled[i].GetComponent<ShopDataAbstract>().itemImage;
-            itemAddedArray[i] = shuffled[i].GetComponent<ShopDataAbstract>();
+            ShopDataAbstract data = shuffled[i].GetComponent<ShopDataAbstract>();
+            shopTemplates[i].id = data.itemID;
+            shopTemplates[i].cost.text = data.itemCost.ToString();
+            shopTemplates[i].itemImage.sprite = data.itemImage;
+            string textShow = "<b>Vaän haønh kích hoaït:</b>\nKhí huyeát +" + data.itemHP + "\nNoäi löïc +" + data.itemMP + "\n<b>Ñaëc hieäu:</b>\n" + data.itemEffect;
+            shopTemplates[i].textTooltip = textShow;
+            itemAddedArray[i] = data;
         }
     }
 }

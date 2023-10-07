@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,13 @@ public class CharacterUIController : MonoBehaviour
     [SerializeField]
     private InnerHolder innerHolder;
 
-    //Prefshop variable
-    public JsonPlayerPrefs prefsShop;
+    //Pref variable
+    private JsonPlayerPrefs characterPrefs;
+    private JsonPlayerPrefs prefsShop;
+
+    [SerializeField]
+    private GameObject characterPoints, characterPointsParent;
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -29,23 +35,53 @@ public class CharacterUIController : MonoBehaviour
         {
             Instance = this;
         }
-
+        prefsShop = MenuController.Instance.shopPrefs;
+        characterPrefs = MenuController.Instance.characterPrefs;
     }
 
+    private void OnEnable()
+    {
+        CreateEquipedInventoryItemsUI();
+    }
     //Khoi tao UI khi da trang bi
     public void CreateEquipedInventoryItemsUI()
     {
-        prefsShop = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
-        for (int i = 0;i <= 2; i++)
+        if (prefsShop.HasKey("slot1"))
         {
-            if(prefsShop.GetInt("slot"+i) == -1)
+            for (int i = 0; i <= 2; i++)
             {
-                innerUIHolder.transform.GetChild(i).GetComponentsInChildren<Image>().Skip(2).First().sprite = imageNull;
+                if (prefsShop.GetInt("slot" + i) == -1)
+                {
+                    innerUIHolder.transform.GetChild(i).GetComponentsInChildren<Image>().Skip(2).First().sprite = imageNull;
+                }
+                else
+                {
+                    innerUIHolder.transform.GetChild(i).GetComponentsInChildren<Image>().Skip(2).First().sprite = innerHolder.listInner[prefsShop.GetInt("slot" + i)].GetComponent<ShopDataAbstract>().itemImage;
+                }
             }
+        }
+    }
+
+    public void ResetCharacterPoints()
+    {
+        foreach(Transform child in characterPointsParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+
+    public void UpdateCharacterPoints(Dictionary<string, int> characterSpecial)
+    {
+        foreach(KeyValuePair<string,string> property in MenuController.Instance.listCharacterProperty)
+        {
+            GameObject o = Instantiate(characterPoints, characterPointsParent.transform);
+            TextMeshProUGUI[] textCompound = o.GetComponentsInChildren<TextMeshProUGUI>();
+            if (characterSpecial.ContainsKey(property.Key))
+                textCompound[1].text = (characterPrefs.GetInt(property.Key) + characterSpecial[property.Key]).ToString();
             else
-            {
-                innerUIHolder.transform.GetChild(i).GetComponentsInChildren<Image>().Skip(2).First().sprite = innerHolder.listInner[prefsShop.GetInt("slot"+i)].GetComponent<ShopDataAbstract>().itemImage;
-            }
+                textCompound[1].text = characterPrefs.GetInt(property.Key).ToString();
+            textCompound[0].text = property.Value;
         }
     }
 }

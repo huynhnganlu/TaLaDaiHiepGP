@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public abstract class MeridianAbstract : MonoBehaviour
 {
     [HideInInspector]
-    public int hp, hpRegen, mp, mpRegen, level, evade, skipInternalDefense, internalDefense, skipExternalDefense, externalDefense, internalDamage, externalDamage, internalCrit, externalCrit; 
+    public int hp, hpRegen, mp, mpRegen, level, evade, defense, internalDamage, externalDamage, critRate, critDamage, movementSpeed; 
     public Dictionary<string, string> propertyData;
     public GameObject objectPropertyData;
     public CharacterData characterData;

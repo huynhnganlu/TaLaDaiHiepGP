@@ -16,9 +16,12 @@ public class InventoryController : MonoBehaviour
 
     //item data holder variable
     [SerializeField]
-    private TextMeshProUGUI nameTextUI, levelTextUI, originTextUI, propertyTextUI, historyTextUI, numberInnerUI;
+    private TextMeshProUGUI nameTextUI, levelTextUI, originTextUI, propertyTextUI, historyTextUI, numberInnerUI, effectTextUI;
     [SerializeField]
     private Image imageUI;
+    [SerializeField]
+    private GameObject itemDetail, itemDetailParent;
+   
 
     //equip item variable
     public int indexItemClicked;
@@ -26,8 +29,6 @@ public class InventoryController : MonoBehaviour
     //Toggle equip item variables
     [SerializeField]
     private GameObject inventoryEquipmentUI;
-    [SerializeField]
-    private Button closeInventoryUIButton, openInventoryUIButton;
 
     //Singleton
     public static InventoryController Instance;
@@ -39,6 +40,8 @@ public class InventoryController : MonoBehaviour
 
     //Equip items variables
     private List<int> equipedInventoryItemsList;
+    [SerializeField]
+    private GameObject[] equipSlot;
   
     private void Awake()
     {
@@ -51,6 +54,7 @@ public class InventoryController : MonoBehaviour
             Instance = this;
         }
 
+        shopPrefs = MenuController.Instance.shopPrefs;
 
     }
 
@@ -59,27 +63,22 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         indexItemClicked = 0;
-        openInventoryUIButton.onClick.AddListener(() =>
-        {
-            OpenEquipUI();
-        });
-        closeInventoryUIButton.onClick.AddListener(() =>
-        {
-            CloseEquipUI();
-        });  
     }
 
     private void OnEnable()
     {
-        shopPrefs = MenuController.Instance.shopPrefs;
         GetEquipedList();
         ResetInventoryItems();
         GetBoughtInner();
         if(innerParent.transform.childCount != 0)
             SetItemValue(defaultItem);
+        foreach(GameObject go in equipSlot)
+        {
+            GetEquipedItem(go);
+        }
     }
 
-
+    #region inventory control
     //Danh sach cac noi cong da mua & khoi tao UI & truyen du lieu cua cac Inventory Item
     public void GetBoughtInner()
     {
@@ -91,9 +90,8 @@ public class InventoryController : MonoBehaviour
             ShopDataAbstract itemData = data.GetComponent<ShopDataAbstract>();
             if (shopPrefs.HasKey(itemData.itemID.ToString()) == true)
             {
-                GameObject item = Instantiate(inventoryItem);
+                GameObject item = Instantiate(inventoryItem, innerParent.transform);
                 item.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemName;
-                item.transform.SetParent(innerParent.transform);
                 InventoryItems inventoryItemData = item.GetComponent<InventoryItems>();
                 inventoryItemData.itemID = itemData.itemID;
                 inventoryItemData.itemName = itemData.itemName;
@@ -102,6 +100,9 @@ public class InventoryController : MonoBehaviour
                 inventoryItemData.itemOrigin = itemData.itemOrigin;
                 inventoryItemData.itemProperty = itemData.itemProperty;
                 inventoryItemData.itemHistory = itemData.itemHistory;
+                inventoryItemData.itemHP = itemData.itemHP;
+                inventoryItemData.itemMP = itemData.itemMP;
+                inventoryItemData.itemEffect = itemData.itemEffect;
                 if (firstItem)
                 {
                     defaultItem = inventoryItemData;
@@ -111,12 +112,12 @@ public class InventoryController : MonoBehaviour
                 inventoryItemsList.Add(inventoryItemData);
             }
         }
-        numberInnerUI.text = "Soá löôïng noäi coâng: " +  innerCount.ToString();
+        numberInnerUI.text = "Soá löôïng noäi coâng: " + innerCount.ToString();
     }
     //Xoa nhung inventory items hien co
     public void ResetInventoryItems()
     {
-        foreach(Transform child in innerParent.transform)
+        foreach (Transform child in innerParent.transform)
         {
             Destroy(child.gameObject);
         }
@@ -130,24 +131,46 @@ public class InventoryController : MonoBehaviour
     //Xu ly khi click vao item
     public void OnInventoryItemsClick(InventoryItems inventoryItems)
     {
-        if(inventoryItems != currentItem)
+        if (inventoryItems != currentItem)
         {
             SetItemValue(inventoryItems);
-            currentItem = inventoryItems;        
+            currentItem = inventoryItems;
         }
     }
     //Khi item duoc click gan cac gia tri can thiet vao cac UI
     public void SetItemValue(InventoryItems inventoryItems)
     {
+        ResetItemDetail();
         nameTextUI.text = inventoryItems.itemName;
         levelTextUI.text = inventoryItems.itemLevel + "/36";
         originTextUI.text = inventoryItems.itemOrigin;
         propertyTextUI.text = inventoryItems.itemProperty;
         historyTextUI.text = inventoryItems.itemHistory;
         imageUI.sprite = inventoryItems.itemImage;
-
+        imageUI.color = new Color(1f, 1f, 1f, 1f);
         indexItemClicked = inventoryItems.transform.GetSiblingIndex();
+        GameObject hpDetail = Instantiate(itemDetail, itemDetailParent.transform);
+        ItemDetail(hpDetail, "Khí huyeát", inventoryItems.itemHP);
+        GameObject mpDetail = Instantiate(itemDetail, itemDetailParent.transform);
+        ItemDetail(mpDetail, "Noäi löïc", inventoryItems.itemMP);
+        effectTextUI.text = inventoryItems.itemEffect;
     }
+    public void ItemDetail(GameObject item, string valueName, int value)
+    {
+        TextMeshProUGUI[] detail = item.GetComponentsInChildren<TextMeshProUGUI>();
+        detail[0].text = valueName;
+        detail[1].text = value.ToString();
+    }
+    public void ResetItemDetail()
+    {
+        foreach (Transform child in itemDetailParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+    #endregion
+
+    #region equip item
     //Toggle on equip UI
     public void OpenEquipUI()
     {
@@ -189,16 +212,15 @@ public class InventoryController : MonoBehaviour
                 -1,
                 -1
             };
-
         if (shopPrefs.HasKey("slot1"))
         {
-            for(int i = 0; i <= 2; i++)
+            for (int i = 0; i <= 2; i++)
             {
                 if (shopPrefs.GetInt("slot" + i) == -1)
                     equipedInventoryItemsList[i] = -1;
                 else
                 {
-                    ShopDataAbstract data = innerHolder.listInner[shopPrefs.GetInt("slot"+i)].GetComponent<ShopDataAbstract>();
+                    ShopDataAbstract data = innerHolder.listInner[shopPrefs.GetInt("slot" + i)].GetComponent<ShopDataAbstract>();
                     equipedInventoryItemsList[i] = data.itemID;
                 }
             }
@@ -211,7 +233,7 @@ public class InventoryController : MonoBehaviour
         {
             if (equipedInventoryItemsList[i] != -1)
             {
-                shopPrefs.SetInt("slot"+i, equipedInventoryItemsList[i]);
+                shopPrefs.SetInt("slot" + i, equipedInventoryItemsList[i]);
             }
             else
             {
@@ -220,4 +242,32 @@ public class InventoryController : MonoBehaviour
         }
         shopPrefs.Save();
     }
+    public void GetEquipedItem(GameObject equipSlot)
+    {
+        Image childImage = equipSlot.transform.GetChild(0).GetComponent<Image>();
+        if (shopPrefs.HasKey("slot" + equipSlot.transform.GetSiblingIndex()))
+        {
+            if (shopPrefs.GetInt("slot" + equipSlot.transform.GetSiblingIndex()) != -1)
+            {
+                childImage.sprite = innerHolder.listInner[shopPrefs.GetInt("slot" + equipSlot.transform.GetSiblingIndex())].GetComponent<ShopDataAbstract>().itemImage;
+                childImage.color = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                childImage.sprite = null;
+                childImage.color = new Color(1f, 1f, 1f, 0f);
+            }
+        }
+    }
+    public void EquipItemSlotProcess(int index)
+    {
+        CloseEquipUI();
+        if(inventoryItemsList.Count > 0)
+        {
+            EquipItem(index);
+        }
+    }
+  
+    #endregion
+
 }

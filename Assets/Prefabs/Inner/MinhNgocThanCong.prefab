@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCost: 1000
   itemID: 8
+  itemHP: 50
+  itemMP: 50
   itemImage: {fileID: 21300000, guid: 17cd7ac014d338142bd4ac40417edf2c, type: 3}
   itemName: "Minh Ngo\xEFc Tha\xE0n Co\xE2ng"
   itemOrigin: Di Hoa Cung
@@ -58,3 +60,5 @@ MonoBehaviour:
     la\xE1p la\xF9nh long lanh, tha\xE2n pha\xF9p nhanh nhe\xEFn, va\xEFn the\xE1
     ta\xE1n co\xE2ng \xF1e\xE0u ho\xF9a vo\xE2 h\xECnh, thie\xE2n ha\xEF vo\xE2 \xF1\xF2ch. "
   itemType: Defense
+  itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) t\xE6 le\xE4 ne\xF9, khi
+    ne\xF9 tha\xF8nh co\xE2ng ho\xE0i 5% kh\xED huye\xE1t"

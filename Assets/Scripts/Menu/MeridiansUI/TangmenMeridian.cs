@@ -17,7 +17,7 @@ public class TangmenMeridian : MeridianAbstract
             { "Noäi löïc:", mp.ToString()},
             { "Neù traùnh:", evade.ToString()},
             { "Uy löïc ngoaïi coâng:", externalDamage.ToString()},
-            { "Ngoaïi coâng baïo kích:", externalCrit.ToString()},
+            { "Tæ leä baïo kích:", critRate.ToString()},
         };
     }
     public override void LevelUpMeridian()
@@ -27,7 +27,7 @@ public class TangmenMeridian : MeridianAbstract
         mp += 1;
         evade += 1;
         externalDamage += 1;
-        externalCrit += 1;
+        critRate += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -42,7 +42,7 @@ public class TangmenMeridian : MeridianAbstract
         meridianPrefs.SetInt("tangmenmp", mp);
         meridianPrefs.SetInt("tangmenevade", evade);
         meridianPrefs.SetInt("tangmenexternalDamage", externalDamage);
-        meridianPrefs.SetInt("tangmenexternalCrit", externalCrit);
+        meridianPrefs.SetInt("tangmencritRate", critRate);
         meridianPrefs.Save();
     }
 
@@ -53,7 +53,7 @@ public class TangmenMeridian : MeridianAbstract
         mp = meridianPrefs.GetInt("tangmenmp");
         evade = meridianPrefs.GetInt("tangmenevade");
         externalDamage = meridianPrefs.GetInt("tangmenexternalDamage");
-        externalCrit = meridianPrefs.GetInt("tangmenexternalCrit");
+        critRate = meridianPrefs.GetInt("tangmencritRate");
     }
 
     public override void UpdatePropertyData()
@@ -62,7 +62,7 @@ public class TangmenMeridian : MeridianAbstract
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Neù traùnh:"] = evade.ToString();
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
-        propertyData["Ngoaïi coâng baïo kích:"] = externalCrit.ToString();
+        propertyData["Tæ leä baïo kích:"] = critRate.ToString();
     }
 
     public override void SaveCharacterData()
@@ -71,7 +71,7 @@ public class TangmenMeridian : MeridianAbstract
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
         characterPrefs.SetInt("evade", characterPrefs.GetInt("evade") + 1);
         characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
-        characterPrefs.SetInt("externalCrit", characterPrefs.GetInt("externalCrit") + 1);
+        characterPrefs.SetInt("critRate", characterPrefs.GetInt("critRate") + 1);
         characterPrefs.Save();
     }
 }

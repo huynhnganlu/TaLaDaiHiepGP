@@ -4,9 +4,11 @@ using UnityEngine;
 
 public abstract class ShopDataAbstract : MonoBehaviour
 {
-    public int itemCost, itemID;
+    public int itemCost, itemID, itemHP, itemMP;
     public Sprite itemImage;
     public string itemName, itemOrigin, itemProperty, itemHistory, itemType;
+    [TextArea]
+    public string itemEffect;
 
     public abstract void ItemEffect();
 }

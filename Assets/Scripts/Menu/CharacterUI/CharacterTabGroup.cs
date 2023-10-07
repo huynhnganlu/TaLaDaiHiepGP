@@ -7,6 +7,12 @@ public class CharacterTabGroup : TabGroupAbstract
 
     private TabItem selectedTabItem;
     public TabItem defaultTabItem;
+    private Dictionary<string, int>[] characterSpecial;
+    private Dictionary<string, int> swordSpecial;
+    private Dictionary<string, int> bladeSpecial;
+    private Dictionary<string, int> fistSpecial;
+
+
     public override void OnTabSelected(TabItem tabItem)
     {
         if (selectedTabItem != tabItem)
@@ -26,15 +32,34 @@ public class CharacterTabGroup : TabGroupAbstract
                 }
             }
             selectedTabItem = tabItem;
+            CharacterUIController.Instance.ResetCharacterPoints();
+            CharacterUIController.Instance.UpdateCharacterPoints(characterSpecial[tabItem.transform.GetSiblingIndex()]);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //if (defaultTabItem != null)
-            selectedTabItem = defaultTabItem;
+        swordSpecial ??= new Dictionary<string, int>()
+            {
+                {"movementSpeed", 1}
+            };
+        bladeSpecial ??= new Dictionary<string, int>()
+            {
+                {"critDamage", 2}
+            };
+        fistSpecial ??= new Dictionary<string, int>()
+            {
+                {"hp", 50}
+            };
+        characterSpecial ??= new Dictionary<string, int>[]
+        {
+            swordSpecial,
+            bladeSpecial,
+            fistSpecial,
+        };
+        selectedTabItem = defaultTabItem;
+        CharacterUIController.Instance.UpdateCharacterPoints(swordSpecial);
     }
 
-   
 }

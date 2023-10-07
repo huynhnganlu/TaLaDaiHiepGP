@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCost: 2000
   itemID: 3
+  itemHP: 0
+  itemMP: 0
   itemImage: {fileID: 21300000, guid: 9690f7764245df4468cc094f1c9c0163, type: 3}
   itemName: "Ta\xF8n D\xF6\xF4ng Co\xE2ng Quye\xE1t"
   itemOrigin: "Giang Ho\xE0"
@@ -58,3 +60,6 @@ MonoBehaviour:
     nh\xF6 thie\xE2n tha\xE2\u0300n ha\u0323 pha\u0300m, nhanh kho\xE2ng ki\u0323p
     \xF1\xF4\u0303."
   itemType: Defense
+  itemEffect: "K\xEDch hoa\xEFt ho\xE4 the\xE5 mie\xE3n nhie\xE3m mo\xEFi sa\xF9t
+    th\xF6\xF4ng trong 2 + (0.2 x co\xE2ng l\xF6\xEFc) gia\xE2y, th\xF4\xF8i gian
+    ho\xE0i kh\xED 20 gia\xE2y"

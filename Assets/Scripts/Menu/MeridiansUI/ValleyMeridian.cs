@@ -16,8 +16,8 @@ public class ValleyMeridian : MeridianAbstract
             { "Khí huyeát:", hp.ToString()},
             { "Noäi löïc:", mp.ToString()},
             { "Hoài noäi löïc:", mpRegen.ToString()},
-            { "Boû qua noäi phoøng:", skipInternalDefense.ToString()},
-            { "Noäi coâng baïo kích:", internalCrit.ToString()},
+            { "Phoøng ngöï:", defense.ToString()},
+            { "Saùt thöông baïo kích:", critDamage.ToString()},
 
         };
 
@@ -29,8 +29,8 @@ public class ValleyMeridian : MeridianAbstract
         hp += 1;
         mp += 1;
         mpRegen += 1;
-        skipInternalDefense += 1;
-        internalCrit += 1;
+        defense += 1;
+        critDamage += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -44,8 +44,8 @@ public class ValleyMeridian : MeridianAbstract
         meridianPrefs.SetInt("valleyhp", hp);
         meridianPrefs.SetInt("valleymp", mp);
         meridianPrefs.SetInt("valleympRegen", mpRegen);
-        meridianPrefs.SetInt("valleyskipInternalDefense", skipInternalDefense);
-        meridianPrefs.SetInt("valleyinternalCrit", internalCrit);
+        meridianPrefs.SetInt("valleydefense", defense);
+        meridianPrefs.SetInt("valleycritDamage", critDamage);
         meridianPrefs.Save();
     }
 
@@ -55,8 +55,8 @@ public class ValleyMeridian : MeridianAbstract
         hp = meridianPrefs.GetInt("valleyhp");
         mp = meridianPrefs.GetInt("valleymp");
         mpRegen = meridianPrefs.GetInt("valleympRegen");
-        skipInternalDefense = meridianPrefs.GetInt("valleyskipInternalDefense");
-        internalCrit = meridianPrefs.GetInt("valleyinternalCrit");
+        defense = meridianPrefs.GetInt("valleydefense");
+        critDamage = meridianPrefs.GetInt("valleycritDamage");
     }
 
     public override void UpdatePropertyData()
@@ -64,8 +64,8 @@ public class ValleyMeridian : MeridianAbstract
         propertyData["Khí huyeát:"] = hp.ToString();
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
-        propertyData["Boû qua noäi phoøng:"] = skipInternalDefense.ToString();
-        propertyData["Noäi coâng baïo kích:"] = internalCrit.ToString();
+        propertyData["Phoøng ngöï:"] = defense.ToString();
+        propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
     }
 
     public override void SaveCharacterData()
@@ -73,8 +73,8 @@ public class ValleyMeridian : MeridianAbstract
         characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
         characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1 );
-        characterPrefs.SetInt("skipInternalDefense", characterPrefs.GetInt("skipInternalDefense") + 1 );
-        characterPrefs.SetInt("internalCrit", characterPrefs.GetInt("internalCrit") + 1 );
+        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1 );
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1 );
         characterPrefs.Save();
     }
 }

@@ -15,6 +15,7 @@ public class JsonPlayerPrefs
     // prefs.Save();
     // int i = prefs.GetInt("testKey");
 
+    private readonly string encryptionKey = "luhuynhngan";
 
     [Serializable]
     class PlayerPref
@@ -44,7 +45,9 @@ public class JsonPlayerPrefs
             using (StreamReader reader = new StreamReader(savePath))
             {
                 string json = reader.ReadToEnd();
-                JsonPlayerPrefs data = JsonUtility.FromJson<JsonPlayerPrefs>(json);
+                string decryptJson = EncryptAndDecrypt(json);
+                decryptJson = decryptJson.Substring(0, decryptJson.Length-2);
+                JsonPlayerPrefs data = JsonUtility.FromJson<JsonPlayerPrefs>(decryptJson);
                 this.playerPrefs = data.playerPrefs;
             }
         }
@@ -153,7 +156,7 @@ public class JsonPlayerPrefs
         string json = JsonUtility.ToJson(this);
         using (StreamWriter writer = new StreamWriter(savePath))
         {
-            writer.WriteLine(json);
+            writer.WriteLine(EncryptAndDecrypt(json));
         }
     }
 
@@ -205,5 +208,15 @@ public class JsonPlayerPrefs
             }
         }
         return false;
+    }
+
+    private string EncryptAndDecrypt(string data)
+    {
+        string modifiedData = "";
+        for(int i = 0;i < data.Length; i++)
+        {
+            modifiedData += (char)(data[i] ^ encryptionKey[i % encryptionKey.Length]);
+        }
+        return modifiedData;
     }
 }

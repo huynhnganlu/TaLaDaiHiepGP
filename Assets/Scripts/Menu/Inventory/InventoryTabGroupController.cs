@@ -18,22 +18,8 @@ public class InventoryTabGroupController : TabGroupAbstract
     {
         if(tabItem != selectedTabItem)
         {
-            ResetTabs();
-            int index = tabItem.transform.GetSiblingIndex();
-            for (int i = 0; i < swapContent.Count; i++)
-            {
-                if (i == index)
-                {
-                    swapContent[i].SetActive(true);
-                    scrollRect.content = swapContent[i].GetComponent<RectTransform>();
-                }
-                else
-                {
-                    swapContent[i].SetActive(false);
-                }
-            }
+            ResetTabs();         
             selectedTabItem = tabItem;
         }
-       
     }
 }

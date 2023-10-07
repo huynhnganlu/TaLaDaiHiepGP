@@ -16,8 +16,8 @@ public class RoyalMeridian : MeridianAbstract
             { "Khí huyeát:", hp.ToString()},
             { "Noäi löïc:", mp.ToString()},
             { "Uy löïc ngoaïi coâng:", externalDamage.ToString()},
-            { "Boû qua ngoaïi phoøng:", skipExternalDefense.ToString()},
-            { "Ngoaïi coâng baïo kích:", externalCrit.ToString()},
+            { "Saùt thöông baïo kích:", critDamage.ToString()},
+            { "Tæ leä baïo kích:", critRate.ToString()},
         };
     }
 
@@ -27,8 +27,8 @@ public class RoyalMeridian : MeridianAbstract
         hp += 1;
         mp += 1;
         externalDamage += 1;
-        skipExternalDefense += 1;
-        externalCrit += 1;
+        critDamage += 1;
+        critRate += 1;
 
         UpdatePropertyData();
         GetPropertyData();
@@ -42,8 +42,8 @@ public class RoyalMeridian : MeridianAbstract
         meridianPrefs.SetInt("royalhp", hp);
         meridianPrefs.SetInt("royalmp", mp);
         meridianPrefs.SetInt("royalexternalDamage", externalDamage);
-        meridianPrefs.SetInt("royalskipExternalDefense", skipExternalDefense);
-        meridianPrefs.SetInt("royalexternalCrit", externalCrit);
+        meridianPrefs.SetInt("royalcritDamage", critDamage);
+        meridianPrefs.SetInt("royalcritRate", critRate);
         meridianPrefs.Save();
     }
 
@@ -53,8 +53,8 @@ public class RoyalMeridian : MeridianAbstract
         hp = meridianPrefs.GetInt("royalhp");
         mp = meridianPrefs.GetInt("royalmp");
         externalDamage = meridianPrefs.GetInt("royalexternalDamage");
-        skipExternalDefense = meridianPrefs.GetInt("royalskipExternalDefense");
-        externalCrit = meridianPrefs.GetInt("royalexternalCrit");
+        critDamage = meridianPrefs.GetInt("royalcritDamage");
+        critRate = meridianPrefs.GetInt("royalcritRate");
     }
 
     public override void UpdatePropertyData()
@@ -62,8 +62,8 @@ public class RoyalMeridian : MeridianAbstract
         propertyData["Khí huyeát:"] = hp.ToString();
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
-        propertyData["Boû qua ngoaïi phoøng:"] = skipExternalDefense.ToString();
-        propertyData["Ngoaïi coâng baïo kích:"] = externalCrit.ToString();
+        propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
+        propertyData["Tæ leä baïo kích:"] = critRate.ToString();
     }
 
     public override void SaveCharacterData()
@@ -71,8 +71,8 @@ public class RoyalMeridian : MeridianAbstract
         characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
         characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1 );
-        characterPrefs.SetInt("skipExternalDefense", characterPrefs.GetInt("skipExternalDefense") + 1 );
-        characterPrefs.SetInt("externalCrit", characterPrefs.GetInt("externalCrit") + 1 );
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1 );
+        characterPrefs.SetInt("critRate", characterPrefs.GetInt("critRate") + 1 );
         characterPrefs.Save();
     }
 }
