@@ -57,7 +57,7 @@ public class MeridianController : MonoBehaviour
     //Set UI level
     public void SetMeridianLevel(int level)
     {
-        levelMeridianUI.text = level + "/180";
+        levelMeridianUI.text = level + "/36";
     }
    
 }

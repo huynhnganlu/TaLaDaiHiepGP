@@ -48,6 +48,7 @@ MonoBehaviour:
   itemID: 6
   itemHP: 50
   itemMP: 50
+  itemLevel: 0
   itemImage: {fileID: 21300000, guid: b7451e9aa04e6ad41ba62e0482bfadf8, type: 3}
   itemName: "Minh Ngo\xEFc Co\xE2ng"
   itemOrigin: "Qua\xE2n T\xF6\xFB \xD1\xF6\xF4\xF8ng"
@@ -60,6 +61,6 @@ MonoBehaviour:
     luye\xE4n co\xE2ng na\xF8y \xF1e\xE1n C\xF6\xFBu Tru\xF8ng Thie\xE2n Tu\xF9c
     co\xF9 the\xE5 bie\xE1n gia\xF8 tha\xF8nh tre\xFB, dung nhan \xF1\xF6\xF4\xEFc
     gi\xF6\xF5 ma\xF5i ma\xF5i."
-  itemType: Attack
+  itemType: Buff
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) to\xE1c \xF1o\xE4 di chuye\xE5n
     va\xF8 ga\xE2y the\xE2m 10 sa\xF9t th\xF6\xF4ng"

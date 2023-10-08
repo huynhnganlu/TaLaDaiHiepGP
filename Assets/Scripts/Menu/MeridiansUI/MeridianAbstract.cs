@@ -29,9 +29,8 @@ public abstract class MeridianAbstract : MonoBehaviour
         MeridianController.Instance.SetMeridianLevel(level);
         foreach (KeyValuePair<string,string> keyValuePair in propertyData)
         {
-            GameObject data = Instantiate(objectPropertyData);
+            GameObject data = Instantiate(objectPropertyData, MeridianController.Instance.parentPropertyData.transform);
             data.GetComponent<PropertyDataController>().SetData(keyValuePair.Key, keyValuePair.Value);
-            data.transform.SetParent(MeridianController.Instance.parentPropertyData.transform);
         }
     }
     //Reset property data moi lan click vao cac button kinh mach khac nhau

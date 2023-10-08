@@ -1595,7 +1595,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 976
   enemies:
-  - {fileID: 2671653017261918410, guid: 1ad1939f31313984199a672878e37651, type: 3}
+  - {fileID: 4133835896180732208, guid: c77542bc81a16ee45a7b64f982a4c8b7, type: 3}
   colliderSpawnEnemies: {fileID: 97948480}
   shopPrefs:
     playerPrefs: []

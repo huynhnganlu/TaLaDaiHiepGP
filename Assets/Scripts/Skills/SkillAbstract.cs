@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class SkillAbstract : MonoBehaviour
 {
+    public string skillType;
     public int skillDamage;
     public float skillAppearTime, skillLifeTime;
     public abstract void ProcessSkill();
@@ -17,8 +18,11 @@ public abstract class SkillAbstract : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage);
-            MyCharacterController.Instance.HandleInner("Attack");     
+        if(skillType.Equals("External"))
+            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage);
+        else if(skillType.Equals("Internal"))
+            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.internalDamage);
+        MyCharacterController.Instance.HandleInner("Attack");     
     }
 
     public void CancelSkill()

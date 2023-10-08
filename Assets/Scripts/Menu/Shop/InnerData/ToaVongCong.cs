@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class ToaVongCong : ShopDataAbstract
 {
-  
     public override void ItemEffect()
     {
-        Debug.Log("Toa vong");
-        MyCharacterController.Instance.internalDefense += 10;
-        MyCharacterController.Instance.externalDefense += 10;
-
+        MyCharacterController.Instance.defense += (10 + 2 * itemLevel);
     }
 }

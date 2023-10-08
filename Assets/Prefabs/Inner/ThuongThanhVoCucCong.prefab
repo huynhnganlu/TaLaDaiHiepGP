@@ -61,4 +61,5 @@ MonoBehaviour:
     chuye\xE5n phi tha\xEAng. "
   itemType: Health
   itemEffect: "Khi kh\xED huye\xE1t tha\xE1p h\xF4n 30%, ho\xE0i 30% + (2% x co\xE2ng
-    l\xF6\xEFc) kh\xED huye\xE1t trong vo\xF8ng 6 gia\xE2y"
+    l\xF6\xEFc) kh\xED huye\xE1t trong vo\xF8ng 6 gia\xE2y. Mo\xE3i tra\xE4n \xF1a\xE1u
+    ch\xE6 co\xF9 ta\xF9c du\xEFng 2 la\xE0n"

@@ -70,6 +70,7 @@ public class EmeiMeridian : MeridianAbstract
         propertyData["Neù traùnh:"] = evade.ToString();
         propertyData["Phoøng ngöï:"] = defense.ToString();
         propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
+     
     }
 
     public override void SaveCharacterData()

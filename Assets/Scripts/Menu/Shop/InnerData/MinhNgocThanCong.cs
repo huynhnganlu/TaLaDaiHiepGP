@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class MinhNgocThanCong : ShopDataAbstract
 {
+
     public override void ItemEffect()
     {
-        throw new System.NotImplementedException();
+        MyCharacterController.Instance.evade += MyCharacterController.Instance.evade / 100 * (15 + 1 * itemLevel);
+        MyCharacterController.Instance.internalDamage += 20;
+        MyCharacterController.Instance.externalDamage += 20;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

@@ -6,18 +6,10 @@ public class DiaNgucHoanHonKinh : ShopDataAbstract
 {
     public override void ItemEffect()
     {
-        throw new System.NotImplementedException();
+        MyCharacterController.Instance.critRate += (10 + 1 * itemLevel);
+        MyCharacterController.Instance.internalDamage += (30 + 2 * itemLevel);
+        MyCharacterController.Instance.externalDamage += (30 + 2 * itemLevel);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

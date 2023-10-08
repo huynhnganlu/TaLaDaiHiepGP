@@ -48,6 +48,7 @@ MonoBehaviour:
   itemID: 7
   itemHP: 50
   itemMP: 50
+  itemLevel: 0
   itemImage: {fileID: 21300000, guid: 1b0b7bc040d712a44a535a74a9e81306, type: 3}
   itemName: "\xD1\xF2a Ngu\xEFc Hoa\xF9n Ho\xE0n Kinh"
   itemOrigin: "Ca\xE5m Y Ve\xE4"
@@ -66,6 +67,6 @@ MonoBehaviour:
     to\xE0n ta\xEFi, ta\xF8 co\xE2ng na\xF8y tuy b\xF2 gi\xF4\xF9i vo\xF5 la\xE2m
     xem th\xF6\xF4\xF8ng, nh\xF6ng kho\xE2ng the\xE5 phu\xFB nha\xE4n uy l\xF6\xEFc
     khu\xFBng khie\xE1p cu\xFBa no\xF9. "
-  itemType: Attack
+  itemType: Buff
   itemEffect: "Ta\xEAng t\xE6 le\xE4 ba\xEFo k\xEDch 10% + (1% x co\xE2ng l\xF6\xEFc)
     va\xF8 sa\xF9t th\xF6\xF4ng ga\xE2y ra 30 + (2 x co\xE2ng l\xF6\xEFc)"

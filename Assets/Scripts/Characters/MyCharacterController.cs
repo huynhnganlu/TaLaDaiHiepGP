@@ -16,7 +16,7 @@ public class MyCharacterController : MonoBehaviour
     #endregion
     #region Health vs Shiled variables
     [HideInInspector]
-    public int maxHealth = 100, maxShield = 100, currentHealth, currentShield;
+    public int maxHealth, maxShield, currentHealth, currentShield;
     public Slider healthBar, shieldBar;
     public TextMeshProUGUI healthText, shieldText;
     #endregion
@@ -48,7 +48,9 @@ public class MyCharacterController : MonoBehaviour
     #endregion
     #region Property variables
     [HideInInspector]
-    public int evade, externalDamage, externalCrit, skipExternalDefense, externalDefense, internalDamage, internalCrit, skipInternalDefense, internalDefense, mpRegen;
+    public int evade, externalDamage, internalDamage, critRate, critDamage, defense, hpRegen, mpRegen, movementSpeed;
+    [HideInInspector]
+    public bool isImmune = false, isEvade = false;
     #endregion
     private void Awake()
     {
@@ -80,8 +82,10 @@ public class MyCharacterController : MonoBehaviour
         healthText = GameObject.Find("Canvas/HPBar/Image/HPText").GetComponent<TextMeshProUGUI>();
         shieldText = GameObject.Find("Canvas/ShieldBar/Image/ShieldText").GetComponent<TextMeshProUGUI>();
         expBar = GameObject.Find("Canvas/ExpBarSlider").GetComponent<Slider>();
-        /*  GetProperty();
-          SetProperty(); */
+        GetProperty();
+        HandleInner("Buff");
+        SetProperty();
+
         #endregion
         skillList = new List<PrizeAbstract>(4)
         {
@@ -140,44 +144,59 @@ public class MyCharacterController : MonoBehaviour
     //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
     {
-        if(currentShield - damage >= 0)
+        isEvade = EvadeProcess();
+        if (!isEvade)
         {
-            currentShield -= damage;
-            shieldBar.value = currentShield;
-            shieldText.text = currentShield.ToString();
-
-        }
-        else
-        {
-            if(currentShield > 0)
+            HandleInner("Defense");
+            if (!isImmune)
             {
-                currentHealth -= (damage - currentShield);
-                currentShield = 0;
-                healthBar.value = currentHealth;
-                shieldBar.value = currentShield;
-                healthText.text = currentHealth.ToString();
-                shieldText.text = currentShield.ToString();
-            }
-            else
-            {
-                if (currentHealth - damage > 0)
+                if (damage - defense >= 0)
                 {
-                    currentHealth -= damage;
-                    healthBar.value = currentHealth;
-                    healthText.text = currentHealth.ToString();
+                    damage -= defense;
                 }
                 else
                 {
-                    currentHealth = 0;
-                    healthBar.value = currentHealth;
-                    healthText.text = "0";              
-                    MapController.Instance.ProcessFinishMap();
+                    damage = 0;
                 }
+                if (currentShield - damage >= 0)
+                {
+                    currentShield -= damage;
+                    shieldBar.value = currentShield;
+                    shieldText.text = currentShield.ToString();
+
+                }
+                else
+                {
+                    if (currentShield > 0)
+                    {
+                        currentHealth -= (damage - currentShield);
+                        currentShield = 0;
+                        healthBar.value = currentHealth;
+                        shieldBar.value = currentShield;
+                        healthText.text = currentHealth.ToString();
+                        shieldText.text = currentShield.ToString();
+                    }
+                    else
+                    {
+                        if (currentHealth - damage > 0)
+                        {
+                            currentHealth -= damage;
+                            healthBar.value = currentHealth;
+                            healthText.text = currentHealth.ToString();
+                        }
+                        else
+                        {
+                            currentHealth = 0;
+                            healthBar.value = currentHealth;
+                            healthText.text = "0";
+                            MapController.Instance.ProcessFinishMap();
+                        }
+                    }
+                }
+                HandleInner("Health");
             }
-          
-           
         }
-        HandleInner("Health");
+        isEvade = false;
     }
     //Function len cap
     private void LevelUp()
@@ -194,14 +213,15 @@ public class MyCharacterController : MonoBehaviour
         maxShield = 100 + characterPrefs.GetInt("mp");
         evade = characterPrefs.GetInt("evade");
         externalDamage = characterPrefs.GetInt("externalDamage");
-        externalCrit = characterPrefs.GetInt("externalCrit");
-        externalDefense = characterPrefs.GetInt("externalDefense");
-        skipExternalDefense = characterPrefs.GetInt("skipExternalDefense");
         internalDamage = characterPrefs.GetInt("internalDamage");
-        internalCrit = characterPrefs.GetInt("internalCrit");
-        internalDefense = characterPrefs.GetInt("internalDefense");
-        skipInternalDefense = characterPrefs.GetInt("skipInternalDefense");
-        mpRegen = characterPrefs.GetInt("mpRegen");
+        critRate = characterPrefs.GetInt("critRate");
+        critDamage = characterPrefs.GetInt("critDamage");
+        defense = characterPrefs.GetInt("defense");
+        hpRegen = characterPrefs.GetInt("hpRegen");
+        mpRegen = characterPrefs.GetInt("mpRegen"); 
+        movementSpeed = characterPrefs.GetInt("movementSpeed");
+        Debug.Log("movementSpeed: " + movementSpeed);
+        speed += movementSpeed;
 
     }
     private void SetProperty()
@@ -261,15 +281,23 @@ public class MyCharacterController : MonoBehaviour
             }
         }
     }
+    public bool EvadeProcess()
+    {
+        float randomValue = Random.value;
+        float evadeRate = evade / 100f;
+        if (randomValue <= evadeRate)
+            return true;
+        return false;
+    }
     #endregion
-    #region Damage Handle
-
+   
+    #region Inner
     public void HandleInner(string type)
     {
         List<ShopDataAbstract> list = MapController.Instance.equipedList;
-        if(list != null && list.Count != 0)
+        if (list != null && list.Count != 0)
         {
-            foreach(ShopDataAbstract inner in list)
+            foreach (ShopDataAbstract inner in list)
             {
                 if (inner.itemType.Equals(type))
                 {
@@ -278,11 +306,8 @@ public class MyCharacterController : MonoBehaviour
             }
         }
     }
+    
     #endregion
 
-    #region Inner
 
-    #endregion
-
- 
 }

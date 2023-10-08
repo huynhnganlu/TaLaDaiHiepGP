@@ -6,6 +6,8 @@ public class VoVongThanCong : ShopDataAbstract
 {
     public override void ItemEffect()
     {
-        throw new System.NotImplementedException();
+        MyCharacterController.Instance.internalDamage += (int)MyCharacterController.Instance.internalDamage / 100 * (10 + 2 * itemLevel);
+        MyCharacterController.Instance.externalDamage += (int)MyCharacterController.Instance.externalDamage / 100 * (10 + 2 * itemLevel);
+        MyCharacterController.Instance.critDamage += (int)MyCharacterController.Instance.critDamage / 100 * (10 + 2 * itemLevel);
     }
 }

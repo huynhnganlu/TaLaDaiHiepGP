@@ -48,6 +48,7 @@ MonoBehaviour:
   itemID: 0
   itemHP: 50
   itemMP: 50
+  itemLevel: 0
   itemImage: {fileID: 21300000, guid: 46ead064bf04c3b4fb2789aca4d97fbb, type: 3}
   itemName: "To\xEFa Vong Co\xE2ng"
   itemOrigin: "Giang ho\xE0"

@@ -214,6 +214,6 @@ MonoBehaviour:
   exp: 20
   money: 10
   qi: 0
-  damage: 50
+  damage: 30
   isFlipped: 0
   projectile: {fileID: 4873967349643490401, guid: 4cb84b8209f6bee4787413c93f03230c, type: 3}

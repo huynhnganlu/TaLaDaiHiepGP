@@ -13,7 +13,7 @@ public class ShopController : MonoBehaviour
     [SerializeField]
     private InnerHolder innerHolder;
     public ShopTemplate[] shopTemplates;
-    private readonly ShopDataAbstract[] itemAddedArray = new ShopDataAbstract[6];
+    private ShopDataAbstract[] itemAddedArray = new ShopDataAbstract[6];
     private JsonPlayerPrefs shopPrefs;
     //Singleton variables
     public static ShopController Instance;
@@ -79,7 +79,7 @@ public class ShopController : MonoBehaviour
         CheckItems(); 
     }
     
-    //Load du lieu tu script object
+    //Load du lieu
     public void LoadShopItemsData()
     {
         GameObject[] shuffled = innerHolder.listInner.OrderBy(n => Guid.NewGuid()).ToArray();
@@ -93,5 +93,6 @@ public class ShopController : MonoBehaviour
             shopTemplates[i].textTooltip = textShow;
             itemAddedArray[i] = data;
         }
+        CheckItems();
     }
 }

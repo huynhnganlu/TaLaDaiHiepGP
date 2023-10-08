@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602256327e8a92c4c9f740c4cf1156ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillType: External
   skillDamage: 50
   skillAppearTime: 2
   skillLifeTime: 4
