@@ -33,7 +33,8 @@ Transform:
   m_LocalPosition: {x: 5.51, y: 0.96, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7221980304409014596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &219423624723230975
@@ -220,10 +221,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeaa5919aef1234395618c83254d641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHP: 40
+  enemyMaxHP: 300
   currentEnemyHP: 0
   exp: 0
-  money: 0
-  qi: 0
-  damage: 0
-  isFlipped: 0
+  money: 100
+  qi: 100
+  dao: 0
+  damage: 50
+  radius: 6
+  hitRaycast: {fileID: 7221980304409014596}
+--- !u!1 &5529365559988294747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7221980304409014596}
+  m_Layer: 11
+  m_Name: HitRaycast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7221980304409014596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529365559988294747}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.182, y: -0.096, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219423624723230974}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

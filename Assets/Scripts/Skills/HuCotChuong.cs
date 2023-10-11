@@ -20,8 +20,13 @@ public class HuCotChuong : SkillAbstract
     {
         elapse += Time.deltaTime;
         if (elapse >= delay)
-        {           
-            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage);
+        {
+            float random = Random.value;
+            float rate = MyCharacterController.Instance.critRate / 100f;
+            if(random <= rate)
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage, true);
+            else
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage, false);
             MyCharacterController.Instance.HandleInner("Attack");                
             elapse = 0f;
         }          

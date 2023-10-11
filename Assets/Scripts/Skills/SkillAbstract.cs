@@ -18,10 +18,23 @@ public abstract class SkillAbstract : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        float random = Random.value;
+        float rate = MyCharacterController.Instance.critRate / 100f;
+
         if(skillType.Equals("External"))
-            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage);
-        else if(skillType.Equals("Internal"))
-            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.internalDamage);
+        {
+            if (random <= rate)
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage + MyCharacterController.Instance.critDamage, true);
+            else
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage, false);
+        }else if(skillType.Equals("Internal"))
+        {
+            if (random <= rate)
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.internalDamage + MyCharacterController.Instance.critDamage, true);
+            else
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.internalDamage, false);
+        }
+            
         MyCharacterController.Instance.HandleInner("Attack");     
     }
 

@@ -213,14 +213,15 @@ MonoBehaviour:
   - {fileID: 0}
   evade: 0
   externalDamage: 0
-  externalCrit: 0
-  skipExternalDefense: 0
-  externalDefense: 0
   internalDamage: 0
-  internalCrit: 0
-  skipInternalDefense: 0
-  internalDefense: 0
+  critRate: 0
+  critDamage: 0
+  defense: 0
+  hpRegen: 0
   mpRegen: 0
+  movementSpeed: 0
+  isImmune: 0
+  isEvade: 0
 --- !u!50 &7362222115201490367
 Rigidbody2D:
   serializedVersion: 4

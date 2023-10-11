@@ -209,11 +209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8132e664d4a12e64b81427f29b3d922e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHP: 200
+  enemyMaxHP: 1
   currentEnemyHP: 0
-  exp: 20
+  exp: 1
   money: 10
   qi: 0
+  dao: 0
   damage: 30
-  isFlipped: 0
   projectile: {fileID: 4873967349643490401, guid: 4cb84b8209f6bee4787413c93f03230c, type: 3}

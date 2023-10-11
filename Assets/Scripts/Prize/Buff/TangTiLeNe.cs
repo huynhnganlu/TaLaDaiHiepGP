@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TangPhongNgu : PrizeAbstract
+public class TangTiLeNe : PrizeAbstract
 {
     public override void ProcessPrize()
     {
-        MyCharacterController.Instance.defense += 10;
+        MyCharacterController.Instance.evade += 1;
     }
-
-   
 }

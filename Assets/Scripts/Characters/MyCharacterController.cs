@@ -48,7 +48,9 @@ public class MyCharacterController : MonoBehaviour
     #endregion
     #region Property variables
     [HideInInspector]
-    public int evade, externalDamage, internalDamage, critRate, critDamage, defense, hpRegen, mpRegen, movementSpeed;
+    public int externalDamage, internalDamage, critDamage, defense, hpRegen, mpRegen;
+    [HideInInspector]
+    public float movementSpeed, evade, critRate;
     [HideInInspector]
     public bool isImmune = false, isEvade = false;
     #endregion
@@ -97,6 +99,7 @@ public class MyCharacterController : MonoBehaviour
         HandleSkill(skillList);
         money = 0;
         moneyText.text = money.ToString();
+        StartCoroutine(RegenOverTime());
     }
 
 
@@ -151,45 +154,30 @@ public class MyCharacterController : MonoBehaviour
             if (!isImmune)
             {
                 if (damage - defense >= 0)
-                {
                     damage -= defense;
-                }
                 else
-                {
                     damage = 0;
-                }
                 if (currentShield - damage >= 0)
                 {
-                    currentShield -= damage;
-                    shieldBar.value = currentShield;
-                    shieldText.text = currentShield.ToString();
-
+                    SetShield(currentShield - damage);
                 }
                 else
                 {
                     if (currentShield > 0)
                     {
-                        currentHealth -= (damage - currentShield);
-                        currentShield = 0;
-                        healthBar.value = currentHealth;
-                        shieldBar.value = currentShield;
-                        healthText.text = currentHealth.ToString();
-                        shieldText.text = currentShield.ToString();
+                        SetHealth(currentHealth - damage - currentShield);
+                        SetShield(0);
                     }
                     else
                     {
                         if (currentHealth - damage > 0)
                         {
-                            currentHealth -= damage;
-                            healthBar.value = currentHealth;
-                            healthText.text = currentHealth.ToString();
+                            SetHealth(currentHealth - damage);
                         }
                         else
                         {
-                            currentHealth = 0;
-                            healthBar.value = currentHealth;
-                            healthText.text = "0";
-                            MapController.Instance.ProcessFinishMap();
+                            SetHealth(0);     
+                            StartCoroutine(MapController.Instance.ProcessFinishMap());
                         }
                     }
                 }
@@ -220,21 +208,15 @@ public class MyCharacterController : MonoBehaviour
         hpRegen = characterPrefs.GetInt("hpRegen");
         mpRegen = characterPrefs.GetInt("mpRegen"); 
         movementSpeed = characterPrefs.GetInt("movementSpeed");
-        Debug.Log("movementSpeed: " + movementSpeed);
         speed += movementSpeed;
 
     }
     private void SetProperty()
     {
-        currentHealth = maxHealth;
-        currentShield = maxShield;
         healthBar.maxValue = maxHealth;
         shieldBar.maxValue = maxShield;
-        healthBar.value = maxHealth;
-        shieldBar.value = maxShield;
-        healthText.text = currentHealth.ToString();
-        shieldText.text = currentShield.ToString();
-
+        SetHealth(maxHealth);
+        SetShield(maxShield);     
         expBar.maxValue = maxExp;
     }
     public void SetHealth(int hp)
@@ -242,6 +224,35 @@ public class MyCharacterController : MonoBehaviour
         currentHealth = hp;
         healthBar.value = hp;
         healthText.text = hp.ToString();
+    }
+    public void SetShield(int mp)
+    {
+        currentShield = mp;
+        shieldBar.value = mp;
+        shieldText.text = mp.ToString();
+    }
+    IEnumerator RegenOverTime()
+    {
+        while(currentHealth > 0)
+        {
+            if(currentHealth < maxHealth)
+            {
+                if (currentHealth + hpRegen >= maxHealth)
+                    currentHealth = maxHealth;
+                else
+                    currentHealth += hpRegen;
+                SetHealth(currentHealth);
+            }
+            if(currentShield < maxShield)
+            {
+                if (currentShield + mpRegen >= maxShield)
+                    currentShield = maxShield;
+                else
+                    currentShield += mpRegen;
+                SetShield(currentShield);
+            }
+            yield return new WaitForSeconds(3);
+        }
     }
     #endregion
     #region Kill Enemy    
@@ -289,8 +300,7 @@ public class MyCharacterController : MonoBehaviour
             return true;
         return false;
     }
-    #endregion
-   
+    #endregion   
     #region Inner
     public void HandleInner(string type)
     {

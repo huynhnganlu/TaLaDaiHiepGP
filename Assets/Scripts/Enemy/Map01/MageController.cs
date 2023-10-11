@@ -12,15 +12,10 @@ public class MageController : EnemyController
         currentEnemyHP = enemyMaxHP;
     }
 
-    void Update()
-    {
-       
-    }
-
     public IEnumerator ShootProjectile(Vector3 dir)
     {
         yield return new WaitForSeconds(0.9f);
-        GameObject clone = Instantiate(projectile, transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
+        GameObject clone = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
         clone.GetComponent<ProjectileController>().shootDir = (dir - transform.position - new Vector3(-1f, 0f, 0f)).normalized;
         clone.GetComponent<ProjectileController>().damage = this.damage;
     }

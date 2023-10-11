@@ -6,7 +6,7 @@ public class TangSTNoi : PrizeAbstract
 {
     public override void ProcessPrize()
     {
-        throw new System.NotImplementedException();
+        MyCharacterController.Instance.internalDamage += 10;
     }
      
   

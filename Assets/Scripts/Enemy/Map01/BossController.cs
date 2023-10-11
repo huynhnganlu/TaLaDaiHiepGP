@@ -4,32 +4,18 @@ using UnityEngine;
 
 public class BossController : EnemyController
 {
-  
 
-    public static BossController Instance;
-
-
-    private void Awake()
-    {
-        if(Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
+    public float radius;
+    public Transform hitRaycast;
+ 
     private void Start()
     {
         currentEnemyHP = enemyMaxHP;
     }
 
-    private void Update()
+    public void SetHitPlayer()
     {
-        
+        HitPlayer(radius, hitRaycast.position);
     }
 
-   
 }

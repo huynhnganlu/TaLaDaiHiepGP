@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1074237744427395264
+--- !u!1 &606081957944647042
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3851470599058849732}
-  - component: {fileID: 6506035187813898345}
+  - component: {fileID: 3679537966262615191}
+  - component: {fileID: 7182671478432600498}
   m_Layer: 0
-  m_Name: TangTocBuff
+  m_Name: TangTiLeNe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3851470599058849732
+--- !u!4 &3679537966262615191
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074237744427395264}
+  m_GameObject: {fileID: 606081957944647042}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,22 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6506035187813898345
+--- !u!114 &7182671478432600498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074237744427395264}
+  m_GameObject: {fileID: 606081957944647042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2d52660151ff74f93ec7caf698e6af, type: 3}
+  m_Script: {fileID: 11500000, guid: d9f5d7b473cbbf5418d465fb4a051887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9
+  id: 10
   cost: 0
-  header: "Ta\xEAng To\xE1c"
-  description: "Ta\xEAng to\xE1c \xF1o\xE4 di chuye\xE5n +1"
-  icon: {fileID: 21300000, guid: 19478bdaaaac4334084855b55435ff83, type: 3}
+  header: "Ne\xF9 Tra\xF9nh"
+  description: "Ta\xEAng t\xE6 le\xE4 ne\xF9 tra\xF9nh +1%"
+  icon: {fileID: 21300000, guid: 5dfef55c53345a04f8ad293d4fe91223, type: 3}
   rate: 25
   skillRef: {fileID: 0}

@@ -12,8 +12,13 @@ public class PhatTamChuong : SkillAbstract
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-        {          
-            collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage);
+        {
+            float random = Random.value;
+            float rate = MyCharacterController.Instance.critRate / 100f;
+            if (random <= rate)
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage, true);
+            else
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage, false);
             MyCharacterController.Instance.HandleInner("Attack");
         }
     }

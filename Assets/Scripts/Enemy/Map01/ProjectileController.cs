@@ -20,9 +20,8 @@ public class ProjectileController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            MyCharacterController.Instance.HandleInner("Defense");
             MyCharacterController.Instance.TakeEnemyDamage(damage);
-            Destroy(gameObject);
+            ObjectPoolController.Instance.ReturnObjectToPool(gameObject);
         }
     }
 }

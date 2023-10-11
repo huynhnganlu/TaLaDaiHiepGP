@@ -13,7 +13,6 @@ public class FighterController : EnemyController
 
     public void SetHitPlayer()
     {
-
         HitPlayer(radius, hitRaycast.position);
     }
 }

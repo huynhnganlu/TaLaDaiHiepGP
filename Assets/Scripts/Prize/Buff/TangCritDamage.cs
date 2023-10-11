@@ -6,7 +6,7 @@ public class TangCritDamage : PrizeAbstract
 {
     public override void ProcessPrize()
     {
-        throw new System.NotImplementedException();
+        MyCharacterController.Instance.critDamage += 10;
     }
    
 }

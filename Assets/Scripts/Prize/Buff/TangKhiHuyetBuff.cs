@@ -8,9 +8,6 @@ public class TangKhiHuyetBuff : PrizeAbstract
     {
         MyCharacterController.Instance.maxHealth += 10;
         MyCharacterController.Instance.healthBar.maxValue += 10;
-        MyCharacterController.Instance.healthText.text = MyCharacterController.Instance.maxHealth.ToString();
-
-
     }
 
 

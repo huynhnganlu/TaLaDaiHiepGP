@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 3617739551921658131, guid: 39f7347492349a943a435f22ec29dab4, type: 3}
   - {fileID: 1741538031903545182, guid: 0ce7b748e5a98a64b814bf53bddc8327, type: 3}
   - {fileID: 6506035187813898345, guid: 2a86803dc6e040346a31d3ddd19b2748, type: 3}
+  - {fileID: 7182671478432600498, guid: c560825a49b31ab46bbbe7fcd57c9fec, type: 3}
   prizeSkillList:
   - {fileID: 7993327525468549828, guid: 257f9d41465ce934ebf951cb1c595c11, type: 3}
   - {fileID: 1150956075308475013, guid: dff0bd2f1e021ca4d8a2cdf551fcdfc0, type: 3}

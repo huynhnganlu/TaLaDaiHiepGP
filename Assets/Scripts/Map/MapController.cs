@@ -43,10 +43,8 @@ public class MapController : MonoBehaviour
     #endregion
     #region Time var
     public Slider timeSlider;
-    private float time = 600f;
+    private float time = 300f, minute = 0f, second = 0f;
     public TextMeshProUGUI timeText;
-    private float minute = 0f;
-    private float second = 0f;
     #endregion
     #region Skill var
     public List<SkillAbstract> skillList;
@@ -58,13 +56,14 @@ public class MapController : MonoBehaviour
     private GameObject[] enemies;
     [SerializeField]
     private Collider2D colliderSpawnEnemies;
+    private float timeSpawn;
+    private Coroutine spawnCoroutine;
     #endregion
     #region Pref var
     public JsonPlayerPrefs shopPrefs;
     public JsonPlayerPrefs characterPrefs;
     #endregion
-    public GameObject damageText;
-    public GameObject vcamera;
+    public GameObject damageText, vcamera, boss;
     private int keySkill = -1;
     private void Awake()
     {
@@ -88,17 +87,13 @@ public class MapController : MonoBehaviour
     private void Start()
     {
         //spawn enemy
-        StartCoroutine(SpawnEnemies(enemies));
-
+        timeSpawn = 5f;
+        spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
         //Khoi tao list skill
         skillList ??= new List<SkillAbstract>();
 
-        //Set gia tri mac dinh cho timer
-        if (time > 60f)
-        {
-            minute = time / 60f;
-            second = time % 60f;
-        }
+        //Set gia tri mac dinh cho timer    
+        StartCoroutine(TimerProcess());
 
         //Reference player
         player = MyCharacterController.Instance.gameObject;
@@ -115,22 +110,12 @@ public class MapController : MonoBehaviour
         //Hien thi cac noi cong da trang bi
         GetEquipedInner(shopPrefs);
 
+        //Camera follow player
         vcamera.GetComponent<ICinemachineCamera>().Follow = MyCharacterController.Instance.transform;
     }
 
     private void Update()
     {
-        #region timer -1/s + set value
-        if (second <= 0f)
-        {
-            minute -= 1f;
-            second = 59f;
-        }
-        second -= 1 * Time.deltaTime;
-        timeText.text = minute.ToString("0") + ":" + second.ToString("0");
-        time -= 1 * Time.deltaTime;
-        timeSlider.value = time;
-        #endregion
         #region skill prize
         if(isFreezing == false)
         {
@@ -179,11 +164,13 @@ public class MapController : MonoBehaviour
         else
             Time.timeScale = 1;
     }
-    //Xu ly logic khi nguoi choi giet duoc boss
-    public void ProcessFinishMap()
+    //Xu ly logic khi nguoi choi giet duoc boss hoac chet
+    public IEnumerator ProcessFinishMap()
     {
-        finishMapUI.SetActive(true);
+        MyCharacterController.Instance.isImmune = true;
+        yield return new WaitForSeconds(1.5f);
         SetFreezing(true);
+        finishMapUI.SetActive(true);
         money.text = MyCharacterController.Instance.money.ToString();
         qi.text = MyCharacterController.Instance.qi.ToString();
     }
@@ -191,6 +178,49 @@ public class MapController : MonoBehaviour
     private void LoadSceneMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    IEnumerator TimerProcess()
+    {
+        if (time >= 0f)
+        {
+            minute = Mathf.Floor(time / 60f);
+            second = time % 60f;
+        }
+        timeSlider.maxValue = time;
+        while (time >= 0)
+        {
+            if (time == 0)
+            {
+                timeSlider.value = boss.GetComponent<BossController>().currentEnemyHP;
+                timeText.text = boss.GetComponent<BossController>().currentEnemyHP.ToString();
+                BossProcess();
+                yield break;
+            }
+            if (second == 0 && minute != 0)
+            {
+                minute -= 1;
+                StopCoroutine(spawnCoroutine);
+                timeSpawn -= 1;
+                spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
+                second = 59;
+            }
+            else if(second != 0)
+            {
+                second -= 1;
+            }
+            time -= 1;
+            timeSlider.value = time;
+            timeText.text = minute.ToString("0") + ":" + second.ToString("0");
+            yield return new WaitForSeconds(1);
+        }
+  
+    }
+    private void BossProcess()
+    {
+        Instantiate(boss, GetRandomSpawnPosition(10f, 13f), Quaternion.identity);
+        timeSlider.maxValue = boss.GetComponent<BossController>().enemyMaxHP;
+        timeSlider.value = timeSlider.maxValue;
+        timeText.text = boss.GetComponent<BossController>().enemyMaxHP.ToString();
     }
     #endregion
     #region Prize
@@ -295,6 +325,7 @@ public class MapController : MonoBehaviour
 
             }
         }
+        
     }
     public void ClosePrize()
     {
@@ -304,16 +335,17 @@ public class MapController : MonoBehaviour
     #endregion
     #region SpawnEnemy
     //Ham spawn enemy
-    IEnumerator SpawnEnemies(GameObject[] enemies)
+    IEnumerator SpawnEnemies(GameObject[] enemies, float timeSpawn)
     {
         while (true)
         {
-            yield return new WaitForSeconds(2f);
-
             foreach (GameObject enemy in enemies)
             {
-                Instantiate(enemy, GetRandomSpawnPosition(13f, 25f), Quaternion.identity);
+                ObjectPoolController.Instance.SpawnObject(enemy, GetRandomSpawnPosition(13f, 25f), Quaternion.identity);
             }
+
+            yield return new WaitForSeconds(timeSpawn);
+
         }
     }
     //Ham kiem tra xem vi tri random co phu hop khong

@@ -1,67 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int enemyMaxHP;
-    public int currentEnemyHP;
-    public int exp;
-    public int money;
-    public int qi;
-    public int damage;
-    public bool isFlipped = false;
+    public int enemyMaxHP, currentEnemyHP, exp, money, qi, dao, damage;
+    private string currentDirection = "left";
 
-    public void TakePlayerDamage(int damage)
+    private void OnEnable()
+    {
+        GetComponent<PolygonCollider2D>().isTrigger = false;
+        GetComponent<Animator>().SetBool("Death", false);
+    }
+
+    public void TakePlayerDamage(int damage, bool isCrit)
     {
         if (GetComponent<Animator>().GetBool("Death") == false)
         {
             GetComponent<Animator>().Play("Hurt");
-            GameObject dmgText = Instantiate(MapController.Instance.damageText, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-            dmgText.GetComponent<DameTextController>().SetDamage(damage);
-            Destroy(dmgText, 1);
+            StartCoroutine(ShowPlayerDamage(damage, isCrit));
             currentEnemyHP -= damage;
 
-            if ((currentEnemyHP <= enemyMaxHP / 2) && name.Equals("Boss"))
+            if(gameObject.CompareTag("Boss"))
             {
-                GetComponent<Animator>().SetTrigger("isRaging");
-            }
-
+                MapController.Instance.timeSlider.value = currentEnemyHP;
+                MapController.Instance.timeText.text = currentEnemyHP.ToString();
+                if (currentEnemyHP <= enemyMaxHP / 2){
+                    GetComponent<Animator>().SetTrigger("isRaging");
+                }
+            }     
             if (currentEnemyHP <= 0)
             {
                 GetComponent<PolygonCollider2D>().isTrigger = true;
-                if (name.Equals("Boss"))
+                if(gameObject.CompareTag("Boss"))
                 {
-                    //MapController.Instance.ProcessFinishMap();
+                    StartCoroutine(MapController.Instance.ProcessFinishMap());
                 }
                 else
                 {
                     MyCharacterController.Instance.HandleKillEnemy(exp, money, qi);
                 }
                 GetComponent<Animator>().SetBool("Death", true);
-
             }
         }
     }
 
+    IEnumerator ShowPlayerDamage(int damage, bool isCrit)
+    {
+        GameObject dmgText = ObjectPoolController.Instance.SpawnObject(MapController.Instance.damageText, this.transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
+        dmgText.GetComponent<DameTextController>().SetDamage(damage);
+        if (isCrit)
+        {
+            dmgText.GetComponent<TextMeshPro>().color = Color.yellow;
+            dmgText.GetComponent<TextMeshPro>().fontSize = 6;
+        }
+        else
+        {
+            dmgText.GetComponent<TextMeshPro>().color = Color.white;
+            dmgText.GetComponent<TextMeshPro>().fontSize = 5;
+        }
+        yield return new WaitForSeconds(1);
+        ObjectPoolController.Instance.ReturnObjectToPool(dmgText);
+    }
+
     public void LookAtPlayer()
     {
-        Vector3 flipped = transform.localScale;
-        flipped.z *= -1f;
-
-        if (transform.position.x > MyCharacterController.Instance.transform.position.x && isFlipped)
+        if (transform.position.x > MyCharacterController.Instance.transform.position.x && currentDirection.Equals("right"))
         {
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-            isFlipped = false;
+            currentDirection = "left";
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
-        else if (transform.position.x < MyCharacterController.Instance.transform.position.x && !isFlipped)
+        else if (transform.position.x < MyCharacterController.Instance.transform.position.x && currentDirection.Equals("left"))
         {
-            transform.localScale = flipped;
-            transform.Rotate(0f, 180f, 0f);
-            isFlipped = true;
+            currentDirection = "right";
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
 
@@ -71,9 +86,22 @@ public abstract class EnemyController : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                Debug.Log("hit");
                 MyCharacterController.Instance.TakeEnemyDamage(damage);
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            MyCharacterController.Instance.TakeEnemyDamage(damage);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.GetChild(0).position, 6f);
     }
 }
