@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryTabGroupController : TabGroupAbstract
@@ -16,9 +13,9 @@ public class InventoryTabGroupController : TabGroupAbstract
 
     public override void OnTabSelected(TabItem tabItem)
     {
-        if(tabItem != selectedTabItem)
+        if (tabItem != selectedTabItem)
         {
-            ResetTabs();         
+            ResetTabs();
             selectedTabItem = tabItem;
         }
     }

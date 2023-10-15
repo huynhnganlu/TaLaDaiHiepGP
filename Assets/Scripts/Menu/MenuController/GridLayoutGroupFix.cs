@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(GridLayoutGroup))]
 public class GridLayoutGroupFix : MonoBehaviour
 {
-   
+
     public enum RatioMode { Free, Fixed };
     [SerializeField] RatioMode ratioMode;
     [SerializeField] float cellRatio = 1;
@@ -30,7 +27,7 @@ public class GridLayoutGroupFix : MonoBehaviour
     }
 
     void UpdateCellSize()
-    {   
+    {
         if (grid != null)
         {
             var count = grid.constraintCount;
@@ -39,7 +36,7 @@ public class GridLayoutGroupFix : MonoBehaviour
             float sizePerCell = contentSize / count;
             grid.cellSize = new Vector2(sizePerCell, ratioMode == RatioMode.Free ? grid.cellSize.y : sizePerCell * cellRatio);
         }
-        
-       
+
+
     }
 }

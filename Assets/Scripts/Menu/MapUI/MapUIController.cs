@@ -1,23 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapUIController : MonoBehaviour
 {
-    public ScrollRect scrollRect;
-    private float scrollSpeed = 25f;
-    public delegate void MapSelectEvent(bool status, string orientation);
-    public event MapSelectEvent MapSelect;
+    [SerializeField]
+    private ScrollRect mapSelectScroll;
+    private float scrollSpeed = 0.5f;
     public static MapUIController Instance { get; private set; }
-    public string currentMap = "Map01";
-
-    public Button buttonFight;
+    public string currentMap;
+    public TextMeshProUGUI textUI;
+    public GameObject[] mapHolder;
+    private JsonPlayerPrefs characterPrefs;
+    [SerializeField]
+    private GameObject lockMap;
+    [SerializeField]
+    private TMP_Dropdown dropdown;
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -25,51 +27,62 @@ public class MapUIController : MonoBehaviour
         {
             Instance = this;
         }
-    }
 
-    private void Start()
-    {
-        buttonFight.onClick.AddListener(() =>
-        {
-            ButtonStartFight();
-        });
+        characterPrefs = MenuController.Instance.characterPrefs;
+        currentMap = "map1";
     }
 
     private void OnEnable()
     {
-        MapSelect += HandleButtonScroll;
+        ProcessMap();
     }
 
-    private void OnDisable()
+    public void HandleButtonScroll(string orientation)
     {
-        MapSelect -= HandleButtonScroll;
-    }
 
-    private void HandleButtonScroll(bool status, string orientation)
-    {
-        if (status)
-        {
             if (orientation.Equals("left"))
             {
-                if (scrollRect.horizontalNormalizedPosition >= 0f)
-                    scrollRect.horizontalNormalizedPosition -= scrollSpeed * Time.deltaTime;
+                if (mapSelectScroll.horizontalNormalizedPosition >= 0f)
+                    mapSelectScroll.horizontalNormalizedPosition -= scrollSpeed;
             }
             else if (orientation.Equals("right"))
             {
-                if (scrollRect.horizontalNormalizedPosition <= 1f)
-                    scrollRect.horizontalNormalizedPosition += scrollSpeed * Time.deltaTime;
+                if (mapSelectScroll.horizontalNormalizedPosition <= 1f)
+                    mapSelectScroll.horizontalNormalizedPosition += scrollSpeed;
 
+            }        
+    }
+
+    public void ButtonStartFight()
+    {
+        characterPrefs.SetString("mapselected", currentMap);
+        characterPrefs.SetInt("mapdiff", dropdown.value);
+        characterPrefs.Save();
+        SceneManager.LoadScene(currentMap);
+    }
+    public void ProcessMap()
+    {
+        if (characterPrefs.HasKey("map0"))
+        {
+            for(int i = 0; i <= 2; i++)
+            {
+                if(characterPrefs.GetInt("map"+ i) == 0)
+                {
+                    Instantiate(lockMap, mapHolder[i].transform);
+                    mapHolder[i].GetComponent<Image>().raycastTarget = false;
+                }
+                else
+                {
+                    DestroyLock(mapHolder[i]);
+                    mapHolder[i].GetComponent<Image>().raycastTarget = true;
+                }
             }
         }
     }
 
-    public void ScrollButtonClick(bool status,string orientation)
+    public void DestroyLock(GameObject go)
     {
-        MapSelect?.Invoke(status, orientation);
-    }
-
-    private void ButtonStartFight()
-    {
-        SceneManager.LoadScene("Map01");
+        foreach(Transform children in go.transform)
+            Destroy(children.gameObject);
     }
 }

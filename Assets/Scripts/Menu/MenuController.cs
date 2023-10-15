@@ -1,17 +1,16 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
     public static MenuController Instance;
-    public JsonPlayerPrefs shopPrefs;
-    public JsonPlayerPrefs meridianPrefs;
-    public JsonPlayerPrefs characterPrefs;
+    public JsonPlayerPrefs shopPrefs, meridianPrefs, characterPrefs;
     public Dictionary<string, string> listCharacterProperty;
+    public TimeSpan timePassed;
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -27,29 +26,41 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        if (characterPrefs.HasKey("loginTime"))
+            timePassed = DateTime.Now - DateTime.Parse(characterPrefs.GetString("loginTime"));
+
+        SetTimeLogin();
+
         if (!characterPrefs.HasKey("hp"))
         {
-            characterPrefs.SetInt("hp", 0);
+            characterPrefs.SetInt("hp", 100);
             characterPrefs.SetInt("hpRegen", 0);
-            characterPrefs.SetInt("mp", 0);
+            characterPrefs.SetInt("mp", 100);
             characterPrefs.SetInt("mpRegen", 0);
-            characterPrefs.SetInt("evade", 0);
+            characterPrefs.SetFloat("evade", 0);
             characterPrefs.SetInt("externalDamage", 0);
             characterPrefs.SetInt("internalDamage", 0);
             characterPrefs.SetInt("critDamage", 0);
-            characterPrefs.SetInt("critRate", 0);
+            characterPrefs.SetFloat("critRate", 0);
             characterPrefs.SetInt("defense", 0);
-            characterPrefs.SetInt("movementSpeed", 0);
+            characterPrefs.SetFloat("movementSpeed", 5f);
+            characterPrefs.SetInt("qi", 0);
+            characterPrefs.SetInt("dao", 0);
+            characterPrefs.SetInt("money", 0);
+            characterPrefs.SetInt("map0", 1);
+            characterPrefs.SetInt("map1", 1);
+            characterPrefs.SetInt("map2", 0);
+            characterPrefs.SetString("character", "Sword");
             characterPrefs.Save();
         }
-        
+
         listCharacterProperty ??= new Dictionary<string, string>()
             {
                 { "hp","Khí huyeát"},
                 { "hpRegen", "Hoài khí huyeát" },
                 { "mp", "Noäi löïc" },
                 { "mpRegen", "Hoài noäi löïc" },
-                { "evade", "Neù traùnh" }, 
+                { "evade", "Neù traùnh" },
                 { "externalDamage", "Uy löïc ngoaïi coâng" },
                 { "internalDamage", "Uy löïc noäi coâng" },
                 { "critDamage", "Saùt thöông chí maïng" },
@@ -57,5 +68,21 @@ public class MenuController : MonoBehaviour
                 { "defense", "Phoøng thuû" },
                 { "movementSpeed", "Toác ñoä di chuyeån" }
             };
+    }
+
+    private void SetTimeLogin()
+    {
+        characterPrefs.SetString("loginTime", DateTime.Now.ToString());
+        characterPrefs.Save();
+    }
+
+    public void SetFirstShop(string status)
+    {
+        characterPrefs.SetString("firstShop", status);
+        characterPrefs.Save();
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

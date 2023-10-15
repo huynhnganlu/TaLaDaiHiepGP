@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public abstract class TabGroupAbstract : MonoBehaviour
 {
@@ -25,5 +23,5 @@ public abstract class TabGroupAbstract : MonoBehaviour
 
     }
     //Click vao item cua group
-    public abstract void OnTabSelected(TabItem tabItem); 
+    public abstract void OnTabSelected(TabItem tabItem);
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class SkillAbstract : MonoBehaviour
@@ -21,21 +19,22 @@ public abstract class SkillAbstract : MonoBehaviour
         float random = Random.value;
         float rate = MyCharacterController.Instance.critRate / 100f;
 
-        if(skillType.Equals("External"))
+        if (skillType.Equals("External"))
         {
             if (random <= rate)
                 collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage + MyCharacterController.Instance.critDamage, true);
             else
                 collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage, false);
-        }else if(skillType.Equals("Internal"))
+        }
+        else if (skillType.Equals("Internal"))
         {
             if (random <= rate)
                 collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.internalDamage + MyCharacterController.Instance.critDamage, true);
             else
                 collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.internalDamage, false);
         }
-            
-        MyCharacterController.Instance.HandleInner("Attack");     
+
+        MyCharacterController.Instance.HandleInner("Attack");
     }
 
     public void CancelSkill()

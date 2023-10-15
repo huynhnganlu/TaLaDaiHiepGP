@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class EmeiMeridian : MeridianAbstract
 {
@@ -12,9 +6,6 @@ public class EmeiMeridian : MeridianAbstract
 
     private void Start()
     {
-        meridianPrefs = MeridianController.Instance.meridianPrefs;
-        characterPrefs = MeridianController.Instance.characterPrefs;
-        LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
             { "Khí huyeát:", hp.ToString()},
@@ -29,17 +20,20 @@ public class EmeiMeridian : MeridianAbstract
 
     public override void LevelUpMeridian()
     {
-        level++;
-        hp += 1;
-        mp += 1;
-        evade += 1;
-        defense += 1;
-        critDamage += 1;
+        if (level < 36 && characterPrefs.GetInt("qi") - (level * 5) >= 0)
+        {
+            level++;
+            hp += 8;
+            mp += 2;
+            evade += 0.5f;
+            defense += 1;
+            critDamage += 2;
 
-        UpdatePropertyData();
-        GetPropertyData();
-        SaveMeridian();
-        SaveCharacterData();
+            UpdatePropertyData();
+            GetPropertyData();
+            SaveMeridian();
+            SaveCharacterData();
+        }
     }
 
     public override void SaveMeridian()
@@ -47,7 +41,7 @@ public class EmeiMeridian : MeridianAbstract
         meridianPrefs.SetInt("emeilevel", level);
         meridianPrefs.SetInt("emeihp", hp);
         meridianPrefs.SetInt("emeimp", mp);
-        meridianPrefs.SetInt("emeievade", evade);
+        meridianPrefs.SetFloat("emeievade", evade);
         meridianPrefs.SetInt("emeidefense", defense);
         meridianPrefs.SetInt("emeicritDamage", critDamage);
         meridianPrefs.Save();
@@ -55,10 +49,13 @@ public class EmeiMeridian : MeridianAbstract
 
     public override void LoadMeridian()
     {
-        level = meridianPrefs.GetInt("emeilevel");
+        if (meridianPrefs.HasKey("emeilevel"))
+            level = meridianPrefs.GetInt("emeilevel");
+        else
+            level = 1;
         hp = meridianPrefs.GetInt("emeihp");
         mp = meridianPrefs.GetInt("emeimp");
-        evade = meridianPrefs.GetInt("emeievade");
+        evade = meridianPrefs.GetFloat("emeievade");
         defense = meridianPrefs.GetInt("emeidefense");
         critDamage = meridianPrefs.GetInt("emeicritDamage");
     }
@@ -70,16 +67,18 @@ public class EmeiMeridian : MeridianAbstract
         propertyData["Neù traùnh:"] = evade.ToString();
         propertyData["Phoøng ngöï:"] = defense.ToString();
         propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
-     
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (level *5));
+        characterPrefs.Save();
+
     }
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
-        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
-        characterPrefs.SetInt("evade", characterPrefs.GetInt("evade") + 1);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
+        characterPrefs.SetFloat("evade", characterPrefs.GetFloat("evade") + 0.5f);
         characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
-        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 2);
         characterPrefs.Save();
     }
 }

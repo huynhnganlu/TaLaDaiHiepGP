@@ -1,16 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class BeggarMeridian : MeridianAbstract
 {
-  
+
 
     private void Start()
-    {
-        meridianPrefs = MeridianController.Instance.meridianPrefs;
-        characterPrefs = MeridianController.Instance.characterPrefs;
-        LoadMeridian();
+    {;
         propertyData = new Dictionary<string, string>
         {
             { "Khí huyeát:", hp.ToString()},
@@ -24,17 +19,19 @@ public class BeggarMeridian : MeridianAbstract
 
     public override void LevelUpMeridian()
     {
-        level++;
-        hp += 1;
-        mp += 1;
-        internalDamage += 1;
-        defense += 1;
-        externalDamage += 1;
-
-        UpdatePropertyData();
-        GetPropertyData();
-        SaveMeridian();
-        SaveCharacterData();
+        if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0) 
+        {
+            level++;
+            hp += 8;
+            mp += 2;
+            internalDamage += 2;
+            defense += 1;
+            externalDamage += 2;
+            UpdatePropertyData();
+            GetPropertyData();
+            SaveMeridian();
+            SaveCharacterData();
+        }
     }
 
     public override void SaveMeridian()
@@ -50,7 +47,10 @@ public class BeggarMeridian : MeridianAbstract
 
     public override void LoadMeridian()
     {
-        level = meridianPrefs.GetInt("beggarlevel");
+        if (meridianPrefs.HasKey("beggarlevel"))
+            level = meridianPrefs.GetInt("beggarlevel");
+        else
+            level = 1;
         hp = meridianPrefs.GetInt("beggarhp");
         mp = meridianPrefs.GetInt("beggarmp");
         internalDamage = meridianPrefs.GetInt("beggarinternalDamage");
@@ -65,15 +65,18 @@ public class BeggarMeridian : MeridianAbstract
         propertyData["Phoøng ngöï:"] = defense.ToString();
         propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
+        characterPrefs.Save();
+
     }
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
-        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
-        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 2);
         characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
-        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 2);
         characterPrefs.Save();
     }
 }

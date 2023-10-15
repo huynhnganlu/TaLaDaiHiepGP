@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -50,7 +49,7 @@ public class SettingsMenuController : MonoBehaviour
             SliderValueChanged(soundSlider, soundText);
         });
 
-        
+
 
         windowModeDropdown.onValueChanged.AddListener(WindowModeValueChanged);
 
@@ -62,14 +61,14 @@ public class SettingsMenuController : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
     }
 
-     public void SliderValueChanged(Slider slider, TextMeshProUGUI text)
-     {
+    public void SliderValueChanged(Slider slider, TextMeshProUGUI text)
+    {
         text.text = slider.value.ToString();
-     }
+    }
 
     public void WindowModeValueChanged(int change)
-    {     
-        switch (change) 
+    {
+        switch (change)
         {
             case 0:
                 fullscreen = true;

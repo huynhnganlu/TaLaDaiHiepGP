@@ -1,25 +1,22 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
-
-    public int money;
+    private int money;
     public TextMeshProUGUI moneyText;
     [SerializeField]
     private InnerHolder innerHolder;
     public ShopTemplate[] shopTemplates;
     private ShopDataAbstract[] itemAddedArray = new ShopDataAbstract[6];
-    private JsonPlayerPrefs shopPrefs;
+    private JsonPlayerPrefs shopPrefs, characterPrefs;
     //Singleton variables
     public static ShopController Instance;
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -29,36 +26,38 @@ public class ShopController : MonoBehaviour
         }
 
         shopPrefs = MenuController.Instance.shopPrefs;
+        characterPrefs = MenuController.Instance.characterPrefs;
+
+        if (!characterPrefs.HasKey("firstShop"))
+            MenuController.Instance.SetFirstShop("true");
 
     }
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
+        money = characterPrefs.GetInt("money");
         moneyText.text = money.ToString();
-        LoadShopItemsData();
-        CheckItems();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (characterPrefs.GetString("firstShop").Equals("true"))
         {
-            shopPrefs.DeleteAll();
-            shopPrefs.Save();
+            RandomShopItemsData();
+            MenuController.Instance.SetFirstShop("false");
         }
-    }
-    //Them tien
-    public void AddMoney()
-    {
-        money++;
-        moneyText.text = money.ToString();
+
+        if (MenuController.Instance.timePassed.TotalMinutes >= 60)
+        {
+            RandomShopItemsData();
+        }
+
+        LoadShopItemsData();
     }
 
     //Kiem tra cac item co the mua
     public void CheckItems()
     {
-        for(int i = 0; i < itemAddedArray.Length; i++)
+        for (int i = 0; i < itemAddedArray.Length; i++)
         {
-            if(money >= itemAddedArray[i].itemCost && shopPrefs.HasKey(itemAddedArray[i].itemID.ToString()) == false)
+            if (money >= itemAddedArray[i].itemCost && shopPrefs.HasKey(itemAddedArray[i].itemID.ToString()) == false)
             {
                 shopTemplates[i].gameObject.GetComponentInChildren<Button>().interactable = true;
             }
@@ -75,17 +74,27 @@ public class ShopController : MonoBehaviour
         money -= innerHolder.listInner[shopTemplates[button].id].GetComponent<ShopDataAbstract>().itemCost;
         moneyText.text = money.ToString();
         shopPrefs.SetInt(shopTemplates[button].id.ToString(), 0);
+        characterPrefs.SetInt("money", money);
+        characterPrefs.Save();
         shopPrefs.Save();
-        CheckItems(); 
+        CheckItems();
     }
-    
+    public void RandomShopItemsData()
+    {
+        GameObject[] shuffled = innerHolder.listInner.OrderBy(n => Guid.NewGuid()).ToArray();
+        for(int i = 0; i <= 5; i++)
+        {
+            ShopDataAbstract data = shuffled[i].GetComponent<ShopDataAbstract>();
+            shopPrefs.SetInt("shop" + i, data.itemID);
+        }
+        shopPrefs.Save();
+    }
     //Load du lieu
     public void LoadShopItemsData()
     {
-        GameObject[] shuffled = innerHolder.listInner.OrderBy(n => Guid.NewGuid()).ToArray();
-        for (int i = 0;i <= 5; i++)
+        for (int i = 0; i <= 5; i++)
         {
-            ShopDataAbstract data = shuffled[i].GetComponent<ShopDataAbstract>();
+            ShopDataAbstract data = innerHolder.listInner[shopPrefs.GetInt("shop"+i)].GetComponent<ShopDataAbstract>();
             shopTemplates[i].id = data.itemID;
             shopTemplates[i].cost.text = data.itemCost.ToString();
             shopTemplates[i].itemImage.sprite = data.itemImage;
@@ -94,5 +103,18 @@ public class ShopController : MonoBehaviour
             itemAddedArray[i] = data;
         }
         CheckItems();
+    }
+    public void RerollShopItemsData()
+    {
+        if(money - 100 >= 0)
+        {
+            money -= 100;
+            characterPrefs.SetInt("money", money);
+            characterPrefs.Save();
+            moneyText.text = money.ToString();
+            RandomShopItemsData();
+            LoadShopItemsData();
+        }
+      
     }
 }

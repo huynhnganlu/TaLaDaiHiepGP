@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class ObjectPoolController : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class ObjectPoolController : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -21,7 +20,7 @@ public class ObjectPoolController : MonoBehaviour
             Instance = this;
         }
     }
-    
+
     public GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPos, Quaternion spawnRotation)
     {
         PooledObjectInfo pool = objectPools.Find(p => p.lookupString.Equals(objectToSpawn.name));
@@ -38,13 +37,13 @@ public class ObjectPoolController : MonoBehaviour
         if (spawnableObject == null)
         {
             spawnableObject = Instantiate(objectToSpawn, spawnPos, spawnRotation);
-            if(spawnableObject != null)
+            if (spawnableObject != null)
             {
                 spawnableObject.transform.SetParent(parentHolder.transform);
             }
         }
         //Co object dang inactive
-        else if(spawnableObject != null)
+        else if (spawnableObject != null)
         {
             spawnableObject.transform.position = spawnPos;
             spawnableObject.transform.rotation = spawnRotation;
@@ -57,11 +56,11 @@ public class ObjectPoolController : MonoBehaviour
 
     public void ReturnObjectToPool(GameObject obj)
     {
-     
+
         string nameCheck = obj.name.Replace("(Clone)", string.Empty);
         PooledObjectInfo pool = objectPools.Find(p => p.lookupString.Equals(nameCheck));
 
-        if(pool != null)
+        if (pool != null)
         {
             obj.SetActive(false);
             pool.inactiveObjects.Add(obj);

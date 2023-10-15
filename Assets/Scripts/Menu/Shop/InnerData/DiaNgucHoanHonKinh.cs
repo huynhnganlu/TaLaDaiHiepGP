@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class DiaNgucHoanHonKinh : ShopDataAbstract
 {
     public override void ItemEffect()
@@ -11,5 +7,5 @@ public class DiaNgucHoanHonKinh : ShopDataAbstract
         MyCharacterController.Instance.externalDamage += (30 + 2 * itemLevel);
     }
 
-   
+
 }

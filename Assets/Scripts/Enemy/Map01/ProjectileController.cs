@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
@@ -13,7 +11,7 @@ public class ProjectileController : MonoBehaviour
         {
             transform.position += 2f * Time.deltaTime * shootDir;
         }
-           
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

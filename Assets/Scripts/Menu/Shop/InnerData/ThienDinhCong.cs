@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThienDinhCong : ShopDataAbstract
@@ -21,8 +19,8 @@ public class ThienDinhCong : ShopDataAbstract
                 }
             }
         }
-     
+
     }
 
-   
+
 }

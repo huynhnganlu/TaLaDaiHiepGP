@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class ThuongThanhVoCucCong : ShopDataAbstract
@@ -11,8 +9,8 @@ public class ThuongThanhVoCucCong : ShopDataAbstract
     {
         if (MyCharacterController.Instance.currentHealth <= (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (30 + 2 * itemLevel)))
         {
-             if(count < 2 && isHealing == false)
-             {
+            if (count < 2 && isHealing == false)
+            {
                 Debug.Log(count++);
                 StartCoroutine(HealthPerSecond(0));
                 Debug.Log(isHealing);
@@ -25,7 +23,7 @@ public class ThuongThanhVoCucCong : ShopDataAbstract
     private IEnumerator HealthPerSecond(int time)
     {
         isHealing = true;
-        while(time < 6)
+        while (time < 6)
         {
             //Neu day mau thi break
             if (MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * ((30 + 2 * itemLevel) / 6f)) >= MyCharacterController.Instance.maxHealth)
@@ -47,8 +45,8 @@ public class ThuongThanhVoCucCong : ShopDataAbstract
             if (time == 5)
                 isHealing = false;
             yield return new WaitForSeconds(1);
-           
+
         }
-       
+
     }
 }

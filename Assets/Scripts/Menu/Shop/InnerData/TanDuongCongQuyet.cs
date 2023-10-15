@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class TanDuongCongQuyet : ShopDataAbstract
@@ -10,7 +8,7 @@ public class TanDuongCongQuyet : ShopDataAbstract
     public override void ItemEffect()
     {
         float timeEffect = (2f + 0.2f * itemLevel);
-        if(first == false)
+        if (first == false)
         {
             StartCoroutine(Immune(timeEffect));
             first = true;

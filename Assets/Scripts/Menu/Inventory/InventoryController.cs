@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +8,7 @@ public class InventoryController : MonoBehaviour
     //process item variable
     public GameObject inventoryItem;
     public List<InventoryItems> inventoryItemsList;
-    private InventoryItems currentItem, defaultItem;
+    private InventoryItems currentItem;
     [SerializeField]
     private GameObject innerParent;
 
@@ -21,10 +19,6 @@ public class InventoryController : MonoBehaviour
     private Image imageUI;
     [SerializeField]
     private GameObject itemDetail, itemDetailParent;
-   
-
-    //equip item variable
-    public int indexItemClicked;
 
     //Toggle equip item variables
     [SerializeField]
@@ -35,17 +29,20 @@ public class InventoryController : MonoBehaviour
 
     //Inner holder 
     public InnerHolder innerHolder;
-    private JsonPlayerPrefs shopPrefs;
-    private int innerCount;
+    private JsonPlayerPrefs shopPrefs, characterPrefs;
+    private int innerCount, dao, levelCost;
+    [SerializeField]
+    private TextMeshProUGUI daoText;
 
     //Equip items variables
+    public int indexItemClicked;
     private List<int> equipedInventoryItemsList;
     [SerializeField]
     private GameObject[] equipSlot;
-  
+
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -55,14 +52,7 @@ public class InventoryController : MonoBehaviour
         }
 
         shopPrefs = MenuController.Instance.shopPrefs;
-
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        indexItemClicked = 0;
+        characterPrefs = MenuController.Instance.characterPrefs;
     }
 
     private void OnEnable()
@@ -70,12 +60,11 @@ public class InventoryController : MonoBehaviour
         GetEquipedList();
         ResetInventoryItems();
         GetBoughtInner();
-        if(innerParent.transform.childCount != 0)
-            SetItemValue(defaultItem);
-        foreach(GameObject go in equipSlot)
-        {
-            GetEquipedItem(go);
-        }
+        if (innerParent.transform.childCount != 0)
+            SetItemValue(currentItem);
+        else
+            indexItemClicked = -1;
+       
     }
 
     #region inventory control
@@ -105,7 +94,7 @@ public class InventoryController : MonoBehaviour
                 inventoryItemData.itemEffect = itemData.itemEffect;
                 if (firstItem)
                 {
-                    defaultItem = inventoryItemData;
+                    currentItem = inventoryItemData;
                     firstItem = false;
                 }
                 innerCount++;
@@ -133,8 +122,8 @@ public class InventoryController : MonoBehaviour
     {
         if (inventoryItems != currentItem)
         {
-            SetItemValue(inventoryItems);
             currentItem = inventoryItems;
+            SetItemValue(inventoryItems);
         }
     }
     //Khi item duoc click gan cac gia tri can thiet vao cac UI
@@ -142,7 +131,7 @@ public class InventoryController : MonoBehaviour
     {
         ResetItemDetail();
         nameTextUI.text = inventoryItems.itemName;
-        levelTextUI.text = inventoryItems.itemLevel + "/36";
+        levelTextUI.text = inventoryItems.itemLevel + "/5";
         originTextUI.text = inventoryItems.itemOrigin;
         propertyTextUI.text = inventoryItems.itemProperty;
         historyTextUI.text = inventoryItems.itemHistory;
@@ -154,6 +143,12 @@ public class InventoryController : MonoBehaviour
         GameObject mpDetail = Instantiate(itemDetail, itemDetailParent.transform);
         ItemDetail(mpDetail, "Noäi löïc", inventoryItems.itemMP);
         effectTextUI.text = inventoryItems.itemEffect;
+        dao = characterPrefs.GetInt("dao");
+        if (inventoryItems.itemLevel == 0)
+            levelCost = 500;
+        else
+            levelCost = 500 * (inventoryItems.itemLevel + 1);
+        daoText.text = dao.ToString() + "/" + levelCost;
     }
     public void ItemDetail(GameObject item, string valueName, int value)
     {
@@ -168,12 +163,34 @@ public class InventoryController : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+    public void LevelUpInner()
+    {
+        if(indexItemClicked != -1)
+        {
+            if(currentItem.itemLevel < 5)
+            {             
+                if(dao - levelCost >= 0)
+                {
+                    currentItem.itemLevel += 1;
+                    shopPrefs.SetInt(currentItem.itemID.ToString(), currentItem.itemLevel);
+                    characterPrefs.SetInt("dao", dao - levelCost);
+                    shopPrefs.Save();
+                    characterPrefs.Save();
+                    SetItemValue(currentItem);
+                }
+            }
+        }
+    }
     #endregion
 
     #region equip item
     //Toggle on equip UI
     public void OpenEquipUI()
     {
+        foreach (GameObject go in equipSlot)
+        {
+            GetEquipedItem(go);
+        }
         inventoryEquipmentUI.SetActive(true);
     }
     //Toggle off equip UI
@@ -262,12 +279,12 @@ public class InventoryController : MonoBehaviour
     public void EquipItemSlotProcess(int index)
     {
         CloseEquipUI();
-        if(inventoryItemsList.Count > 0)
+        if (inventoryItemsList.Count > 0)
         {
             EquipItem(index);
         }
     }
-  
+
     #endregion
 
 }

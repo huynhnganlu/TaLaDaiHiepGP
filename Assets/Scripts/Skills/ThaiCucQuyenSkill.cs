@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThaiCucQuyenSkill : SkillAbstract
@@ -18,7 +16,7 @@ public class ThaiCucQuyenSkill : SkillAbstract
 
     private void Update()
     {
-        if(dir != null)
+        if (dir != null)
             transform.Translate(2f * Time.deltaTime * dir);
     }
 }

@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class CharacterTabGroup : TabGroupAbstract
 {
 
-    private TabItem selectedTabItem;
+    public static TabItem selectedTabItem;
     public TabItem defaultTabItem;
     private Dictionary<string, int>[] characterSpecial;
     private Dictionary<string, int> swordSpecial;
@@ -17,8 +15,6 @@ public class CharacterTabGroup : TabGroupAbstract
     {
         if (selectedTabItem != tabItem)
         {
-            ResetTabs();
-            tabItem.background.sprite = tabActive;
             int index = tabItem.transform.GetSiblingIndex();
             for (int i = 0; i < swapContent.Count; i++)
             {

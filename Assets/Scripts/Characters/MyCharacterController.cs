@@ -35,7 +35,6 @@ public class MyCharacterController : MonoBehaviour
     #region Singleton variables
     public static MyCharacterController Instance { get; private set; }
     #endregion
-
     #region Skill variables
     public List<PrizeAbstract> skillList;
     [SerializeField]
@@ -110,7 +109,7 @@ public class MyCharacterController : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            if(movement.x == 1)
+            if (movement.x == 1)
             {
                 if (isFliped == true)
                 {
@@ -118,7 +117,8 @@ public class MyCharacterController : MonoBehaviour
                 }
                 animator.SetBool("Moving", true);
                 isFliped = false;
-            }else if(movement.x == -1)
+            }
+            else if (movement.x == -1)
             {
                 if (isFliped == false)
                 {
@@ -126,11 +126,12 @@ public class MyCharacterController : MonoBehaviour
                 }
                 animator.SetBool("Moving", true);
                 isFliped = true;
-            }else if(movement.y == 1 || movement.y == -1)
+            }
+            else if (movement.y == 1 || movement.y == -1)
             {
                 animator.SetBool("Moving", true);
             }
-            else if(movement.x == 0 && movement.y == 0)
+            else if (movement.x == 0 && movement.y == 0)
             {
                 animator.SetBool("Moving", false);
             }
@@ -142,7 +143,7 @@ public class MyCharacterController : MonoBehaviour
     {
         rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * movement);
     }
- 
+
     #region Character
     //Nhan damage tu quai vat
     public void TakeEnemyDamage(int damage)
@@ -176,7 +177,7 @@ public class MyCharacterController : MonoBehaviour
                         }
                         else
                         {
-                            SetHealth(0);     
+                            SetHealth(0);
                             StartCoroutine(MapController.Instance.ProcessFinishMap());
                         }
                     }
@@ -206,7 +207,7 @@ public class MyCharacterController : MonoBehaviour
         critDamage = characterPrefs.GetInt("critDamage");
         defense = characterPrefs.GetInt("defense");
         hpRegen = characterPrefs.GetInt("hpRegen");
-        mpRegen = characterPrefs.GetInt("mpRegen"); 
+        mpRegen = characterPrefs.GetInt("mpRegen");
         movementSpeed = characterPrefs.GetInt("movementSpeed");
         speed += movementSpeed;
 
@@ -216,7 +217,7 @@ public class MyCharacterController : MonoBehaviour
         healthBar.maxValue = maxHealth;
         shieldBar.maxValue = maxShield;
         SetHealth(maxHealth);
-        SetShield(maxShield);     
+        SetShield(maxShield);
         expBar.maxValue = maxExp;
     }
     public void SetHealth(int hp)
@@ -233,9 +234,9 @@ public class MyCharacterController : MonoBehaviour
     }
     IEnumerator RegenOverTime()
     {
-        while(currentHealth > 0)
+        while (currentHealth > 0)
         {
-            if(currentHealth < maxHealth)
+            if (currentHealth < maxHealth)
             {
                 if (currentHealth + hpRegen >= maxHealth)
                     currentHealth = maxHealth;
@@ -243,7 +244,7 @@ public class MyCharacterController : MonoBehaviour
                     currentHealth += hpRegen;
                 SetHealth(currentHealth);
             }
-            if(currentShield < maxShield)
+            if (currentShield < maxShield)
             {
                 if (currentShield + mpRegen >= maxShield)
                     currentShield = maxShield;
@@ -251,7 +252,7 @@ public class MyCharacterController : MonoBehaviour
                     currentShield += mpRegen;
                 SetShield(currentShield);
             }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(10);
         }
     }
     #endregion
@@ -273,9 +274,9 @@ public class MyCharacterController : MonoBehaviour
     #region Skill Handle
     public void HandleSkill(List<PrizeAbstract> skillList)
     {
-        for (int i = 0;i < skillList.Count;i++)
+        for (int i = 0; i < skillList.Count; i++)
         {
-            if(skillList[i] != null)
+            if (skillList[i] != null)
             {
                 skillMapItems[i].sprite = skillList[i].icon;
                 skillList[i].skillRef.InvokeSkill();
@@ -316,7 +317,7 @@ public class MyCharacterController : MonoBehaviour
             }
         }
     }
-    
+
     #endregion
 
 

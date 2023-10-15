@@ -1,16 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 
 public class TangmenMeridian : MeridianAbstract
 {
-   
+
     private void Start()
     {
-        meridianPrefs = MeridianController.Instance.meridianPrefs;
-        characterPrefs = MeridianController.Instance.characterPrefs;
-        LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
             { "Khí huyeát:", hp.ToString()},
@@ -22,17 +16,20 @@ public class TangmenMeridian : MeridianAbstract
     }
     public override void LevelUpMeridian()
     {
-        level++;
-        hp += 1;
-        mp += 1;
-        evade += 1;
-        externalDamage += 1;
-        critRate += 1;
+        if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
+        {
+            level++;
+            hp += 8;
+            mp += 2;
+            evade += 0.5f;
+            externalDamage += 2;
+            critRate += 0.5f;
 
-        UpdatePropertyData();
-        GetPropertyData();
-        SaveMeridian();
-        SaveCharacterData();
+            UpdatePropertyData();
+            GetPropertyData();
+            SaveMeridian();
+            SaveCharacterData();
+        }
     }
 
     public override void SaveMeridian()
@@ -40,20 +37,23 @@ public class TangmenMeridian : MeridianAbstract
         meridianPrefs.SetInt("tangmenlevel", level);
         meridianPrefs.SetInt("tangmenhp", hp);
         meridianPrefs.SetInt("tangmenmp", mp);
-        meridianPrefs.SetInt("tangmenevade", evade);
+        meridianPrefs.SetFloat("tangmenevade", evade);
         meridianPrefs.SetInt("tangmenexternalDamage", externalDamage);
-        meridianPrefs.SetInt("tangmencritRate", critRate);
+        meridianPrefs.SetFloat("tangmencritRate", critRate);
         meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = meridianPrefs.GetInt("tangmenlevel");
+        if (meridianPrefs.HasKey("tangmenlevel"))
+            level = meridianPrefs.GetInt("tangmenlevel");
+        else
+            level = 1;
         hp = meridianPrefs.GetInt("tangmenhp");
         mp = meridianPrefs.GetInt("tangmenmp");
-        evade = meridianPrefs.GetInt("tangmenevade");
+        evade = meridianPrefs.GetFloat("tangmenevade");
         externalDamage = meridianPrefs.GetInt("tangmenexternalDamage");
-        critRate = meridianPrefs.GetInt("tangmencritRate");
+        critRate = meridianPrefs.GetFloat("tangmencritRate");
     }
 
     public override void UpdatePropertyData()
@@ -63,15 +63,18 @@ public class TangmenMeridian : MeridianAbstract
         propertyData["Neù traùnh:"] = evade.ToString();
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
         propertyData["Tæ leä baïo kích:"] = critRate.ToString();
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
+        characterPrefs.Save();
+
     }
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
-        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1);
-        characterPrefs.SetInt("evade", characterPrefs.GetInt("evade") + 1);
-        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
-        characterPrefs.SetInt("critRate", characterPrefs.GetInt("critRate") + 1);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
+        characterPrefs.SetFloat("evade", characterPrefs.GetFloat("evade") + 0.5f);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 2);
+        characterPrefs.SetFloat("critRate", characterPrefs.GetFloat("critRate") + 0.5f);
         characterPrefs.Save();
     }
 }

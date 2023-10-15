@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +9,7 @@ public class CollectionsTabGroup : TabGroupAbstract
     public TabItem defaultTabItem;
 
     void Start()
-    {   
+    {
         selectedTabItem = defaultTabItem;
         disableTab = GameObject.Find("SubCollectionsTab");
         parentScrollRect.content = swapContent[0].GetComponent<RectTransform>();
@@ -19,7 +17,7 @@ public class CollectionsTabGroup : TabGroupAbstract
 
     public override void OnTabSelected(TabItem tabItem)
     {
-        if(selectedTabItem != tabItem)
+        if (selectedTabItem != tabItem)
         {
             //Tab dac biet danh cho 4 sub collections tab
             if (tabItem.tag.Equals("CollectionsTab"))
@@ -40,7 +38,7 @@ public class CollectionsTabGroup : TabGroupAbstract
             {
                 if (i == index)
                 {
-                    swapContent[i].SetActive(true);           
+                    swapContent[i].SetActive(true);
                     parentScrollRect.content = swapContent[i].GetComponent<RectTransform>();
                 }
                 else
@@ -51,5 +49,5 @@ public class CollectionsTabGroup : TabGroupAbstract
             selectedTabItem = tabItem;
         }
     }
-  
+
 }

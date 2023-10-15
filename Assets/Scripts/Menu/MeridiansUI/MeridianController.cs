@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,18 +13,13 @@ public class MeridianController : MonoBehaviour
     //Qi to level up merdian variable
     public TextMeshProUGUI qiHolder;
     public Image imageHolder;
-    //Character data variable
-    [SerializeField]
-    private CharacterData characterData;
     //Singleton variable
     public static MeridianController Instance;
-    //PlayerPref variable
-    public JsonPlayerPrefs meridianPrefs;
-    public JsonPlayerPrefs characterPrefs;
+
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -36,22 +28,17 @@ public class MeridianController : MonoBehaviour
             Instance = this;
         }
 
-        meridianPrefs = MenuController.Instance.meridianPrefs;
-        characterPrefs = MenuController.Instance.characterPrefs;
     }
 
 
     private void Start()
     {
-              
-        //Set value of Qi
-        qiHolder.text = characterData.qi.ToString();
         //Assign ham level up vao level up button
         levelUpMeridianButton.onClick.AddListener(() =>
         {
             meridianTabGroup.selectedTabItem.GetComponent<MeridianAbstract>().LevelUpMeridian();
         });
-       
+
     }
 
     //Set UI level
@@ -59,5 +46,5 @@ public class MeridianController : MonoBehaviour
     {
         levelMeridianUI.text = level + "/36";
     }
-   
+
 }

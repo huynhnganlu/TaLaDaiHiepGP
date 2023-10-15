@@ -117,7 +117,7 @@ public class MapController : MonoBehaviour
     private void Update()
     {
         #region skill prize
-        if(isFreezing == false)
+        if (isFreezing == false)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4))
             {
@@ -140,7 +140,7 @@ public class MapController : MonoBehaviour
                 TogglePrize("skill");
             }
         }
-      
+
         #endregion
     }
 
@@ -148,7 +148,7 @@ public class MapController : MonoBehaviour
     {
         #region transform + boundary minimap
         Vector3 targetPos = new Vector3(player.transform.position.x, player.transform.position.y, minimapCamera.transform.position.z);
-        targetPos.x = Mathf.Clamp(targetPos.x,minimapMinPos.x,minimapMaxPos.x);
+        targetPos.x = Mathf.Clamp(targetPos.x, minimapMinPos.x, minimapMaxPos.x);
         targetPos.y = Mathf.Clamp(targetPos.y, minimapMinPos.y, minimapMaxPos.y);
         minimapCamera.transform.position = Vector3.Lerp(minimapCamera.transform.position, targetPos, 0.5f);
         #endregion
@@ -204,7 +204,7 @@ public class MapController : MonoBehaviour
                 spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
                 second = 59;
             }
-            else if(second != 0)
+            else if (second != 0)
             {
                 second -= 1;
             }
@@ -213,7 +213,7 @@ public class MapController : MonoBehaviour
             timeText.text = minute.ToString("0") + ":" + second.ToString("0");
             yield return new WaitForSeconds(1);
         }
-  
+
     }
     private void BossProcess()
     {
@@ -247,7 +247,7 @@ public class MapController : MonoBehaviour
         prizeItem.header.text = prize.header;
         prizeItem.icon.sprite = prize.icon;
         prizeItem.description.text = prize.description;
-        if(prize.cost != 0)
+        if (prize.cost != 0)
         {
             prizeItem.costObject.SetActive(true);
             prizeItem.costText.text = prize.cost.ToString();
@@ -271,7 +271,8 @@ public class MapController : MonoBehaviour
                 if (sumRate >= value)
                     return prize;
             }
-        }else if (type.Equals("skill"))
+        }
+        else if (type.Equals("skill"))
         {
             foreach (PrizeAbstract prize in prizeHolder.prizeSkillList)
             {
@@ -292,7 +293,8 @@ public class MapController : MonoBehaviour
             {
                 totalRate += prize.rate;
             }
-        }else if (type.Equals("skill"))
+        }
+        else if (type.Equals("skill"))
         {
             foreach (PrizeAbstract prize in prizeHolder.prizeSkillList)
             {
@@ -325,7 +327,7 @@ public class MapController : MonoBehaviour
 
             }
         }
-        
+
     }
     public void ClosePrize()
     {
@@ -353,14 +355,14 @@ public class MapController : MonoBehaviour
     {
         Vector2 randomPos = Vector2.zero;
         bool isValidPos = false;
-        while(!isValidPos)
+        while (!isValidPos)
         {
             randomPos = GetRandomPointInCollider(colliderSpawnEnemies);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPos, 1.5f);
             bool isInvalidCollision = false;
 
             foreach (Collider2D _collider in colliders)
-            {              
+            {
                 if (((1 << _collider.gameObject.layer) & layerNotSpawn) != 0)
                 {
                     isInvalidCollision = true;
@@ -390,9 +392,9 @@ public class MapController : MonoBehaviour
         {
             equipedList ??= new List<ShopDataAbstract>();
             equipedList.Clear();
-            for(int i = 0;i <= 2; i++)
+            for (int i = 0; i <= 2; i++)
             {
-                if(prefs.GetInt("slot"+i) == -1)
+                if (prefs.GetInt("slot" + i) == -1)
                 {
                     innerMapItems[i].sprite = null;
                     innerMapItems[i].color = new Color(1f, 1f, 1f, 0f);
@@ -410,5 +412,5 @@ public class MapController : MonoBehaviour
         }
     }
     #endregion
-  
+
 }

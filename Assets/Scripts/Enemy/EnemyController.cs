@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -24,18 +23,19 @@ public abstract class EnemyController : MonoBehaviour
             StartCoroutine(ShowPlayerDamage(damage, isCrit));
             currentEnemyHP -= damage;
 
-            if(gameObject.CompareTag("Boss"))
+            if (gameObject.CompareTag("Boss"))
             {
                 MapController.Instance.timeSlider.value = currentEnemyHP;
                 MapController.Instance.timeText.text = currentEnemyHP.ToString();
-                if (currentEnemyHP <= enemyMaxHP / 2){
+                if (currentEnemyHP <= enemyMaxHP / 2)
+                {
                     GetComponent<Animator>().SetTrigger("isRaging");
                 }
-            }     
+            }
             if (currentEnemyHP <= 0)
             {
                 GetComponent<PolygonCollider2D>().isTrigger = true;
-                if(gameObject.CompareTag("Boss"))
+                if (gameObject.CompareTag("Boss"))
                 {
                     StartCoroutine(MapController.Instance.ProcessFinishMap());
                 }
@@ -80,9 +80,9 @@ public abstract class EnemyController : MonoBehaviour
         }
     }
 
-    public void HitPlayer(float radius,Vector3 hitPos)
+    public void HitPlayer(float radius, Vector3 hitPos)
     {
-        foreach(Collider2D collider in Physics2D.OverlapCircleAll(hitPos, radius, LayerMask.GetMask("Player")))
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(hitPos, radius, LayerMask.GetMask("Player")))
         {
             if (collider.CompareTag("Player"))
             {

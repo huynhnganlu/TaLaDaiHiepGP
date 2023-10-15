@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TangSTNgoai : PrizeAbstract
 {
     public override void ProcessPrize()
@@ -9,5 +5,5 @@ public class TangSTNgoai : PrizeAbstract
         MyCharacterController.Instance.externalDamage += 10;
     }
 
- 
+
 }

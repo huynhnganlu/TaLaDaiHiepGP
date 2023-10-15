@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +5,7 @@ public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipController.Instance.ShowTooltip(transform.parent.GetComponent<ShopTemplate>().textTooltip);
+        TooltipController.Instance.ShowTooltip(transform.parent.GetComponent<ShopTemplate>().textTooltip, 300f);
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -1,16 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ShaolinMeridian : MeridianAbstract
 {
-   
+
 
     private void Start()
     {
-        meridianPrefs = MeridianController.Instance.meridianPrefs;
-        characterPrefs = MeridianController.Instance.characterPrefs;
-        LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
             { "Khí huyeát:", hp.ToString()},
@@ -23,17 +18,20 @@ public class ShaolinMeridian : MeridianAbstract
 
     public override void LevelUpMeridian()
     {
-        level++;
-        hp += 1;
-        mp += 1;
-        defense += 1;
-        hpRegen += 1;
-        movementSpeed += 1;
+        if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
+        {
+            level++;
+            hp += 8;
+            mp += 2;
+            defense += 1;
+            hpRegen += 1;
+            movementSpeed += 0.01f;
 
-        UpdatePropertyData();
-        GetPropertyData();
-        SaveMeridian();
-        SaveCharacterData();
+            UpdatePropertyData();
+            GetPropertyData();
+            SaveMeridian();
+            SaveCharacterData();
+        }
     }
 
     public override void SaveMeridian()
@@ -43,18 +41,21 @@ public class ShaolinMeridian : MeridianAbstract
         meridianPrefs.SetInt("shaolinmp", mp);
         meridianPrefs.SetInt("shaolindefense", defense);
         meridianPrefs.SetInt("shaolinhpRegen", hpRegen);
-        meridianPrefs.SetInt("shaolinmovementSpeed", movementSpeed);
+        meridianPrefs.SetFloat("shaolinmovementSpeed", System.MathF.Round(movementSpeed, 2));
         meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = meridianPrefs.GetInt("shaolinlevel");
+        if (meridianPrefs.HasKey("shaolinlevel"))
+            level = meridianPrefs.GetInt("shaolinlevel");
+        else
+            level = 1;
         hp = meridianPrefs.GetInt("shaolinhp");
         mp = meridianPrefs.GetInt("shaolinmp");
         defense = meridianPrefs.GetInt("shaolindefense");
         hpRegen = meridianPrefs.GetInt("shaolinhpRegen");
-        movementSpeed = meridianPrefs.GetInt("shaolinmovementSpeed");
+        movementSpeed = meridianPrefs.GetFloat("shaolinmovementSpeed");
     }
 
     public override void UpdatePropertyData()
@@ -63,16 +64,19 @@ public class ShaolinMeridian : MeridianAbstract
         propertyData["Noäi löïc:"] = mp.ToString();
         propertyData["Phoøng ngöï:"] = defense.ToString();
         propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
-        propertyData["Toác ñoä di chuyeån:"] = movementSpeed.ToString();
+        propertyData["Toác ñoä di chuyeån:"] = System.MathF.Round(movementSpeed,2).ToString();
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
+        characterPrefs.Save();
+
     }
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
-        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
-        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1 );
-        characterPrefs.SetInt("hpRegen", characterPrefs.GetInt("hpRegen") + 1 );
-        characterPrefs.SetInt("movementSpeed", characterPrefs.GetInt("movementSpeed") + 1 );
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
+        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
+        characterPrefs.SetInt("hpRegen", characterPrefs.GetInt("hpRegen") + 1);
+        characterPrefs.SetFloat("movementSpeed", System.MathF.Round(characterPrefs.GetFloat("movementSpeed") + 0.01f, 2));
         characterPrefs.Save();
     }
 }

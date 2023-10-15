@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class TooltipController : MonoBehaviour
 {
@@ -27,11 +24,12 @@ public class TooltipController : MonoBehaviour
         }
     }
 
-    public void ShowTooltip(string textShow)
+    public void ShowTooltip(string textShow, float width)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out Vector2 localPoint);
         transform.localPosition = localPoint;
         tooltipText.text = textShow;
+        tooltipText.GetComponent<RectTransform>().sizeDelta = new Vector2(width ,0);
         gameObject.SetActive(true);
     }
     public void HideTooltip()

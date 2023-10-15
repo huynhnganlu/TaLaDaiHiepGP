@@ -1,17 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MapItem : MonoBehaviour, IPointerClickHandler
 {
-    public string mapDescription;
-    public TextMeshProUGUI textUI;
+    [TextAreaAttribute]
+    [SerializeField]
+    private string mapDescription;
+    [SerializeField]
+    private TextMeshProUGUI textHolder;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        textUI.text = mapDescription;
-        MapUIController.Instance.currentMap = name;
+        textHolder.text = mapDescription;
+        MapUIController.Instance.currentMap = gameObject.name;
+        for(int i = 0; i < MapUIController.Instance.mapHolder.Length; i++)
+        {
+            if (MapUIController.Instance.mapHolder[i].name.Equals(gameObject.name))
+            {
+                gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                MapUIController.Instance.mapHolder[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.6f);
+            }
+        }
     }
 }

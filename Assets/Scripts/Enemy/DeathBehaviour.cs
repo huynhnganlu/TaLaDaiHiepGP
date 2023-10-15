@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathBehaviour : StateMachineBehaviour
 {
-   
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ObjectPoolController.Instance.ReturnObjectToPool(animator.gameObject);

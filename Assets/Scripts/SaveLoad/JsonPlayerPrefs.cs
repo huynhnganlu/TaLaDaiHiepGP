@@ -46,7 +46,7 @@ public class JsonPlayerPrefs
             {
                 string json = reader.ReadToEnd();
                 string decryptJson = EncryptAndDecrypt(json);
-                decryptJson = decryptJson.Substring(0, decryptJson.Length-2);
+                decryptJson = decryptJson.Substring(0, decryptJson.Length - 2);
                 JsonPlayerPrefs data = JsonUtility.FromJson<JsonPlayerPrefs>(decryptJson);
                 this.playerPrefs = data.playerPrefs;
             }
@@ -213,7 +213,7 @@ public class JsonPlayerPrefs
     private string EncryptAndDecrypt(string data)
     {
         string modifiedData = "";
-        for(int i = 0;i < data.Length; i++)
+        for (int i = 0; i < data.Length; i++)
         {
             modifiedData += (char)(data[i] ^ encryptionKey[i % encryptionKey.Length]);
         }

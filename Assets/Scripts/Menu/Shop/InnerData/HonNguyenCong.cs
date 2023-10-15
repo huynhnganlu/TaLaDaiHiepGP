@@ -7,7 +7,7 @@ public class HonNguyenCong : ShopDataAbstract
 
     public override void ItemEffect()
     {
-        if(MyCharacterController.Instance.currentHealth < MyCharacterController.Instance.maxHealth)
+        if (MyCharacterController.Instance.currentHealth < MyCharacterController.Instance.maxHealth)
         {
             if (first == false)
             {
@@ -36,7 +36,7 @@ public class HonNguyenCong : ShopDataAbstract
                 MyCharacterController.Instance.healthBar.value = MyCharacterController.Instance.maxHealth;
                 MyCharacterController.Instance.healthText.text = MyCharacterController.Instance.maxHealth.ToString();
                 break;
-            } 
+            }
             //Tiep tuc hoi mau neu chua day
             else
             {

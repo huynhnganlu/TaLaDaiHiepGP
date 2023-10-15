@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 669244377144327842}
   - component: {fileID: 5323491580467953231}
   - component: {fileID: 7930690716200297021}
-  - component: {fileID: 6705847486098819178}
+  - component: {fileID: 364733880017619834}
   m_Layer: 5
   m_Name: Map01
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6705847486098819178
+--- !u!114 &364733880017619834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,5 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328fb9ef8e8d29a489b3b08316b6c960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapDescription: Map01
-  textUI: {fileID: 0}
+  mapDescription: 
+  textHolder: {fileID: 0}

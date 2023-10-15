@@ -1,16 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ValleyMeridian : MeridianAbstract
 {
-  
+
 
     private void Start()
     {
-        meridianPrefs = MeridianController.Instance.meridianPrefs;
-        characterPrefs = MeridianController.Instance.characterPrefs;
-        LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
             { "Khí huyeát:", hp.ToString()},
@@ -25,17 +20,20 @@ public class ValleyMeridian : MeridianAbstract
 
     public override void LevelUpMeridian()
     {
-        level++;
-        hp += 1;
-        mp += 1;
-        mpRegen += 1;
-        defense += 1;
-        critDamage += 1;
+        if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
+        {
+            level++;
+            hp += 8;
+            mp += 2;
+            mpRegen += 1;
+            defense += 1;
+            critDamage += 2;
 
-        UpdatePropertyData();
-        GetPropertyData();
-        SaveMeridian();
-        SaveCharacterData();
+            UpdatePropertyData();
+            GetPropertyData();
+            SaveMeridian();
+            SaveCharacterData();
+        }
     }
 
     public override void SaveMeridian()
@@ -51,7 +49,10 @@ public class ValleyMeridian : MeridianAbstract
 
     public override void LoadMeridian()
     {
-        level = meridianPrefs.GetInt("valleylevel");
+        if (meridianPrefs.HasKey("valleylevel"))
+            level = meridianPrefs.GetInt("valleylevel");
+        else
+            level = 1;
         hp = meridianPrefs.GetInt("valleyhp");
         mp = meridianPrefs.GetInt("valleymp");
         mpRegen = meridianPrefs.GetInt("valleympRegen");
@@ -66,15 +67,18 @@ public class ValleyMeridian : MeridianAbstract
         propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
         propertyData["Phoøng ngöï:"] = defense.ToString();
         propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
+        characterPrefs.Save();
+
     }
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1 );
-        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
-        characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1 );
-        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1 );
-        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1 );
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
+        characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1);
+        characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 2);
         characterPrefs.Save();
     }
 }

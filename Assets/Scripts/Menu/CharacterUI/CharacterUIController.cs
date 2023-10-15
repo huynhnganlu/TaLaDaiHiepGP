@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -27,7 +26,7 @@ public class CharacterUIController : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
@@ -64,7 +63,7 @@ public class CharacterUIController : MonoBehaviour
 
     public void ResetCharacterPoints()
     {
-        foreach(Transform child in characterPointsParent.transform)
+        foreach (Transform child in characterPointsParent.transform)
         {
             Destroy(child.gameObject);
         }
@@ -73,14 +72,24 @@ public class CharacterUIController : MonoBehaviour
 
     public void UpdateCharacterPoints(Dictionary<string, int> characterSpecial)
     {
-        foreach(KeyValuePair<string,string> property in MenuController.Instance.listCharacterProperty)
+        foreach (KeyValuePair<string, string> property in MenuController.Instance.listCharacterProperty)
         {
             GameObject o = Instantiate(characterPoints, characterPointsParent.transform);
             TextMeshProUGUI[] textCompound = o.GetComponentsInChildren<TextMeshProUGUI>();
-            if (characterSpecial.ContainsKey(property.Key))
-                textCompound[1].text = (characterPrefs.GetInt(property.Key) + characterSpecial[property.Key]).ToString();
+            if(property.Key.Equals("movementSpeed") || property.Key.Equals("critRate") || property.Key.Equals("evade"))
+            {
+                if (characterSpecial.ContainsKey(property.Key))
+                    textCompound[1].text = (characterPrefs.GetFloat(property.Key) + characterSpecial[property.Key]).ToString();
+                else
+                    textCompound[1].text = characterPrefs.GetFloat(property.Key).ToString();
+            }
             else
-                textCompound[1].text = characterPrefs.GetInt(property.Key).ToString();
+            {
+                if (characterSpecial.ContainsKey(property.Key))
+                    textCompound[1].text = (characterPrefs.GetInt(property.Key) + characterSpecial[property.Key]).ToString();
+                else
+                    textCompound[1].text = characterPrefs.GetInt(property.Key).ToString();
+            }
             textCompound[0].text = property.Value;
         }
     }

@@ -1,16 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class RoyalMeridian : MeridianAbstract
 {
- 
+
 
     private void Start()
     {
-        meridianPrefs = MeridianController.Instance.meridianPrefs;
-        characterPrefs = MeridianController.Instance.characterPrefs;
-        LoadMeridian();
         propertyData = new Dictionary<string, string>
         {
             { "Khí huyeát:", hp.ToString()},
@@ -23,17 +18,20 @@ public class RoyalMeridian : MeridianAbstract
 
     public override void LevelUpMeridian()
     {
-        level++;
-        hp += 1;
-        mp += 1;
-        externalDamage += 1;
-        critDamage += 1;
-        critRate += 1;
+        if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
+        {
+            level++;
+            hp += 8;
+            mp += 2;
+            externalDamage += 2;
+            critDamage += 2;
+            critRate += 0.5f;
 
-        UpdatePropertyData();
-        GetPropertyData();
-        SaveMeridian();
-        SaveCharacterData();
+            UpdatePropertyData();
+            GetPropertyData();
+            SaveMeridian();
+            SaveCharacterData();
+        }
     }
 
     public override void SaveMeridian()
@@ -43,18 +41,21 @@ public class RoyalMeridian : MeridianAbstract
         meridianPrefs.SetInt("royalmp", mp);
         meridianPrefs.SetInt("royalexternalDamage", externalDamage);
         meridianPrefs.SetInt("royalcritDamage", critDamage);
-        meridianPrefs.SetInt("royalcritRate", critRate);
+        meridianPrefs.SetFloat("royalcritRate", critRate);
         meridianPrefs.Save();
     }
 
     public override void LoadMeridian()
     {
-        level = meridianPrefs.GetInt("royallevel");
+        if (meridianPrefs.HasKey("royallevel"))
+            level = meridianPrefs.GetInt("royallevel");
+        else
+            level = 1;
         hp = meridianPrefs.GetInt("royalhp");
         mp = meridianPrefs.GetInt("royalmp");
         externalDamage = meridianPrefs.GetInt("royalexternalDamage");
         critDamage = meridianPrefs.GetInt("royalcritDamage");
-        critRate = meridianPrefs.GetInt("royalcritRate");
+        critRate = meridianPrefs.GetFloat("royalcritRate");
     }
 
     public override void UpdatePropertyData()
@@ -64,15 +65,18 @@ public class RoyalMeridian : MeridianAbstract
         propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
         propertyData["Saùt thöông baïo kích:"] = critDamage.ToString();
         propertyData["Tæ leä baïo kích:"] = critRate.ToString();
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
+        characterPrefs.Save();
+
     }
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 1);
-        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 1 );
-        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1 );
-        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1 );
-        characterPrefs.SetInt("critRate", characterPrefs.GetInt("critRate") + 1 );
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 2);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 2);
+        characterPrefs.SetFloat("critRate", characterPrefs.GetFloat("critRate") + 0.5f);
         characterPrefs.Save();
     }
 }
