@@ -16,14 +16,11 @@ public class ChasingBehaviour : StateMachineBehaviour
     {
         animator.GetComponent<EnemyController>().LookAtPlayer();
 
-        if (Vector2.Distance(MyCharacterController.Instance.transform.position, animator.transform.position) < attackRange)
+        if (Vector2.Distance(MyCharacterController.Instance.transform.position, animator.transform.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
-
-
-        }
-
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, MyCharacterController.Instance.transform.position, speed * Time.deltaTime);
+        }else
+            animator.transform.position = Vector2.MoveTowards(animator.transform.position, MyCharacterController.Instance.transform.position, speed * Time.deltaTime);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

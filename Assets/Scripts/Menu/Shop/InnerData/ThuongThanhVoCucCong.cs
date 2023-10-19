@@ -5,17 +5,13 @@ public class ThuongThanhVoCucCong : ShopDataAbstract
 {
     private int count = 0;
     private bool isHealing = false;
+
     public override void ItemEffect()
     {
-        if (MyCharacterController.Instance.currentHealth <= (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (30 + 2 * itemLevel)))
+        if (MyCharacterController.Instance.currentHealth <= (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (30 + 2 * itemLevel)) && count < 2 && !isHealing)
         {
-            if (count < 2 && isHealing == false)
-            {
-                Debug.Log(count++);
-                StartCoroutine(HealthPerSecond(0));
-                Debug.Log(isHealing);
-
-            }
+            count++;
+            StartCoroutine(HealthPerSecond(0));
         }
     }
 
@@ -28,18 +24,13 @@ public class ThuongThanhVoCucCong : ShopDataAbstract
             //Neu day mau thi break
             if (MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * ((30 + 2 * itemLevel) / 6f)) >= MyCharacterController.Instance.maxHealth)
             {
-                MyCharacterController.Instance.currentHealth = MyCharacterController.Instance.maxHealth;
-                MyCharacterController.Instance.healthBar.value = MyCharacterController.Instance.maxHealth;
-                MyCharacterController.Instance.healthText.text = MyCharacterController.Instance.maxHealth.ToString();
+                MyCharacterController.Instance.SetHealth(MyCharacterController.Instance.maxHealth); 
                 break;
             }
             //Tiep tuc hoi mau neu chua day
             else
             {
-                MyCharacterController.Instance.currentHealth += (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * ((30 + 2 * itemLevel) / 6f));
-                MyCharacterController.Instance.healthBar.value = MyCharacterController.Instance.currentHealth;
-                MyCharacterController.Instance.healthText.text = MyCharacterController.Instance.currentHealth.ToString();
-
+                MyCharacterController.Instance.SetHealth(MyCharacterController.Instance.currentHealth + ((int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * ((30 + 2 * itemLevel) / 6f))));
             }
             time++;
             if (time == 5)

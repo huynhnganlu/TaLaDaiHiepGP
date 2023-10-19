@@ -2,27 +2,15 @@ using System.Collections;
 using UnityEngine;
 public class HonNguyenCong : ShopDataAbstract
 {
-    private bool first = false;
-    private float lastCall, cooldown = 20f;
-
+    private bool isAvailable = true;
     public override void ItemEffect()
     {
-        if (MyCharacterController.Instance.currentHealth < MyCharacterController.Instance.maxHealth)
+        float randomValue = Random.value;
+        float effectRate = 0.4f;
+        if (MyCharacterController.Instance.currentHealth < MyCharacterController.Instance.maxHealth && isAvailable && randomValue <= effectRate)
         {
-            if (first == false)
-            {
-                TakeEffect();
-                first = true;
-                lastCall = Time.time;
-            }
-            if (Time.time - lastCall > cooldown)
-            {
-                lastCall = Time.time;
-                TakeEffect();
-            }
-
+            StartCoroutine(TakeEffect());
         }
-
     }
 
     private IEnumerator HealthPerSecond(int time)
@@ -48,13 +36,12 @@ public class HonNguyenCong : ShopDataAbstract
             yield return new WaitForSeconds(1);
         }
     }
-    private void TakeEffect()
+    private IEnumerator TakeEffect()
     {
-        float randomValue = Random.value;
-        float effectRate = 0.2f;
-        if (randomValue <= effectRate)
-        {
-            StartCoroutine(HealthPerSecond(0));
-        }
+        isAvailable = false;    
+        StartCoroutine(HealthPerSecond(0));
+        yield return new WaitForSeconds(20f);
+        isAvailable = true;
+   
     }
 }

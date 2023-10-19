@@ -46,7 +46,7 @@ public class MenuController : MonoBehaviour
             characterPrefs.SetFloat("movementSpeed", 5f);
             characterPrefs.SetInt("qi", 0);
             characterPrefs.SetInt("dao", 0);
-            characterPrefs.SetInt("money", 0);
+            characterPrefs.SetInt("money", 10000);
             characterPrefs.SetInt("map0", 1);
             characterPrefs.SetInt("map1", 1);
             characterPrefs.SetInt("map2", 0);

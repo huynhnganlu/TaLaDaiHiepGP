@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d41179de61b324c9744c5a9927ffd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 1000
+  itemCost: 1150
   itemID: 2
   itemHP: 50
   itemMP: 50
+  itemLevel: 0
   itemImage: {fileID: 21300000, guid: 7dfe718a80e3dd544b7f964f406a56f8, type: 3}
   itemName: "Ho\xE3n Nguye\xE2n Co\xE2ng"
   itemOrigin: "Giang Ho\xE0"

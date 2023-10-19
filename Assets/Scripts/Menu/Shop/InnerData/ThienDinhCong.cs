@@ -9,13 +9,13 @@ public class ThienDinhCong : ShopDataAbstract
             float rate = Random.value;
             if (rate >= 0.9)
             {
-                if (MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (2 * itemLevel)) > MyCharacterController.Instance.maxHealth)
+                if (MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (2 + 2 * itemLevel)) >= MyCharacterController.Instance.maxHealth)
                 {
                     MyCharacterController.Instance.SetHealth(MyCharacterController.Instance.maxHealth);
                 }
-                else if (MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (2 * itemLevel)) < MyCharacterController.Instance.maxHealth)
+                else if (MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (2 + 2 * itemLevel)) < MyCharacterController.Instance.maxHealth)
                 {
-                    MyCharacterController.Instance.SetHealth(MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (2 * 1)));
+                    MyCharacterController.Instance.SetHealth(MyCharacterController.Instance.currentHealth + (int)System.Math.Round((MyCharacterController.Instance.maxHealth / 100f) * (2 + 2 * itemLevel)));
                 }
             }
         }

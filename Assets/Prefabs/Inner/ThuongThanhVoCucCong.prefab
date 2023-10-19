@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d792a3d1f9eee7b4e9170820e66925ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 1
+  itemCost: 1300
   itemID: 5
   itemHP: 50
   itemMP: 50
+  itemLevel: 0
   itemImage: {fileID: 21300000, guid: fef0f98c8c0ac0e4a9780695fce41105, type: 3}
   itemName: "Th\xF6\xF4\xEFng Thanh Vo\xE2 C\xF6\xEFc Co\xE2ng"
   itemOrigin: "Vo\xF5 \xD1ang"

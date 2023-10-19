@@ -3,21 +3,14 @@ using UnityEngine;
 
 public class TanDuongCongQuyet : ShopDataAbstract
 {
-    private float lastCall, cooldown = 20f;
-    private bool first = false;
+    private bool isAvailable = true;
+    float timeEffect;
     public override void ItemEffect()
     {
-        float timeEffect = (2f + 0.2f * itemLevel);
-        if (first == false)
+        if (isAvailable)
         {
-            StartCoroutine(Immune(timeEffect));
-            first = true;
-            lastCall = Time.time;
-        }
-        if (Time.time - lastCall > cooldown)
-        {
-            lastCall = Time.time;
-            StartCoroutine(Immune(timeEffect));
+            timeEffect = (2f + 0.2f * itemLevel);
+            StartCoroutine(TakeEffect());
         }
     }
 
@@ -26,6 +19,13 @@ public class TanDuongCongQuyet : ShopDataAbstract
         MyCharacterController.Instance.isImmune = true;
         yield return new WaitForSeconds(timeEffect);
         MyCharacterController.Instance.isImmune = false;
+    }
 
+    private IEnumerator TakeEffect()
+    {
+        isAvailable = false;
+        StartCoroutine(Immune(timeEffect));
+        yield return new WaitForSeconds(20f);
+        isAvailable = true;
     }
 }

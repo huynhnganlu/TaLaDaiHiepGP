@@ -47,7 +47,7 @@ public class MapController : MonoBehaviour
     public TextMeshProUGUI timeText;
     #endregion
     #region Skill var
-    public List<SkillAbstract> skillList;
+    public Image[] skillMapItems;
     #endregion
     #region SpawnEnemy var
     [SerializeField]
@@ -89,8 +89,6 @@ public class MapController : MonoBehaviour
         //spawn enemy
         timeSpawn = 5f;
         spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
-        //Khoi tao list skill
-        skillList ??= new List<SkillAbstract>();
 
         //Set gia tri mac dinh cho timer    
         StartCoroutine(TimerProcess());
@@ -168,6 +166,9 @@ public class MapController : MonoBehaviour
     public IEnumerator ProcessFinishMap()
     {
         MyCharacterController.Instance.isImmune = true;
+        isFreezing = true;
+        MyCharacterController.Instance.movement.x = 0;
+        MyCharacterController.Instance.movement.y = 0;
         yield return new WaitForSeconds(1.5f);
         SetFreezing(true);
         finishMapUI.SetActive(true);

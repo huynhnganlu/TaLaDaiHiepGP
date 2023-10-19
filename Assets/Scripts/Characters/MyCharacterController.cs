@@ -8,7 +8,7 @@ public class MyCharacterController : MonoBehaviour
 {
     #region Animation vs Physic variables
     private Rigidbody2D rb;
-    private Vector2 movement;
+    public Vector2 movement;
     private Animator animator;
     public float speed = 7.0f;
     private bool isFliped = false;
@@ -39,8 +39,6 @@ public class MyCharacterController : MonoBehaviour
     public List<PrizeAbstract> skillList;
     [SerializeField]
     private PrizeAbstract defaultSkill;
-    [SerializeField]
-    private Image[] skillMapItems;
     #endregion
     #region Pref variables
     private JsonPlayerPrefs characterPrefs, shopPrefs;
@@ -51,7 +49,7 @@ public class MyCharacterController : MonoBehaviour
     [HideInInspector]
     public float movementSpeed, evade, critRate;
     [HideInInspector]
-    public bool isImmune = false, isEvade = false;
+    public bool isImmune, isEvade = false;
     #endregion
     private void Awake()
     {
@@ -83,6 +81,7 @@ public class MyCharacterController : MonoBehaviour
         healthText = GameObject.Find("Canvas/HPBar/Image/HPText").GetComponent<TextMeshProUGUI>();
         shieldText = GameObject.Find("Canvas/ShieldBar/Image/ShieldText").GetComponent<TextMeshProUGUI>();
         expBar = GameObject.Find("Canvas/ExpBarSlider").GetComponent<Slider>();
+        moneyText = GameObject.Find("Canvas/SkillMoneyHolder/SkillMoneyBG/SkillMoneyValue").GetComponent<TextMeshProUGUI>();
         GetProperty();
         HandleInner("Buff");
         SetProperty();
@@ -278,7 +277,7 @@ public class MyCharacterController : MonoBehaviour
         {
             if (skillList[i] != null)
             {
-                skillMapItems[i].sprite = skillList[i].icon;
+                MapController.Instance.skillMapItems[i].sprite = skillList[i].icon;
                 skillList[i].skillRef.InvokeSkill();
             }
         }

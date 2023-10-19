@@ -8,6 +8,8 @@ public abstract class EnemyController : MonoBehaviour
 
     public int enemyMaxHP, currentEnemyHP, exp, money, qi, dao, damage;
     private string currentDirection = "left";
+    [SerializeField]
+    private GameObject projectile;
 
     private void OnEnable()
     {
@@ -102,6 +104,17 @@ public abstract class EnemyController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.GetChild(0).position, 6f);
+        Gizmos.DrawSphere(transform.GetChild(0).position, 5f);
     }
+
+    public void ShootProjectile()
+    {
+        if(projectile != null)
+        {
+            GameObject clone = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
+            clone.GetComponent<ProjectileController>().shootDir = (MyCharacterController.Instance.transform.position - transform.position - new Vector3(-1f, 0f, 0f)).normalized;
+            clone.GetComponent<ProjectileController>().damage = this.damage;
+        }
+    }
+
 }

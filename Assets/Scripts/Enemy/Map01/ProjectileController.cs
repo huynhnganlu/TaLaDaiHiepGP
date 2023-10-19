@@ -4,12 +4,13 @@ public class ProjectileController : MonoBehaviour
 {
     public Vector3 shootDir;
     public int damage;
-    // Update is called once per frame
+    public float speed;
+
     void Update()
     {
         if (shootDir != null)
         {
-            transform.position += 2f * Time.deltaTime * shootDir;
+            transform.position += speed * Time.deltaTime * shootDir;           
         }
 
     }

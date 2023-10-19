@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fa5bddb93b6bf408ff4af5500a1b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 200
+  itemCost: 120
   itemID: 1
   itemHP: 50
   itemMP: 50
+  itemLevel: 0
   itemImage: {fileID: 21300000, guid: cf34250ad4ac53e4381331462304c0e8, type: 3}
   itemName: "Thie\xE0n \xD1\xF2nh Co\xE2ng"
   itemOrigin: "Thie\xE1u La\xE2m"
@@ -62,5 +63,5 @@ MonoBehaviour:
     l\xF6u tho\xE2ng huye\xE1t ma\xEFch, di d\xF6\xF4\xF5ng ta\xE2m tha\xE0n, la\xE1y
     \xF1a\xE2y la\xF8m c\xF4 s\xF4\xFB xa\xE2y d\xF6\xEFng."
   itemType: Attack
-  itemEffect: "Co\xE2ng k\xEDch co\xF9 10% xa\xF9c sua\xE1t ho\xE0i (2 x co\xE2ng
+  itemEffect: "Co\xE2ng k\xEDch co\xF9 10% xa\xF9c sua\xE1t ho\xE0i 2 + (2 x co\xE2ng
     l\xF6\xEFc)% kh\xED huye\xE1t"
