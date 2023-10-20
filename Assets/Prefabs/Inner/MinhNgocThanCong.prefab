@@ -61,5 +61,6 @@ MonoBehaviour:
     la\xE1p la\xF9nh long lanh, tha\xE2n pha\xF9p nhanh nhe\xEFn, va\xEFn the\xE1
     ta\xE1n co\xE2ng \xF1e\xE0u ho\xF9a vo\xE2 h\xECnh, thie\xE2n ha\xEF vo\xE2 \xF1\xF2ch. "
   itemType: Buff
+  itemElemental: yin
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) t\xE6 le\xE4 ne\xF9 va\xF8
     ga\xE2y the\xE2m sa\xF9t th\xF6\xF4ng 20"

@@ -1,11 +1,19 @@
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class CuongPhongDaoSkill : SkillAbstract
 {
-    public override void ProcessSkill()
+    public async override void ProcessSkill()
     {
-        GameObject o1 = Instantiate(this, MapController.Instance.GetRandomSpawnPosition(5f, 10f), Quaternion.identity).gameObject;
-        Destroy(o1, skillLifeTime);
+        if(FindClosestEnemy() != null)
+        {
+            GameObject go = ObjectPoolController.Instance.SpawnObject(gameObject, FindClosestEnemy().position, Quaternion.identity);
+            await Task.Delay(skillLifeTime * 1000);
+            ObjectPoolController.Instance.ReturnObjectToPool(go);
+        }
+      
     }
 
+  
 }

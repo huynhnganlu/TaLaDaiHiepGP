@@ -83,8 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: Internal
-  skillDamage: 50
-  skillAppearTime: 2
+  skillElemental: yin
+  skillDamage: 55
+  skillAppearTime: 3
   skillLifeTime: 0
 --- !u!95 &2297446113742223292
 Animator:

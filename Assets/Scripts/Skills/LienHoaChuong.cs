@@ -1,20 +1,20 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class LienHoaChuong : SkillAbstract
 {
 
-
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(0f, 0f, 10f * Time.deltaTime * 20f);
     }
 
 
-    public override void ProcessSkill()
+    public async override void ProcessSkill()
     {
-        GameObject o1 = Instantiate(this, MyCharacterController.Instance.transform.position, Quaternion.identity).gameObject;
+        GameObject o1 = ObjectPoolController.Instance.SpawnObject(gameObject, MyCharacterController.Instance.transform.position, Quaternion.identity);
         o1.transform.SetParent(MyCharacterController.Instance.transform);
-        Destroy(o1, skillLifeTime);
+        await Task.Delay(skillLifeTime * 1000);
+        ObjectPoolController.Instance.ReturnObjectToPool(o1);
     }
 }

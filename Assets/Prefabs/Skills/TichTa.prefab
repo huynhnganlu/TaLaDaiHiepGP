@@ -174,9 +174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: Internal
-  skillDamage: 50
+  skillElemental: yin
+  skillDamage: 35
   skillAppearTime: 3
-  skillLifeTime: 4
+  skillLifeTime: 5
 --- !u!50 &5960646999555004696
 Rigidbody2D:
   serializedVersion: 4

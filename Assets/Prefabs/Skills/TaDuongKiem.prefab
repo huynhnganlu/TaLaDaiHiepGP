@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: External
-  skillDamage: 50
-  skillAppearTime: 3
+  skillElemental: yang
+  skillDamage: 27
+  skillAppearTime: 4
   skillLifeTime: 0

@@ -273,7 +273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: Internal
-  skillDamage: 100
+  skillElemental: taichi
+  skillDamage: 12
   skillAppearTime: 3
   skillLifeTime: 0
 --- !u!66 &3069607759972718481

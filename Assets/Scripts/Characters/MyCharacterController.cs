@@ -45,7 +45,7 @@ public class MyCharacterController : MonoBehaviour
     #endregion
     #region Property variables
     [HideInInspector]
-    public int externalDamage, internalDamage, critDamage, defense, hpRegen, mpRegen;
+    public int externalDamage, internalDamage, critDamage, defense, hpRegen, mpRegen, elementalYin, elementalYang, elementalTaichi;
     [HideInInspector]
     public float movementSpeed, evade, critRate;
     [HideInInspector]
@@ -209,6 +209,33 @@ public class MyCharacterController : MonoBehaviour
         mpRegen = characterPrefs.GetInt("mpRegen");
         movementSpeed = characterPrefs.GetInt("movementSpeed");
         speed += movementSpeed;
+        GetInnerElemental();
+    }
+    private void GetInnerElemental()
+    {
+        if (shopPrefs.HasKey("slot0"))
+        {
+            for(int i = 0; i <= 2; i++)
+            {
+                int innerID = shopPrefs.GetInt("slot" + i);
+                if(innerID != -1)
+                {
+                    string elemental = MapController.Instance.innerHolder.listInner[innerID].GetComponent<ShopDataAbstract>().itemElemental;
+                    switch (elemental)
+                    {
+                        case "yang":
+                            elementalYang += 1;
+                            break;
+                        case "yin":
+                            elementalYin += 1;
+                            break;
+                        case "taichi":
+                            elementalTaichi += 1;
+                            break;
+                    }
+                }
+            }
+        }
 
     }
     private void SetProperty()
@@ -256,7 +283,6 @@ public class MyCharacterController : MonoBehaviour
     }
     #endregion
     #region Kill Enemy    
-    //Them listener xy ly khi giet duoc quai vat
     public void HandleKillEnemy(int exp, int _money, int _qi)
     {
         currentExp += exp;

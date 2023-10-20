@@ -68,5 +68,6 @@ MonoBehaviour:
     xem th\xF6\xF4\xF8ng, nh\xF6ng kho\xE2ng the\xE5 phu\xFB nha\xE4n uy l\xF6\xEFc
     khu\xFBng khie\xE1p cu\xFBa no\xF9. "
   itemType: Buff
+  itemElemental: yang
   itemEffect: "Ta\xEAng t\xE6 le\xE4 ba\xEFo k\xEDch 10% + (1% x co\xE2ng l\xF6\xEFc)
     va\xF8 sa\xF9t th\xF6\xF4ng ga\xE2y ra 30 + (2 x co\xE2ng l\xF6\xEFc)"

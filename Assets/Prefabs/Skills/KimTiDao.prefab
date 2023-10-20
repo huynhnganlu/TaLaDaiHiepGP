@@ -256,8 +256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: External
-  skillDamage: 50
-  skillAppearTime: 1
+  skillElemental: yang
+  skillDamage: 60
+  skillAppearTime: 2
   skillLifeTime: 0
 --- !u!50 &5155565737999099694
 Rigidbody2D:

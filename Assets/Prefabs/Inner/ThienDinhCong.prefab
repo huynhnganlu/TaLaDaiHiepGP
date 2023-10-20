@@ -63,5 +63,6 @@ MonoBehaviour:
     l\xF6u tho\xE2ng huye\xE1t ma\xEFch, di d\xF6\xF4\xF5ng ta\xE2m tha\xE0n, la\xE1y
     \xF1a\xE2y la\xF8m c\xF4 s\xF4\xFB xa\xE2y d\xF6\xEFng."
   itemType: Attack
+  itemElemental: yang
   itemEffect: "Co\xE2ng k\xEDch co\xF9 10% xa\xF9c sua\xE1t ho\xE0i 2 + (2 x co\xE2ng
     l\xF6\xEFc)% kh\xED huye\xE1t"

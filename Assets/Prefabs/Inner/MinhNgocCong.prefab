@@ -62,5 +62,6 @@ MonoBehaviour:
     co\xF9 the\xE5 bie\xE1n gia\xF8 tha\xF8nh tre\xFB, dung nhan \xF1\xF6\xF4\xEFc
     gi\xF6\xF5 ma\xF5i ma\xF5i."
   itemType: Buff
+  itemElemental: yin
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) to\xE1c \xF1o\xE4 di chuye\xE5n
     va\xF8 ga\xE2y the\xE2m 10 sa\xF9t th\xF6\xF4ng"

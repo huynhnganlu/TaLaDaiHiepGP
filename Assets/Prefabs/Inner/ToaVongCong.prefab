@@ -58,5 +58,6 @@ MonoBehaviour:
     Minh Nha\xE1t, Va\xEFn L\xF6\xEF Giai Di, Li H\xECnh Kh\xF6\xF9 Tr\xED, \xD1o\xE0ng
     Vu \xD1a\xEFi Tho\xE2ng, Th\xF2 V\xF2 To\xEFa Vong."
   itemType: Buff
+  itemElemental: yin
   itemEffect: "B\xF2 ta\xE1n co\xE2ng se\xF5 va\xE4n kh\xED ho\xE4 the\xE5 gia\xFBm
     10 + (2 * co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng nha\xE4n va\xF8o"

@@ -1,18 +1,19 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class HuCotChuong : SkillAbstract
 {
     private float delay = 2f, elapse = 0f;
-    public override void ProcessSkill()
+    public async override void ProcessSkill()
     {
-        GameObject o1 = Instantiate(this, MyCharacterController.Instance.transform.position, Quaternion.identity).gameObject;
-        Destroy(o1, skillLifeTime);
+        if (FindClosestEnemy() != null)
+        {
+            GameObject go = ObjectPoolController.Instance.SpawnObject(gameObject, FindClosestEnemy().position, Quaternion.identity);
+            await Task.Delay(skillLifeTime * 1000);
+            ObjectPoolController.Instance.ReturnObjectToPool(go);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -21,10 +22,14 @@ public class HuCotChuong : SkillAbstract
         {
             float random = Random.value;
             float rate = MyCharacterController.Instance.critRate / 100f;
+            int elementalDamage = 0;
+            elementalDamage += (int)System.Math.Round(skillDamage / 100f * (10 * MyCharacterController.Instance.elementalYang));
+            elementalDamage += (int)System.Math.Round(skillDamage / 100f * (10 * MyCharacterController.Instance.elementalTaichi));
+
             if (random <= rate)
-                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage, true);
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage + MyCharacterController.Instance.critDamage + elementalDamage, true);
             else
-                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage, false);
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(skillDamage + MyCharacterController.Instance.externalDamage + elementalDamage, false);
             MyCharacterController.Instance.HandleInner("Attack");
             elapse = 0f;
         }

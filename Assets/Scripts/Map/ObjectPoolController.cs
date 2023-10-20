@@ -56,15 +56,17 @@ public class ObjectPoolController : MonoBehaviour
 
     public void ReturnObjectToPool(GameObject obj)
     {
-
-        string nameCheck = obj.name.Replace("(Clone)", string.Empty);
-        PooledObjectInfo pool = objectPools.Find(p => p.lookupString.Equals(nameCheck));
-
-        if (pool != null)
+        if(obj != null)
         {
-            obj.SetActive(false);
-            pool.inactiveObjects.Add(obj);
-        }
+            string nameCheck = obj.name.Replace("(Clone)", string.Empty);
+            PooledObjectInfo pool = objectPools.Find(p => p.lookupString.Equals(nameCheck));
+
+            if (pool != null)
+            {
+                obj.SetActive(false);
+                pool.inactiveObjects.Add(obj);
+            }
+        }  
     }
 
 }

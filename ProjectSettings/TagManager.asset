@@ -8,7 +8,6 @@ TagManager:
   - Skill
   - Boss
   - Enemy
-  - FighterEnemy
   layers:
   - Default
   - TransparentFX

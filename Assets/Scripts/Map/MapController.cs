@@ -56,7 +56,7 @@ public class MapController : MonoBehaviour
     private GameObject[] enemies;
     [SerializeField]
     private Collider2D colliderSpawnEnemies;
-    private float timeSpawn;
+    private float timeSpawn = 5f;
     private Coroutine spawnCoroutine;
     #endregion
     #region Pref var
@@ -86,8 +86,6 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        //spawn enemy
-        timeSpawn = 5f;
         spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
 
         //Set gia tri mac dinh cho timer    
@@ -201,7 +199,7 @@ public class MapController : MonoBehaviour
             {
                 minute -= 1;
                 StopCoroutine(spawnCoroutine);
-                timeSpawn -= 1;
+                timeSpawn -= 0.5f;
                 spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
                 second = 59;
             }
@@ -389,7 +387,7 @@ public class MapController : MonoBehaviour
     #region Inner
     private void GetEquipedInner(JsonPlayerPrefs prefs)
     {
-        if (prefs.HasKey("slot1"))
+        if (prefs.HasKey("slot0"))
         {
             equipedList ??= new List<ShopDataAbstract>();
             equipedList.Clear();

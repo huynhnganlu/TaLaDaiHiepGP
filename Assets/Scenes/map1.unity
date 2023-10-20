@@ -160,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 2966178697481342161, guid: 94ef03ca86e9e0240bd0c23867c05435, type: 3}
       propertyPath: defaultSkill
       value: 
-      objectReference: {fileID: -5062031166049396078, guid: 52c64df4c8109cf46b433b348884d407, type: 3}
+      objectReference: {fileID: 8372074490625674314, guid: 92519738475dd3e40862adb4ba666554, type: 3}
     - target: {fileID: 2966178697481342161, guid: 94ef03ca86e9e0240bd0c23867c05435, type: 3}
       propertyPath: skillMapItems.Array.data[0]
       value: 

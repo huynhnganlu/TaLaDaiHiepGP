@@ -189,9 +189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: Internal
+  skillElemental: taichi
   skillDamage: 50
   skillAppearTime: 2
-  skillLifeTime: 3
+  skillLifeTime: 6
 --- !u!50 &-3378800260004613325
 Rigidbody2D:
   serializedVersion: 4

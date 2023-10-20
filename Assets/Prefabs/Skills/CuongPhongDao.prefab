@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: Internal
-  skillDamage: 50
-  skillAppearTime: 2
+  skillElemental: yin
+  skillDamage: 18
+  skillAppearTime: 5
   skillLifeTime: 3
 --- !u!50 &7506191250217778799
 Rigidbody2D:
@@ -131,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &1634053288226838574
 PolygonCollider2D:
   m_ObjectHideFlags: 0

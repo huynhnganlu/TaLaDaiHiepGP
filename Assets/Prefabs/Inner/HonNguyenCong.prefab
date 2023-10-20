@@ -62,6 +62,7 @@ MonoBehaviour:
     quye\xE0n thua\xE4t c\xF4ng ph\xF2ng, xua\xE1t chie\xE2u nh\xF6 ma\xE2y tr\xF4i
     n\xF6\xF4\xF9c cha\xFBy, v\xF4 cu\xF8ng sa\xFBng kho\xE1i."
   itemType: Defense
+  itemElemental: taichi
   itemEffect: "Khi b\xF2 ta\xE1n co\xE2ng co\xF9 xa\xF9c sua\xE1t ho\xE0i 5% + (1%
     x co\xE2ng l\xF6\xEFc) kh\xED huye\xE1t trong 3 gia\xE2y, th\xF4\xF8i gian ho\xE0i
     kh\xED 20 gia\xE2y"
