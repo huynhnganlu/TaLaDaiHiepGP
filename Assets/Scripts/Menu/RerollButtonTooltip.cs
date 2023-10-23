@@ -6,9 +6,10 @@ using UnityEngine.EventSystems;
 public class RerollButtonTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public float width;
+    public string text;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipController.Instance.ShowTooltip("-100", width);
+        TooltipController.Instance.ShowTooltip(text, width);
     }
 
     public void OnPointerExit(PointerEventData eventData)

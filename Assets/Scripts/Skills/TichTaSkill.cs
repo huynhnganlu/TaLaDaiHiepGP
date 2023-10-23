@@ -12,6 +12,8 @@ public class TichTaSkill : SkillAbstract
         ObjectPoolController.Instance.ReturnObjectToPool(o2);
     }
 
+
+
     private void Update()
     {
         transform.Translate(3f * Time.deltaTime * new Vector3(2f, 0f, 0f));

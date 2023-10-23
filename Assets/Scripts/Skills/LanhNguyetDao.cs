@@ -10,6 +10,7 @@ public class LanhNguyetDao : SkillAbstract
         ObjectPoolController.Instance.ReturnObjectToPool(o1);
     }
 
+
     private void Update()
     {
         transform.Rotate(0f, 0f, 30f * Time.deltaTime * 10f);

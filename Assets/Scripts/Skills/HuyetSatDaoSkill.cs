@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class HuyetSatDaoSkill : SkillAbstract
 {
-
     public override void ProcessSkill()
     {
         GameObject o1 = ObjectPoolController.Instance.SpawnObject(gameObject, MyCharacterController.Instance.transform.position + new Vector3(3f, 0f, 0f), Quaternion.identity);
@@ -13,6 +12,5 @@ public class HuyetSatDaoSkill : SkillAbstract
         o1.transform.SetParent(MyCharacterController.Instance.transform);
         o2.transform.SetParent(MyCharacterController.Instance.transform);
     }
-
 
 }

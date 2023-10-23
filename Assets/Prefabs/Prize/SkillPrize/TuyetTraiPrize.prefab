@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 11
-  cost: 1
+  cost: 60
   header: "Tuye\xE1t Trai Kie\xE1m"
   description: "Pho\xF9ng kie\xE1m kh\xED nga\xE3u nhie\xE2n\nThuo\xE4c t\xEDnh <color=grey>Tha\xF9i
-    C\xF6\xEFc</color>\nSa\xF9t th\xF6\xF4ng ngoa\xEFi co\xE2ng +50"
+    C\xF6\xEFc</color>\nSa\xF9t th\xF6\xF4ng ngoa\xEFi co\xE2ng:"
   icon: {fileID: 21300000, guid: e9bab5e3bc8b4f245ae26c98a731cf82, type: 3}
   rate: 10
   skillRef: {fileID: 4469711603057204397, guid: 75d02b6d2e9f2af4a8f3caf6b1d65e33, type: 3}

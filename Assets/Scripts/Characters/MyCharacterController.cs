@@ -36,7 +36,9 @@ public class MyCharacterController : MonoBehaviour
     public static MyCharacterController Instance { get; private set; }
     #endregion
     #region Skill variables
-    public List<PrizeAbstract> skillList;
+    public Dictionary<int, int> skillDictionary, levelDictionary;
+    public Dictionary<string, int> damageDictionary;
+
     [SerializeField]
     private PrizeAbstract defaultSkill;
     #endregion
@@ -87,15 +89,28 @@ public class MyCharacterController : MonoBehaviour
         SetProperty();
 
         #endregion
-        skillList = new List<PrizeAbstract>(4)
+        skillDictionary = new Dictionary<int, int>()
         {
-            defaultSkill,
-            null,
-            null,
-            null,
+            {0, defaultSkill.id },
+            {1, -1 },
+            {2, -1 },
+            {3, -1 }
         };
-        HandleSkill(skillList);
-        money = 0;
+        levelDictionary = new Dictionary<int, int>()
+        {
+            {0, 1 },
+            {1, 1 },
+            {2, 1 },
+            {3, 1 }
+        };
+        damageDictionary = new Dictionary<string, int>()
+        {
+            {MapController.Instance.prizeHolder.prizeSkillList[defaultSkill.id].skillRef.skillName, 0}
+        };
+
+        SetSkill(defaultSkill.id);
+        SetSkillIcon();
+        money = 10000;
         moneyText.text = money.ToString();
         StartCoroutine(RegenOverTime());
     }
@@ -258,6 +273,11 @@ public class MyCharacterController : MonoBehaviour
         shieldBar.value = mp;
         shieldText.text = mp.ToString();
     }
+    public void SetMoney(int _money)
+    {
+        money -= _money;
+        moneyText.text = money.ToString();
+    }
     IEnumerator RegenOverTime()
     {
         while (currentHealth > 0)
@@ -297,26 +317,41 @@ public class MyCharacterController : MonoBehaviour
     }
     #endregion
     #region Skill Handle
-    public void HandleSkill(List<PrizeAbstract> skillList)
+    public void HandleSkill(int slot, int id)
     {
-        for (int i = 0; i < skillList.Count; i++)
+        if (skillDictionary[slot] == id)
         {
-            if (skillList[i] != null)
+            levelDictionary[slot] += 1;
+        }
+        else
+        {
+            if (skillDictionary[slot] != -1)
             {
-                MapController.Instance.skillMapItems[i].sprite = skillList[i].icon;
-                skillList[i].skillRef.InvokeSkill();
+                MapController.Instance.prizeHolder.prizeSkillList[skillDictionary[slot]].skillRef.CancelSkill();
+                string currentName = MapController.Instance.prizeHolder.prizeSkillList[skillDictionary[slot]].skillRef.skillName;
+                damageDictionary.Remove(currentName);
+            }
+            skillDictionary[slot] = id;
+            levelDictionary[slot] = 1;
+            damageDictionary.Add(MapController.Instance.prizeHolder.prizeSkillList[id].skillRef.skillName, slot);
+            SetSkill(id);
+        }
+        SetSkillIcon();
+    }
+    
+    public void SetSkillIcon()
+    {
+        foreach (KeyValuePair<int, int> kvp in skillDictionary)
+        {
+            if (kvp.Value != -1)
+            {
+                MapController.Instance.skillMapItems[kvp.Key].sprite = MapController.Instance.prizeHolder.prizeSkillList[kvp.Value].icon;
             }
         }
     }
-    public void ResetSkill()
+    public void SetSkill(int id)
     {
-        for (int i = 0; i < skillList.Count; i++)
-        {
-            if (skillList[i] != null)
-            {
-                skillList[i].skillRef.CancelSkill();
-            }
-        }
+        MapController.Instance.prizeHolder.prizeSkillList[id].skillRef.InvokeSkill();
     }
     public bool EvadeProcess()
     {

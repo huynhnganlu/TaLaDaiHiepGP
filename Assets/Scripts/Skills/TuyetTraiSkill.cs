@@ -32,4 +32,6 @@ public class TuyetTraiSkill : SkillAbstract
             MyCharacterController.Instance.HandleInner("Attack");
         }
     }
+
+ 
 }

@@ -531,6 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: External
   skillElemental: yang
+  skillName: lienhoachuong
   skillDamage: 20
   skillAppearTime: 10
   skillLifeTime: 4

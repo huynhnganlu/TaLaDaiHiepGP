@@ -1,10 +1,14 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class MapController : MonoBehaviour
 {
@@ -64,7 +68,7 @@ public class MapController : MonoBehaviour
     public JsonPlayerPrefs characterPrefs;
     #endregion
     public GameObject damageText, vcamera, boss;
-    private int keySkill = -1;
+    private int keySkill;
     private void Awake()
     {
         #region Singleton
@@ -92,7 +96,7 @@ public class MapController : MonoBehaviour
         StartCoroutine(TimerProcess());
 
         //Reference player
-        player = MyCharacterController.Instance.gameObject;
+        //player = MyCharacterController.Instance.gameObject;
 
         //Gan event cho finish map button
         processFinishMapButton.onClick.AddListener(() =>
@@ -115,24 +119,25 @@ public class MapController : MonoBehaviour
         #region skill prize
         if (isFreezing == false)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4))
+            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4)) && MyCharacterController.Instance.money >= 50)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    keySkill = 1;
+                    keySkill = 0;
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    keySkill = 2;
+                    keySkill = 1;
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    keySkill = 3;
+                    keySkill = 2;
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
-                    keySkill = 4;
+                    keySkill = 3;
                 }
+                MyCharacterController.Instance.SetMoney(50);
                 TogglePrize("skill");
             }
         }
@@ -143,7 +148,7 @@ public class MapController : MonoBehaviour
     private void LateUpdate()
     {
         #region transform + boundary minimap
-        Vector3 targetPos = new Vector3(player.transform.position.x, player.transform.position.y, minimapCamera.transform.position.z);
+        Vector3 targetPos = new Vector3(MyCharacterController.Instance.transform.position.x, MyCharacterController.Instance.transform.position.y, minimapCamera.transform.position.z);
         targetPos.x = Mathf.Clamp(targetPos.x, minimapMinPos.x, minimapMaxPos.x);
         targetPos.y = Mathf.Clamp(targetPos.y, minimapMinPos.y, minimapMaxPos.y);
         minimapCamera.transform.position = Vector3.Lerp(minimapCamera.transform.position, targetPos, 0.5f);
@@ -228,9 +233,10 @@ public class MapController : MonoBehaviour
     {
         prizeObject.SetActive(true);
         SetFreezing(true);
-        prizeType = type;
-        GetPrize();
+        prizeType = type;      
+        GetPrize();       
     }
+
     public void GetPrize()
     {
         for (int i = 0; i <= 2; i++)
@@ -238,24 +244,48 @@ public class MapController : MonoBehaviour
             SetPrizeData(RandomPrize(prizeType), i);
         }
     }
+    public void RerollPrize()
+    {
+        if(MyCharacterController.Instance.money >= 50)
+        {
+            GetPrize();
+            MyCharacterController.Instance.SetMoney(50);
+        }
+    }
     //Set gia tri cua prize vao prizeUI
     private void SetPrizeData(PrizeAbstract prize, int slot)
     {
         PrizeUI prizeItem = prizeItems[slot].GetComponent<PrizeUI>();
         prizeItem.id = prize.id;
-        prizeItem.header.text = prize.header;
-        prizeItem.icon.sprite = prize.icon;
-        prizeItem.description.text = prize.description;
-        if (prize.cost != 0)
+        if (prizeType.Equals("skill"))
         {
             prizeItem.costObject.SetActive(true);
-            prizeItem.costText.text = prize.cost.ToString();
-            prizeItem.cost = prize.cost;
+            int totalCost = prize.cost;        
+            if (MyCharacterController.Instance.skillDictionary[keySkill] == prize.id)
+            {
+                if (MyCharacterController.Instance.levelDictionary[keySkill] < 4)
+                    prizeItem.header.text = prize.header + "\n<size=80%>Lv." + (MyCharacterController.Instance.levelDictionary[keySkill] + 1);
+                else
+                    prizeItem.header.text = prize.header + "\n<size=80%>Lv.Max";
+                prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]) + " > +" + (int)System.Math.Round(prize.skillRef.skillDamage * (MyCharacterController.Instance.levelDictionary[keySkill] + 0.5))  ;
+                totalCost = prize.cost * MyCharacterController.Instance.levelDictionary[keySkill] * 3;
+            }
+            else
+            {
+                prizeItem.header.text = prize.header + "\n<size=80%>Lv.1";
+                prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]);
+            }
+            prizeItem.costText.text = totalCost.ToString();
+            prizeItem.cost = totalCost;
         }
         else
         {
+            prizeItem.header.text = prize.header;
+            prizeItem.description.text = prize.description;
             prizeItem.costObject.SetActive(false);
+
         }
+        prizeItem.icon.sprite = prize.icon;
     }
     //Lay random prize
     private PrizeAbstract RandomPrize(string type)
@@ -275,12 +305,40 @@ public class MapController : MonoBehaviour
         {
             foreach (PrizeAbstract prize in prizeHolder.prizeSkillList)
             {
-                sumRate += prize.rate;
-                if (sumRate >= value)
-                    return prize;
+                if (MyCharacterController.Instance.levelDictionary[keySkill] == 5 && MyCharacterController.Instance.skillDictionary[keySkill] == prize.id || CheckPrizeMatch(prize.id))
+                {
+                    value -= prize.rate;        
+                    if(prize.id == prizeHolder.prizeSkillList.Count - 1)
+                    {
+                        foreach(PrizeAbstract rollPrizeAgain in prizeHolder.prizeSkillList)
+                        {
+                            if (!CheckPrizeMatch(rollPrizeAgain.id))
+                            {
+                                return rollPrizeAgain;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    sumRate += prize.rate;
+                    if (sumRate >= value)
+                        return prize;
+                }        
             }
         }
         return default;
+    }
+    private Boolean CheckPrizeMatch(int id)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (keySkill != i && MyCharacterController.Instance.skillDictionary[i] == id)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     //Lay total rate tu prizeList
     private float GetTotalRate(string type)
@@ -310,24 +368,24 @@ public class MapController : MonoBehaviour
         {
             prizeHolder.prizeBuffList[prizeItems[slot].GetComponent<PrizeUI>().id].GetComponent<PrizeAbstract>().ProcessPrize();
             ClosePrize();
-
         }
         else if (prizeType.Equals("skill"))
         {
             PrizeUI prizeClicked = prizeItems[slot].GetComponent<PrizeUI>();
-            if (MyCharacterController.Instance.money - prizeClicked.cost >= 0)
+            int totalPrizeCost;
+            if (MyCharacterController.Instance.skillDictionary[keySkill] == prizeClicked.id)
+                totalPrizeCost = 60 * MyCharacterController.Instance.levelDictionary[keySkill] * 3;
+            else
+                totalPrizeCost = 60;
+            if (MyCharacterController.Instance.money - totalPrizeCost >= 0)
             {
-                MyCharacterController.Instance.money -= prizeClicked.cost;
-                MyCharacterController.Instance.moneyText.text = MyCharacterController.Instance.money.ToString();
-                MyCharacterController.Instance.ResetSkill();
-                MyCharacterController.Instance.skillList[keySkill - 1] = prizeHolder.prizeSkillList[prizeClicked.id].GetComponent<PrizeAbstract>();
-                MyCharacterController.Instance.HandleSkill(MyCharacterController.Instance.skillList);
+                MyCharacterController.Instance.SetMoney(totalPrizeCost);
+                MyCharacterController.Instance.HandleSkill(keySkill, prizeClicked.id);
                 ClosePrize();
-
             }
         }
-
     }
+
     public void ClosePrize()
     {
         prizeObject.SetActive(false);
@@ -396,7 +454,7 @@ public class MapController : MonoBehaviour
                 if (prefs.GetInt("slot" + i) == -1)
                 {
                     innerMapItems[i].sprite = null;
-                    innerMapItems[i].color = new Color(1f, 1f, 1f, 0f);
+                    innerMapItems[i].color = new UnityEngine.Color(1f, 1f, 1f, 0f);
                 }
                 else
                 {
@@ -404,7 +462,7 @@ public class MapController : MonoBehaviour
                     GameObject clonePrefab = Instantiate(data.gameObject);
                     equipedList.Add(clonePrefab.GetComponent<ShopDataAbstract>());
                     innerMapItems[i].sprite = data.itemImage;
-                    innerMapItems[i].color = new Color(1f, 1f, 1f, 1f);
+                    innerMapItems[i].color = new UnityEngine.Color(1f, 1f, 1f, 1f);
                 }
             }
             MyCharacterController.Instance.HandleInner("Buff");

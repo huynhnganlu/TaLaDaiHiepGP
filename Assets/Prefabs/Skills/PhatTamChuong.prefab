@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: Internal
   skillElemental: yin
+  skillName: phattamchuong
   skillDamage: 55
   skillAppearTime: 3
   skillLifeTime: 0

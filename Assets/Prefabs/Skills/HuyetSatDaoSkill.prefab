@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: Internal
   skillElemental: taichi
+  skillName: huyetsatdao
   skillDamage: 12
   skillAppearTime: 3
   skillLifeTime: 0

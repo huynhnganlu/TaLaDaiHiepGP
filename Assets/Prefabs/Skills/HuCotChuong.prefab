@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: External
   skillElemental: taichi
+  skillName: hucotchuong
   skillDamage: 23
   skillAppearTime: 7
   skillLifeTime: 4

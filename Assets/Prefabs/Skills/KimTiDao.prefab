@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: External
   skillElemental: yang
+  skillName: kimtidao
   skillDamage: 60
   skillAppearTime: 2
   skillLifeTime: 0

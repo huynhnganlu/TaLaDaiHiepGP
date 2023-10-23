@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: Internal
   skillElemental: yin
+  skillName: tichtakiem
   skillDamage: 35
   skillAppearTime: 3
   skillLifeTime: 5

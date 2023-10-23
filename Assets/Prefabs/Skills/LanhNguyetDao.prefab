@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: External
   skillElemental: taichi
+  skillName: lanhnguyetdao
   skillDamage: 10
   skillAppearTime: 3
   skillLifeTime: 3

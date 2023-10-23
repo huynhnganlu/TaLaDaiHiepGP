@@ -17,4 +17,6 @@ public class LienHoaChuong : SkillAbstract
         await Task.Delay(skillLifeTime * 1000);
         ObjectPoolController.Instance.ReturnObjectToPool(o1);
     }
+
+
 }

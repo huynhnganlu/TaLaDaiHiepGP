@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: External
   skillElemental: yang
+  skillName: taduongkiem
   skillDamage: 27
   skillAppearTime: 4
   skillLifeTime: 0

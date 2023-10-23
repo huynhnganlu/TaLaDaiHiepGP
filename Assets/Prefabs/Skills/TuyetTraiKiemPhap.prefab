@@ -294,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: External
   skillElemental: taichi
+  skillName: tuyettraikiem
   skillDamage: 65
   skillAppearTime: 3
   skillLifeTime: 5

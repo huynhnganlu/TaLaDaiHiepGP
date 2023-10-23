@@ -441,6 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: Internal
   skillElemental: taichi
+  skillName: thaicuckiem
   skillDamage: 15
   skillAppearTime: 5
   skillLifeTime: 3

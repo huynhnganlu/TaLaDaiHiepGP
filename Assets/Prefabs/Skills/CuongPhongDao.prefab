@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: Internal
   skillElemental: yin
+  skillName: cuongphongdao
   skillDamage: 18
   skillAppearTime: 5
   skillLifeTime: 3

@@ -18,7 +18,6 @@ public class EndSkill : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ObjectPoolController.Instance.ReturnObjectToPool(animator.gameObject);
-
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

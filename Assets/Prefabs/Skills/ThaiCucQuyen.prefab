@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: Internal
   skillElemental: taichi
+  skillName: thaicucquyen
   skillDamage: 50
   skillAppearTime: 2
   skillLifeTime: 6

@@ -17,6 +17,7 @@ public class ThaiCucKiemSkill : SkillAbstract
 
     }
 
+
     private void Update()
     {
         transform.Translate(2f * Time.deltaTime * new Vector3(-1.2f, -1f, 0f));

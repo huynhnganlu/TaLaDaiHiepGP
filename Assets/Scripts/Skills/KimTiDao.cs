@@ -8,4 +8,6 @@ public class KimTiDao : SkillAbstract
         o.GetComponent<Animator>().SetTrigger("Attack");
         o.transform.SetParent(MyCharacterController.Instance.transform);
     }
+
+
 }
