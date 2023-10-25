@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class CharacterTabGroup : TabGroupAbstract
 {
@@ -29,12 +31,12 @@ public class CharacterTabGroup : TabGroupAbstract
             }
             selectedTabItem = tabItem;
             CharacterUIController.Instance.ResetCharacterPoints();
-            CharacterUIController.Instance.UpdateCharacterPoints(characterSpecial[tabItem.transform.GetSiblingIndex()]);
+            CharacterUIController.Instance.UpdateCharacterPoints(characterSpecial[selectedTabItem.transform.GetSiblingIndex()]);
         }
     }
-
+  
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         swordSpecial ??= new Dictionary<string, int>()
             {
@@ -55,7 +57,11 @@ public class CharacterTabGroup : TabGroupAbstract
             fistSpecial,
         };
         selectedTabItem = defaultTabItem;
-        CharacterUIController.Instance.UpdateCharacterPoints(swordSpecial);
     }
 
+    private void OnEnable()
+    {
+        CharacterUIController.Instance.ResetCharacterPoints();
+        CharacterUIController.Instance.UpdateCharacterPoints(characterSpecial[selectedTabItem.transform.GetSiblingIndex()]);
+    }
 }

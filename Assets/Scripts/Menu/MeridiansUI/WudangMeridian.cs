@@ -20,16 +20,18 @@ public class WudangMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
             mpRegen += 1;
             hpRegen += 1;
-            internalDamage += 2;
+            internalDamage += 1;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -71,11 +73,11 @@ public class WudangMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
         characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1);
         characterPrefs.SetInt("hpRegen", characterPrefs.GetInt("hpRegen") + 1);
-        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 2);
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
         characterPrefs.Save();
     }
 }

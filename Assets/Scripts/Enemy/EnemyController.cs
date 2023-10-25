@@ -6,7 +6,7 @@ public abstract class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int enemyMaxHP, currentEnemyHP, exp, money, qi, dao, damage;
+    public int enemyMaxHP, currentEnemyHP, exp, money, qi, dao, damage, shop;
     private string currentDirection = "left";
     [SerializeField]
     private GameObject projectile;
@@ -36,6 +36,7 @@ public abstract class EnemyController : MonoBehaviour
             }
             if (currentEnemyHP <= 0)
             {
+                AudioManager.Instance.PlaySE("EnemyDeathSE");
                 GetComponent<PolygonCollider2D>().isTrigger = true;
                 if (gameObject.CompareTag("Boss"))
                 {
@@ -43,7 +44,7 @@ public abstract class EnemyController : MonoBehaviour
                 }
                 else
                 {
-                    MyCharacterController.Instance.HandleKillEnemy(exp, money, qi);
+                    MyCharacterController.Instance.HandleKillEnemy(exp, money, qi, dao, shop);
                 }
                 GetComponent<Animator>().SetBool("Death", true);
             }
@@ -97,7 +98,7 @@ public abstract class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            MyCharacterController.Instance.TakeEnemyDamage(damage);
+            MyCharacterController.Instance.TakeEnemyDamage(20);
         }
     }
 

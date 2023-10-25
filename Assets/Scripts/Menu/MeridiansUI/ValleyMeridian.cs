@@ -23,16 +23,18 @@ public class ValleyMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
             mpRegen += 1;
             defense += 1;
-            critDamage += 2;
+            critDamage += 1;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -74,11 +76,11 @@ public class ValleyMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
         characterPrefs.SetInt("mpRegen", characterPrefs.GetInt("mpRegen") + 1);
         characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
-        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 2);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1);
         characterPrefs.Save();
     }
 }

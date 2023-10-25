@@ -44,8 +44,8 @@ public class MenuController : MonoBehaviour
             characterPrefs.SetFloat("critRate", 0);
             characterPrefs.SetInt("defense", 0);
             characterPrefs.SetFloat("movementSpeed", 5f);
-            characterPrefs.SetInt("qi", 0);
-            characterPrefs.SetInt("dao", 0);
+            characterPrefs.SetInt("qi", 10000);
+            characterPrefs.SetInt("dao", 10000);
             characterPrefs.SetInt("money", 10000);
             characterPrefs.SetInt("map0", 1);
             characterPrefs.SetInt("map1", 1);
@@ -68,6 +68,7 @@ public class MenuController : MonoBehaviour
                 { "defense", "Phoøng thuû" },
                 { "movementSpeed", "Toác ñoä di chuyeån" }
             };
+        AudioManager.Instance.PlayBG("MenuBGSound");
     }
 
     private void SetTimeLogin()

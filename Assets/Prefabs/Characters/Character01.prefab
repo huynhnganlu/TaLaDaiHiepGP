@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec582bee9b55d24881d7ac9f6340800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0}
   speed: 0
   maxHealth: 100
   maxShield: 100
@@ -204,7 +205,6 @@ MonoBehaviour:
   money: 0
   moneyText: {fileID: 0}
   qi: 0
-  skillList: []
   defaultSkill: {fileID: 0}
   externalDamage: 0
   internalDamage: 0
@@ -212,6 +212,9 @@ MonoBehaviour:
   defense: 0
   hpRegen: 0
   mpRegen: 0
+  elementalYin: 0
+  elementalYang: 0
+  elementalTaichi: 0
   movementSpeed: 0
   evade: 0
   critRate: 0
@@ -230,7 +233,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

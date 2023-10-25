@@ -31,7 +31,7 @@ public class MapController : MonoBehaviour
     public GameObject finishMapUI;
     public Button processFinishMapButton;
     [SerializeField]
-    private TextMeshProUGUI money, qi;
+    private TextMeshProUGUI shopMoneyText, qiText, daoText;
     #endregion
     #region Minimap var
     public Camera minimapCamera;
@@ -47,7 +47,7 @@ public class MapController : MonoBehaviour
     #endregion
     #region Time var
     public Slider timeSlider;
-    private float time = 300f, minute = 0f, second = 0f;
+    private float time = 5f, minute = 0f, second = 0f;
     public TextMeshProUGUI timeText;
     #endregion
     #region Skill var
@@ -60,7 +60,7 @@ public class MapController : MonoBehaviour
     private GameObject[] enemies;
     [SerializeField]
     private Collider2D colliderSpawnEnemies;
-    private float timeSpawn = 5f;
+    private float timeSpawn = 4f;
     private Coroutine spawnCoroutine;
     #endregion
     #region Pref var
@@ -95,9 +95,6 @@ public class MapController : MonoBehaviour
         //Set gia tri mac dinh cho timer    
         StartCoroutine(TimerProcess());
 
-        //Reference player
-        //player = MyCharacterController.Instance.gameObject;
-
         //Gan event cho finish map button
         processFinishMapButton.onClick.AddListener(() =>
         {
@@ -112,6 +109,8 @@ public class MapController : MonoBehaviour
 
         //Camera follow player
         vcamera.GetComponent<ICinemachineCamera>().Follow = MyCharacterController.Instance.transform;
+
+        AudioManager.Instance.PlayBG("BattleBGSound");
     }
 
     private void Update()
@@ -119,7 +118,7 @@ public class MapController : MonoBehaviour
         #region skill prize
         if (isFreezing == false)
         {
-            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4)) && MyCharacterController.Instance.money >= 50)
+            if ((Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4)) && MyCharacterController.Instance.skillMoney >= 20)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
@@ -137,7 +136,8 @@ public class MapController : MonoBehaviour
                 {
                     keySkill = 3;
                 }
-                MyCharacterController.Instance.SetMoney(50);
+                AudioManager.Instance.PlaySE("ClickButtonSE");
+                MyCharacterController.Instance.SetSkillMoney(20);
                 TogglePrize("skill");
             }
         }
@@ -168,15 +168,27 @@ public class MapController : MonoBehaviour
     //Xu ly logic khi nguoi choi giet duoc boss hoac chet
     public IEnumerator ProcessFinishMap()
     {
+        for(int i = 0; i < 4; i++)
+        {
+            if (MyCharacterController.Instance.skillDictionary[i] != -1)
+            {
+                prizeHolder.prizeSkillList[MyCharacterController.Instance.skillDictionary[i]].skillRef.CancelSkill();
+            }
+        }
+        AudioManager.Instance.StopBG("BattleBGSound");
         MyCharacterController.Instance.isImmune = true;
         isFreezing = true;
         MyCharacterController.Instance.movement.x = 0;
         MyCharacterController.Instance.movement.y = 0;
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
+        AudioManager.Instance.PlaySE("FinishMapSE");
         yield return new WaitForSeconds(1.5f);
-        SetFreezing(true);
         finishMapUI.SetActive(true);
-        money.text = MyCharacterController.Instance.money.ToString();
-        qi.text = MyCharacterController.Instance.qi.ToString();
+        shopMoneyText.text = MyCharacterController.Instance.shopMoney.ToString();
+        qiText.text = MyCharacterController.Instance.qi.ToString(); 
+        SetFreezing(true);
+
     }
     //Load menu chinh
     private void LoadSceneMainMenu()
@@ -221,6 +233,8 @@ public class MapController : MonoBehaviour
     }
     private void BossProcess()
     {
+        StopCoroutine(spawnCoroutine);
+        AudioManager.Instance.PlaySE("BossSpawnSE");
         Instantiate(boss, GetRandomSpawnPosition(10f, 13f), Quaternion.identity);
         timeSlider.maxValue = boss.GetComponent<BossController>().enemyMaxHP;
         timeSlider.value = timeSlider.maxValue;
@@ -246,10 +260,10 @@ public class MapController : MonoBehaviour
     }
     public void RerollPrize()
     {
-        if(MyCharacterController.Instance.money >= 50)
+        if(MyCharacterController.Instance.skillMoney >= 20)
         {
             GetPrize();
-            MyCharacterController.Instance.SetMoney(50);
+            MyCharacterController.Instance.SetSkillMoney(20);
         }
     }
     //Set gia tri cua prize vao prizeUI
@@ -367,6 +381,7 @@ public class MapController : MonoBehaviour
         if (prizeType.Equals("buff"))
         {
             prizeHolder.prizeBuffList[prizeItems[slot].GetComponent<PrizeUI>().id].GetComponent<PrizeAbstract>().ProcessPrize();
+            AudioManager.Instance.PlaySE("SelectPrizeSE");
             ClosePrize();
         }
         else if (prizeType.Equals("skill"))
@@ -377,10 +392,11 @@ public class MapController : MonoBehaviour
                 totalPrizeCost = 60 * MyCharacterController.Instance.levelDictionary[keySkill] * 3;
             else
                 totalPrizeCost = 60;
-            if (MyCharacterController.Instance.money - totalPrizeCost >= 0)
+            if (MyCharacterController.Instance.skillMoney - totalPrizeCost >= 0)
             {
-                MyCharacterController.Instance.SetMoney(totalPrizeCost);
+                MyCharacterController.Instance.SetSkillMoney(totalPrizeCost);
                 MyCharacterController.Instance.HandleSkill(keySkill, prizeClicked.id);
+                AudioManager.Instance.PlaySE("SelectPrizeSE");
                 ClosePrize();
             }
         }

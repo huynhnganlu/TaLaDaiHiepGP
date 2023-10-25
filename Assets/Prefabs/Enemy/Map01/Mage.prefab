@@ -209,11 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8132e664d4a12e64b81427f29b3d922e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHP: 50
+  enemyMaxHP: 100
   currentEnemyHP: 0
-  exp: 1
-  money: 10
-  qi: 0
-  dao: 0
-  damage: 30
+  exp: 20
+  money: 6
+  qi: 4
+  dao: 3
+  damage: 15
+  shop: 1
   projectile: {fileID: 4873967349643490401, guid: 4cb84b8209f6bee4787413c93f03230c, type: 3}

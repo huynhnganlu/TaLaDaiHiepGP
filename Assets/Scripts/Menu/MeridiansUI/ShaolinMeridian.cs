@@ -21,16 +21,18 @@ public class ShaolinMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
             defense += 1;
             hpRegen += 1;
-            movementSpeed += 0.01f;
+            movementSpeed += 0.02f;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -72,11 +74,11 @@ public class ShaolinMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
         characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
         characterPrefs.SetInt("hpRegen", characterPrefs.GetInt("hpRegen") + 1);
-        characterPrefs.SetFloat("movementSpeed", System.MathF.Round(characterPrefs.GetFloat("movementSpeed") + 0.01f, 2));
+        characterPrefs.SetFloat("movementSpeed", System.MathF.Round(characterPrefs.GetFloat("movementSpeed") + 0.02f, 2));
         characterPrefs.Save();
     }
 }

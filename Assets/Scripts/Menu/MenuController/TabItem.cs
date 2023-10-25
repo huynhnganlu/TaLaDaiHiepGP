@@ -10,6 +10,7 @@ public class TabItem : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelected(this);
+        AudioManager.Instance.PlaySE("ClickButtonSE");
     }
 
     void Start()

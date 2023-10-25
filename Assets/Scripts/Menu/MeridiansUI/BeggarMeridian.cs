@@ -22,15 +22,16 @@ public class BeggarMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0) 
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
-            internalDamage += 2;
+            internalDamage += 1;
             defense += 1;
-            externalDamage += 2;
+            externalDamage += 1;
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
         }
     }
 
@@ -72,11 +73,11 @@ public class BeggarMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
-        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 2);
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
         characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
-        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 2);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
         characterPrefs.Save();
     }
 }

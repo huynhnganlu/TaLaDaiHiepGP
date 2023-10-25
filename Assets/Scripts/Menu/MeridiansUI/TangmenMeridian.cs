@@ -19,16 +19,18 @@ public class TangmenMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
             evade += 0.5f;
-            externalDamage += 2;
+            externalDamage += 1;
             critRate += 0.5f;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -70,10 +72,10 @@ public class TangmenMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
         characterPrefs.SetFloat("evade", characterPrefs.GetFloat("evade") + 0.5f);
-        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 2);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
         characterPrefs.SetFloat("critRate", characterPrefs.GetFloat("critRate") + 0.5f);
         characterPrefs.Save();
     }

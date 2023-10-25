@@ -27,7 +27,7 @@ public abstract class SkillAbstract : MonoBehaviour
             if (level == 1)
                 totalSkillDamage = skillDamage;
             else
-                totalSkillDamage = (int)System.Math.Round(skillDamage * (level - 0.5));
+                totalSkillDamage = skillDamage + (int)System.Math.Round(skillDamage * (level * 0.2));
         }
 
         switch (skillElemental)
@@ -48,14 +48,14 @@ public abstract class SkillAbstract : MonoBehaviour
         if (skillType.Equals("External"))
         {
             if (random <= rate)
-                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(totalSkillDamage + MyCharacterController.Instance.externalDamage + MyCharacterController.Instance.critDamage + elementalDamage, true);
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage((int)(System.Math.Round(totalSkillDamage * 1.5)) + MyCharacterController.Instance.externalDamage + MyCharacterController.Instance.critDamage + elementalDamage, true);
             else
                 collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(totalSkillDamage + MyCharacterController.Instance.externalDamage + elementalDamage, false);
         }
         else if (skillType.Equals("Internal"))
         {
             if (random <= rate)
-                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(totalSkillDamage + MyCharacterController.Instance.internalDamage + MyCharacterController.Instance.critDamage + elementalDamage, true);
+                collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage((int)(System.Math.Round(totalSkillDamage * 1.5)) + totalSkillDamage + MyCharacterController.Instance.internalDamage + MyCharacterController.Instance.critDamage + elementalDamage, true);
             else
                 collision.gameObject.GetComponent<EnemyController>().TakePlayerDamage(totalSkillDamage + MyCharacterController.Instance.internalDamage + elementalDamage, false);
         }

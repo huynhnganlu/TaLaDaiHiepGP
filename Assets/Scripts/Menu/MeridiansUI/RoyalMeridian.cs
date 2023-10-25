@@ -21,16 +21,18 @@ public class RoyalMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
-            externalDamage += 2;
-            critDamage += 2;
+            externalDamage += 1;
+            critDamage += 1;
             critRate += 0.5f;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -72,10 +74,10 @@ public class RoyalMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
-        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 2);
-        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 2);
+        characterPrefs.SetInt("externalDamage", characterPrefs.GetInt("externalDamage") + 1);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1);
         characterPrefs.SetFloat("critRate", characterPrefs.GetFloat("critRate") + 0.5f);
         characterPrefs.Save();
     }

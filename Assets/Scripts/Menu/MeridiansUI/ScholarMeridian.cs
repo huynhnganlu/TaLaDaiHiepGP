@@ -21,16 +21,18 @@ public class ScholarMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (5 * level) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
-            internalDamage += 2;
-            movementSpeed += 0.01f;
+            internalDamage += 1;
+            movementSpeed += 0.02f;
             critRate += 0.5f;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -73,10 +75,10 @@ public class ScholarMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
-        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 2);
-        characterPrefs.SetFloat("movementSpeed", System.MathF.Round(characterPrefs.GetFloat("movementSpeed") + 0.01f, 2));
+        characterPrefs.SetInt("internalDamage", characterPrefs.GetInt("internalDamage") + 1);
+        characterPrefs.SetFloat("movementSpeed", System.MathF.Round(characterPrefs.GetFloat("movementSpeed") + 0.02f, 2));
         characterPrefs.SetFloat("critRate", characterPrefs.GetFloat("critRate") + 0.5f);
         characterPrefs.Save();
     }

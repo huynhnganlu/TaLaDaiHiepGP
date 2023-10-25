@@ -26,11 +26,10 @@ public class MyCharacterController : MonoBehaviour
     private Slider expBar;
     #endregion
     #region Money variables
-    public int money;
-    public TextMeshProUGUI moneyText;
+    public int skillMoney;
+    public TextMeshProUGUI skillMoneyText;
     #endregion
     #region Meridians value variables
-    public int qi = 0;
     #endregion
     #region Singleton variables
     public static MyCharacterController Instance { get; private set; }
@@ -52,6 +51,8 @@ public class MyCharacterController : MonoBehaviour
     public float movementSpeed, evade, critRate;
     [HideInInspector]
     public bool isImmune, isEvade = false;
+    public int qi, dao, shopMoney;
+
     #endregion
     private void Awake()
     {
@@ -83,7 +84,7 @@ public class MyCharacterController : MonoBehaviour
         healthText = GameObject.Find("Canvas/HPBar/Image/HPText").GetComponent<TextMeshProUGUI>();
         shieldText = GameObject.Find("Canvas/ShieldBar/Image/ShieldText").GetComponent<TextMeshProUGUI>();
         expBar = GameObject.Find("Canvas/ExpBarSlider").GetComponent<Slider>();
-        moneyText = GameObject.Find("Canvas/SkillMoneyHolder/SkillMoneyBG/SkillMoneyValue").GetComponent<TextMeshProUGUI>();
+        skillMoneyText = GameObject.Find("Canvas/SkillMoneyHolder/SkillMoneyBG/SkillMoneyValue").GetComponent<TextMeshProUGUI>();
         GetProperty();
         HandleInner("Buff");
         SetProperty();
@@ -110,8 +111,8 @@ public class MyCharacterController : MonoBehaviour
 
         SetSkill(defaultSkill.id);
         SetSkillIcon();
-        money = 10000;
-        moneyText.text = money.ToString();
+        skillMoney = 0;
+        skillMoneyText.text = skillMoney.ToString();
         StartCoroutine(RegenOverTime());
     }
 
@@ -168,6 +169,7 @@ public class MyCharacterController : MonoBehaviour
             HandleInner("Defense");
             if (!isImmune)
             {
+                AudioManager.Instance.PlaySE("CharacterHurtSE");
                 if (damage - defense >= 0)
                     damage -= defense;
                 else
@@ -206,14 +208,15 @@ public class MyCharacterController : MonoBehaviour
     {
         currentExp = 0;
         currentLevel++;
-        maxExp += 100;
+        maxExp += currentLevel * 50 + 100;
         expBar.maxValue = maxExp;
+        expBar.value = 0;
         MapController.Instance.TogglePrize("buff");
     }
     private void GetProperty()
     {
-        maxHealth = 100 + characterPrefs.GetInt("hp");
-        maxShield = 100 + characterPrefs.GetInt("mp");
+        maxHealth = characterPrefs.GetInt("hp");
+        maxShield = characterPrefs.GetInt("mp");
         evade = characterPrefs.GetInt("evade");
         externalDamage = characterPrefs.GetInt("externalDamage");
         internalDamage = characterPrefs.GetInt("internalDamage");
@@ -224,6 +227,7 @@ public class MyCharacterController : MonoBehaviour
         mpRegen = characterPrefs.GetInt("mpRegen");
         movementSpeed = characterPrefs.GetInt("movementSpeed");
         speed += movementSpeed;
+        maxExp = 100;
         GetInnerElemental();
     }
     private void GetInnerElemental()
@@ -273,10 +277,10 @@ public class MyCharacterController : MonoBehaviour
         shieldBar.value = mp;
         shieldText.text = mp.ToString();
     }
-    public void SetMoney(int _money)
+    public void SetSkillMoney(int _money)
     {
-        money -= _money;
-        moneyText.text = money.ToString();
+        skillMoney -= _money;
+        skillMoneyText.text = skillMoney.ToString();
     }
     IEnumerator RegenOverTime()
     {
@@ -298,12 +302,12 @@ public class MyCharacterController : MonoBehaviour
                     currentShield += mpRegen;
                 SetShield(currentShield);
             }
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(30);
         }
     }
     #endregion
     #region Kill Enemy    
-    public void HandleKillEnemy(int exp, int _money, int _qi)
+    public void HandleKillEnemy(int exp, int _money, int _qi, int _dao, int _shopMoney)
     {
         currentExp += exp;
         if (currentExp >= maxExp)
@@ -311,9 +315,11 @@ public class MyCharacterController : MonoBehaviour
             LevelUp();
         }
         expBar.value = currentExp;
-        money += _money;
-        moneyText.text = money.ToString();
+        skillMoney += _money;
+        skillMoneyText.text = skillMoney.ToString();
         qi += _qi;
+        dao += _dao;
+        shopMoney += _shopMoney;
     }
     #endregion
     #region Skill Handle

@@ -64,6 +64,31 @@ public class SettingsMenuController : MonoBehaviour
     public void SliderValueChanged(Slider slider, TextMeshProUGUI text)
     {
         text.text = slider.value.ToString();
+        if (slider.name.Equals("MasterSoundSlider"))
+        {
+            foreach(Sound sound in AudioManager.Instance.BGsounds)
+            {
+                sound.source.volume = slider.value / 200f;
+            }
+            foreach (Sound sound in AudioManager.Instance.SEsounds)
+            {
+                sound.source.volume = slider.value / 100f;
+            }
+        }
+        else if (slider.name.Equals("MusicSlider"))
+        {
+            foreach (Sound sound in AudioManager.Instance.BGsounds)
+            {
+                sound.source.volume = slider.value / 200f;
+            }
+        }
+        else if (slider.name.Equals("SoundSlider"))
+        {
+            foreach (Sound sound in AudioManager.Instance.SEsounds)
+            {
+                sound.source.volume = slider.value / 100f;
+            }
+        }
     }
 
     public void WindowModeValueChanged(int change)

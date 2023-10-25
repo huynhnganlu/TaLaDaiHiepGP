@@ -23,16 +23,18 @@ public class EmeiMeridian : MeridianAbstract
         if (level < 36 && characterPrefs.GetInt("qi") - (level * 5) >= 0)
         {
             level++;
-            hp += 8;
+            hp += 2;
             mp += 2;
             evade += 0.5f;
             defense += 1;
-            critDamage += 2;
+            critDamage += 1;
 
             UpdatePropertyData();
             GetPropertyData();
             SaveMeridian();
             SaveCharacterData();
+            AudioManager.Instance.PlaySE("LevelUpSE");
+
         }
     }
 
@@ -74,11 +76,11 @@ public class EmeiMeridian : MeridianAbstract
 
     public override void SaveCharacterData()
     {
-        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 8);
+        characterPrefs.SetInt("hp", characterPrefs.GetInt("hp") + 2);
         characterPrefs.SetInt("mp", characterPrefs.GetInt("mp") + 2);
         characterPrefs.SetFloat("evade", characterPrefs.GetFloat("evade") + 0.5f);
         characterPrefs.SetInt("defense", characterPrefs.GetInt("defense") + 1);
-        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 2);
+        characterPrefs.SetInt("critDamage", characterPrefs.GetInt("critDamage") + 1);
         characterPrefs.Save();
     }
 }
