@@ -5,10 +5,4 @@ public class MageController : EnemyController
 {
 
 
-    void Start()
-    {
-        currentEnemyHP = enemyMaxHP;
-    }
-
-
 }

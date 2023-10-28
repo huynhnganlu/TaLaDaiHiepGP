@@ -180,13 +180,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd9d941e774a034d895df7e7ff36fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHP: 100
+  enemyMaxHP: 200
   currentEnemyHP: 0
-  exp: 0
-  money: 0
-  qi: 0
-  dao: 0
-  damage: 50
+  exp: 35
+  money: 8
+  qi: 4
+  dao: 4
+  damage: 30
+  shop: 2
+  projectile: {fileID: 0}
   radius: 1.6
   hitRaycast: {fileID: 5230015199296394331}
 --- !u!60 &3176353655386293652

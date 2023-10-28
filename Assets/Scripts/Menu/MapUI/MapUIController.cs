@@ -9,7 +9,7 @@ public class MapUIController : MonoBehaviour
     private ScrollRect mapSelectScroll;
     private float scrollSpeed = 0.5f;
     public static MapUIController Instance { get; private set; }
-    public string currentMap;
+    public int currentMap;
     public TextMeshProUGUI textUI;
     public GameObject[] mapHolder;
     private JsonPlayerPrefs characterPrefs;
@@ -29,7 +29,7 @@ public class MapUIController : MonoBehaviour
         }
 
         characterPrefs = MenuController.Instance.characterPrefs;
-        currentMap = "map1";
+        currentMap = 0;
     }
 
     private void OnEnable()
@@ -55,10 +55,10 @@ public class MapUIController : MonoBehaviour
 
     public void ButtonStartFight()
     {
-        characterPrefs.SetString("mapselected", currentMap);
+        characterPrefs.SetInt("mapselected", currentMap);
         characterPrefs.SetInt("mapdiff", dropdown.value);
         characterPrefs.Save();
-        SceneManager.LoadScene(currentMap);
+        SceneManager.LoadScene("map" + currentMap);
     }
     public void ProcessMap()
     {

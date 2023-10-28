@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class CharacterUIController : MonoBehaviour
@@ -23,6 +24,8 @@ public class CharacterUIController : MonoBehaviour
 
     [SerializeField]
     private GameObject characterPoints, characterPointsParent;
+    private Dictionary<string, string> listCharacterProperty;
+
 
     private void Awake()
     {
@@ -40,6 +43,41 @@ public class CharacterUIController : MonoBehaviour
 
     private void OnEnable()
     {
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+        {
+            listCharacterProperty = new Dictionary<string, string>()
+            {
+                { "hp","Health:"},
+                { "hpRegen", "HP regen:" },
+                { "mp", "Mana:" },
+                { "mpRegen", "MP regen:" },
+                { "evade", "Evade:" },
+                { "externalDamage", "External damage:" },
+                { "internalDamage", "Internal damage:" },
+                { "critDamage", "Crit damage:" },
+                { "critRate", "Crit rate:" },
+                { "defense", "Defense:" },
+                { "movementSpeed", "Movement speed:" }
+            };
+        }
+        else
+        {
+            listCharacterProperty = new Dictionary<string, string>()
+            {
+                { "hp","Khí huyeát:"},
+                { "hpRegen", "Hoài khí huyeát:" },
+                { "mp", "Noäi löïc:" },
+                { "mpRegen", "Hoài noäi löïc:" },
+                { "evade", "Neù traùnh:" },
+                { "externalDamage", "Uy löïc ngoaïi coâng:" },
+                { "internalDamage", "Uy löïc noäi coâng:" },
+                { "critDamage", "Saùt thöông chí maïng:" },
+                { "critRate", "Tæ leä chí maïng:" },
+                { "defense", "Phoøng thuû:" },
+                { "movementSpeed", "Toác ñoä di chuyeån:" }
+            };
+        }
+           
         CreateEquipedInventoryItemsUI();
     }
     //Khoi tao UI khi da trang bi
@@ -72,7 +110,7 @@ public class CharacterUIController : MonoBehaviour
 
     public void UpdateCharacterPoints(Dictionary<string, int> characterSpecial)
     {
-        foreach (KeyValuePair<string, string> property in MenuController.Instance.listCharacterProperty)
+        foreach (KeyValuePair<string, string> property in listCharacterProperty)
         {
             GameObject o = Instantiate(characterPoints, characterPointsParent.transform);
             TextMeshProUGUI[] textCompound = o.GetComponentsInChildren<TextMeshProUGUI>();

@@ -212,9 +212,9 @@ MonoBehaviour:
   enemyMaxHP: 100
   currentEnemyHP: 0
   exp: 20
-  money: 6
-  qi: 4
-  dao: 3
+  money: 4
+  qi: 2
+  dao: 2
   damage: 15
   shop: 1
   projectile: {fileID: 4873967349643490401, guid: 4cb84b8209f6bee4787413c93f03230c, type: 3}

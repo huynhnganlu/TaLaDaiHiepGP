@@ -14,7 +14,7 @@ public class MapItem : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         textHolder.text = mapDescription;
-        MapUIController.Instance.currentMap = gameObject.name;
+        MapUIController.Instance.currentMap = int.Parse(gameObject.name.Replace("map", ""));
         for(int i = 0; i < MapUIController.Instance.mapHolder.Length; i++)
         {
             if (MapUIController.Instance.mapHolder[i].name.Equals(gameObject.name))

@@ -32,6 +32,7 @@ public class MapController : MonoBehaviour
     public Button processFinishMapButton;
     [SerializeField]
     private TextMeshProUGUI shopMoneyText, qiText, daoText;
+    private bool isFinish = false;
     #endregion
     #region Minimap var
     public Camera minimapCamera;
@@ -47,7 +48,7 @@ public class MapController : MonoBehaviour
     #endregion
     #region Time var
     public Slider timeSlider;
-    private float time = 5f, minute = 0f, second = 0f;
+    private float time = 300f, minute = 0f, second = 0f;
     public TextMeshProUGUI timeText;
     #endregion
     #region Skill var
@@ -69,6 +70,12 @@ public class MapController : MonoBehaviour
     #endregion
     public GameObject damageText, vcamera, boss;
     private int keySkill;
+    #region Pause var
+    [SerializeField]
+    private GameObject pauseObject;
+    [SerializeField]
+    private TextMeshProUGUI pHP, pMP, pSpeed, pDefense, pCritDamage, pCritRate, pInternalDamage, pExternalDamage, pEvade, pHPRegen, pMPRegen, pDao, pQi, pShop;
+    #endregion
     private void Awake()
     {
         #region Singleton
@@ -94,15 +101,6 @@ public class MapController : MonoBehaviour
 
         //Set gia tri mac dinh cho timer    
         StartCoroutine(TimerProcess());
-
-        //Gan event cho finish map button
-        processFinishMapButton.onClick.AddListener(() =>
-        {
-            SetFreezing(false);
-            //characterData.money = MyCharacterController.Instance.money;
-            //characterData.qi = MyCharacterController.Instance.qi;
-            LoadSceneMainMenu();
-        });
 
         //Hien thi cac noi cong da trang bi
         GetEquipedInner(shopPrefs);
@@ -140,9 +138,12 @@ public class MapController : MonoBehaviour
                 MyCharacterController.Instance.SetSkillMoney(20);
                 TogglePrize("skill");
             }
-        }
 
+        }
         #endregion
+
+        if (Input.GetKeyDown(KeyCode.Escape) && (!isFinish))
+            SetPause();
     }
 
     private void LateUpdate()
@@ -177,6 +178,7 @@ public class MapController : MonoBehaviour
         }
         AudioManager.Instance.StopBG("BattleBGSound");
         MyCharacterController.Instance.isImmune = true;
+        isFinish = true;
         isFreezing = true;
         MyCharacterController.Instance.movement.x = 0;
         MyCharacterController.Instance.movement.y = 0;
@@ -186,12 +188,51 @@ public class MapController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         finishMapUI.SetActive(true);
         shopMoneyText.text = MyCharacterController.Instance.shopMoney.ToString();
+        daoText.text = MyCharacterController.Instance.dao.ToString();
         qiText.text = MyCharacterController.Instance.qi.ToString(); 
         SetFreezing(true);
 
     }
+
+    public void ProcessFinishMapButton()
+    {
+        characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") + MyCharacterController.Instance.qi);
+        characterPrefs.SetInt("dao", characterPrefs.GetInt("dao") + MyCharacterController.Instance.dao);
+        characterPrefs.SetInt("money", characterPrefs.GetInt("money") + MyCharacterController.Instance.shopMoney);
+        string nextMap = "map" + (characterPrefs.GetInt("mapselected") + 1);
+        if(characterPrefs.GetInt("mapdiff") == 1 && characterPrefs.HasKey(nextMap))
+        {
+            characterPrefs.SetInt(nextMap, 1);
+        }
+        characterPrefs.Save();
+        LoadSceneMainMenu();
+    }
+    private void SetPause()
+    {
+        pauseObject.SetActive(!pauseObject.activeSelf);
+        if (pauseObject.activeSelf)
+        {
+            SetFreezing(true);
+            pHP.text = MyCharacterController.Instance.maxHealth.ToString();
+            pMP.text = MyCharacterController.Instance.maxShield.ToString();
+            pSpeed.text = MyCharacterController.Instance.speed.ToString();
+            pDefense.text = MyCharacterController.Instance.defense.ToString();
+            pCritDamage.text = MyCharacterController.Instance.critDamage.ToString();
+            pCritRate.text = MyCharacterController.Instance.critRate.ToString();
+            pInternalDamage.text = MyCharacterController.Instance.internalDamage.ToString();
+            pExternalDamage.text = MyCharacterController.Instance.externalDamage.ToString();
+            pEvade.text = MyCharacterController.Instance.evade.ToString();
+            pHPRegen.text = MyCharacterController.Instance.hpRegen.ToString();
+            pMPRegen.text = MyCharacterController.Instance.mpRegen.ToString();
+            pDao.text = MyCharacterController.Instance.dao.ToString();
+            pQi.text = MyCharacterController.Instance.qi.ToString();
+            pShop.text = MyCharacterController.Instance.shopMoney.ToString();
+        }
+        else
+            SetFreezing(false);    
+    }
     //Load menu chinh
-    private void LoadSceneMainMenu()
+    public void LoadSceneMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
@@ -233,9 +274,8 @@ public class MapController : MonoBehaviour
     }
     private void BossProcess()
     {
-        StopCoroutine(spawnCoroutine);
         AudioManager.Instance.PlaySE("BossSpawnSE");
-        Instantiate(boss, GetRandomSpawnPosition(10f, 13f), Quaternion.identity);
+        ObjectPoolController.Instance.SpawnObject(boss, GetRandomSpawnPosition(10f, 13f), Quaternion.identity); 
         timeSlider.maxValue = boss.GetComponent<BossController>().enemyMaxHP;
         timeSlider.value = timeSlider.maxValue;
         timeText.text = boss.GetComponent<BossController>().enemyMaxHP.ToString();
@@ -289,6 +329,10 @@ public class MapController : MonoBehaviour
                 prizeItem.header.text = prize.header + "\n<size=80%>Lv.1";
                 prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]);
             }
+            if (totalCost > MyCharacterController.Instance.skillMoney)
+                prizeItem.costText.color = UnityEngine.Color.red;
+            else
+                prizeItem.costText.color = UnityEngine.Color.white;
             prizeItem.costText.text = totalCost.ToString();
             prizeItem.cost = totalCost;
         }

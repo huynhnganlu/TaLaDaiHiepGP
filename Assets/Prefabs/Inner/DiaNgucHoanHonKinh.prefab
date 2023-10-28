@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0567316b26e88c740bebbd89ec980431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 660
+  itemCost: 1320
   itemID: 7
   itemHP: 50
   itemMP: 50
@@ -71,3 +71,5 @@ MonoBehaviour:
   itemElemental: yang
   itemEffect: "Ta\xEAng t\xE6 le\xE4 ba\xEFo k\xEDch 10% + (1% x co\xE2ng l\xF6\xEFc)
     va\xF8 sa\xF9t th\xF6\xF4ng ga\xE2y ra 30 + (2 x co\xE2ng l\xF6\xEFc)"
+  itemEffectEng: Increases critical attack rate by 10% + (1% x Level) and damage
+    dealt by 30 + (2 x level)

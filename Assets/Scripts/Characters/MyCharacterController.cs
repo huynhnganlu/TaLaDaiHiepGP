@@ -51,6 +51,7 @@ public class MyCharacterController : MonoBehaviour
     public float movementSpeed, evade, critRate;
     [HideInInspector]
     public bool isImmune, isEvade = false;
+    [HideInInspector]
     public int qi, dao, shopMoney;
 
     #endregion
@@ -111,7 +112,6 @@ public class MyCharacterController : MonoBehaviour
 
         SetSkill(defaultSkill.id);
         SetSkillIcon();
-        skillMoney = 0;
         skillMoneyText.text = skillMoney.ToString();
         StartCoroutine(RegenOverTime());
     }
@@ -252,6 +252,8 @@ public class MyCharacterController : MonoBehaviour
                             elementalTaichi += 1;
                             break;
                     }
+                    maxHealth += 50;
+                    maxShield += 50;
                 }
             }
         }

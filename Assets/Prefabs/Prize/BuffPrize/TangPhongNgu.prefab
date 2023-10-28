@@ -47,6 +47,7 @@ MonoBehaviour:
   id: 4
   cost: 0
   header: "Pho\xF8ng Ng\xF6\xEF"
-  description: "Gia\xFBm sa\xF9t th\xF6\xF4ng nha\xE4n va\xF8o +10"
+  description: "Gia\xFBm sa\xF9t th\xF6\xF4ng nha\xE4n va\xF8o +2"
   icon: {fileID: 21300000, guid: 8245da364327b8642bd02497d4cbaeb2, type: 3}
   rate: 25
+  skillRef: {fileID: 0}

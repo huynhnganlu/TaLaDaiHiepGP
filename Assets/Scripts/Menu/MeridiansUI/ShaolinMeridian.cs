@@ -1,19 +1,35 @@
 using System.Collections.Generic;
+using UnityEngine.Localization.Settings;
 
 public class ShaolinMeridian : MeridianAbstract
 {
 
 
-    private void Start()
+    private void OnEnable()
     {
-        propertyData = new Dictionary<string, string>
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
         {
-            { "Khí huyeát:", hp.ToString()},
-            { "Noäi löïc:", mp.ToString()},
-            { "Phoøng ngöï:", defense.ToString()},
-            { "Hoài khí huyeát:", hpRegen.ToString()},
-            { "Toác ñoä di chuyeån:", movementSpeed.ToString()},
-        };
+            propertyData = new Dictionary<string, string>
+            {
+                { "Health:", hp.ToString()},
+                { "Mana:", mp.ToString()},
+                { "Defense:", defense.ToString()},
+                { "HP regen:", hpRegen.ToString()},
+                { "Movement speed:", movementSpeed.ToString()},
+            };
+        }
+        else
+        {
+            propertyData = new Dictionary<string, string>
+            {
+                { "Khí huyeát:", hp.ToString()},
+                { "Noäi löïc:", mp.ToString()},
+                { "Phoøng ngöï:", defense.ToString()},
+                { "Hoài khí huyeát:", hpRegen.ToString()},
+                { "Toác ñoä di chuyeån:", movementSpeed.ToString()},
+            };
+        }
+       
     }
 
     public override void LevelUpMeridian()
@@ -62,11 +78,22 @@ public class ShaolinMeridian : MeridianAbstract
 
     public override void UpdatePropertyData()
     {
-        propertyData["Khí huyeát:"] = hp.ToString();
-        propertyData["Noäi löïc:"] = mp.ToString();
-        propertyData["Phoøng ngöï:"] = defense.ToString();
-        propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
-        propertyData["Toác ñoä di chuyeån:"] = System.MathF.Round(movementSpeed,2).ToString();
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+        {
+            propertyData["Health:"] = hp.ToString();
+            propertyData["Mana:"] = mp.ToString();
+            propertyData["Defense:"] = defense.ToString();
+            propertyData["HP regen:"] = hpRegen.ToString();
+            propertyData["Speed movement:"] = System.MathF.Round(movementSpeed, 2).ToString();
+        }
+        else
+        {
+            propertyData["Khí huyeát:"] = hp.ToString();
+            propertyData["Noäi löïc:"] = mp.ToString();
+            propertyData["Phoøng ngöï:"] = defense.ToString();
+            propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
+            propertyData["Toác ñoä di chuyeån:"] = System.MathF.Round(movementSpeed, 2).ToString();
+        }     
         characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
         characterPrefs.Save();
 

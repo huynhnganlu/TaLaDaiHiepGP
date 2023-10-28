@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea28d23b33e6940b6e83726b2d6c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 1600
+  itemCost: 3200
   itemID: 4
   itemHP: 50
   itemMP: 50
@@ -64,5 +64,7 @@ MonoBehaviour:
     co\u0301 the\xE2m \xF1i\u0323ch thu\xFB. "
   itemType: Buff
   itemElemental: yang
-  itemEffect: "Ta\xEAng 10% + (2% * co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng va\xF8
-    10% + (2% * co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng ba\xEFo k\xEDch"
+  itemEffect: "Ta\xEAng 10% + (2% x co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng va\xF8
+    10% + (2% x co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng ba\xEFo k\xEDch"
+  itemEffectEng: Increases damage by 10% + (2% x level) and critical damage by 10%
+    + (2% x level)

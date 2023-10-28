@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class ShopController : MonoBehaviour
         }
 
         LoadShopItemsData();
+        ShopTooltipText();
     }
 
     //Kiem tra cac item co the mua
@@ -98,11 +100,22 @@ public class ShopController : MonoBehaviour
             shopTemplates[i].id = data.itemID;
             shopTemplates[i].cost.text = data.itemCost.ToString();
             shopTemplates[i].itemImage.sprite = data.itemImage;
-            string textShow = "<b>Vaän haønh kích hoaït:</b>\nKhí huyeát +" + data.itemHP + "\nNoäi löïc +" + data.itemMP + "\n<b>Ñaëc hieäu:</b>\n" + data.itemEffect;
-            shopTemplates[i].textTooltip = textShow;
             itemAddedArray[i] = data;
         }
         CheckItems();
+    }
+    private void ShopTooltipText()
+    {
+        string textShow;
+        for (int i = 0;i <= 5; i++)
+        {
+            ShopDataAbstract data = innerHolder.listInner[shopTemplates[i].id].GetComponent<ShopDataAbstract>();
+            if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+                textShow = "<b>Inner points:</b>\nHealth +" + data.itemHP + "\nMana +" + data.itemMP + "\n<b>Inner effect:</b>\n" + data.itemEffectEng;
+            else
+                textShow = "<b>Vaän haønh kích hoaït:</b>\nKhí huyeát +" + data.itemHP + "\nNoäi löïc +" + data.itemMP + "\n<b>Ñaëc hieäu:</b>\n" + data.itemEffect;
+            shopTemplates[i].textTooltip = textShow;
+        }
     }
     public void RerollShopItemsData()
     {

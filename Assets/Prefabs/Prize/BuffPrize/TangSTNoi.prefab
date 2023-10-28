@@ -47,7 +47,7 @@ MonoBehaviour:
   id: 8
   cost: 0
   header: "Sa\xF9t Th\xF6\xF4ng No\xE4i Co\xE2ng"
-  description: "Ta\xEAng sa\xF9t th\xF6\xF4ng no\xE4i co\xE2ng ga\xE2y ra +10"
+  description: "Ta\xEAng sa\xF9t th\xF6\xF4ng no\xE4i co\xE2ng ga\xE2y ra +5"
   icon: {fileID: 21300000, guid: 08d78afb1439920458ccf94160924771, type: 3}
   rate: 25
   skillRef: {fileID: 0}

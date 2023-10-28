@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3833a0964ff1a74e98087d595380bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 200
+  itemCost: 400
   itemID: 0
   itemHP: 50
   itemMP: 50
@@ -60,4 +60,5 @@ MonoBehaviour:
   itemType: Buff
   itemElemental: yin
   itemEffect: "B\xF2 ta\xE1n co\xE2ng se\xF5 va\xE4n kh\xED ho\xE4 the\xE5 gia\xFBm
-    10 + (2 * co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng nha\xE4n va\xF8o"
+    10 + (2 x co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng nha\xE4n va\xF8o"
+  itemEffectEng: Being attacked will reduce damage received by 10 + (2 x level).

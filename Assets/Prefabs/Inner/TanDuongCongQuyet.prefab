@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4271fa3470ef54428b8a89db387eef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 840
+  itemCost: 1680
   itemID: 3
   itemHP: 50
   itemMP: 50
@@ -65,3 +65,5 @@ MonoBehaviour:
   itemEffect: "K\xEDch hoa\xEFt ho\xE4 the\xE5 mie\xE3n nhie\xE3m mo\xEFi sa\xF9t
     th\xF6\xF4ng trong 2 + (0.2 x co\xE2ng l\xF6\xEFc) gia\xE2y, th\xF4\xF8i gian
     ho\xE0i kh\xED 20 gia\xE2y"
+  itemEffectEng: Activate immunity to all damage for 2 + (0.2 x level) seconds, cooldown
+    time 20 seconds

@@ -12,9 +12,26 @@ public abstract class EnemyController : MonoBehaviour
     private GameObject projectile;
 
     private void OnEnable()
-    {
+    {  
         GetComponent<PolygonCollider2D>().isTrigger = false;
         GetComponent<Animator>().SetBool("Death", false);
+    }
+
+    private void Start()
+    {
+        if (MapController.Instance.characterPrefs.HasKey("mapdiff"))
+        {
+            if (MapController.Instance.characterPrefs.GetInt("mapdiff") == 1)
+            {
+                enemyMaxHP = (int)System.Math.Round(enemyMaxHP * 1.5f);
+                money *= (int)System.Math.Round(money * 1.5f);
+                qi *= (int)System.Math.Round(qi * 1.5f);
+                dao *= (int)System.Math.Round(dao * 1.5f);
+                damage *= (int)System.Math.Round(damage * 1.5f);
+                shop *= (int)System.Math.Round(shop * 1.5f);
+            }
+            currentEnemyHP = enemyMaxHP;
+        }
     }
 
     public void TakePlayerDamage(int damage, bool isCrit)

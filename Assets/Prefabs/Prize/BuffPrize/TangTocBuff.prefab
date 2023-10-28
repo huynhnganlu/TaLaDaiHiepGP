@@ -47,7 +47,7 @@ MonoBehaviour:
   id: 9
   cost: 0
   header: "Ta\xEAng To\xE1c"
-  description: "Ta\xEAng to\xE1c \xF1o\xE4 di chuye\xE5n +1"
+  description: "Ta\xEAng to\xE1c \xF1o\xE4 di chuye\xE5n +0.02"
   icon: {fileID: 21300000, guid: 19478bdaaaac4334084855b55435ff83, type: 3}
   rate: 25
   skillRef: {fileID: 0}

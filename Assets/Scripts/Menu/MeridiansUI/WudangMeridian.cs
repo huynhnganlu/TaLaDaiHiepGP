@@ -1,18 +1,34 @@
 using System.Collections.Generic;
+using UnityEngine.Localization.Settings;
 
 public class WudangMeridian : MeridianAbstract
 {
 
-    private void Start()
+    private void OnEnable()
     {
-        propertyData = new Dictionary<string, string>
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
         {
-            { "Khí huyeát:", hp.ToString()},
-            { "Noäi löïc:", mp.ToString()},
-            { "Hoài noäi löïc:", mpRegen.ToString()},
-            { "Hoài khí huyeát:", hpRegen.ToString()},
-            { "Uy löïc noäi coâng:", internalDamage.ToString()},
-        };
+            propertyData = new Dictionary<string, string>
+            {
+                { "Health:", hp.ToString()},
+                { "Mana:", mp.ToString()},
+                { "MP regen:", mpRegen.ToString()},
+                { "HP regen:", hpRegen.ToString()},
+                { "Internal damage:", internalDamage.ToString()},
+            };
+        }
+        else
+        {
+            propertyData = new Dictionary<string, string>
+            {
+                { "Khí huyeát:", hp.ToString()},
+                { "Noäi löïc:", mp.ToString()},
+                { "Hoài noäi löïc:", mpRegen.ToString()},
+                { "Hoài khí huyeát:", hpRegen.ToString()},
+                { "Uy löïc noäi coâng:", internalDamage.ToString()},
+            };
+        }
+       
 
     }
     public override void LevelUpMeridian()
@@ -61,11 +77,23 @@ public class WudangMeridian : MeridianAbstract
 
     public override void UpdatePropertyData()
     {
-        propertyData["Khí huyeát:"] = hp.ToString();
-        propertyData["Noäi löïc:"] = mp.ToString();
-        propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
-        propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
-        propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+        {
+            propertyData["Health:"] = hp.ToString();
+            propertyData["Mana:"] = mp.ToString();
+            propertyData["MP regen:"] = mpRegen.ToString();
+            propertyData["HP regen:"] = hpRegen.ToString();
+            propertyData["Internal damage:"] = internalDamage.ToString();
+        }
+        else
+        {
+            propertyData["Khí huyeát:"] = hp.ToString();
+            propertyData["Noäi löïc:"] = mp.ToString();
+            propertyData["Hoài noäi löïc:"] = mpRegen.ToString();
+            propertyData["Hoài khí huyeát:"] = hpRegen.ToString();
+            propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
+        }
+       
         characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
         characterPrefs.Save();
 

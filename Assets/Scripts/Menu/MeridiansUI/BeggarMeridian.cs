@@ -1,20 +1,37 @@
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine.Localization.Settings;
 
 public class BeggarMeridian : MeridianAbstract
 {
 
 
-    private void Start()
-    {;
-        propertyData = new Dictionary<string, string>
+    private void OnEnable()
+    {
+        if(LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
         {
-            { "Khí huyeát:", hp.ToString()},
-            { "Noäi löïc:", mp.ToString()},
-            { "Phoøng ngöï:", defense.ToString()},
-            { "Uy löïc noäi coâng:", internalDamage.ToString()},
-            { "Uy löïc ngoaïi coâng:", externalDamage.ToString()},
+            propertyData = new Dictionary<string, string>
+            {
+                { "Health:", hp.ToString()},
+                { "Mana:", mp.ToString()},
+                { "Defense:", defense.ToString()},
+                { "Internal damage:", internalDamage.ToString()},
+                { "External damage:", externalDamage.ToString()},
 
-        };
+            };
+        }
+        else
+        {
+            propertyData = new Dictionary<string, string>
+            {
+                { "Khí huyeát:", hp.ToString()},
+                { "Noäi löïc:", mp.ToString()},
+                { "Phoøng ngöï:", defense.ToString()},
+                { "Uy löïc noäi coâng:", internalDamage.ToString()},
+                { "Uy löïc ngoaïi coâng:", externalDamage.ToString()},
+
+            };
+        }  
     }
 
     public override void LevelUpMeridian()
@@ -61,11 +78,22 @@ public class BeggarMeridian : MeridianAbstract
 
     public override void UpdatePropertyData()
     {
-        propertyData["Khí huyeát:"] = hp.ToString();
-        propertyData["Noäi löïc:"] = mp.ToString();
-        propertyData["Phoøng ngöï:"] = defense.ToString();
-        propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
-        propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale("en"))
+        {
+            propertyData["Health:"] = hp.ToString();
+            propertyData["Mana:"] = mp.ToString();
+            propertyData["Defense:"] = defense.ToString();
+            propertyData["Internal damage:"] = internalDamage.ToString();
+            propertyData["External damage:"] = externalDamage.ToString();
+        }
+        else
+        {
+            propertyData["Khí huyeát:"] = hp.ToString();
+            propertyData["Noäi löïc:"] = mp.ToString();
+            propertyData["Phoøng ngöï:"] = defense.ToString();
+            propertyData["Uy löïc noäi coâng:"] = internalDamage.ToString();
+            propertyData["Uy löïc ngoaïi coâng:"] = externalDamage.ToString();
+        }    
         characterPrefs.SetInt("qi", characterPrefs.GetInt("qi") - (5 * level));
         characterPrefs.Save();
 

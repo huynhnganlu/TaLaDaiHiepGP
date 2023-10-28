@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d792a3d1f9eee7b4e9170820e66925ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 1300
+  itemCost: 2600
   itemID: 5
   itemHP: 50
   itemMP: 50
@@ -65,3 +65,5 @@ MonoBehaviour:
   itemEffect: "Khi kh\xED huye\xE1t tha\xE1p h\xF4n 30%, ho\xE0i 30% + (2% x co\xE2ng
     l\xF6\xEFc) kh\xED huye\xE1t trong vo\xF8ng 6 gia\xE2y. Mo\xE3i tra\xE4n \xF1a\xE1u
     ch\xE6 co\xF9 ta\xF9c du\xEFng 2 la\xE0n"
+  itemEffectEng: When health is lower than 30%, restores 30% + (2% x level) health
+    within 6 seconds. Each match only works twice

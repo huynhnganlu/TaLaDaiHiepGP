@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d41179de61b324c9744c5a9927ffd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 1150
+  itemCost: 2300
   itemID: 2
   itemHP: 50
   itemMP: 50
@@ -66,3 +66,5 @@ MonoBehaviour:
   itemEffect: "Khi b\xF2 ta\xE1n co\xE2ng co\xF9 xa\xF9c sua\xE1t ho\xE0i 5% + (1%
     x co\xE2ng l\xF6\xEFc) kh\xED huye\xE1t trong 3 gia\xE2y, th\xF4\xF8i gian ho\xE0i
     kh\xED 20 gia\xE2y"
+  itemEffectEng: When attacked, there is a chance to restore 5% + (1% x level) of
+    vitality and blood in 3 seconds, and the cooldown is 20 seconds.

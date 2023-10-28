@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a95fb4ad408ec4088892e4bbf7ad0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 630
+  itemCost: 1260
   itemID: 8
   itemHP: 50
   itemMP: 50
@@ -64,3 +64,5 @@ MonoBehaviour:
   itemElemental: yin
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) t\xE6 le\xE4 ne\xF9 va\xF8
     ga\xE2y the\xE2m sa\xF9t th\xF6\xF4ng 20"
+  itemEffectEng: Increases evasion rate by 15% + (1% x level) and deals 20 additional
+    damage

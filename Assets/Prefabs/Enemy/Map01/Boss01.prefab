@@ -224,7 +224,7 @@ MonoBehaviour:
   enemyMaxHP: 2000
   currentEnemyHP: 0
   exp: 0
-  money: 100
+  money: 0
   qi: 300
   dao: 500
   damage: 80

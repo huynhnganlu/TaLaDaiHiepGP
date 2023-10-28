@@ -177,6 +177,7 @@ public class InventoryController : MonoBehaviour
                     shopPrefs.Save();
                     characterPrefs.Save();
                     SetItemValue(currentItem);
+                    AudioManager.Instance.PlaySE("LevelUpSE");
                 }
             }
         }

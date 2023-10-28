@@ -6,7 +6,6 @@ public class MenuController : MonoBehaviour
 {
     public static MenuController Instance;
     public JsonPlayerPrefs shopPrefs, meridianPrefs, characterPrefs;
-    public Dictionary<string, string> listCharacterProperty;
     public TimeSpan timePassed;
     private void Awake()
     {
@@ -44,30 +43,17 @@ public class MenuController : MonoBehaviour
             characterPrefs.SetFloat("critRate", 0);
             characterPrefs.SetInt("defense", 0);
             characterPrefs.SetFloat("movementSpeed", 5f);
-            characterPrefs.SetInt("qi", 10000);
-            characterPrefs.SetInt("dao", 10000);
-            characterPrefs.SetInt("money", 10000);
+            characterPrefs.SetInt("qi", 0);
+            characterPrefs.SetInt("dao", 0);
+            characterPrefs.SetInt("money", 0);
             characterPrefs.SetInt("map0", 1);
-            characterPrefs.SetInt("map1", 1);
+            characterPrefs.SetInt("map1", 0);
             characterPrefs.SetInt("map2", 0);
             characterPrefs.SetString("character", "Sword");
             characterPrefs.Save();
         }
 
-        listCharacterProperty ??= new Dictionary<string, string>()
-            {
-                { "hp","Khí huyeát"},
-                { "hpRegen", "Hoài khí huyeát" },
-                { "mp", "Noäi löïc" },
-                { "mpRegen", "Hoài noäi löïc" },
-                { "evade", "Neù traùnh" },
-                { "externalDamage", "Uy löïc ngoaïi coâng" },
-                { "internalDamage", "Uy löïc noäi coâng" },
-                { "critDamage", "Saùt thöông chí maïng" },
-                { "critRate", "Tæ leä chí maïng" },
-                { "defense", "Phoøng thuû" },
-                { "movementSpeed", "Toác ñoä di chuyeån" }
-            };
+      
         AudioManager.Instance.PlayBG("MenuBGSound");
     }
 

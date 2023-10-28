@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926ee3c7d7c3774bbdd68062167c059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCost: 360
+  itemCost: 720
   itemID: 6
   itemHP: 50
   itemMP: 50
@@ -65,3 +65,5 @@ MonoBehaviour:
   itemElemental: yin
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) to\xE1c \xF1o\xE4 di chuye\xE5n
     va\xF8 ga\xE2y the\xE2m 10 sa\xF9t th\xF6\xF4ng"
+  itemEffectEng: Increases movement speed by 15% + (1% x level) and deals 10 additional
+    damage

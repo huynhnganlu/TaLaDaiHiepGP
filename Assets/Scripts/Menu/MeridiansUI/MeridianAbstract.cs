@@ -11,6 +11,8 @@ public abstract class MeridianAbstract : MonoBehaviour
     public GameObject objectPropertyData;
     public Sprite merdianImage;
     public JsonPlayerPrefs meridianPrefs, characterPrefs;
+
+
     public abstract void LevelUpMeridian();
     public abstract void SaveMeridian();
     public abstract void LoadMeridian();

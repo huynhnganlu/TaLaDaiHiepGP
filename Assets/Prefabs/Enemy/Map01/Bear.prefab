@@ -261,11 +261,11 @@ MonoBehaviour:
   enemyMaxHP: 300
   currentEnemyHP: 0
   exp: 50
-  money: 12
-  qi: 10
-  dao: 7
+  money: 10
+  qi: 5
+  dao: 5
   damage: 50
-  shop: 2
+  shop: 1
   projectile: {fileID: 0}
   radius: 3
   hitRaycast: {fileID: 1541541805051083664}

@@ -74,7 +74,7 @@ public abstract class SkillAbstract : MonoBehaviour
         Transform cloestEnemy = null;
         GameObject objectHolder = GameObject.Find("MapPrefab/ObjectParentHolder");
         foreach(Transform child in objectHolder.transform){
-            if(child.gameObject.activeSelf && (child.CompareTag("Enemy") || child.CompareTag("Boss")))
+            if(child != null && child.gameObject.activeSelf && (child.CompareTag("Enemy") || child.CompareTag("Boss")))
             {
                 float distance = (child.position - MyCharacterController.Instance.transform.position).sqrMagnitude;
                 if(distance < distanceClosest && distance <= 200f)
