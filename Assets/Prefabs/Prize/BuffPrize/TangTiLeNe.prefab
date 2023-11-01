@@ -47,7 +47,9 @@ MonoBehaviour:
   id: 10
   cost: 0
   header: "Ne\xF9 Tra\xF9nh"
+  headerEng: Evade
   description: "Ta\xEAng t\xE6 le\xE4 ne\xF9 tra\xF9nh +0.5"
+  descriptionEng: Increase evade rate +0.5
   icon: {fileID: 21300000, guid: 5dfef55c53345a04f8ad293d4fe91223, type: 3}
   rate: 25
   skillRef: {fileID: 0}

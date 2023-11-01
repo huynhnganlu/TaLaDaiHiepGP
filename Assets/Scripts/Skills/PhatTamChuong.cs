@@ -4,8 +4,12 @@ public class PhatTamChuong : SkillAbstract
 {
     public override void ProcessSkill()
     {
-        GameObject go = ObjectPoolController.Instance.SpawnObject(gameObject, FindClosestEnemy().position, Quaternion.identity);
-        go.GetComponent<Animator>().SetTrigger("Attack");
+        if (FindClosestEnemy() != null)
+        {
+            GameObject go = ObjectPoolController.Instance.SpawnObject(gameObject, FindClosestEnemy().position, Quaternion.identity);
+            go.GetComponent<Animator>().SetTrigger("Attack");
+        }
+            
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -3,9 +3,9 @@ using UnityEngine;
 public abstract class PrizeAbstract : MonoBehaviour
 {
     public int id, cost;
-    public string header;
+    public string header, headerEng;
     [TextArea]
-    public string description;
+    public string description, descriptionEng;
     public Sprite icon;
     public float rate;
     public SkillAbstract skillRef;

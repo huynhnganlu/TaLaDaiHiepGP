@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
@@ -80,18 +81,31 @@ public class InventoryController : MonoBehaviour
             if (shopPrefs.HasKey(itemData.itemID.ToString()) == true)
             {
                 GameObject item = Instantiate(inventoryItem, innerParent.transform);
-                item.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemName;
                 InventoryItems inventoryItemData = item.GetComponent<InventoryItems>();
-                inventoryItemData.itemID = itemData.itemID;
-                inventoryItemData.itemName = itemData.itemName;
+                if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+                {
+                    item.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemNameEng;
+                    inventoryItemData.itemName = itemData.itemNameEng;
+                    inventoryItemData.itemOrigin = itemData.itemOriginEng;
+                    inventoryItemData.itemProperty = itemData.itemPropertyEng;
+                    inventoryItemData.itemEffect = itemData.itemEffectEng;
+
+                }
+                else
+                {
+                    item.GetComponentInChildren<TextMeshProUGUI>().text = itemData.itemName;
+                    inventoryItemData.itemName = itemData.itemName;
+                    inventoryItemData.itemOrigin = itemData.itemOrigin;
+                    inventoryItemData.itemProperty = itemData.itemProperty;
+                    inventoryItemData.itemEffect = itemData.itemEffect;
+
+                }
+                inventoryItemData.itemID = itemData.itemID;               
                 inventoryItemData.itemLevel = shopPrefs.GetInt(itemData.itemID.ToString());
-                inventoryItemData.itemImage = itemData.itemImage;
-                inventoryItemData.itemOrigin = itemData.itemOrigin;
-                inventoryItemData.itemProperty = itemData.itemProperty;
+                inventoryItemData.itemImage = itemData.itemImage;         
                 inventoryItemData.itemHistory = itemData.itemHistory;
                 inventoryItemData.itemHP = itemData.itemHP;
                 inventoryItemData.itemMP = itemData.itemMP;
-                inventoryItemData.itemEffect = itemData.itemEffect;
                 if (firstItem)
                 {
                     currentItem = inventoryItemData;
@@ -101,7 +115,10 @@ public class InventoryController : MonoBehaviour
                 inventoryItemsList.Add(inventoryItemData);
             }
         }
-        numberInnerUI.text = "Soá löôïng noäi coâng: " + innerCount.ToString();
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+            numberInnerUI.text = "Total inner: " + innerCount.ToString();
+        else
+            numberInnerUI.text = "Soá löôïng noäi coâng: " + innerCount.ToString();
     }
     //Xoa nhung inventory items hien co
     public void ResetInventoryItems()
@@ -138,10 +155,19 @@ public class InventoryController : MonoBehaviour
         imageUI.sprite = inventoryItems.itemImage;
         imageUI.color = new Color(1f, 1f, 1f, 1f);
         indexItemClicked = inventoryItems.transform.GetSiblingIndex();
+       
         GameObject hpDetail = Instantiate(itemDetail, itemDetailParent.transform);
-        ItemDetail(hpDetail, "Khí huyeát", inventoryItems.itemHP);
         GameObject mpDetail = Instantiate(itemDetail, itemDetailParent.transform);
-        ItemDetail(mpDetail, "Noäi löïc", inventoryItems.itemMP);
+        if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+        {
+            ItemDetail(hpDetail, "Health", inventoryItems.itemHP);
+            ItemDetail(mpDetail, "Mana", inventoryItems.itemMP);
+        }
+        else
+        {
+            ItemDetail(hpDetail, "Khí huyeát", inventoryItems.itemHP);
+            ItemDetail(mpDetail, "Noäi löïc", inventoryItems.itemMP);
+        }
         effectTextUI.text = inventoryItems.itemEffect;
         dao = characterPrefs.GetInt("dao");
         if (inventoryItems.itemLevel == 0)

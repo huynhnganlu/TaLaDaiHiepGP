@@ -30,7 +30,6 @@ public class MeridianController : MonoBehaviour
 
     }
 
-
     private void Start()
     {
         //Assign ham level up vao level up button

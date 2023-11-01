@@ -60,10 +60,9 @@ MonoBehaviour:
   maxExp: 0
   currentExp: 0
   expBar: {fileID: 0}
-  money: 0
-  moneyText: {fileID: 0}
-  qi: 0
-  defaultSkill: {fileID: 0}
+  skillMoney: 0
+  skillMoneyText: {fileID: 0}
+  defaultSkill: {fileID: -229771048306615692, guid: 1c80e9f292fb855479548dfbb0ca9a67, type: 3}
   externalDamage: 0
   internalDamage: 0
   critDamage: 0
@@ -78,6 +77,9 @@ MonoBehaviour:
   critRate: 0
   isImmune: 0
   isEvade: 0
+  qi: 0
+  dao: 0
+  shopMoney: 0
 --- !u!50 &9221199793766028539
 Rigidbody2D:
   serializedVersion: 4

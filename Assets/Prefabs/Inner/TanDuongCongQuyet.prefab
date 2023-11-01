@@ -62,6 +62,9 @@ MonoBehaviour:
     \xF1\xF4\u0303."
   itemType: Defense
   itemElemental: yang
+  itemNameEng: Setting Sun
+  itemOriginEng: Jiang Hu
+  itemPropertyEng: Yang
   itemEffect: "K\xEDch hoa\xEFt ho\xE4 the\xE5 mie\xE3n nhie\xE3m mo\xEFi sa\xF9t
     th\xF6\xF4ng trong 2 + (0.2 x co\xE2ng l\xF6\xEFc) gia\xE2y, th\xF4\xF8i gian
     ho\xE0i kh\xED 20 gia\xE2y"

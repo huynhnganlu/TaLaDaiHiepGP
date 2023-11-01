@@ -47,9 +47,16 @@ MonoBehaviour:
   id: 9
   cost: 60
   header: "Tha\xF9i C\xF6\xEFc Quye\xE0n"
+  headerEng: Taichi Fist
   description: "Pho\xF9ng ch\xF6\xF4\xFBng k\xECnh nga\xE3u nhie\xE2n\nThuo\xE4c
     t\xEDnh <color=grey>Tha\xF9i C\xF6\xEFc</color>\nSa\xF9t th\xF6\xF4ng no\xE4i
     co\xE2ng:"
+  descriptionEng: 'Releases random attacks
+
+    Property <color=grey>Taichi</color>
+
+    Internal
+    damage:'
   icon: {fileID: 21300000, guid: 4e1e19a8aafb3374eb4c90f8ac1cf2be, type: 3}
   rate: 10
   skillRef: {fileID: -2271736555908128458, guid: 839662506f4d8d94e99313f133bef9d5, type: 3}

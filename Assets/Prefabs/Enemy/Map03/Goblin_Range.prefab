@@ -193,7 +193,7 @@ MonoBehaviour:
   money: 12
   qi: 10
   dao: 10
-  damage: 50
+  damage: 100
   shop: 3
   projectile: {fileID: 3646285277961720869, guid: 6b7d407fcd4a2af4fabbeff7682c7628, type: 3}
 --- !u!95 &3425094553953816

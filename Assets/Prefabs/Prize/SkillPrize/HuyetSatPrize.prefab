@@ -47,8 +47,15 @@ MonoBehaviour:
   id: 2
   cost: 60
   header: "Huye\xE1t Sa\xF9t \xD1ao"
+  headerEng: Blood Blade Secret
   description: "Pho\xF9ng \xF1ao k\xECnh ve\xE0 hai ph\xEDa\nThuo\xE4c t\xEDnh <color=grey>Tha\xF9i
     C\xF6\xEFc</color>\nSa\xF9t th\xF6\xF4ng no\xE4i co\xE2ng:"
+  descriptionEng: 'Releases powerful blades in both directions
+
+    Property <color=grey>Taichi</color>
+
+    Internal
+    damage:'
   icon: {fileID: 21300000, guid: f3f7715e916d0ba4fb6edf826b8271fb, type: 3}
   rate: 10
   skillRef: {fileID: 5848543440670084275, guid: d479d4901ca6fce45ae8dddc794e82ee, type: 3}

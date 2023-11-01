@@ -64,6 +64,9 @@ MonoBehaviour:
     co\u0301 the\xE2m \xF1i\u0323ch thu\xFB. "
   itemType: Buff
   itemElemental: yang
+  itemNameEng: Taoist
+  itemOriginEng: Jiang Hu
+  itemPropertyEng: Yang
   itemEffect: "Ta\xEAng 10% + (2% x co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng va\xF8
     10% + (2% x co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng ba\xEFo k\xEDch"
   itemEffectEng: Increases damage by 10% + (2% x level) and critical damage by 10%

@@ -47,7 +47,9 @@ MonoBehaviour:
   id: 1
   cost: 0
   header: "T\xE6 Le\xE4 Ch\xED Ma\xEFng"
+  headerEng: Crit Rate
   description: "Ta\xEAng t\xE6 le\xE4 ch\xED ma\xEFng +0.5"
+  descriptionEng: Increase crit rate +0.5
   icon: {fileID: 21300000, guid: 19d5a9fd45ab542429545457db98b5d8, type: 3}
   rate: 25
   skillRef: {fileID: 0}

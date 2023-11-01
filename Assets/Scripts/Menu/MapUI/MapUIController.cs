@@ -58,7 +58,8 @@ public class MapUIController : MonoBehaviour
         characterPrefs.SetInt("mapselected", currentMap);
         characterPrefs.SetInt("mapdiff", dropdown.value);
         characterPrefs.Save();
-        SceneManager.LoadScene("map" + currentMap);
+        LoadingController.Instance.LoadLevel("map" + currentMap);
+
     }
     public void ProcessMap()
     {

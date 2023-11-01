@@ -62,6 +62,9 @@ MonoBehaviour:
     ta\xE1n co\xE2ng \xF1e\xE0u ho\xF9a vo\xE2 h\xECnh, thie\xE2n ha\xEF vo\xE2 \xF1\xF2ch. "
   itemType: Buff
   itemElemental: yin
+  itemNameEng: God Mingyu
+  itemOriginEng: Palace Flowers
+  itemPropertyEng: Yin
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) t\xE6 le\xE4 ne\xF9 va\xF8
     ga\xE2y the\xE2m sa\xF9t th\xF6\xF4ng 20"
   itemEffectEng: Increases evasion rate by 15% + (1% x level) and deals 20 additional

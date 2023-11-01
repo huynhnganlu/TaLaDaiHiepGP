@@ -47,6 +47,9 @@ MonoBehaviour:
   id: 3
   cost: 0
   header: "No\xE4i L\xF6\xEFc"
+  headerEng: Mana
   description: "Ta\xEAng no\xE4i l\xF6\xEFc to\xE1i \xF1a +10"
+  descriptionEng: Increase max MP +10
   icon: {fileID: 21300000, guid: c9a5a176795b88842aa009d4af010498, type: 3}
   rate: 25
+  skillRef: {fileID: 0}

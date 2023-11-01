@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class CharacterTabGroup : TabGroupAbstract
@@ -29,7 +30,22 @@ public class CharacterTabGroup : TabGroupAbstract
                     swapContent[i].SetActive(false);
                 }
             }
+            ResetTabs();
             selectedTabItem = tabItem;
+            selectedTabItem.transform.localScale = new Vector3(1.1f, 1f, 1f);
+            switch (tabItem.name)
+            {
+                case "Sword":
+                    MenuController.Instance.characterPrefs.SetString("character", "Sword");
+                    break;
+                case "Blade":
+                    MenuController.Instance.characterPrefs.SetString("character", "Blade");
+                    break;
+                case "Fist":
+                    MenuController.Instance.characterPrefs.SetString("character", "Fist");
+                    break;
+            }
+            MenuController.Instance.characterPrefs.Save();
             CharacterUIController.Instance.ResetCharacterPoints();
             CharacterUIController.Instance.UpdateCharacterPoints(characterSpecial[selectedTabItem.transform.GetSiblingIndex()]);
         }
@@ -57,6 +73,9 @@ public class CharacterTabGroup : TabGroupAbstract
             fistSpecial,
         };
         selectedTabItem = defaultTabItem;
+        selectedTabItem.transform.localScale = new Vector3(1.1f, 1f, 1f);
+        MenuController.Instance.characterPrefs.SetString("character", "Sword");
+        MenuController.Instance.characterPrefs.Save();
     }
 
     private void OnEnable()

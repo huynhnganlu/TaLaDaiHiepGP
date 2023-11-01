@@ -63,6 +63,9 @@ MonoBehaviour:
     gi\xF6\xF5 ma\xF5i ma\xF5i."
   itemType: Buff
   itemElemental: yin
+  itemNameEng: Mingyu
+  itemOriginEng: Scholar Sect
+  itemPropertyEng: Yin
   itemEffect: "Ta\xEAng 15% + (1% x co\xE2ng l\xF6\xEFc) to\xE1c \xF1o\xE4 di chuye\xE5n
     va\xF8 ga\xE2y the\xE2m 10 sa\xF9t th\xF6\xF4ng"
   itemEffectEng: Increases movement speed by 15% + (1% x level) and deals 10 additional

@@ -59,6 +59,9 @@ MonoBehaviour:
     Vu \xD1a\xEFi Tho\xE2ng, Th\xF2 V\xF2 To\xEFa Vong."
   itemType: Buff
   itemElemental: yin
+  itemNameEng: Sit Dead
+  itemOriginEng: Jiang Hu
+  itemPropertyEng: Yin
   itemEffect: "B\xF2 ta\xE1n co\xE2ng se\xF5 va\xE4n kh\xED ho\xE4 the\xE5 gia\xFBm
     10 + (2 x co\xE2ng l\xF6\xEFc) sa\xF9t th\xF6\xF4ng nha\xE4n va\xF8o"
   itemEffectEng: Being attacked will reduce damage received by 10 + (2 x level).

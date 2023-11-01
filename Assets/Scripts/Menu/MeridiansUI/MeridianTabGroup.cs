@@ -1,11 +1,16 @@
+using UnityEngine;
+
 public class MeridianTabGroup : TabGroupAbstract
 {
     public TabItem selectedTabItem;
     public TabItem defaultTabItem;
 
-    private void Start()
+    private void OnEnable()
     {
-        selectedTabItem = defaultTabItem;
+        if(selectedTabItem == null)
+            selectedTabItem = defaultTabItem;
+        selectedTabItem.transform.localScale = new Vector3(1.1f, 1f, 1f);
+        selectedTabItem.GetComponent<MeridianAbstract>().GetPropertyData();
     }
 
     public override void OnTabSelected(TabItem tabItem)
@@ -17,6 +22,7 @@ public class MeridianTabGroup : TabGroupAbstract
             ResetTabs();
             tabItem.background.sprite = tabActive;
             MeridianController.Instance.imageHolder.sprite = tabItem.GetComponent<MeridianAbstract>().merdianImage;
+            selectedTabItem.transform.localScale = new Vector3(1.1f, 1f, 1f);
             tabItem.GetComponent<MeridianAbstract>().GetPropertyData();
         }
     }

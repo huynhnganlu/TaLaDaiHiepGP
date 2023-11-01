@@ -47,7 +47,9 @@ MonoBehaviour:
   id: 7
   cost: 0
   header: "Sa\xF9t Th\xF6\xF4ng Ngoa\xEFi Co\xE2ng"
+  headerEng: External Damage
   description: "Ta\xEAng sa\xF9t th\xF6\xF4ng ngoa\xEFi co\xE2ng ga\xE2y ra +5"
+  descriptionEng: Increase external damage dealt +5
   icon: {fileID: 21300000, guid: b5c8748483d43f74198e7872ba3c838b, type: 3}
   rate: 25
   skillRef: {fileID: 0}

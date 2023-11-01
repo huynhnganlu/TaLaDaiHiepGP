@@ -47,6 +47,9 @@ MonoBehaviour:
   id: 2
   cost: 0
   header: "Kh\xED Huye\xE1t"
+  headerEng: Health
   description: "Ta\xEAng kh\xED huye\xE1t to\xE1i \xF1a +10"
+  descriptionEng: Increase max HP +10
   icon: {fileID: 21300000, guid: bd92271669ef864448da409be7bee8fe, type: 3}
   rate: 25
+  skillRef: {fileID: 0}

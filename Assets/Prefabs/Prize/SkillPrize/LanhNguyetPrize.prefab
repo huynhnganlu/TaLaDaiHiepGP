@@ -47,8 +47,15 @@ MonoBehaviour:
   id: 4
   cost: 60
   header: "La\xF5nh Nguye\xE4t \xD1ao"
+  headerEng: Full Moon Blade
   description: "Ne\xF9m ra \xF1ao k\xECnh\nThuo\xE4c t\xEDnh <color=grey>Tha\xF9i
     C\xF6\xEFc</color>\nSa\xF9t th\xF6\xF4ng ngoa\xEFi co\xE2ng:"
+  descriptionEng: 'Throw out the blade
+
+    Property <color=grey>Taichi</color>
+
+    External
+    damage:'
   icon: {fileID: 21300000, guid: d072cb10d66e9b246be2f469022915e6, type: 3}
   rate: 10
   skillRef: {fileID: 8069088207302130295, guid: 4a07da6e4904da74faafbf5c41f573e5, type: 3}

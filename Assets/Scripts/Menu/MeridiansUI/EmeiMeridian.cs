@@ -31,7 +31,6 @@ public class EmeiMeridian : MeridianAbstract
 
             };
         }    
-        GetPropertyData();
     }
 
     public override void LevelUpMeridian()

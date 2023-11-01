@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -68,6 +69,8 @@ public class MapController : MonoBehaviour
     public JsonPlayerPrefs shopPrefs;
     public JsonPlayerPrefs characterPrefs;
     #endregion
+    [SerializeField]
+    private GameObject[] characters;
     public GameObject damageText, vcamera, boss;
     private int keySkill;
     #region Pause var
@@ -93,10 +96,31 @@ public class MapController : MonoBehaviour
         characterPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/CharacterData.json");
         shopPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/ShopData.json");
         #endregion
+        if (characterPrefs.HasKey("character"))
+        {
+            string characterName = characterPrefs.GetString("character");
+            switch (characterName)
+            {
+                case "Sword":
+                    Instantiate(characters[0], new Vector3(0f, 0f, 0f), Quaternion.identity);
+                    break;
+                case "Blade":
+                    Instantiate(characters[1], new Vector3(0f, 0f, 0f), Quaternion.identity);
+                    break;
+                case "Fist":
+                    Instantiate(characters[2], new Vector3(0f, 0f, 0f), Quaternion.identity);
+                    break;
+            }
+        }
+
     }
 
     private void Start()
     {
+      
+
+        SetFreezing(false);
+
         spawnCoroutine = StartCoroutine(SpawnEnemies(enemies, timeSpawn));
 
         //Set gia tri mac dinh cho timer    
@@ -169,13 +193,7 @@ public class MapController : MonoBehaviour
     //Xu ly logic khi nguoi choi giet duoc boss hoac chet
     public IEnumerator ProcessFinishMap()
     {
-        for(int i = 0; i < 4; i++)
-        {
-            if (MyCharacterController.Instance.skillDictionary[i] != -1)
-            {
-                prizeHolder.prizeSkillList[MyCharacterController.Instance.skillDictionary[i]].skillRef.CancelSkill();
-            }
-        }
+        StopAllSkills();
         AudioManager.Instance.StopBG("BattleBGSound");
         MyCharacterController.Instance.isImmune = true;
         isFinish = true;
@@ -192,6 +210,17 @@ public class MapController : MonoBehaviour
         qiText.text = MyCharacterController.Instance.qi.ToString(); 
         SetFreezing(true);
 
+    }
+
+    public void StopAllSkills()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (MyCharacterController.Instance.skillDictionary[i] != -1)
+            {
+                prizeHolder.prizeSkillList[MyCharacterController.Instance.skillDictionary[i]].skillRef.CancelSkill();
+            }
+        }
     }
 
     public void ProcessFinishMapButton()
@@ -234,7 +263,7 @@ public class MapController : MonoBehaviour
     //Load menu chinh
     public void LoadSceneMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        LoadingController.Instance.LoadLevel("MainMenu");
     }
     IEnumerator TimerProcess()
     {
@@ -314,20 +343,40 @@ public class MapController : MonoBehaviour
         if (prizeType.Equals("skill"))
         {
             prizeItem.costObject.SetActive(true);
-            int totalCost = prize.cost;        
+            int totalCost = prize.cost;
             if (MyCharacterController.Instance.skillDictionary[keySkill] == prize.id)
             {
-                if (MyCharacterController.Instance.levelDictionary[keySkill] < 4)
-                    prizeItem.header.text = prize.header + "\n<size=80%>Lv." + (MyCharacterController.Instance.levelDictionary[keySkill] + 1);
+                if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+                {
+                    if (MyCharacterController.Instance.levelDictionary[keySkill] < 4)
+                        prizeItem.header.text = prize.headerEng + "\n<size=80%>Lv." + (MyCharacterController.Instance.levelDictionary[keySkill] + 1);
+                    else
+                        prizeItem.header.text = prize.headerEng + "\n<size=80%>Lv.Max";
+                    prizeItem.description.text = prize.descriptionEng + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]) + " > +" + (int)System.Math.Round(prize.skillRef.skillDamage * (MyCharacterController.Instance.levelDictionary[keySkill] + 0.5));
+                }
                 else
-                    prizeItem.header.text = prize.header + "\n<size=80%>Lv.Max";
-                prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]) + " > +" + (int)System.Math.Round(prize.skillRef.skillDamage * (MyCharacterController.Instance.levelDictionary[keySkill] + 0.5))  ;
+                {
+                    if (MyCharacterController.Instance.levelDictionary[keySkill] < 4)
+                        prizeItem.header.text = prize.header + "\n<size=80%>Lv." + (MyCharacterController.Instance.levelDictionary[keySkill] + 1);
+                    else
+                        prizeItem.header.text = prize.header + "\n<size=80%>Lv.Max";
+                    prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]) + " > +" + (int)System.Math.Round(prize.skillRef.skillDamage * (MyCharacterController.Instance.levelDictionary[keySkill] + 0.5));
+                }
+
                 totalCost = prize.cost * MyCharacterController.Instance.levelDictionary[keySkill] * 3;
             }
             else
             {
-                prizeItem.header.text = prize.header + "\n<size=80%>Lv.1";
-                prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]);
+                if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+                {
+                    prizeItem.header.text = prize.headerEng + "\n<size=80%>Lv.1";
+                    prizeItem.description.text = prize.descriptionEng + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]);
+                }
+                else
+                {
+                    prizeItem.header.text = prize.header + "\n<size=80%>Lv.1";
+                    prizeItem.description.text = prize.description + " +" + (prize.skillRef.skillDamage * MyCharacterController.Instance.levelDictionary[keySkill]);
+                }
             }
             if (totalCost > MyCharacterController.Instance.skillMoney)
                 prizeItem.costText.color = UnityEngine.Color.red;
@@ -338,9 +387,18 @@ public class MapController : MonoBehaviour
         }
         else
         {
-            prizeItem.header.text = prize.header;
-            prizeItem.description.text = prize.description;
-            prizeItem.costObject.SetActive(false);
+            if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
+            {
+                prizeItem.header.text = prize.headerEng;
+                prizeItem.description.text = prize.descriptionEng;
+                prizeItem.costObject.SetActive(false);
+            }
+            else
+            {
+                prizeItem.header.text = prize.header;
+                prizeItem.description.text = prize.description;
+                prizeItem.costObject.SetActive(false);
+            }
 
         }
         prizeItem.icon.sprite = prize.icon;

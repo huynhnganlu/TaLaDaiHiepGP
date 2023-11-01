@@ -47,9 +47,16 @@ MonoBehaviour:
   id: 5
   cost: 60
   header: "Lie\xE2n Hoa Ch\xF6\xF4\xFBng"
+  headerEng: Lotus Palm
   description: "Pho\xF9ng ch\xF6\xF4\xFBng k\xECnh ho\xE4 the\xE5\nThuo\xE4c t\xEDnh
     <color=orange>D\xF6\xF4ng C\xF6\xF4ng</color>\nSa\xF9t th\xF6\xF4ng ngoa\xEFi
     co\xE2ng:"
+  descriptionEng: 'Releases body-protecting palms
+
+    Property <color=orange>Yang</color>
+
+    External
+    damage:'
   icon: {fileID: 21300000, guid: b71029f4cf448344b85b8c48e40ff512, type: 3}
   rate: 10
   skillRef: {fileID: 1678169875620046274, guid: 45a9af4b260c3024096c2b8deeb2f620, type: 3}

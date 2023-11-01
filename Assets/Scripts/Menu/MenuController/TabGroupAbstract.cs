@@ -19,6 +19,7 @@ public abstract class TabGroupAbstract : MonoBehaviour
         foreach (TabItem tabItem in tabItems)
         {
             tabItem.background.sprite = tabIdle;
+            tabItem.transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
     }

@@ -4,7 +4,7 @@ public abstract class ShopDataAbstract : MonoBehaviour
 {
     public int itemCost, itemID, itemHP, itemMP, itemLevel;
     public Sprite itemImage;
-    public string itemName, itemOrigin, itemProperty, itemHistory, itemType, itemElemental;
+    public string itemName, itemOrigin, itemProperty, itemHistory, itemType, itemElemental, itemNameEng, itemOriginEng, itemPropertyEng;
     [TextArea]
     public string itemEffect, itemEffectEng;
 

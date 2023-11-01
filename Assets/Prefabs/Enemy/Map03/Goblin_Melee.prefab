@@ -138,7 +138,7 @@ MonoBehaviour:
   money: 20
   qi: 15
   dao: 15
-  damage: 100
+  damage: 150
   shop: 3
   projectile: {fileID: 0}
   radius: 2.5

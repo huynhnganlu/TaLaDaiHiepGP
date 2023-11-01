@@ -225,7 +225,7 @@ public class MyCharacterController : MonoBehaviour
         defense = characterPrefs.GetInt("defense");
         hpRegen = characterPrefs.GetInt("hpRegen");
         mpRegen = characterPrefs.GetInt("mpRegen");
-        movementSpeed = characterPrefs.GetInt("movementSpeed");
+        movementSpeed = characterPrefs.GetFloat("movementSpeed");
         speed += movementSpeed;
         maxExp = 100;
         GetInnerElemental();

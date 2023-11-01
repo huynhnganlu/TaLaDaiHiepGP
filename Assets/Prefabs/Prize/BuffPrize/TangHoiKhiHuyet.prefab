@@ -47,8 +47,10 @@ MonoBehaviour:
   id: 6
   cost: 0
   header: "Ho\xE0i kh\xED huye\xE1t"
+  headerEng: HP Regen
   description: "Ta\xEAng l\xF6\xF4\xEFng kh\xED huye\xE1t ho\xE0i mo\xE3i 30 gia\xE2y
     + 5"
+  descriptionEng: Increase amount HP regen per 30 seconds +5
   icon: {fileID: 21300000, guid: 9bcb8cce2d129cc4f8358419736adc2a, type: 3}
   rate: 25
   skillRef: {fileID: 0}
