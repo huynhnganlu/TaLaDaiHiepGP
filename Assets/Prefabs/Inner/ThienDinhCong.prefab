@@ -52,7 +52,7 @@ MonoBehaviour:
   itemImage: {fileID: 21300000, guid: cf34250ad4ac53e4381331462304c0e8, type: 3}
   itemName: "Thie\xE0n \xD1\xF2nh Co\xE2ng"
   itemOrigin: "Thie\xE1u La\xE2m"
-  itemProperty: "D\xF6\xF4ng, C\xF6\xF4ng"
+  itemProperty: "D\xF6\xF4ng C\xF6\xF4ng"
   itemHistory: "Ta\xE2m Pha\xF9p, Thie\xE0n \xD1\xF2nh Die\xE4c Ch\xE6 Quan, Lu\xEFc
     To\xE5 To\xEFa Thie\xE0n Nhi Ngo\xE4 la\xF8 No\xE4i Co\xE2ng c\xF4 ba\xFBn cu\xFBa
     Thie\xE1u La\xE2m, \"Thie\xE0n \xD1\xF2nh Gia\xFB, cuo\xE4c so\xE1ng be\xE2n

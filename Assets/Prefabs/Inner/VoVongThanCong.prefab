@@ -52,7 +52,7 @@ MonoBehaviour:
   itemImage: {fileID: 21300000, guid: 25c86679ffe70ea45a925e1617e4b67e, type: 3}
   itemName: "Vo\xE2 Vo\xEFng Tha\xE0n Co\xE2ng"
   itemOrigin: "Giang Ho\xE0"
-  itemProperty: "D\xF6\xF4ng, C\xF6\xF4ng"
+  itemProperty: "D\xF6\xF4ng C\xF6\xF4ng"
   itemHistory: "T\xF6\xF4ng truye\xE0n Ch\xF6\xF4\u0309ng mo\xE2n pha\u0301i Tuye\xE2\u0301t
     S\xF4n Ba\u0323ch T\xF6\u0323 Ta\u0323i, sa\u0301ng ta\u0323o no\xE2\u0323i co\xE2ng
     d\xF6\u0323a tre\xE2n que\u0309 \"Vo\xE2 Vo\u0323ng\", chu\u0301 tro\u0323ng

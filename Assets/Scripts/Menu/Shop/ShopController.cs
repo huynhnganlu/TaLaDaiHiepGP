@@ -111,9 +111,9 @@ public class ShopController : MonoBehaviour
         {
             ShopDataAbstract data = innerHolder.listInner[shopTemplates[i].id].GetComponent<ShopDataAbstract>();
             if (LocalizationSettings.SelectedLocale.Equals(LocalizationSettings.AvailableLocales.GetLocale("en")))
-                textShow = "<b>Inner points:</b>\nHealth +" + data.itemHP + "\nMana +" + data.itemMP + "\n<b>Inner effect:</b>\n" + data.itemEffectEng;
+                textShow = "<b>Type:</b>\n" + data.itemPropertyEng + "\n<b>Inner points:</b>\nHealth +" + data.itemHP + "\nMana +" + data.itemMP + "\n<b>Inner effect:</b>\n" + data.itemEffectEng;
             else
-                textShow = "<b>Vaän haønh kích hoaït:</b>\nKhí huyeát +" + data.itemHP + "\nNoäi löïc +" + data.itemMP + "\n<b>Ñaëc hieäu:</b>\n" + data.itemEffect;
+                textShow = "<b>Thuoäc tính:</b>\n" + data.itemProperty + "\n<b>Vaän haønh kích hoaït:</b>\nKhí huyeát +" + data.itemHP + "\nNoäi löïc +" + data.itemMP + "\n<b>Ñaëc hieäu:</b>\n" + data.itemEffect;
             shopTemplates[i].textTooltip = textShow;
         }
     }

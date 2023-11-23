@@ -32,6 +32,15 @@ public class TooltipController : MonoBehaviour
         tooltipText.GetComponent<RectTransform>().sizeDelta = new Vector2(width ,0);
         gameObject.SetActive(true);
     }
+
+    public void ShowTooltip(string textShow, float width, float x, float y)
+    {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out Vector2 localPoint);
+        transform.localPosition = localPoint + new Vector2(x, y);
+        tooltipText.text = textShow;
+        tooltipText.GetComponent<RectTransform>().sizeDelta = new Vector2(width, 0);
+        gameObject.SetActive(true);
+    }
     public void HideTooltip()
     {
         gameObject.SetActive(false);

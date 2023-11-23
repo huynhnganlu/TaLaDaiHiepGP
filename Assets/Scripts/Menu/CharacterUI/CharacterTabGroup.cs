@@ -8,10 +8,10 @@ public class CharacterTabGroup : TabGroupAbstract
 
     public static TabItem selectedTabItem;
     public TabItem defaultTabItem;
-    private Dictionary<string, int>[] characterSpecial;
-    private Dictionary<string, int> swordSpecial;
-    private Dictionary<string, int> bladeSpecial;
-    private Dictionary<string, int> fistSpecial;
+    private Dictionary<string, float>[] characterSpecial;
+    private Dictionary<string, float> swordSpecial;
+    private Dictionary<string, float> bladeSpecial;
+    private Dictionary<string, float> fistSpecial;
 
 
     public override void OnTabSelected(TabItem tabItem)
@@ -54,19 +54,22 @@ public class CharacterTabGroup : TabGroupAbstract
     // Start is called before the first frame update
     private void Awake()
     {
-        swordSpecial ??= new Dictionary<string, int>()
+        swordSpecial ??= new Dictionary<string, float>()
             {
-                {"movementSpeed", 1}
+                {"movementSpeed", 0.5f},
+                {"evade", 5}
             };
-        bladeSpecial ??= new Dictionary<string, int>()
+        bladeSpecial ??= new Dictionary<string, float>()
             {
-                {"critDamage", 2}
+                {"critDamage", 30},
+                {"critRate", 5 }
             };
-        fistSpecial ??= new Dictionary<string, int>()
+        fistSpecial ??= new Dictionary<string, float>()
             {
-                {"hp", 50}
+                {"hp", 50},
+                {"defense", 10 }
             };
-        characterSpecial ??= new Dictionary<string, int>[]
+        characterSpecial ??= new Dictionary<string, float>[]
         {
             swordSpecial,
             bladeSpecial,

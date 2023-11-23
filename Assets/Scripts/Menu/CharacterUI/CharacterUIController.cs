@@ -108,13 +108,13 @@ public class CharacterUIController : MonoBehaviour
     }
 
 
-    public void UpdateCharacterPoints(Dictionary<string, int> characterSpecial)
+    public void UpdateCharacterPoints(Dictionary<string, float> characterSpecial)
     {
         foreach (KeyValuePair<string, string> property in listCharacterProperty)
         {
             GameObject o = Instantiate(characterPoints, characterPointsParent.transform);
             TextMeshProUGUI[] textCompound = o.GetComponentsInChildren<TextMeshProUGUI>();
-            if(property.Key.Equals("movementSpeed") || property.Key.Equals("critRate") || property.Key.Equals("evade"))
+            if(property.Key.Equals("movementSpeed") || property.Key.Equals("critRate") || property.Key.Equals("critDamage") || property.Key.Equals("evade") || property.Key.Equals("defense") || property.Key.Equals("hp"))
             {
                 if (characterSpecial.ContainsKey(property.Key))
                     textCompound[1].text = (characterPrefs.GetFloat(property.Key) + characterSpecial[property.Key]).ToString();

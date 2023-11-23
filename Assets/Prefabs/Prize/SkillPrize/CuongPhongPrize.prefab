@@ -52,7 +52,7 @@ MonoBehaviour:
     t\xEDnh <color=#0000a0ff>A\xC2m Nhu</color>\r\nSa\xF9t th\xF6\xF4ng no\xE4i co\xE2ng:"
   descriptionEng: 'Spins the blade at the nearest enemy
 
-    Property <color=#0000a0ff>Yin</color>
+    Type <color=#0000a0ff>Yin</color>
 
     Internal
     damage:'

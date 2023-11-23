@@ -58,5 +58,24 @@ public class AudioManager : MonoBehaviour
             s.source.Play();
     }
 
+    public void GetSettingAudio(JsonPlayerPrefs jsonPref)
+    {
+        float master = (float)jsonPref.GetInt("settingmaster");
+        float bgm = (float)jsonPref.GetInt("settingbgm");
+        float sfx = (float)jsonPref.GetInt("settingsfx");
 
+        SettingAudio(master, bgm, sfx);
+    }
+
+    public void SettingAudio(float master, float bgm, float sfx)
+    {
+        foreach (Sound s in BGsounds)
+        {
+            s.source.volume = master * (bgm / 20000);
+        }
+        foreach (Sound s in SEsounds)
+        {
+            s.source.volume = master * (sfx / 10000);
+        }
+    }
 }

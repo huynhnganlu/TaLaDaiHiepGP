@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class SettingsMenuController : MonoBehaviour
 {
+    public static SettingsMenuController Instance;
     [SerializeField]
     private TMP_Dropdown languageDropdown, windowModeDropdown, resolutionDropdown;
     [SerializeField]
@@ -13,14 +15,21 @@ public class SettingsMenuController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI masterSoundText, musicText, soundText;
 
-    private int width = 1920, height = 1080;
-    private bool fullscreen = true;
+    private int width, height;
+    private bool fullscreen;
 
     //Su dung IEnumerator de InitializationOperation duoc khoi tao nham dam bao Localization hoat dong
 
     private void Awake()
     {
-        SetScreenResolution(width, height, fullscreen);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     IEnumerator Start()
@@ -29,10 +38,6 @@ public class SettingsMenuController : MonoBehaviour
 
         if (languageDropdown != null)
             languageDropdown.onValueChanged.AddListener(LanguageChanged);
-
-        masterSoundSlider.value = 100;
-        musicSlider.value = 100;
-        soundSlider.value = 100;
 
         masterSoundSlider.onValueChanged.AddListener(delegate
         {
@@ -49,8 +54,6 @@ public class SettingsMenuController : MonoBehaviour
             SliderValueChanged(soundSlider, soundText);
         });
 
-
-
         windowModeDropdown.onValueChanged.AddListener(WindowModeValueChanged);
 
         resolutionDropdown.onValueChanged.AddListener(ResolutionValueChanged);
@@ -64,31 +67,7 @@ public class SettingsMenuController : MonoBehaviour
     public void SliderValueChanged(Slider slider, TextMeshProUGUI text)
     {
         text.text = slider.value.ToString();
-        if (slider.name.Equals("MasterSoundSlider"))
-        {
-            foreach(Sound sound in AudioManager.Instance.BGsounds)
-            {
-                sound.source.volume = slider.value / 200f;
-            }
-            foreach (Sound sound in AudioManager.Instance.SEsounds)
-            {
-                sound.source.volume = slider.value / 100f;
-            }
-        }
-        else if (slider.name.Equals("MusicSlider"))
-        {
-            foreach (Sound sound in AudioManager.Instance.BGsounds)
-            {
-                sound.source.volume = slider.value / 200f;
-            }
-        }
-        else if (slider.name.Equals("SoundSlider"))
-        {
-            foreach (Sound sound in AudioManager.Instance.SEsounds)
-            {
-                sound.source.volume = slider.value / 100f;
-            }
-        }
+        AudioManager.Instance.SettingAudio(masterSoundSlider.value, musicSlider.value, soundSlider.value);
     }
 
     public void WindowModeValueChanged(int change)
@@ -128,4 +107,56 @@ public class SettingsMenuController : MonoBehaviour
         Screen.SetResolution(_width, _height, _fullScreen);
     }
 
+    public void SaveSettings()
+    {
+        MenuController.Instance.characterPrefs.SetInt("settingmaster", (int)masterSoundSlider.value);
+        MenuController.Instance.characterPrefs.SetInt("settingbgm", (int)musicSlider.value);
+        MenuController.Instance.characterPrefs.SetInt("settingsfx", (int)soundSlider.value);
+        MenuController.Instance.characterPrefs.SetInt("settingres", resolutionDropdown.value);
+        MenuController.Instance.characterPrefs.SetInt("settingwd", windowModeDropdown.value);
+        MenuController.Instance.characterPrefs.SetInt("settinglg", languageDropdown.value);
+        MenuController.Instance.characterPrefs.Save();
+    }
+
+    public void LoadSettings()
+    {
+        int res = MenuController.Instance.characterPrefs.GetInt("settingres");
+        int wd = MenuController.Instance.characterPrefs.GetInt("settingwd");
+        int lg = MenuController.Instance.characterPrefs.GetInt("settinglg");
+        switch(res)
+        {
+            case 0:
+                width = 1920;
+                height = 1080;
+                break;
+            case 1:
+                width = 1600;
+                height = 900;
+                break;
+        }
+        switch (wd)
+        {
+            case 0:
+                fullscreen = true;
+                break;
+            case 1:
+                fullscreen = false;
+                break;
+        }
+        SetScreenResolution(width, height, fullscreen);
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[lg];
+    }
+
+    public void LoadSettingsText()
+    {
+        masterSoundText.text = MenuController.Instance.characterPrefs.GetInt("settingmaster").ToString();
+        soundText.text = MenuController.Instance.characterPrefs.GetInt("settingsfx").ToString();
+        musicText.text = MenuController.Instance.characterPrefs.GetInt("settingbgm").ToString();
+        masterSoundSlider.value = MenuController.Instance.characterPrefs.GetInt("settingmaster");
+        soundSlider.value = MenuController.Instance.characterPrefs.GetInt("settingsfx");
+        musicSlider.value = MenuController.Instance.characterPrefs.GetInt("settingbgm");
+        resolutionDropdown.value = MenuController.Instance.characterPrefs.GetInt("settingres");
+        windowModeDropdown.value = MenuController.Instance.characterPrefs.GetInt("settingwd");
+        languageDropdown.value = MenuController.Instance.characterPrefs.GetInt("settinglg");
+    }
 }

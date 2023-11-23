@@ -1,16 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingController : MonoBehaviour
 {
-    [SerializeField]
-    private Slider slider;
-    [SerializeField]
-    private GameObject loadingHolder;
-
+    public Slider slider;
+    public GameObject loadingHolder;
+    private JsonPlayerPrefs characterPrefs;
     public static LoadingController Instance;
     private void Awake()
     {
@@ -22,7 +22,18 @@ public class LoadingController : MonoBehaviour
         {
             Instance = this;
         }
+
+        characterPrefs = new JsonPlayerPrefs(Application.persistentDataPath + "/CharacterData.json");
     }
+
+    private IEnumerator Start()
+    {
+        yield return LocalizationSettings.InitializationOperation;      
+        if(characterPrefs.HasKey("settinglg"))
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[characterPrefs.GetInt("settinglg")];
+    }
+
+
     public void LoadLevel(string scene)
     {
         loadingHolder.SetActive(true);

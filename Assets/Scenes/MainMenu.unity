@@ -835,7 +835,7 @@ RectTransform:
   m_Father: {fileID: 398514710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1805,7 +1805,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -1816,7 +1816,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -1827,7 +1827,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 100
@@ -1838,7 +1838,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -25
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -25
@@ -1992,6 +1992,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: PageTurnSE
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1635803623}
+        m_TargetAssemblyTypeName: SettingsMenuController, Assembly-CSharp
+        m_MethodName: LoadSettingsText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &85480630
@@ -2414,7 +2426,7 @@ RectTransform:
   m_Father: {fileID: 1733504293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 1.9999237, y: 0}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2491,72 +2503,6 @@ MonoBehaviour:
         - localeIdentifier:
             m_Code: en
           value: 1
---- !u!1 &112627214
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 112627217}
-  - component: {fileID: 112627216}
-  m_Layer: 0
-  m_Name: Intro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!328 &112627216
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112627214}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d2b7c09d0c0610149b0262f4e3658433, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 9fc29cdbb23762d4983bff7ea07be920, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
---- !u!4 &112627217
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112627214}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115911668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,7 +2603,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -2668,7 +2614,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -2679,7 +2625,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 126.76134
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 126.76134
@@ -2690,7 +2636,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -144.05286
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -144.05286
@@ -2701,7 +2647,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 288.1057
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 288.1057
@@ -2863,10 +2809,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 830420022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -873.8, y: 454.5}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0.025, y: 0.88600004}
+  m_AnchorMax: {x: 0.065333344, y: 0.95900005}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138648831
 MonoBehaviour:
@@ -3461,7 +3407,7 @@ RectTransform:
   m_Father: {fileID: 801391349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 1.999939, y: 0}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4456,7 +4402,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -4467,7 +4413,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -4478,7 +4424,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 60
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 60
@@ -4489,7 +4435,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -45
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -45
@@ -5046,6 +4992,10 @@ PrefabInstance:
       value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 6240485552158994147, guid: e10bbe56c7200654c8d951f8697b4abb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 159.28984
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240485552158994147, guid: e10bbe56c7200654c8d951f8697b4abb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000030517578
       objectReference: {fileID: 0}
@@ -5255,12 +5205,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8707096577739798587, guid: e10bbe56c7200654c8d951f8697b4abb, type: 3}
       propertyPath: m_text
-      value: The blade method is considered 'the liver of a hundred types of weapons'.
-        To be able to master the blade technique - the person holding the blade must
-        not only be proficient in punching and kicking to keep the body healthy,
-        but must also train the mind to train the spirit. However, to attain the
-        heavenly path (realize the true nature) and achieve immortality is difficult
-        for many people to achieve.
+      value: "Ph\xF6\xF4ng pha\xF9p \xF1ao \xF1\xF6\xF4\xEFc coi la\xF8 \u201Cla\xF9
+        gan cu\xFBa tra\xEAm loa\xEFi vu\xF5 kh\xED\u201D. \xD1e\xE5 co\xF9 the\xE5
+        thua\xE0n thu\xEFc chie\xE2u \xF1ao \u2013 ng\xF6\xF4\xF8i ca\xE0m \xF1ao
+        kho\xE2ng ch\xE6 pha\xFBi tha\xF8nh tha\xEFo \xF1a\xE1m \xF1a\xF9 \xF1e\xE5
+        c\xF4 the\xE5 kho\xFBe ma\xEFnh ma\xF8 co\xF8n pha\xFBi re\xF8n luye\xE4n
+        tr\xED o\xF9c \xF1e\xE5 re\xF8n luye\xE4n tinh tha\xE0n. Tuy nhie\xE2n, \xF1e\xE5
+        \xF1a\xEFt \xF1\xF6\xF4\xEFc thie\xE2n \xF1a\xEFo (nha\xE4n ra cha\xE2n ta\xF9nh)
+        va\xF8 \xF1a\xEFt \xF1\xF6\xF4\xEFc tr\xF6\xF4\xF8ng sinh ba\xE1t t\xF6\xFB
+        la\xF8 \xF1ie\xE0u kho\xF9 co\xF9 the\xE5 \xF1a\xEFt \xF1\xF6\xF4\xEFc \xF1o\xE1i
+        v\xF4\xF9i nhie\xE0u ng\xF6\xF4\xF8i.\nCrit damage +30\nCrit rate +5%"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5647,9 +5601,9 @@ RectTransform:
   - {fileID: 483525065}
   m_Father: {fileID: 1850224989}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 138.32742, y: -130.5249}
   m_SizeDelta: {x: 257.8172, y: 261.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211345757
@@ -5758,6 +5712,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 221066061}
+  - component: {fileID: 221066063}
+  - component: {fileID: 221066062}
   m_Layer: 5
   m_Name: BackgroundHolder
   m_TagString: Untagged
@@ -5776,17 +5732,52 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 352627796}
-  - {fileID: 257202097}
-  - {fileID: 2018420673}
+  m_Children: []
   m_Father: {fileID: 444273602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &221066062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221066060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: bd1bc190dd6ad2d45bc8d3971a8111ae, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &221066063
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221066060}
+  m_CullTransparentMesh: 1
 --- !u!1 &228407817 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8579658620994144051, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
@@ -5907,6 +5898,7 @@ GameObject:
   - component: {fileID: 229503425}
   - component: {fileID: 229503427}
   - component: {fileID: 229503426}
+  - component: {fileID: 229503428}
   m_Layer: 5
   m_Name: RerollButton
   m_TagString: Untagged
@@ -6053,6 +6045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 55
+  x: 50
+  y: 50
   text: -100
 --- !u!114 &229503426
 MonoBehaviour:
@@ -6113,6 +6107,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &229503428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229503420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 1386381987569729538
+  references:
+    version: 2
+    RefIds:
+    - rid: 1386381987569729538
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 229503425}
+        m_TrackedProperties:
+          items: []
+        m_UpdateType: 0
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
 --- !u!1 &236305362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067289064894124, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -6299,7 +6320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11067290922701973, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 154.84999
+      value: 213.36
       objectReference: {fileID: 0}
     - target: {fileID: 11067290922701973, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6940,7 +6961,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -6951,7 +6972,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -6962,7 +6983,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 254.2768
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 254.2768
@@ -6973,7 +6994,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -7131,6 +7152,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1635803623}
+        m_TargetAssemblyTypeName: SettingsMenuController, Assembly-CSharp
+        m_MethodName: SaveSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &256984322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7228,81 +7261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1.2
   height: 1.2
---- !u!1 &257202096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 257202097}
-  - component: {fileID: 257202099}
-  - component: {fileID: 257202098}
-  m_Layer: 5
-  m_Name: TopSubBackground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &257202097
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257202096}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 221066061}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -57.5}
-  m_SizeDelta: {x: 0, y: 115}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &257202098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257202096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b145d8e99d84684c9762a8f0bf84803, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &257202099
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257202096}
-  m_CullTransparentMesh: 1
 --- !u!1 &257849155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067289064894124, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -7344,7 +7302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 277.1796, y: 0.000076293945}
+  m_AnchoredPosition: {x: 277.17957, y: 0.000076293945}
   m_SizeDelta: {x: 408.5988, y: 288.1057}
   m_Pivot: {x: -0.00000009313226, y: 1.0000002}
 --- !u!114 &263196787
@@ -7408,7 +7366,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -7419,7 +7377,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -7430,7 +7388,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 277.1796
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 277.17957
@@ -7441,7 +7399,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0.000068689755
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 0.000068689755
@@ -7452,7 +7410,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 288.1057
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 288.1057
@@ -8537,6 +8495,170 @@ MonoBehaviour:
         - localeIdentifier:
             m_Code: en
           value: 0
+--- !u!1 &299492833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299492834}
+  - component: {fileID: 299492838}
+  - component: {fileID: 299492837}
+  - component: {fileID: 299492836}
+  - component: {fileID: 299492835}
+  m_Layer: 5
+  m_Name: TurtorialHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &299492834
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299492833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1573852585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -70.29999, y: -61.5}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &299492835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299492833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 1386381965656326146
+  references:
+    version: 2
+    RefIds:
+    - rid: 1386381965656326146
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 299492836}
+        m_TrackedProperties:
+          items:
+          - rid: 1386381965656326147
+        m_UpdateType: 0
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 1386381965656326147
+      type: {class: StringTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_PropertyPath: text
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: vi
+          value: "A\xD9p du\xEFng mo\xE3i thuo\xE4c t\xEDnh no\xE4i co\xE2ng \xF1a\xF5
+            trang b\xF2:\n<b>Tha\xF9i C\xF6\xEFc</b>\nTa\xEAng sa\xF9t th\xF6\xF4ng
+            chie\xE2u th\xF6\xF9c Tha\xF9i C\xF6\xEFc +10%\n<b>A\xC2m Nhu</b>\nTa\xEAng
+            sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c Tha\xF9i C\xF6\xEFc +10% \nTa\xEAng
+            sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c A\xC2m Nhu +10%\n<b>D\xF6\xF4ng
+            C\xF6\xF4ng</b> \nTa\xEAng sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c
+            Tha\xF9i C\xF6\xEFc +10%\nTa\xEAng sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c
+            D\xF6\xF4ng C\xF6\xF4ng +10%"
+        - localeIdentifier:
+            m_Code: en
+          value: 'Apply for per inner equipped:
+
+            <b>Taichi</b>
+
+            Increase
+            Taichi skill damage +10%
+
+            <b>Yin</b>
+
+            Increase
+            Taichi skill damage +10%
+
+            Increase Yin skill damage +10%
+
+            <b>Yang</b>
+
+            Increase
+            Taichi skill damage +10%
+
+            Increase Yangskill damage +10%'
+--- !u!114 &299492836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299492833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856763737f48b4d42a1b9f9f805f3d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 400
+  x: -200
+  y: 0
+  text: "A\xD9p du\xEFng mo\xE3i thuo\xE4c t\xEDnh no\xE4i co\xE2ng \xF1a\xF5 trang
+    b\xF2: <b>Tha\xF9i C\xF6\xEFc<b/>\nTa\xEAng sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c
+    Tha\xF9i C\xF6\xEFc + 10%\\n <b>A\xC2m Nhu<b/>\\n Ta\xEAng sa\xF9t th\xF6\xF4ng
+    chie\xE2u th\xF6\xF9c Tha\xF9i C\xF6\xEFc + 10%\\n Ta\xEAng sa\xF9t th\xF6\xF4ng
+    chie\xE2u th\xF6\xF9c A\xC2m Nhu + 10%\\n <b>D\xF6\xF4ng C\xF6\xF4ng<b/>\\n Ta\xEAng
+    sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c Tha\xF9i C\xF6\xEFc + 10%\\n Ta\xEAng
+    sa\xF9t th\xF6\xF4ng chie\xE2u th\xF6\xF9c D\xF6\xF4ng C\xF6\xF4ng + 10%\\n"
+--- !u!114 &299492837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299492833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 9bb5e335663ea3e45b220358bb99484a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &299492838
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299492833}
+  m_CullTransparentMesh: 1
 --- !u!1 &300056557
 GameObject:
   m_ObjectHideFlags: 0
@@ -8738,7 +8860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8746,15 +8868,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8786,11 +8908,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 464.78497
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -449
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8809,8 +8931,16 @@ PrefabInstance:
       value: ShopItemHolder (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7882952639248653694, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9296,9 +9426,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1995404422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 172.42966, y: -29.998352}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338192822
@@ -9335,7 +9465,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -9346,7 +9476,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -9357,7 +9487,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 163.98564
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -9368,7 +9498,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -31.142029
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -9411,7 +9541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -44.61}
   m_AnchorMin: {x: 0.022000002, y: 0.90500003}
   m_AnchorMax: {x: 0.058520835, y: 0.97}
-  m_AnchoredPosition: {x: -0.5999756, y: -0.2999878}
+  m_AnchoredPosition: {x: -0.60009766, y: -0.30004883}
   m_SizeDelta: {x: -23.1, y: -17.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347252782
@@ -9680,81 +9810,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352543327}
   m_CullTransparentMesh: 1
---- !u!1 &352627795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 352627796}
-  - component: {fileID: 352627798}
-  - component: {fileID: 352627797}
-  m_Layer: 5
-  m_Name: Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &352627796
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352627795}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 221066061}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 850}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &352627797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352627795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd1bc190dd6ad2d45bc8d3971a8111ae, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &352627798
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352627795}
-  m_CullTransparentMesh: 1
 --- !u!1 &355682370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067290922701972, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -9882,9 +9937,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1408356408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 162.30565, y: -249.55809}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &358299405
@@ -10857,9 +10912,9 @@ RectTransform:
   - {fileID: 1100694391}
   m_Father: {fileID: 1850224989}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331.73517, y: -130.5249}
   m_SizeDelta: {x: 91.323, y: 261.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394498096
@@ -11292,78 +11347,6 @@ MonoBehaviour:
             Exp: 100
 
             Points x1.5 per difficulty'
---- !u!1 &415840921
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 415840922}
-  - component: {fileID: 415840924}
-  - component: {fileID: 415840923}
-  m_Layer: 5
-  m_Name: VideoUIHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &415840922
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415840921}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 981118346}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &415840923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415840921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 9fc29cdbb23762d4983bff7ea07be920, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &415840924
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415840921}
-  m_CullTransparentMesh: 1
 --- !u!1 &423956553
 GameObject:
   m_ObjectHideFlags: 0
@@ -11439,61 +11422,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423956553}
   m_CullTransparentMesh: 1
---- !u!1 &425737078
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 425737080}
-  - component: {fileID: 425737079}
-  m_Layer: 0
-  m_Name: OpenCutscene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!320 &425737079
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425737078}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: e50fdea7824fc6f45a07e6b2dc8a612b, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 2363710303859942132, guid: e50fdea7824fc6f45a07e6b2dc8a612b, type: 2}
-    value: {fileID: 112627214}
-  - key: {fileID: 8683617121436041400, guid: e50fdea7824fc6f45a07e6b2dc8a612b, type: 2}
-    value: {fileID: 444273601}
-  - key: {fileID: -8389618151436612082, guid: e50fdea7824fc6f45a07e6b2dc8a612b, type: 2}
-    value: {fileID: 415840921}
-  m_ExposedReferences:
-    m_References: []
---- !u!4 &425737080
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425737078}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430189805
 GameObject:
   m_ObjectHideFlags: 0
@@ -11529,9 +11457,9 @@ RectTransform:
   - {fileID: 1733504293}
   m_Father: {fileID: 1793890581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 144.745, y: -43.20334}
   m_SizeDelta: {x: 289.49, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430189807
@@ -11868,9 +11796,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1408356408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 162.30565, y: -49.087296}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437922820
@@ -12526,7 +12454,7 @@ RectTransform:
   m_Father: {fileID: 1621468910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12871,7 +12799,7 @@ RectTransform:
   m_Father: {fileID: 1772940611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13054,9 +12982,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1995404422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 34.14322, y: -29.998352}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477083913
@@ -13131,7 +13059,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -13142,7 +13070,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -13153,7 +13081,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 31.328545
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -13164,7 +13092,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -31.142029
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -13335,9 +13263,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1408356408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 162.30565, y: -149.3227}
   m_SizeDelta: {x: 228.8514, y: 54.1216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477981775
@@ -13609,9 +13537,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 211345756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 128.9086, y: -219.28958}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &483525066
@@ -13844,10 +13772,10 @@ RectTransform:
   - {fileID: 1630594311}
   m_Father: {fileID: 1679833114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 297.79}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173.22989, y: -208.895}
+  m_SizeDelta: {x: 346.45978, y: 297.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493291398
 MonoBehaviour:
@@ -13952,7 +13880,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -13963,7 +13891,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -13974,7 +13902,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 166.86813
         - localeIdentifier:
             m_Code: en
           value: 173.22989
@@ -13985,7 +13913,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -213.35849
         - localeIdentifier:
             m_Code: en
           value: -208.895
@@ -13996,7 +13924,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 333.73627
         - localeIdentifier:
             m_Code: en
           value: 346.45978
@@ -14181,7 +14109,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -14192,7 +14120,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -14203,10 +14131,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 216.00003
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 216.00003
+          value: 231.00003
     - rid: 1345125577673671586
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -14214,7 +14142,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -335
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -335
@@ -14407,7 +14335,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -14418,7 +14346,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -14429,7 +14357,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 100
@@ -14440,7 +14368,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -95
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -95
@@ -14865,10 +14793,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: "Bo\xE4 s\xF6u ta\xE4p"
+          value: "Th\xF6 vie\xE4n"
         - localeIdentifier:
             m_Code: en
-          value: Collection
+          value: Library
 --- !u!1 &539932901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067289053945411, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -15073,9 +15001,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 394498095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -138.2}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555050160
@@ -15701,7 +15629,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -15712,7 +15640,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -15723,7 +15651,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 542.07654
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 542.07654
@@ -15734,7 +15662,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -45
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -45
@@ -16694,7 +16622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -16702,15 +16630,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16742,11 +16670,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 714.785
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16765,8 +16693,16 @@ PrefabInstance:
       value: ShopItemHolder (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7882952639248653694, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -17726,6 +17662,10 @@ PrefabInstance:
       value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 6240485552158994147, guid: e10bbe56c7200654c8d951f8697b4abb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 159.28984
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240485552158994147, guid: e10bbe56c7200654c8d951f8697b4abb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000030517578
       objectReference: {fileID: 0}
@@ -17931,7 +17871,12 @@ PrefabInstance:
         is single-minded, the foot is like the flowing water, the body technique
         requires: turning, the whole turn is completely coordinated, walking like
         a traveling dragon, turning on its own. The main techniques include: penetrating,
-        waxing, beating, lying, diaphragm, guy, stage, turn.'
+        waxing, beating, lying, diaphragm, guy, stage, turn.
+
+        Health +50
+
+        Defense
+        +10'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18520,7 +18465,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -18531,7 +18476,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -18542,7 +18487,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 100
@@ -18553,7 +18498,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -165
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -165
@@ -19095,7 +19040,7 @@ RectTransform:
   - {fileID: 58103352}
   m_Father: {fileID: 2104729812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.041385464, y: 0.16219993}
+  m_AnchorMin: {x: 0.039502934, y: 0.16219993}
   m_AnchorMax: {x: 0.25313756, y: 0.95400006}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -20323,7 +20268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8590127742012829582, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200.0001
+      value: 200.00014
       objectReference: {fileID: 0}
     - target: {fileID: 8590127742012829582, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20545,7 +20490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -20553,15 +20498,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20593,11 +20538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 214.78497
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -449
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20616,8 +20561,16 @@ PrefabInstance:
       value: ShopItemHolder (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7882952639248653694, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -22295,7 +22248,7 @@ RectTransform:
   m_AnchorMin: {x: 0.7985814, y: 0.674}
   m_AnchorMax: {x: 0.86841863, y: 0.71282315}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 242.95627, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &796472461
 CanvasRenderer:
@@ -23377,7 +23330,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -23388,7 +23341,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -23399,7 +23352,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 254.2994
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 254.2994
@@ -23410,7 +23363,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -23462,20 +23415,26 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: "La\xE1y ch\xF6\xF4\xFBng pha\xF9p la\xF8m trung ta\xE2m, trong
-            cha\xEFy chuye\xE5n toa\xF8n tha\xE2n nha\xE1t ch\xED, bo\xE4 t\xF6\xEFa
-            ha\xF8nh va\xE2n l\xF6u thu\xFBy, tha\xE2n pha\xF9p ye\xE2u ca\xE0u:
-            ninh chuye\xE5n, toa\xF8n phie\xE2n pho\xE1i h\xF4\xEFp hoa\xF8n ch\xE6nh,
-            ta\xE5u nh\xF6 du long, phie\xE2n chuye\xE5n t\xF6\xEF \xF6ng. Thu\xFB
-            pha\xF9p chu\xFB ye\xE1u go\xE0m: xuye\xE2n, sa\xF9p, pha\xF9ch, lie\xE2u,
-            hoa\xF8nh, cha\xF8ng, kha\xE1u, phie\xE2n, tha\xF9c \xF1a\xFAng."
+          value: "La\xE1y ch\xF6\xF4\xFBng pha\xF9p la\xF8m trung ta\xE2m, khi cha\xEFy
+            toa\xF8n tha\xE2n nha\xE1t ta\xE2m, cha\xE2n nh\xF6 n\xF6\xF4\xF9c cha\xFBy,
+            chie\xE2u tha\xE2n \xF1o\xF8i ho\xFBi: xoay, toa\xF8n tha\xE2n pho\xE1i
+            h\xF4\xEFp hoa\xF8n toa\xF8n, \xF1i nh\xF6 ro\xE0ng du ha\xF8nh, xoay
+            m\xECnh. s\xF4\xFB h\xF6\xF5u. Ca\xF9c ky\xF5 thua\xE4t ch\xEDnh go\xE0m:
+            xuye\xE2n, \xF1a\xF9nh, \xF1a\xF9nh, na\xE8m, hoa\xF8nh, cha\xF8ng, sa\xE2n
+            kha\xE1u, xoay ng\xF6\xF4\xF8i.\nKh\xED huye\xE1t +50\nPho\xF8ng ng\xF6\xEF
+            +10"
         - localeIdentifier:
             m_Code: en
           value: 'Taking the palm technique as the center, in running, the whole
             body is single-minded, the foot is like the flowing water, the body technique
             requires: turning, the whole turn is completely coordinated, walking
             like a traveling dragon, turning on its own. The main techniques include:
-            penetrating, waxing, beating, lying, diaphragm, guy, stage, turn.'
+            penetrating, waxing, beating, lying, diaphragm, guy, stage, turn.
+
+            Health
+            +50
+
+            Defense +10'
 --- !u!1 &820345977
 GameObject:
   m_ObjectHideFlags: 0
@@ -23919,7 +23878,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -23930,7 +23889,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -23941,7 +23900,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 123.1044
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 123.1044
@@ -23952,7 +23911,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -24193,7 +24152,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -24204,7 +24163,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -24215,7 +24174,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 99.276794
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 99.276794
@@ -24226,7 +24185,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -25206,7 +25165,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -25217,7 +25176,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -25228,7 +25187,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 94.276794
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 94.276794
@@ -25239,7 +25198,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -25276,9 +25235,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 211345756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 128.9086, y: -135.76874}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890449440
@@ -25589,9 +25548,9 @@ RectTransform:
   - {fileID: 808867828}
   m_Father: {fileID: 1968677420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -146.6857}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898515781
@@ -26222,9 +26181,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1442388397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -135.62808}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910203157
@@ -26833,10 +26792,10 @@ RectTransform:
   - {fileID: 889026233}
   m_Father: {fileID: 1679833114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173.22989, y: -30}
+  m_SizeDelta: {x: 346.45978, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &921491745
 MonoBehaviour:
@@ -26911,7 +26870,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -26922,7 +26881,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -26933,7 +26892,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 166.86813
         - localeIdentifier:
             m_Code: en
           value: 173.22989
@@ -26944,7 +26903,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -30
         - localeIdentifier:
             m_Code: en
           value: -30
@@ -26955,7 +26914,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 333.73627
         - localeIdentifier:
             m_Code: en
           value: 346.45978
@@ -27760,9 +27719,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 394498095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -56.066666}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935077367
@@ -27912,7 +27871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMin.x
@@ -27920,7 +27879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_SizeDelta.x
@@ -27964,7 +27923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -155.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28112,7 +28071,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -28123,7 +28082,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -28134,7 +28093,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1415
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1415
@@ -28145,7 +28104,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -155.11
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -155.11
@@ -28876,7 +28835,6 @@ RectTransform:
   - {fileID: 1573852585}
   - {fileID: 175663057}
   - {fileID: 746996107}
-  - {fileID: 415840922}
   - {fileID: 371919893}
   - {fileID: 1779396738}
   m_Father: {fileID: 0}
@@ -28921,9 +28879,9 @@ RectTransform:
   - {fileID: 1508854048}
   m_Father: {fileID: 1793890581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 144.745, y: -216.01668}
   m_SizeDelta: {x: 289.49, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985732561
@@ -29168,7 +29126,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -29179,7 +29137,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -29190,10 +29148,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 216.00003
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 216.00003
+          value: 231.00003
     - rid: 1345125577673671591
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -29201,7 +29159,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -570
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -570
@@ -30859,10 +30817,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671672
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -30870,10 +30828,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671673
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -30881,10 +30839,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 714.785
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 714.785
+          value: 0
     - rid: 1345125577673671674
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -30892,10 +30850,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -150
+          value: 0
     - rid: 1345125577673671675
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -30903,10 +30861,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 150
+          value: 0
     - rid: 1345125577673671676
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -30914,10 +30872,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 300
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 300
+          value: 0
 --- !u!1 &1075618110
 GameObject:
   m_ObjectHideFlags: 0
@@ -31100,9 +31058,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 394498095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -220.33333}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100694392
@@ -31716,7 +31674,7 @@ RectTransform:
   - {fileID: 1841023701}
   m_Father: {fileID: 1999930943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15147917, y: 0.14156817}
+  m_AnchorMin: {x: 0.14345932, y: 0.14156817}
   m_AnchorMax: {x: 0.33852085, y: 0.7844121}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -32419,7 +32377,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -32430,7 +32388,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -32441,7 +32399,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 100
@@ -32452,7 +32410,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -25
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -25
@@ -32597,10 +32555,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125582182547462
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -32608,10 +32566,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125582182547463
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -32619,10 +32577,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 464.78497
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 464.78497
+          value: 0
     - rid: 1345125582182547464
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -32630,10 +32588,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -449
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -449
+          value: 0
     - rid: 1345125582182547465
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -32641,10 +32599,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 150
+          value: 0
     - rid: 1345125582182547466
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -32652,10 +32610,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 300
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 300
+          value: 0
 --- !u!1 &1215041260 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067290110061417, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -33650,7 +33608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -33658,15 +33616,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33698,11 +33656,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 714.785
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -449
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -33725,8 +33683,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7882952639248653694, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -33840,10 +33806,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125582182547469
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -33851,10 +33817,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125582182547470
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -33862,10 +33828,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 714.785
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 714.785
+          value: 0
     - rid: 1345125582182547471
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -33873,10 +33839,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -449
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -449
+          value: 0
     - rid: 1345125582182547472
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -33884,10 +33850,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 150
+          value: 0
     - rid: 1345125582182547473
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -33895,10 +33861,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 300
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 300
+          value: 0
 --- !u!1 &1263794316
 GameObject:
   m_ObjectHideFlags: 0
@@ -34751,9 +34717,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1334724558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -35.179993}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284791513
@@ -34828,10 +34794,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671648
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -34839,10 +34805,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671649
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -34850,10 +34816,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 20
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 20
+          value: 0
     - rid: 1345125577673671650
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -34861,10 +34827,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -35.179993
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -35.179993
+          value: 0
 --- !u!1 &1293149044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067289053945411, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -35115,7 +35081,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -35126,7 +35092,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -35137,7 +35103,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 103.305
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 103.305
@@ -35148,7 +35114,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -95.67
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -95.67
@@ -35286,22 +35252,30 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: "\xD1ao pha\xF9p \xF1\xF6\xF4\xEFc coi la\xF8 'la\xF9 gan cu\xFBa
-            tra\xEAm loa\xEFi binh kh\xED'. \xD1e\xE5 trie\xE5n thu\xFB \xF1\xF6\xF4\xEFc
-            \xF1ao pha\xF9p - ng\xF6\xF4\xF8i ca\xE0m \xF1ao kho\xE2ng ch\xE6 nhua\xE0n
-            nhuye\xE3n quye\xE0n c\xF6\xF4\xF9c cho tha\xE2n xa\xF9c khang kie\xE4n,
-            ma\xF8 co\xF8n pha\xFBi luye\xE4n ta\xE2m \xF1e\xE1n luye\xE4n tha\xE0n.
-            Tuy nhie\xE2n \xF1e\xE5 \xF1a\xE9c \xF1a\xEFo thie\xE2n (ch\xF6\xF9ng
-            ngo\xE4 ba\xFBn the\xE5) \xF1e\xE1n \xF1\xF6\xF4\xEFc tr\xF6\xF4\xF8ng
-            sinh ba\xE1t la\xF5o th\xEC kho\xF9 ng\xF6\xF4\xF8i \xF1a\xEFt \xF1\xF6\xF4\xEFc."
+          value: "Ph\xF6\xF4ng pha\xF9p \xF1ao \xF1\xF6\xF4\xEFc coi la\xF8 \u201Cla\xF9
+            gan cu\xFBa tra\xEAm loa\xEFi vu\xF5 kh\xED\u201D. \xD1e\xE5 co\xF9 the\xE5
+            thua\xE0n thu\xEFc chie\xE2u \xF1ao \u2013 ng\xF6\xF4\xF8i ca\xE0m \xF1ao
+            kho\xE2ng ch\xE6 pha\xFBi tha\xF8nh tha\xEFo \xF1a\xE1m \xF1a\xF9 \xF1e\xE5
+            c\xF4 the\xE5 kho\xFBe ma\xEFnh ma\xF8 co\xF8n pha\xFBi re\xF8n luye\xE4n
+            tr\xED o\xF9c \xF1e\xE5 re\xF8n luye\xE4n tinh tha\xE0n. Tuy nhie\xE2n,
+            \xF1e\xE5 \xF1a\xEFt \xF1\xF6\xF4\xEFc thie\xE2n \xF1a\xEFo (nha\xE4n
+            ra cha\xE2n ta\xF9nh) va\xF8 \xF1a\xEFt \xF1\xF6\xF4\xEFc tr\xF6\xF4\xF8ng
+            sinh ba\xE1t t\xF6\xFB la\xF8 \xF1ie\xE0u kho\xF9 co\xF9 the\xE5 \xF1a\xEFt
+            \xF1\xF6\xF4\xEFc \xF1o\xE1i v\xF4\xF9i nhie\xE0u ng\xF6\xF4\xF8i.\nSa\xF9t
+            th\xF6\xF4ng ch\xED ma\xEFng +30\nT\xE6 le\xE4 ch\xED ma\xEFng +5%"
         - localeIdentifier:
             m_Code: en
-          value: The blade method is considered 'the liver of a hundred types of
-            weapons'. To be able to master the blade technique - the person holding
+          value: 'The blade method is considered ''the liver of a hundred types of
+            weapons''. To be able to master the blade technique - the person holding
             the blade must not only be proficient in punching and kicking to keep
             the body healthy, but must also train the mind to train the spirit. However,
             to attain the heavenly path (realize the true nature) and achieve immortality
             is difficult for many people to achieve.
+
+            Crit damage +30
+
+            Crit
+            rate +5%'
 --- !u!1 &1304621641
 GameObject:
   m_ObjectHideFlags: 0
@@ -36180,10 +36154,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671679
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -36191,10 +36165,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125582182547456
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -36202,10 +36176,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 214.78497
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 214.78497
+          value: 0
     - rid: 1345125582182547457
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -36213,10 +36187,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -449
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -449
+          value: 0
     - rid: 1345125582182547458
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -36224,10 +36198,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 150
+          value: 0
     - rid: 1345125582182547459
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -36235,10 +36209,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 300
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 300
+          value: 0
 --- !u!1001 &1347373010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36703,9 +36677,9 @@ RectTransform:
   - {fileID: 519732686}
   m_Father: {fileID: 1968677420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -244.47617}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387831719
@@ -37276,10 +37250,10 @@ RectTransform:
   - {fileID: 242829232}
   m_Father: {fileID: 1679833114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 70}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173.22989, y: -392.79}
+  m_SizeDelta: {x: 346.45978, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1396882370
 MonoBehaviour:
@@ -37354,7 +37328,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -37365,7 +37339,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -37376,7 +37350,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 166.86813
         - localeIdentifier:
             m_Code: en
           value: 173.22989
@@ -37387,7 +37361,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -401.71695
         - localeIdentifier:
             m_Code: en
           value: -392.79
@@ -37398,7 +37372,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 333.73627
         - localeIdentifier:
             m_Code: en
           value: 346.45978
@@ -37636,9 +37610,9 @@ RectTransform:
   - {fileID: 358299404}
   m_Father: {fileID: 446020478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 204.09755, y: -152.845}
   m_SizeDelta: {x: 324.6113, y: 298.6454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408356409
@@ -37982,7 +37956,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -178.72003
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -178.72003
@@ -38161,7 +38135,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -38172,7 +38146,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -38183,7 +38157,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 275
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 275
@@ -38194,7 +38168,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -155.11
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -155.11
@@ -38233,9 +38207,9 @@ RectTransform:
   - {fileID: 2127271173}
   m_Father: {fileID: 1850224989}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 746.95233, y: -130.5249}
   m_SizeDelta: {x: 84.7884, y: 261.2562}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442388398
@@ -38958,7 +38932,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -38969,7 +38943,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -38980,7 +38954,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 100
@@ -38991,7 +38965,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -166.34
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -166.34
@@ -39086,7 +39060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMin.x
@@ -39094,7 +39068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_SizeDelta.x
@@ -39138,7 +39112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -155.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -39298,7 +39272,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -39309,7 +39283,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -39320,7 +39294,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 845
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 845
@@ -39331,7 +39305,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -155.11
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -155.11
@@ -40012,10 +39986,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 58103352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0}
-  m_SizeDelta: {x: 341.78, y: 10}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1511002482
 MonoBehaviour:
@@ -40088,7 +40062,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 10
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 10
@@ -40535,9 +40509,9 @@ RectTransform:
   - {fileID: 1759036469}
   m_Father: {fileID: 1968677420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -48.895233}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526739997
@@ -41561,6 +41535,7 @@ RectTransform:
   - {fileID: 1334724558}
   - {fileID: 229503421}
   - {fileID: 188537420}
+  - {fileID: 299492834}
   m_Father: {fileID: 981118346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -41668,7 +41643,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -41679,7 +41654,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -41690,7 +41665,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 50
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 50
@@ -41701,7 +41676,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -41836,7 +41811,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -41847,7 +41822,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -41858,7 +41833,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 259.2768
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 259.2768
@@ -41869,7 +41844,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -41925,9 +41900,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 211345756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 128.9086, y: -47.004166}
   m_SizeDelta: {x: 243.3481, y: 60.4875}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1600963049
@@ -42595,12 +42570,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635803621}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1841197173}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -43216,7 +43191,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 257.72858}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1660287983
 MonoBehaviour:
@@ -43306,7 +43281,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 231.25983
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -45805,7 +45780,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -45816,7 +45791,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -45827,7 +45802,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 259.2768
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 259.2768
@@ -45838,7 +45813,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -45979,7 +45954,7 @@ RectTransform:
   m_Father: {fileID: 1508854048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 2, y: 0}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -46091,9 +46066,9 @@ RectTransform:
   - {fileID: 985732560}
   m_Father: {fileID: 1850224989}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540.97736, y: -130.5249}
   m_SizeDelta: {x: 289.4861, y: 259.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793890582
@@ -47295,7 +47270,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -101.78426
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -101.78426
@@ -47454,9 +47429,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1442388397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -51.87603}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839774991
@@ -47752,7 +47727,6 @@ RectTransform:
   m_Children:
   - {fileID: 372397476}
   - {fileID: 256984319}
-  - {fileID: 1635803622}
   m_Father: {fileID: 981118346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -48040,7 +48014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -48048,15 +48022,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48088,11 +48062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 464.78497
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -48111,8 +48085,16 @@ PrefabInstance:
       value: ShopItemHolder (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462006748020591343, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7882952639248653694, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -48682,9 +48664,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1334724558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 113.8, y: -35.179993}
   m_SizeDelta: {x: 127.6, y: 50.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864725393
@@ -48818,10 +48800,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671653
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48829,10 +48811,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671654
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48840,10 +48822,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 113.8
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 113.8
+          value: 0
     - rid: 1345125577673671655
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48851,10 +48833,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -35.179993
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -35.179993
+          value: 0
 --- !u!114 &1869894147 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3645027189481798463, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
@@ -48902,10 +48884,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671665
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48913,10 +48895,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671666
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48924,10 +48906,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 464.78497
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 464.78497
+          value: 0
     - rid: 1345125577673671667
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48935,10 +48917,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -150
+          value: 0
     - rid: 1345125577673671668
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48946,10 +48928,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 150
+          value: 0
     - rid: 1345125577673671669
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -48957,10 +48939,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 300
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 300
+          value: 0
 --- !u!1 &1872575084
 GameObject:
   m_ObjectHideFlags: 0
@@ -49471,7 +49453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8590127742012829582, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200.0001
+      value: 200.00014
       objectReference: {fileID: 0}
     - target: {fileID: 8590127742012829582, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -50466,10 +50448,10 @@ RectTransform:
   - {fileID: 1338318826}
   m_Father: {fileID: 502663078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.7068, y: 1.9865}
-  m_SizeDelta: {x: 887.07, y: 168.63}
+  m_AnchorMin: {x: 0.031000001, y: 0.13148536}
+  m_AnchorMax: {x: 0.96500003, y: 0.878}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903487954
 MonoBehaviour:
@@ -52099,7 +52081,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 293.417}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1968039479
 MonoBehaviour:
@@ -52231,9 +52213,9 @@ RectTransform:
   - {fileID: 1387831718}
   m_Father: {fileID: 446020478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 603.48254, y: -152.845}
   m_SizeDelta: {x: 306.9911, y: 293.3714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968677421
@@ -52697,9 +52679,9 @@ RectTransform:
   - {fileID: 801391349}
   m_Father: {fileID: 1793890581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 144.745, y: -129.61}
   m_SizeDelta: {x: 289.49, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976802312
@@ -53218,7 +53200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8590127742012829582, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200.0001
+      value: 200.00014
       objectReference: {fileID: 0}
     - target: {fileID: 8590127742012829582, guid: 953f2ea651b51494dbd2d504c6aee626, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -53997,81 +53979,6 @@ MonoBehaviour:
             type: Yang
 
             Skill damage: 60 + 2 x level external damage'
---- !u!1 &2018420672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2018420673}
-  - component: {fileID: 2018420675}
-  - component: {fileID: 2018420674}
-  m_Layer: 5
-  m_Name: BotSubBackground
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2018420673
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018420672}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 221066061}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 57.5}
-  m_SizeDelta: {x: 0, y: 115}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2018420674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018420672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 826e9466f8952ca49ae198ba259f6e11, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2018420675
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018420672}
-  m_CullTransparentMesh: 1
 --- !u!1 &2022253288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 11067289053945411, guid: 67091cea0616bf147805be6b3558cf92, type: 3}
@@ -55584,7 +55491,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -55595,7 +55502,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -55606,7 +55513,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 197.35884
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 197.35884
@@ -55617,7 +55524,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -45
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -45
@@ -55683,14 +55590,20 @@ MonoBehaviour:
             du\xF8ng kie\xE1m \xF1e\xE5 chie\xE1n \xF1a\xE1u va\xF8 luye\xE4n ta\xE4p
             vo\xF5 nghe\xE4, kie\xE1m co\xF8n la\xF8 va\xE4t t\xF6\xF4\xEFng tr\xF6ng
             cho quye\xE0n l\xF6\xEFc, \xF1\xF2a v\xF2 cu\xFBa vua chu\xF9a, pha\xE2n
-            \xF1\xF2nh \xF1a\xFAng ca\xE1p le\xE3 nghi trong xa\xF5 ho\xE4i."
+            \xF1\xF2nh \xF1a\xFAng ca\xE1p le\xE3 nghi trong xa\xF5 ho\xE4i.\nTo\xE1c
+            \xF1o\xE4 di chuye\xE5n +0.5\nT\xE6 le\xE4 ne\xF9 +5%"
         - localeIdentifier:
             m_Code: en
-          value: The sword is a short, double-edged weapon, revered as the "King
+          value: 'The sword is a short, double-edged weapon, revered as the "King
             of a hundred bladed weapons". History books say that swords appeared
             very early in ancient times. In ancient times, in addition to using swords
             to fight and practice martial arts, swords were also objects that symbolized
             the power and status of kings, and defined class and rituals in society.
+
+            Movement
+            speed +0.5
+
+            Evade rate +5%'
     - rid: 1345125577673671644
       type: {class: TrackedRectTransform, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
       data:
@@ -55705,7 +55618,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 159.28984
         - localeIdentifier:
             m_Code: en
           value: 86.149826
@@ -55887,7 +55800,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -55898,7 +55811,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -55909,7 +55822,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 99.276794
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 99.276794
@@ -55920,7 +55833,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -56052,7 +55965,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 90
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 90
@@ -56845,9 +56758,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1442388397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -219.38016}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127271174
@@ -57200,7 +57113,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -57211,7 +57124,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -57222,7 +57135,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 123.1044
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 123.1044
@@ -57233,7 +57146,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -204.05286
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -204.05286
@@ -57454,9 +57367,9 @@ RectTransform:
   - {fileID: 1369334306644022886}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -537}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1369334304848205598
@@ -57736,7 +57649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMin.x
@@ -57744,7 +57657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_SizeDelta.x
@@ -57784,11 +57697,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 275
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -155.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 669244377144327842, guid: 7417c4bb5fdaf8943924d03938327684, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58146,9 +58059,9 @@ RectTransform:
   - {fileID: 3189205020323409214}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -57}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3189205021077728326
@@ -58239,7 +58152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -58247,15 +58160,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58287,11 +58200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 214.78497
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 1183615733368861282, guid: 2bc79d0bb7e1efc4f8e5a3ac85f359f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -58455,7 +58368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4248049599906933687, guid: 143b21ce318f2334e96929d8a54dd6b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60.01
+      value: 60.009995
       objectReference: {fileID: 0}
     - target: {fileID: 4248049599906933687, guid: 143b21ce318f2334e96929d8a54dd6b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -58585,9 +58498,9 @@ RectTransform:
   - {fileID: 4509002431591137769}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -897}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4509002430194827411
@@ -58934,7 +58847,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -58945,7 +58858,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -58956,7 +58869,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -58967,7 +58880,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -537
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59184,10 +59097,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671658
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -59195,10 +59108,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 1
+          value: 0
     - rid: 1345125577673671659
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -59206,10 +59119,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 214.78497
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 214.78497
+          value: 0
     - rid: 1345125577673671660
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -59217,10 +59130,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: -150
+          value: 0
     - rid: 1345125577673671661
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -59228,10 +59141,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 150
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 150
+          value: 0
     - rid: 1345125577673671662
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -59239,10 +59152,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 300
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 300
+          value: 0
 --- !u!222 &6718440015572872988
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59523,9 +59436,9 @@ RectTransform:
   - {fileID: 6718440015572872990}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -657}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6718440015917198950
@@ -59585,7 +59498,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59596,7 +59509,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59607,7 +59520,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59618,7 +59531,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -657
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59854,7 +59767,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59865,7 +59778,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59876,7 +59789,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -59887,7 +59800,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -897
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60143,9 +60056,9 @@ RectTransform:
   - {fileID: 8290801567858440583}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -297}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8290801566425430269
@@ -60261,7 +60174,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60272,7 +60185,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60283,7 +60196,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60294,7 +60207,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -297
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60735,9 +60648,9 @@ RectTransform:
   - {fileID: 8603874959422519418}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -777}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8603874959908927746
@@ -60834,7 +60747,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60845,7 +60758,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60856,7 +60769,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -60867,7 +60780,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -777
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -61094,7 +61007,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -61105,7 +61018,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 1
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: 1
@@ -61116,10 +61029,10 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 216.00003
+          value: 0
         - localeIdentifier:
             m_Code: en
-          value: 216.00003
+          value: 231.00003
     - rid: 1345125577673671581
       type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
       data:
@@ -61127,7 +61040,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: -100
+          value: 0
         - localeIdentifier:
             m_Code: en
           value: -100
@@ -61262,9 +61175,9 @@ RectTransform:
   - {fileID: 8882691522173239620}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -417}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8882691520386072640
@@ -61301,7 +61214,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -61312,7 +61225,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -61323,7 +61236,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -61334,7 +61247,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -417
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -61867,9 +61780,9 @@ RectTransform:
   - {fileID: 9177862188397407919}
   m_Father: {fileID: 1660287982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 187.25906, y: -177}
   m_SizeDelta: {x: 324.7, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9177862189146746837
@@ -61985,7 +61898,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -61996,7 +61909,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62007,7 +61920,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62018,7 +61931,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -177
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62181,7 +62094,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62192,7 +62105,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 1
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62203,7 +62116,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: 180.38211
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62214,7 +62127,7 @@ MonoBehaviour:
         m_VariantData:
         - localeIdentifier:
             m_Code: vi
-          value: 0
+          value: -57
         - localeIdentifier:
             m_Code: en
           value: 0
@@ -62250,7 +62163,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 4329954783949399292}
+  - {fileID: 1635803622}
   - {fileID: 981118346}
   - {fileID: 1075618113}
-  - {fileID: 425737080}
-  - {fileID: 112627217}

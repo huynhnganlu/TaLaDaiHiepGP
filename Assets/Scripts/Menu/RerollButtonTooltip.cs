@@ -5,11 +5,12 @@ using UnityEngine.EventSystems;
 
 public class RerollButtonTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public float width;
+    public float width, x, y;
+    [TextArea]
     public string text;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipController.Instance.ShowTooltip(text, width);
+        TooltipController.Instance.ShowTooltip(text, width, x, y);
     }
 
     public void OnPointerExit(PointerEventData eventData)

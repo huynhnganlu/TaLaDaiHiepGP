@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
@@ -42,7 +43,7 @@ public class MenuController : MonoBehaviour
             characterPrefs.SetInt("critDamage", 0);
             characterPrefs.SetFloat("critRate", 0);
             characterPrefs.SetInt("defense", 0);
-            characterPrefs.SetFloat("movementSpeed", 5f);
+            characterPrefs.SetFloat("movementSpeed", 4f);
             characterPrefs.SetInt("qi", 0);
             characterPrefs.SetInt("dao", 0);
             characterPrefs.SetInt("money", 0);
@@ -50,12 +51,29 @@ public class MenuController : MonoBehaviour
             characterPrefs.SetInt("map1", 0);
             characterPrefs.SetInt("map2", 0);
             characterPrefs.SetString("character", "Sword");
+            characterPrefs.SetInt("settingmaster", 100);
+            characterPrefs.SetInt("settingbgm", 100);
+            characterPrefs.SetInt("settingsfx", 100);
+            characterPrefs.SetInt("settingres", 0);
+            characterPrefs.SetInt("settingwd", 0);
+            characterPrefs.SetInt("settinglg", 0);
             characterPrefs.Save();
         }
 
-      
+        if (!shopPrefs.HasKey("slot0"))
+        {
+            shopPrefs.SetInt("slot0", -1);
+            shopPrefs.SetInt("slot1", -1);
+            shopPrefs.SetInt("slot2", -1);
+            shopPrefs.Save();
+        }
+
+        SettingsMenuController.Instance.LoadSettings();
+        AudioManager.Instance.GetSettingAudio(characterPrefs);
         AudioManager.Instance.PlayBG("MenuBGSound");
     }
+
+
 
     private void SetTimeLogin()
     {

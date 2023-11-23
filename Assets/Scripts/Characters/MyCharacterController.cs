@@ -228,6 +228,26 @@ public class MyCharacterController : MonoBehaviour
         movementSpeed = characterPrefs.GetFloat("movementSpeed");
         speed += movementSpeed;
         maxExp = 100;
+        if (characterPrefs.HasKey("character"))
+        {
+            string characterName = characterPrefs.GetString("character");
+            switch (characterName)
+            {
+                case "Sword":
+                    evade += 5f;
+                    speed += 0.5f;
+                    break;
+                case "Blade":
+                    critRate += 5f;
+                    critDamage += 30;
+                    break;
+                case "Fist":
+                    maxHealth += 50;
+                    defense += 10;
+                    break;
+            }
+        }
+
         GetInnerElemental();
     }
     private void GetInnerElemental()
@@ -353,7 +373,12 @@ public class MyCharacterController : MonoBehaviour
         {
             if (kvp.Value != -1)
             {
+                MapController.Instance.skillMapItems[kvp.Key].color = new Color(1f, 1f, 1f, 1f);
                 MapController.Instance.skillMapItems[kvp.Key].sprite = MapController.Instance.prizeHolder.prizeSkillList[kvp.Value].icon;
+            }
+            else
+            {
+                MapController.Instance.skillMapItems[kvp.Key].color = new Color(1f, 1f, 1f, 0f);
             }
         }
     }

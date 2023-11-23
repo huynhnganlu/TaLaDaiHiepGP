@@ -131,7 +131,8 @@ public class MapController : MonoBehaviour
 
         //Camera follow player
         vcamera.GetComponent<ICinemachineCamera>().Follow = MyCharacterController.Instance.transform;
-
+        
+        AudioManager.Instance.GetSettingAudio(characterPrefs);
         AudioManager.Instance.PlayBG("BattleBGSound");
     }
 
@@ -193,6 +194,7 @@ public class MapController : MonoBehaviour
     //Xu ly logic khi nguoi choi giet duoc boss hoac chet
     public IEnumerator ProcessFinishMap()
     {
+        timeSlider.value = 0;
         StopAllSkills();
         AudioManager.Instance.StopBG("BattleBGSound");
         MyCharacterController.Instance.isImmune = true;
@@ -331,8 +333,8 @@ public class MapController : MonoBehaviour
     {
         if(MyCharacterController.Instance.skillMoney >= 20)
         {
-            GetPrize();
             MyCharacterController.Instance.SetSkillMoney(20);
+            GetPrize();
         }
     }
     //Set gia tri cua prize vao prizeUI

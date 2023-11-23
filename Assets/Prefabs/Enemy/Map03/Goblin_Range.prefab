@@ -195,7 +195,7 @@ MonoBehaviour:
   dao: 10
   damage: 100
   shop: 3
-  projectile: {fileID: 3646285277961720869, guid: 6b7d407fcd4a2af4fabbeff7682c7628, type: 3}
+  projectile: {fileID: 5948630582447999950, guid: 0332354a7bf56a540a869d88313b0c4e, type: 3}
 --- !u!95 &3425094553953816
 Animator:
   serializedVersion: 5
