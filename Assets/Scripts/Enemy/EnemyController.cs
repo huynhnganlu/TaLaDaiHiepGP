@@ -12,7 +12,7 @@ public abstract class EnemyController : MonoBehaviour
     private GameObject projectile;
 
     private void OnEnable()
-    {    
+    {
         currentEnemyHP = enemyMaxHP;
         GetComponent<PolygonCollider2D>().isTrigger = false;
         GetComponent<Animator>().SetBool("Death", false);
@@ -112,11 +112,32 @@ public abstract class EnemyController : MonoBehaviour
 
     public void ShootProjectile()
     {
-        if(projectile != null)
+        if (projectile != null)
         {
-            GameObject clone = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
-            clone.GetComponent<ProjectileController>().shootDir = (MyCharacterController.Instance.transform.position - transform.position - new Vector3(-1f, 0f, 0f)).normalized;
-            clone.GetComponent<ProjectileController>().damage = this.damage;
+            if (gameObject.name.Equals("Boss03"))
+            {              
+                if(gameObject.GetComponent<Animator>().GetBool("isRaging") == true)
+                {
+                    GameObject clone1 = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, 2f, 0f), Quaternion.identity);
+                    clone1.GetComponent<ProjectileController>().shootDir = (MyCharacterController.Instance.transform.position - transform.position - new Vector3(-1f, 2f, 0f)).normalized;
+                    clone1.GetComponent<ProjectileController>().damage = this.damage;
+                    GameObject clone2 = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, -2f, 0f), Quaternion.identity);
+                    clone2.GetComponent<ProjectileController>().shootDir = (MyCharacterController.Instance.transform.position - transform.position - new Vector3(-1f, -2f, 0f)).normalized;
+                    clone2.GetComponent<ProjectileController>().damage = this.damage;
+                }
+                else
+                {
+                    GameObject clone = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
+                    clone.GetComponent<ProjectileController>().shootDir = (MyCharacterController.Instance.transform.position - transform.position - new Vector3(-1f, 0f, 0f)).normalized;
+                    clone.GetComponent<ProjectileController>().damage = this.damage;
+                }
+            }
+            else
+            {
+                GameObject clone = ObjectPoolController.Instance.SpawnObject(projectile, transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
+                clone.GetComponent<ProjectileController>().shootDir = (MyCharacterController.Instance.transform.position - transform.position - new Vector3(-1f, 0f, 0f)).normalized;
+                clone.GetComponent<ProjectileController>().damage = this.damage;
+            }
         }
     }
 

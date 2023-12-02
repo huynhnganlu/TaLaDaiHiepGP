@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
             characterPrefs.SetInt("money", 0);
             characterPrefs.SetInt("map0", 1);
             characterPrefs.SetInt("map1", 0);
-            characterPrefs.SetInt("map2", 0);
+            characterPrefs.SetInt("map2", 1);
             characterPrefs.SetString("character", "Sword");
             characterPrefs.SetInt("settingmaster", 100);
             characterPrefs.SetInt("settingbgm", 100);
